@@ -20,7 +20,7 @@ const HomeContent = () => {
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
             {loading
               ? "loading..."
-              : productData.productCategories.map((item) => (
+              : productData?.productCategories?.map((item) => (
                   <ProductCard
                     keyId={item.product_name_id}
                     name={item.product_name}
