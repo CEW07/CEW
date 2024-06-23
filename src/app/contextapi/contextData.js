@@ -1,21 +1,42 @@
 "use client";
 import React, { createContext, useState, useContext, useEffect } from "react";
+import axios from "axios";
 const DataContext = createContext();
 export const useData = () => useContext(DataContext);
 export default function ContextData({ children }) {
-  const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState(
+    {
+      mainCategory: [],
+    },
+    {
+      subCategory: "",
+    }
+  );
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     // Fetching the data from fetchData routes - pages/api/fetchData.js
     const fetchData = async () => {
       try {
-        await fetch("http://localhost:3000/api/fetchData")
-          .then((response) => response.json())
-          // .then((data) => console.log(data.productCategories,'data here'))
-          .then((data) => setProductData(data));
+        await axios("http://localhost:3000/api/fetchMainCategory")
+          .then((res) => {
+            setProductData((prev) => ({ ...prev, mainCategory: res.data }));
+            console.log(res.data, "response");
+          })
+          .catch((err) => console.log(err));
+
+        await axios("http://localhost:3000/api/fetchSubCategory")
+          .then((res) => {
+            setProductData((prev) => ({ ...prev, subCategory: res.data }));
+            console.log(res.data, "response");
+          })
+          .catch((err) => console.log(err));
+        // await fetch("http://localhost:3000/api/fetchMainCategory").then(
+        //   (response) => console.log(response, "main response")
+        // );
+        // .then((data) => setProductData(data));
         setLoading(false);
       } catch (err) {
-        console.log('Error while fetching data: ',err);
+        console.log("Error while fetching data: ", err);
       }
     };
 

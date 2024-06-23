@@ -7,12 +7,12 @@ import ProductCard from "@/app/custom_components/product-ui/ProductCard";
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
+  console.log(productData, "contextt data here");
   function testFunc() {
     console.log(productData.productCategories);
   }
   return (
     <main className="w-full relative">
-      {/* <button onClick={()=>testFunc()} >test</button> */}
       <section className="w-full relative">
         <HeroMain />
         <HeroSubMain />
@@ -20,9 +20,9 @@ const HomeContent = () => {
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
             {loading
               ? "loading..."
-              : productData?.productCategories?.map((item) => (
+              : productData?.mainCategory?.map((item) => (
                   <ProductCard
-                    keyId={item.product_name_id}
+                    keyId={item.product_id}
                     name={item.product_name}
                     href={`/pages/products/${item.product_name_id}`}
                   />

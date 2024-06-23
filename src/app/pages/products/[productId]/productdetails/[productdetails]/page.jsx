@@ -7,6 +7,7 @@ const ProductDetails = ({ params }) => {
   const [productDetails, setProductDetails] = useState({});
   const [detailsLoader, setDetailsLoader] = useState(true);
   const [mainData, setMainData] = useState([]);
+  console.log(params);
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
@@ -15,8 +16,8 @@ const ProductDetails = ({ params }) => {
         )
           .then((response) => response.json())
           // .then((data) => console.log(data, "data here"));
-          .then((data) => setProductDetails(data))
-          // .then((data) => setMainData([...mainData, data[0]]));
+          .then((data) => setProductDetails(data));
+        // .then((data) => setMainData([...mainData, data[0]]));
         setDetailsLoader(false);
         // setLoading(false);
       } catch (err) {
@@ -26,8 +27,7 @@ const ProductDetails = ({ params }) => {
     fetchProductDetails();
   }, []);
   function testfunc() {
-    console.log(productDetails[0][0]);
-    console.log(productDetails[1],'id');
+    console.log(productDetails);
   }
   return (
     <div className="border  ">

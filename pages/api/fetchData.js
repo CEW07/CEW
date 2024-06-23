@@ -5,7 +5,7 @@ const queryPromise = promisify(connection.query).bind(connection);
 export default function fetchData(req, res) {
   Promise.all([
     // Fetching product categories
-    queryPromise("SELECT * FROM product_categories"),
+    queryPromise("SELECT * FROM mainproduct"),
     // Fetching product types
     queryPromise("SELECT * FROM product_types"),
     // Fetching product sub types
