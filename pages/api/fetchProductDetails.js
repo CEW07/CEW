@@ -1,24 +1,27 @@
 import connection from "./dbconnect";
-// const id = 101
-const sqlQuery = "CALL fetchProductDetails(?)";
-let col = [];
-export default function fetchProductDetails(req, res) {
-  const { id } = req.query;
-  connection.query(sqlQuery, [id], (error, results) => {
-    if (error) {
-      console.error("Error calling stored procedure:", error);
-      return;
-    }
-    if (!col.includes(id)) {
-      if (col.length < 5) {
-        col.push(id);
-      } else {
-        col.shift();
-        col.push(id);
-      }
+import { promisify } from "util";
+
+const queryPromise = promisify(connection.query).bind(connection);
+
+export default async function fetchMainCategory(req, res) {
+  const { id } = req.query; // Extract id from query parameters
+
+  if (!id) {
+    return res.status(400).json({ error: "ID is required" });
+  }
+
+  try {
+    const subProductDetailsQuery =
+      "SELECT * FROM productdetails WHERE product_sub_types_id = ?";
+    const subProductDetails = await queryPromise(subProductDetailsQuery, [id]);
+
+    if (subProductDetails.length === 0) {
+      return res.status(404).json({ error: "SubproductDetails not found" });
     }
 
-    console.log(results[0][0].product_pressure);
-    res.status(200).json([results[0], col]);
-  });
+    res.status(200).json(subProductDetails);
+  } catch (err) {
+    console.error("Error executing query", err);
+    res.status(500).json({ error: "Error fetching data", err });
+  }
 }
