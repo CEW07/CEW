@@ -24,7 +24,7 @@ const HomeContent = () => {
                   <ProductCard
                     keyId={item.product_id}
                     name={item.product_name}
-                    href={`/pages/products/${item.product_name_id}`}
+                    href={`/pages/products/${item.product_id}`}
                   />
                 ))}
           </div>

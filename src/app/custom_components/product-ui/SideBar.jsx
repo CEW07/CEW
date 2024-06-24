@@ -8,26 +8,35 @@ import {
 import { products } from "@/app/staticdata/static";
 import Link from "next/link";
 
-const SidebarProduct = ({ productData, loading }) => {
+const SidebarProduct = ({ productData }) => {
   // Destructuring ProductData
   const { mainCategory, subCategory } = productData;
   const [productsData, setProductsData] = useState({
     subCategory: [],
     mainCategory: [],
   });
+  const [isLoading, setIsLoading] = useState(true)
   const [expandedProductIds, setExpandedProductIds] = useState([]);
+  
   useEffect(() => {
     if (subCategory) {
       setProductsData((prev) => ({
         ...prev,
         subCategory: subCategory,
       }));
-    } else if (mainCategory) {
+      setIsLoading(false)
+      console.log('in sub ');
+    } 
+    if (mainCategory) {
       setProductsData((prev) => ({
         ...prev,
         mainCategory: mainCategory,
       }));
+      console.log('in main');
+      setIsLoading(false)
     }
+
+    console.log('useffect',productData.subCategory);
   }, [subCategory, mainCategory]);
 
   const handleFilter = useRef(false);
@@ -127,12 +136,10 @@ const SidebarProduct = ({ productData, loading }) => {
 
   return (
     <div>
-      {loading ? (
+      {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <>
-          {/* Mapping of product categories */}
-          {productsData.mainCategory.map((item) => (
+          productsData?.mainCategory.map((item) => (
             <div className="bg-offwhite" key={item.product_id}>
               <Accordion
                 type="single"
@@ -177,7 +184,8 @@ const SidebarProduct = ({ productData, loading }) => {
                             type.subProducts &&
                             type.subProducts.map((subProduct) => (
                               <div key={subProduct.product_sub_types_id}>
-                                <span> {subProduct.product_sub_types} </span>
+                                {/* <span> {subProduct.product_sub_types} </span> */}
+                              <Link className="" title={subProduct.product_sub_types} href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
                               </div>
                             ))}
                         </React.Fragment>
@@ -205,7 +213,8 @@ const SidebarProduct = ({ productData, loading }) => {
                           item.subProducts &&
                           item.subProducts.map((subProduct) => (
                             <div key={subProduct.product_sub_types_id}>
-                              <span> {subProduct.product_sub_types} </span>
+                              {/* <span> {subProduct.product_sub_types} </span> */}
+                              <Link className="" title={subProduct.product_sub_types} href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
                             </div>
                           ))}
                       </React.Fragment>
@@ -214,9 +223,9 @@ const SidebarProduct = ({ productData, loading }) => {
                 </AccordionItem>
               </Accordion>
             </div>
-          ))}
-        </>
-      )}
+          )))
+      
+      /* )} */}
     </div>
   );
 };
