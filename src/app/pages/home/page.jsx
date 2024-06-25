@@ -16,7 +16,7 @@ const HomeContent = () => {
       <section className="w-full relative">
         <HeroMain />
         <HeroSubMain />
-        <div className="lg:pt-12 pt-16 flex justify-center">
+        <div className="lg:pt-12 pt-16 flex justify-center mx-20">
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
             {loading
               ? "loading..."
@@ -24,7 +24,7 @@ const HomeContent = () => {
                   <ProductCard
                     keyId={item.product_id}
                     name={item.product_name}
-                    href={`/pages/products/${item.product_name_id}`}
+                    href={`/pages/products/${item.product_id}`}
                   />
                 ))}
           </div>
