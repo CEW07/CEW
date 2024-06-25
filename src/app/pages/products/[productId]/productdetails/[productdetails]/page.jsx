@@ -4,10 +4,11 @@ import React, { useEffect, useState } from "react";
 
 const ProductDetails = ({ params }) => {
   const { productId, productdetails } = params;
-  const [productDetails, setProductDetails] = useState({});
+  const [productDetail, setProductDetail] = useState({});
   const [detailsLoader, setDetailsLoader] = useState(true);
   const [mainData, setMainData] = useState([]);
   console.log(params);
+
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
@@ -15,9 +16,8 @@ const ProductDetails = ({ params }) => {
           `http://localhost:3000/api/fetchProductDetails?id=${productdetails}`
         )
           .then((response) => response.json())
-          // .then((data) => console.log(data, "data here"));
-          .then((data) => setProductDetails(data));
-        // .then((data) => setMainData([...mainData, data[0]]));
+          .then((data) => setProductDetail(data))
+          .catch((err) => console.log("There is an Error ", err));
         setDetailsLoader(false);
         // setLoading(false);
       } catch (err) {
@@ -27,8 +27,12 @@ const ProductDetails = ({ params }) => {
     fetchProductDetails();
   }, []);
   function testfunc() {
-    console.log(productDetails);
+    console.log(productDetail);
   }
+  useEffect(() => {
+    console.log("The details of the product is ", productDetail);
+  }, [productDetail]);
+
   return (
     <div className="border  ">
       <section className="flex flex-row border border-red-400 ">
@@ -42,11 +46,43 @@ const ProductDetails = ({ params }) => {
       <section className=" flex flex-col gap-4 border border-blue-300">
         <h3 className="font-semibold">Construction:</h3>
         <div>
-          {/* {detailsLoader ? (
-              "loading..."
+          {detailsLoader ? (
+            "loading..."
           ) : (
-            <span>Pressure - {productDetails[0].product_pressure} </span>
-          )} */}
+            <>
+              {productDetail && (
+                <>
+                  {productDetail?.map((details) => (
+                    <div>
+                      {details.product_features && (
+                        <p className="mt-2">
+                          FEATURE: {details.product_features}{" "}
+                        </p>
+                      )}
+
+                      {details.product_standard && (
+                        <p className="mt-2">
+                          STANDARD: {details.product_standard}{" "}
+                        </p>
+                      )}
+
+                      {details.product_pressure && (
+                        <p className="mt-2">
+                          PRESSURE: {details.product_pressure}
+                        </p>
+                      )}
+
+                      {details.product_industrial_applications && (
+                        <p className="mt-2">
+                          APPLICATION: {details.product_industrial_applications}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </>
+              )}
+            </>
+          )}
         </div>
         <div>
           <span>Industrial Application</span>
@@ -55,7 +91,7 @@ const ProductDetails = ({ params }) => {
           <span>Fluid compatibility</span>
         </div>
         <div>
-          <span>Inner tube</span>
+          <span>Inner tube </span>
         </div>
         <div>
           <span>Reinforcement</span>

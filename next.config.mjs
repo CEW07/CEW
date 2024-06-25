@@ -3,7 +3,7 @@ const nextConfig = {
   env: {
     MYSQL_HOST: "localhost",
     MYSQL_PORT: "3306",
-    MYSQL_DATABASE: "products",
+    MYSQL_DATABASE: "cewdb",
     MYSQL_USER: "root",
     MYSQL_PASSWORD: "",
   },
