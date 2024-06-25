@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { products } from "@/app/staticdata/static";
+import { products } from "@/staticdata/static";
 import Link from "next/link";
 
 const SidebarProduct = ({ productData }) => {
@@ -185,7 +185,7 @@ const SidebarProduct = ({ productData }) => {
                             type.subProducts.map((subProduct) => (
                               <div key={subProduct.product_sub_types_id}>
                                 {/* <span> {subProduct.product_sub_types} </span> */}
-                              <Link className="" title={subProduct.product_sub_types} href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
+                              <Link className="" title={subProduct.product_sub_types} href={`/products/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
                               </div>
                             ))}
                         </React.Fragment>
@@ -214,7 +214,7 @@ const SidebarProduct = ({ productData }) => {
                           item.subProducts.map((subProduct) => (
                             <div key={subProduct.product_sub_types_id}>
                               {/* <span> {subProduct.product_sub_types} </span> */}
-                              <Link className="" title={subProduct.product_sub_types} href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
+                              <Link className="" title={subProduct.product_sub_types} href={`/products/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
                             </div>
                           ))}
                       </React.Fragment>

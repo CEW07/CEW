@@ -11,8 +11,7 @@ export default async function fetchMainCategory(req, res) {
   }
 
   try {
-    const subProductQuery =
-      "SELECT * FROM subproduct WHERE product_type_id = ?";
+    const subProductQuery = "SELECT * FROM subproduct WHERE product_type_id = ?";
     const subProduct = await queryPromise(subProductQuery, [id]);
 
     if (subProduct.length === 0) {

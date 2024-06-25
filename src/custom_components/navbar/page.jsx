@@ -36,13 +36,13 @@ const Navbar = () => {
 
   const Links = [
     { name: "Home", href: "/", index: "1" },
-    { name: "Products", href: "/pages/products", index: "2" },
-    { name: "Services", href: "/pages/services", index: "3" },
-    { name: "Industries", href: "/pages/industries", index: "4" },
-    { name: "Where to Buy", href: "/pages/industries", index: "5" },
-    { name: "Quality", href: "/pages/quality", index: "6" },
-    { name: "About Us", href: "/pages/about", index: "7" },
-    { name: "Contact", href: "/pages/contact", index: "8" },
+    { name: "Products", href: "/products", index: "2" },
+    { name: "Services", href: "/services", index: "3" },
+    { name: "Industries", href: "/industries", index: "4" },
+    { name: "Where to Buy", href: "/industries", index: "5" },
+    { name: "Quality", href: "/quality", index: "6" },
+    { name: "About Us", href: "/about", index: "7" },
+    { name: "Contact", href: "/contact", index: "8" },
   ];
   const styles = {
     position: "fixed",

@@ -1,10 +1,8 @@
 "use client";
-import ProductGrid from "@/app/custom_components/product-ui/ProductGrid";
-import SidebarProduct from "@/app/custom_components/product-ui/SideBar";
 import React, { useState } from "react";
 
 import { useData } from "@/app/contextapi/contextData";
-import ProductCard from "@/app/custom_components/product-ui/ProductCard";
+import ProductCard from "@/custom_components/product-ui/ProductCard";
 const Products = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
@@ -22,7 +20,7 @@ const Products = () => {
               <ProductCard
                 keyId={item.product_id}
                 name={item.product_name}
-                href={`/pages/products/${item.product_id}`}
+                href={`/products/${item.product_id}`}
               />
             ))}
       </div>

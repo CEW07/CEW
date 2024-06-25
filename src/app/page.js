@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HomeContent from "./pages/home/page";
+import HomeContent from "./home/page";
 export default function Home() {
   return (
     <main className="">

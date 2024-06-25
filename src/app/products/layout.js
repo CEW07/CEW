@@ -1,6 +1,5 @@
 "use client";
-import ProductGrid from "@/app/custom_components/product-ui/ProductGrid";
-import SidebarProduct from "@/app/custom_components/product-ui/SideBar";
+import SidebarProduct from "@/custom_components/product-ui/SideBar";
 import React, { useState } from "react";
 
 import { useData } from "@/app/contextapi/contextData";

@@ -1,9 +1,9 @@
 "use client";
-import HeroMain from "@/app/custom_components/home-ui/hero-main/page";
-import HeroSubMain from "@/app/custom_components/home-ui/hero-submain/page";
 import React, { useEffect, useState } from "react";
 import { useData } from "@/app/contextapi/contextData";
-import ProductCard from "@/app/custom_components/product-ui/ProductCard";
+import ProductCard from "@/custom_components/product-ui/ProductCard";
+import HeroMain from "@/custom_components/home-ui/hero-main/page";
+import HeroSubMain from "@/custom_components/home-ui/hero-submain/page";
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
@@ -24,7 +24,7 @@ const HomeContent = () => {
                   <ProductCard
                     keyId={item.product_id}
                     name={item.product_name}
-                    href={`/pages/products/${item.product_id}`}
+                    href={item.product_types ? `/products/${item.product_id}` : `/products/${item.product_id}`}
                   />
                 ))}
           </div>
