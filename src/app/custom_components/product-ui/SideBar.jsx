@@ -15,28 +15,28 @@ const SidebarProduct = ({ productData }) => {
     subCategory: [],
     mainCategory: [],
   });
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const [expandedProductIds, setExpandedProductIds] = useState([]);
-  
+
   useEffect(() => {
     if (subCategory) {
       setProductsData((prev) => ({
         ...prev,
         subCategory: subCategory,
       }));
-      setIsLoading(false)
-      console.log('in sub ');
-    } 
+      setIsLoading(false);
+      console.log("in sub ");
+    }
     if (mainCategory) {
       setProductsData((prev) => ({
         ...prev,
         mainCategory: mainCategory,
       }));
-      console.log('in main');
-      setIsLoading(false)
+      console.log("in main");
+      setIsLoading(false);
     }
 
-    console.log('useffect',productData.subCategory);
+    console.log("useffect", productData.subCategory);
   }, [subCategory, mainCategory]);
 
   const handleFilter = useRef(false);
@@ -136,9 +136,10 @@ const SidebarProduct = ({ productData }) => {
 
   return (
     <div>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
+      {
+        isLoading ? (
+          <p>Loading...</p>
+        ) : (
           productsData?.mainCategory.map((item) => (
             <div className="bg-offwhite" key={item.product_id}>
               <Accordion
@@ -159,33 +160,64 @@ const SidebarProduct = ({ productData }) => {
                       .filter((type) => type.product_id === item.product_id)
                       .map((type, index) => (
                         <React.Fragment key={type.product_type_id}>
-                          <br />
-                          <span
+                          <div
                             style={{
-                              cursor: "pointer",
-                              color: "white",
-                              padding: "10px",
+                              marginBottom: "10px",
+                              display: "flex",
+                              alignItems: "flex-start",
                             }}
-                            className="bg-newgold"
-                            onClick={() =>
-                              handleSubTypeDropDown(type.product_type_id)
-                            }
                           >
-                            {expandedProductIds.includes(type.product_type_id)
-                              ? "-"
-                              : "+"}
-                          </span>
-                          <span>
-                            {type.product_types !== undefined
-                              ? type.product_types
-                              : item.product_name}{" "}
-                          </span>
+                            <span
+                              style={{
+                                cursor: "pointer",
+                                color: "white",
+                                padding: "2px 6px",
+                                marginRight: "4px",
+                                borderRadius: "2px",
+                                display: "inline-block",
+                                flexShrink: 0,
+                              }}
+                              className="bg-newgold "
+                              onClick={() =>
+                                handleSubTypeDropDown(type.product_type_id)
+                              }
+                            >
+                              {expandedProductIds.includes(type.product_type_id)
+                                ? "-"
+                                : "+"}
+                            </span>
+                            <span
+                              className="text-red-700 "
+                              style={{
+                                display: "inline-block",
+                                verticalAlign: "middle",
+                                marginLeft: "5px",
+                              }}
+                            >
+                              {type.product_types !== undefined
+                                ? type.product_types
+                                : item.product_name}{" "}
+                            </span>
+                          </div>
                           {expandedProductIds.includes(type.product_type_id) &&
                             type.subProducts &&
                             type.subProducts.map((subProduct) => (
-                              <div key={subProduct.product_sub_types_id}>
+                              <div
+                                className="text-blue-800 "
+                                style={{
+                                  paddingLeft: "20px",
+                                  marginTop: "5px",
+                                }}
+                                key={subProduct.product_sub_types_id}
+                              >
                                 {/* <span> {subProduct.product_sub_types} </span> */}
-                              <Link className="" title={subProduct.product_sub_types} href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
+                                <Link
+                                  className=""
+                                  title={subProduct.product_sub_types}
+                                  href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}
+                                >
+                                  {subProduct.product_sub_types}
+                                </Link>
                               </div>
                             ))}
                         </React.Fragment>
@@ -194,27 +226,50 @@ const SidebarProduct = ({ productData }) => {
                       (type) => type.product_id === item.product_id
                     ).length === 0 && (
                       <React.Fragment key={item.product_id}>
-                        <br />
-                        <span
+                        <div
                           style={{
-                            cursor: "pointer",
-                            color: "white",
-                            padding: "10px",
+                            marginBottom: "10px",
+                            display: "flex",
+                            alignItems: "flex-start",
                           }}
-                          className="bg-newgold"
-                          onClick={() => handleMainDropdown(item.product_id)}
                         >
-                          {expandedProductIds.includes(item.product_id)
-                            ? "-"
-                            : "+"}
-                        </span>
-                        <span>{item.product_name}</span>
+                          <span
+                            style={{
+                              cursor: "pointer",
+                              color: "white",
+                              padding: "2px 6px",
+                              marginRight: "4px",
+                              borderRadius: "2px",
+                              display: "inline-block",
+                              flexShrink: 0,
+                            }}
+                            className="bg-newgold "
+                            onClick={() => handleMainDropdown(item.product_id)}
+                          >
+                            {expandedProductIds.includes(item.product_id)
+                              ? "-"
+                              : "+"}
+                          </span>
+                          <span>{item.product_name}</span>
+                        </div>
                         {expandedProductIds.includes(item.product_id) &&
                           item.subProducts &&
                           item.subProducts.map((subProduct) => (
-                            <div key={subProduct.product_sub_types_id}>
+                            <div
+                              style={{
+                                paddingLeft: "20px",
+                                marginTop: "5px",
+                              }}
+                              key={subProduct.product_sub_types_id}
+                            >
                               {/* <span> {subProduct.product_sub_types} </span> */}
-                              <Link className="" title={subProduct.product_sub_types} href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
+                              <Link
+                                className=""
+                                title={subProduct.product_sub_types}
+                                href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}
+                              >
+                                {subProduct.product_sub_types}
+                              </Link>
                             </div>
                           ))}
                       </React.Fragment>
@@ -223,9 +278,11 @@ const SidebarProduct = ({ productData }) => {
                 </AccordionItem>
               </Accordion>
             </div>
-          )))
-      
-      /* )} */}
+          ))
+        )
+
+        /* )} */
+      }
     </div>
   );
 };
