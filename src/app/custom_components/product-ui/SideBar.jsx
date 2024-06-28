@@ -17,6 +17,7 @@ const SidebarProduct = ({ productData }) => {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [expandedProductIds, setExpandedProductIds] = useState([]);
+  const [spanStyle, setSpanStyle] = useState(false);
 
   useEffect(() => {
     if (subCategory) {
@@ -48,8 +49,10 @@ const SidebarProduct = ({ productData }) => {
     if (selectedProduct && selectedProduct.subProducts !== undefined) {
       if (expandedProductIds.includes(id)) {
         setExpandedProductIds(expandedProductIds.filter((pid) => pid !== id));
+        setSpanStyle((prev) => ({ ...prev, [id]: false }));
       } else {
         setExpandedProductIds([...expandedProductIds, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       }
       return;
     }
@@ -78,6 +81,7 @@ const SidebarProduct = ({ productData }) => {
         }));
 
         setExpandedProductIds((prevId) => [...prevId, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       } else {
         console.log("already exist ");
       }
@@ -94,8 +98,10 @@ const SidebarProduct = ({ productData }) => {
     if (selectedProduct && selectedProduct.subProducts !== undefined) {
       if (expandedProductIds.includes(id)) {
         setExpandedProductIds(expandedProductIds.filter((pid) => pid !== id));
+        setSpanStyle((prev) => ({ ...prev, [id]: false }));
       } else {
         setExpandedProductIds([...expandedProductIds, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       }
       return;
     }
@@ -123,6 +129,7 @@ const SidebarProduct = ({ productData }) => {
           ),
         }));
         setExpandedProductIds((prevId) => [...prevId, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       } else {
         console.log("already exist ");
       }
@@ -141,7 +148,7 @@ const SidebarProduct = ({ productData }) => {
           <p>Loading...</p>
         ) : (
           productsData?.mainCategory.map((item) => (
-            <div className="bg-offwhite" key={item.product_id}>
+            <div className="bg-offwhite max-w-sm" key={item.product_id}>
               <Accordion
                 type="single"
                 collapsible
@@ -162,9 +169,10 @@ const SidebarProduct = ({ productData }) => {
                         <React.Fragment key={type.product_type_id}>
                           <div
                             style={{
-                              marginBottom: "10px",
+                              marginBottom: "20px",
                               display: "flex",
                               alignItems: "flex-start",
+                              // marginTop: "20px",
                             }}
                           >
                             <span
@@ -203,16 +211,17 @@ const SidebarProduct = ({ productData }) => {
                             type.subProducts &&
                             type.subProducts.map((subProduct) => (
                               <div
-                                className="text-blue-800 "
+                                className={`text-blue-800 underline decoration-slate-300 underline-offset-4 ${
+                                  spanStyle ? " mb-5" : ""
+                                }`}
                                 style={{
                                   paddingLeft: "20px",
-                                  marginTop: "5px",
+                                  // marginBottom: "20px",
                                 }}
                                 key={subProduct.product_sub_types_id}
                               >
                                 {/* <span> {subProduct.product_sub_types} </span> */}
                                 <Link
-                                  className=""
                                   title={subProduct.product_sub_types}
                                   href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}
                                 >
@@ -228,7 +237,7 @@ const SidebarProduct = ({ productData }) => {
                       <React.Fragment key={item.product_id}>
                         <div
                           style={{
-                            marginBottom: "10px",
+                            marginBottom: "20px",
                             display: "flex",
                             alignItems: "flex-start",
                           }}
@@ -256,9 +265,12 @@ const SidebarProduct = ({ productData }) => {
                           item.subProducts &&
                           item.subProducts.map((subProduct) => (
                             <div
+                              className={`underline decoration-slate-300 underline-offset-4 ${
+                                spanStyle ? " mb-5" : ""
+                              }`}
                               style={{
                                 paddingLeft: "20px",
-                                marginTop: "5px",
+                                // marginBottom: "20px",
                               }}
                               key={subProduct.product_sub_types_id}
                             >

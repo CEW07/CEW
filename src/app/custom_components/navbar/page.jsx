@@ -84,7 +84,7 @@ const Navbar = () => {
                   href={item.href}
                   className={`mx-4 ${
                     pathname === item.href ? "text-newgold" : ""
-                  }  hover:bg-newgold`}
+                  }  hover:text-newgold`}
                   key={item.index}
                 >
                   {item.name}

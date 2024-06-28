@@ -15,7 +15,7 @@ const Products = () => {
     <div className="my-10 mx-4  space-x-14 flex min-h-[100vh] ">
       {/* <button onClick={()=>testFunc()} >test</button> */}
       {/* <ProductGrid productData={productData} /> */}
-      <div className="lg:pt-12 pt-16 flex flex-wrap gap-6 flex-1  ">
+      <div className="lg:pt-12 pt-16 grid mainProducts:grid-cols-2 xl:grid-cols-3 gap-6  ">
         {loading
           ? "loading..."
           : productData.mainCategory.map((item) => (
