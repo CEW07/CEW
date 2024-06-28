@@ -15,28 +15,29 @@ const SidebarProduct = ({ productData }) => {
     subCategory: [],
     mainCategory: [],
   });
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const [expandedProductIds, setExpandedProductIds] = useState([]);
-  
+  const [spanStyle, setSpanStyle] = useState(false);
+
   useEffect(() => {
     if (subCategory) {
       setProductsData((prev) => ({
         ...prev,
         subCategory: subCategory,
       }));
-      setIsLoading(false)
-      console.log('in sub ');
-    } 
+      setIsLoading(false);
+      console.log("in sub ");
+    }
     if (mainCategory) {
       setProductsData((prev) => ({
         ...prev,
         mainCategory: mainCategory,
       }));
-      console.log('in main');
-      setIsLoading(false)
+      console.log("in main");
+      setIsLoading(false);
     }
 
-    console.log('useffect',productData.subCategory);
+    console.log("useffect", productData.subCategory);
   }, [subCategory, mainCategory]);
 
   const handleFilter = useRef(false);
@@ -48,8 +49,10 @@ const SidebarProduct = ({ productData }) => {
     if (selectedProduct && selectedProduct.subProducts !== undefined) {
       if (expandedProductIds.includes(id)) {
         setExpandedProductIds(expandedProductIds.filter((pid) => pid !== id));
+        setSpanStyle((prev) => ({ ...prev, [id]: false }));
       } else {
         setExpandedProductIds([...expandedProductIds, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       }
       return;
     }
@@ -78,6 +81,7 @@ const SidebarProduct = ({ productData }) => {
         }));
 
         setExpandedProductIds((prevId) => [...prevId, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       } else {
         console.log("already exist ");
       }
@@ -94,8 +98,10 @@ const SidebarProduct = ({ productData }) => {
     if (selectedProduct && selectedProduct.subProducts !== undefined) {
       if (expandedProductIds.includes(id)) {
         setExpandedProductIds(expandedProductIds.filter((pid) => pid !== id));
+        setSpanStyle((prev) => ({ ...prev, [id]: false }));
       } else {
         setExpandedProductIds([...expandedProductIds, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       }
       return;
     }
@@ -123,6 +129,7 @@ const SidebarProduct = ({ productData }) => {
           ),
         }));
         setExpandedProductIds((prevId) => [...prevId, id]);
+        setSpanStyle((prev) => ({ ...prev, [id]: true }));
       } else {
         console.log("already exist ");
       }
@@ -136,11 +143,12 @@ const SidebarProduct = ({ productData }) => {
 
   return (
     <div>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
+      {
+        isLoading ? (
+          <p>Loading...</p>
+        ) : (
           productsData?.mainCategory.map((item) => (
-            <div className="bg-offwhite" key={item.product_id}>
+            <div className="bg-offwhite max-w-sm" key={item.product_id}>
               <Accordion
                 type="single"
                 collapsible
@@ -159,33 +167,66 @@ const SidebarProduct = ({ productData }) => {
                       .filter((type) => type.product_id === item.product_id)
                       .map((type, index) => (
                         <React.Fragment key={type.product_type_id}>
-                          <br />
-                          <span
+                          <div
                             style={{
-                              cursor: "pointer",
-                              color: "white",
-                              padding: "10px",
+                              marginBottom: "20px",
+                              display: "flex",
+                              alignItems: "flex-start",
+                              // marginTop: "20px",
                             }}
-                            className="bg-newgold"
-                            onClick={() =>
-                              handleSubTypeDropDown(type.product_type_id)
-                            }
                           >
-                            {expandedProductIds.includes(type.product_type_id)
-                              ? "-"
-                              : "+"}
-                          </span>
-                          <span>
-                            {type.product_types !== undefined
-                              ? type.product_types
-                              : item.product_name}{" "}
-                          </span>
+                            <span
+                              style={{
+                                cursor: "pointer",
+                                color: "white",
+                                padding: "2px 6px",
+                                marginRight: "4px",
+                                borderRadius: "2px",
+                                display: "inline-block",
+                                flexShrink: 0,
+                              }}
+                              className="bg-newgold "
+                              onClick={() =>
+                                handleSubTypeDropDown(type.product_type_id)
+                              }
+                            >
+                              {expandedProductIds.includes(type.product_type_id)
+                                ? "-"
+                                : "+"}
+                            </span>
+                            <span
+                              className="text-red-700 "
+                              style={{
+                                display: "inline-block",
+                                verticalAlign: "middle",
+                                marginLeft: "5px",
+                              }}
+                            >
+                              {type.product_types !== undefined
+                                ? type.product_types
+                                : item.product_name}{" "}
+                            </span>
+                          </div>
                           {expandedProductIds.includes(type.product_type_id) &&
                             type.subProducts &&
                             type.subProducts.map((subProduct) => (
-                              <div key={subProduct.product_sub_types_id}>
+                              <div
+                                className={`text-blue-800 underline decoration-slate-300 underline-offset-4 ${
+                                  spanStyle ? " mb-5" : ""
+                                }`}
+                                style={{
+                                  paddingLeft: "20px",
+                                  // marginBottom: "20px",
+                                }}
+                                key={subProduct.product_sub_types_id}
+                              >
                                 {/* <span> {subProduct.product_sub_types} </span> */}
-                              <Link className="" title={subProduct.product_sub_types} href={`/products/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
+                                <Link
+                                  title={subProduct.product_sub_types}
+                                  href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}
+                                >
+                                  {subProduct.product_sub_types}
+                                </Link>
                               </div>
                             ))}
                         </React.Fragment>
@@ -194,27 +235,53 @@ const SidebarProduct = ({ productData }) => {
                       (type) => type.product_id === item.product_id
                     ).length === 0 && (
                       <React.Fragment key={item.product_id}>
-                        <br />
-                        <span
+                        <div
                           style={{
-                            cursor: "pointer",
-                            color: "white",
-                            padding: "10px",
+                            marginBottom: "20px",
+                            display: "flex",
+                            alignItems: "flex-start",
                           }}
-                          className="bg-newgold"
-                          onClick={() => handleMainDropdown(item.product_id)}
                         >
-                          {expandedProductIds.includes(item.product_id)
-                            ? "-"
-                            : "+"}
-                        </span>
-                        <span>{item.product_name}</span>
+                          <span
+                            style={{
+                              cursor: "pointer",
+                              color: "white",
+                              padding: "2px 6px",
+                              marginRight: "4px",
+                              borderRadius: "2px",
+                              display: "inline-block",
+                              flexShrink: 0,
+                            }}
+                            className="bg-newgold "
+                            onClick={() => handleMainDropdown(item.product_id)}
+                          >
+                            {expandedProductIds.includes(item.product_id)
+                              ? "-"
+                              : "+"}
+                          </span>
+                          <span>{item.product_name}</span>
+                        </div>
                         {expandedProductIds.includes(item.product_id) &&
                           item.subProducts &&
                           item.subProducts.map((subProduct) => (
-                            <div key={subProduct.product_sub_types_id}>
+                            <div
+                              className={`underline decoration-slate-300 underline-offset-4 ${
+                                spanStyle ? " mb-5" : ""
+                              }`}
+                              style={{
+                                paddingLeft: "20px",
+                                // marginBottom: "20px",
+                              }}
+                              key={subProduct.product_sub_types_id}
+                            >
                               {/* <span> {subProduct.product_sub_types} </span> */}
-                              <Link className="" title={subProduct.product_sub_types} href={`/products/productdetails/${subProduct.product_sub_types_id}`}>{subProduct.product_sub_types}</Link>
+                              <Link
+                                className=""
+                                title={subProduct.product_sub_types}
+                                href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}
+                              >
+                                {subProduct.product_sub_types}
+                              </Link>
                             </div>
                           ))}
                       </React.Fragment>
@@ -223,9 +290,11 @@ const SidebarProduct = ({ productData }) => {
                 </AccordionItem>
               </Accordion>
             </div>
-          )))
-      
-      /* )} */}
+          ))
+        )
+
+        /* )} */
+      }
     </div>
   );
 };

@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "../product-ui/ProductCard";
 import ProductNav from "../product-ui/ProductNav";
+import { usePathname } from "next/navigation";
 const Navbar = () => {
   const [isOpenMenu, setisOpenMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
-  
+
   const { productData } = useData();
   useEffect(() => {
     function handleScroll() {
@@ -44,6 +45,8 @@ const Navbar = () => {
     { name: "About Us", href: "/about", index: "7" },
     { name: "Contact", href: "/contact", index: "8" },
   ];
+
+  const pathname = usePathname();
   const styles = {
     position: "fixed",
     right: isOpenMenu ? 0 : "-100%",
@@ -79,7 +82,9 @@ const Navbar = () => {
               {Links.slice(4, 8).map((item) => (
                 <Link
                   href={item.href}
-                  className="mx-4 hover:text-newgold"
+                  className={`mx-4 ${
+                    pathname === item.href ? "text-newgold" : ""
+                  }  hover:text-newgold`}
                   key={item.index}
                 >
                   {item.name}
@@ -108,16 +113,17 @@ const Navbar = () => {
         </div>
         <div className="lg:mx-10 flex flex-col h-[100%] justify-center lg:justify-evenly w-[20%] lg:w-[60%] border-slate-950 sticky top-0">
           <div className=" text-newbrown  font-medium hidden lg:flex w-[40%] lg:justify-between lg:items-center ">
-            {Links.slice(0, 4).map((item) =>
-                <Link
-                  href={item.href}
-                  className="hover:text-newgold text-center text-[1rem] mx-2 "
-                  key={item.index}
-                >
-                  {item.name}
-                </Link>
-
-            )}
+            {Links.slice(0, 4).map((item) => (
+              <Link
+                href={item.href}
+                className={`  ${
+                  pathname === item.href ? "text-newgold" : ""
+                }  hover:text-newgold text-center text-[1rem] mx-2 `}
+                key={item.index}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
           <div className="flex items-center lg:border  lg:border-newgold lg:rounded-md w-[100%] justify-end lg:bg-white ">
             <input
@@ -168,7 +174,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 
 // item.name === "Products" ? (
 //   <ProductNav key={item.index} />
