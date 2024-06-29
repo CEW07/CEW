@@ -18,21 +18,20 @@ const Industries = () => {
       </div>
 
       <section className="mt-10">
-        <div className="xl:mx-32  grid small:grid-cols-2 md:grid-cols-3 gap-6 xl:gap-12 max-sm:mx-5 sm:mx-10">
+        <div className="xl:mx-32  grid small:grid-cols-2 md:grid-cols-3 gap-6  max-sm:mx-5 sm:mx-10">
           {industries?.map((industry, index) => (
             <div key={index} className="relative">
               <div className="absolute inset-0 flex items-center justify-center">
-                <h1 className="text-offwhite flex text-center justify-center  text-lg  z-10 items-center px-4">
+                <h1 className="text-offwhite flex text-center justify-center max-small:text-lg  text-base lg:text-xl z-10 items-center px-4">
                   {industry.name}
                 </h1>
               </div>
-              <div className="w-full h-full">
+              <div className="aspect-video relative">
                 <Image
-                  width={700}
-                  height={700}
+                  fill
                   src={industry.image}
                   alt={industry.alt}
-                  className=" object-cover shadow-lg rounded-md md:w-full md:h-full "
+                  className=" object-cover shadow-lg rounded-md "
                 />
               </div>
               <div className="absolute inset-0 bg-black opacity-60 rounded-md"></div>
