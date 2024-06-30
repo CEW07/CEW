@@ -1,6 +1,7 @@
 "use client";
 import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
+import SideBar from "@/custom_components/product-ui/SideBar";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 const ProductId = ({ params }) => {
@@ -17,13 +18,10 @@ const ProductId = ({ params }) => {
       })
       .catch((err) => console.log(err));
   }, []);
-  // const productID = useRef()
-  useEffect(() => {
-    // productID.current = par
-  }, [subCategoryAll]);
 
   return (
     <div className="">
+      {/* <SideBar productData={productData} loading={loading} /> */}
       {loading
         ? "loading..."
         : productData.subCategory.map(
@@ -45,7 +43,7 @@ const ProductId = ({ params }) => {
                           <ProductCard
                             keyId={data.product_type_id}
                             name={data.product_sub_types}
-                            href={`/products/productdetails/${data.product_sub_types_id}`}
+                            href={`/${productId}/${data.product_sub_types_id}`}
                           />
                         ))}
                   </div>
@@ -67,7 +65,7 @@ const ProductId = ({ params }) => {
                         <ProductCard
                           keyId={data.product_type_id}
                           name={data.product_sub_types}
-                          href={`/products/productdetails/${data.product_sub_types_id}`}
+                          href={`/${productId}/${data.product_sub_types_id}`}
                         />
                       ))
                       }

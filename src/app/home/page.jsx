@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useData } from "@/app/contextapi/contextData";
+import { useData } from "../contextapi/contextData";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
 import HeroMain from "@/custom_components/home-ui/hero-main/page";
 import HeroSubMain from "@/custom_components/home-ui/hero-submain/page";

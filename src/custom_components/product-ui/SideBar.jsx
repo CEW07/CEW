@@ -223,7 +223,7 @@ const SidebarProduct = ({ productData }) => {
                                 {/* <span> {subProduct.product_sub_types} </span> */}
                                 <Link
                                   title={subProduct.product_sub_types}
-                                  href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}
+                                  href={`/products/productdetails/${subProduct.product_sub_types_id}`}
                                 >
                                   {subProduct.product_sub_types}
                                 </Link>
@@ -278,7 +278,7 @@ const SidebarProduct = ({ productData }) => {
                               <Link
                                 className=""
                                 title={subProduct.product_sub_types}
-                                href={`/pages/products/${item.product_id}/productdetails/${subProduct.product_sub_types_id}`}
+                                href={`/products/productdetails/${subProduct.product_sub_types_id}`}
                               >
                                 {subProduct.product_sub_types}
                               </Link>

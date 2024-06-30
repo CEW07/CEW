@@ -6,7 +6,8 @@ import ProductCard from "@/custom_components/product-ui/ProductCard";
 const Products = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
-  // function testFunc() {
+  // function testFunc() 
+
   // console.log(productData, "data here");
   //
   return (
@@ -18,9 +19,9 @@ const Products = () => {
           ? "loading..."
           : productData.mainCategory.map((item) => (
               <ProductCard
-                keyId={item.product_id}
+                keyId={item.product_id}  
                 name={item.product_name}
-                href={`/products/${item.product_id}`}
+                href={`/${item.product_id}`}
               />
             ))}
       </div>

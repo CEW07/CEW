@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // import WhatsApp from '/assests/icons/whatsapp-icon.svg'
-import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "../product-ui/ProductCard";
 import ProductNav from "../product-ui/ProductNav";
 import { usePathname } from "next/navigation";
@@ -14,7 +13,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
 
-  const { productData } = useData();
   useEffect(() => {
     function handleScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -37,7 +35,7 @@ const Navbar = () => {
 
   const Links = [
     { name: "Home", href: "/", index: "1" },
-    { name: "Products", href: "/products", index: "2" },
+    { name: "Products", href: "/products/", index: "2" },
     { name: "Services", href: "/services", index: "3" },
     { name: "Industries", href: "/industries", index: "4" },
     { name: "Where to Buy", href: "/industries", index: "5" },
@@ -175,14 +173,3 @@ const Navbar = () => {
 
 export default Navbar;
 
-// item.name === "Products" ? (
-//   <ProductNav key={item.index} />
-// ) : (
-//   <Link
-//     href={item.href}
-//     className="hover:text-newgold text-center text-[1rem] mx-2 "
-//     key={item.index}
-//   >
-//     {item.name}
-//   </Link>
-// )
