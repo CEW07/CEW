@@ -7,10 +7,6 @@ import HeroSubMain from "@/custom_components/home-ui/hero-submain/page";
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
-  console.log(productData, "contextt data here");
-  function testFunc() {
-    console.log(productData.productCategories);
-  }
   return (
     <main className="w-full relative">
       <section className="w-full relative">
@@ -24,7 +20,7 @@ const HomeContent = () => {
                   <ProductCard
                     keyId={item.product_id}
                     name={item.product_name}
-                    href={item.product_types ? `/products/${item.product_id}` : `/products/${item.product_id}`}
+                    href={`/${item.product_name_id}`}
                   />
                 ))}
           </div>

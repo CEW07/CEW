@@ -21,7 +21,7 @@ const Products = () => {
               <ProductCard
                 keyId={item.product_id}  
                 name={item.product_name}
-                href={`/${item.product_id}`}
+                href={`/${item.product_name_id}`}
               />
             ))}
       </div>

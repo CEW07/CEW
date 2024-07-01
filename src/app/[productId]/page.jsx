@@ -10,23 +10,40 @@ const ProductId = ({ params }) => {
   const { productId, query } = params;
   console.log(productData.subCategory);
   const [subCategoryAll, setSubCategoryAll] = useState();
+  // useEffect(() => {
+  //   axios(`http://localhost:3000/api/fetchSubCategoryTypeAll`)
+  //     .then((res) => {
+  //       setSubCategoryAll(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
+
   useEffect(() => {
-    axios(`http://localhost:3000/api/fetchSubCategoryTypeAll`)
+    const fetchSubCategory = async () =>{
+
+      await axios(`http://localhost:3000/api/fetchSubCategoryType?id=${productId}`)
       .then((res) => {
         setSubCategoryAll(res.data);
         console.log(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-
+    }
+    fetchSubCategory();
+  }, [])
+  
+  useEffect(() => {
+      console.log(subCategoryAll,'all products');
+  }, [subCategoryAll])
+  
   return (
     <div className="">
-      {/* <SideBar productData={productData} loading={loading} /> */}
+
       {loading
         ? "loading..."
         : productData.subCategory.map(
             (type) =>
-              type.product_id == params.productId && (
+              type.product_name_id == params.productId && (
                 <div className="">
                   <span className="flex flex-col text-xl ">
                     {type.product_types}
@@ -49,17 +66,17 @@ const ProductId = ({ params }) => {
                   </div>
                 </div>
               )
-          )}
+        )}
       {loading
         ? "loading...."
         : productData.mainCategory.map(
             (item) =>
-              (item.product_types === 0 && item.product_id === parseInt(productId)) && (
+              (item.product_types === 'FALSE' && item.product_name_id === productId) && (
                 <div className="grid xl:grid-cols-3 grid-cols-2 gap-3">
                   {subCategoryAll &&
                     subCategoryAll.filter(
                         (filteredData) =>
-                          filteredData.product_type_id === parseInt(productId) 
+                          filteredData.product_type_name_id === productId
                       )
                       .map((data) => (
                         <ProductCard

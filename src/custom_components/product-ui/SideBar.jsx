@@ -41,7 +41,7 @@ const SidebarProduct = ({ productData }) => {
   }, [subCategory, mainCategory]);
 
   const handleFilter = useRef(false);
-  async function handleMainDropdown(id, params) {
+  async function handleMainDropdown(params,id) {
     const selectedProduct = productsData.mainCategory.find(
       (product) => product.product_id === id
     );
@@ -67,7 +67,7 @@ const SidebarProduct = ({ productData }) => {
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await fetch(
-          `http://localhost:3000/api/fetchSubCategoryType?id=${id}`
+          `http://localhost:3000/api/fetchSubCategoryType?id=${params}`
         );
         const res = await response.json();
         console.log(res, "new fetch here");
@@ -90,7 +90,8 @@ const SidebarProduct = ({ productData }) => {
     }
   }
   // function for dropdown which doesn't have subType
-  async function handleSubTypeDropDown(id) {
+  async function handleSubTypeDropDown(params,id) {
+    console.log(params,id,'id here');
     const selectedProduct = productsData.subCategory.find(
       (product) => product.product_type_id === id
     );
@@ -116,7 +117,7 @@ const SidebarProduct = ({ productData }) => {
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await fetch(
-          `http://localhost:3000/api/fetchSubCategoryType?id=${id}`
+          `http://localhost:3000/api/fetchSubCategoryType?id=${params}`
         );
         const res = await response.json();
         console.log(res, "new fetch here");
@@ -139,7 +140,8 @@ const SidebarProduct = ({ productData }) => {
   }
   useEffect(() => {
     console.log(expandedProductIds);
-  }, [expandedProductIds]);
+    console.log(productsData);
+  }, [expandedProductIds,productsData]);
 
   return (
     <div>
@@ -154,12 +156,13 @@ const SidebarProduct = ({ productData }) => {
                 collapsible
                 className="py-2 px-10"
                 key={item.product_id}
+                onClick={item.product_types === 'FALSE' ? () => handleMainDropdown(item.product_name_id, item.product_id) : undefined}
               >
                 <AccordionItem
                   value={`item-${item.product_id}`}
                   key={item.product_id}
                 >
-                  <AccordionTrigger className="hover:no-underline text-newgold">
+                  <AccordionTrigger  className="hover:no-underline text-newgold">
                     {item.product_name}
                   </AccordionTrigger>
                   <AccordionContent>
@@ -172,7 +175,6 @@ const SidebarProduct = ({ productData }) => {
                               marginBottom: "20px",
                               display: "flex",
                               alignItems: "flex-start",
-                              // marginTop: "20px",
                             }}
                           >
                             <span
@@ -187,7 +189,7 @@ const SidebarProduct = ({ productData }) => {
                               }}
                               className="bg-newgold "
                               onClick={() =>
-                                handleSubTypeDropDown(type.product_type_id)
+                                handleSubTypeDropDown(type.product_name_id,type.product_type_id)
                               }
                             >
                               {expandedProductIds.includes(type.product_type_id)
@@ -208,22 +210,21 @@ const SidebarProduct = ({ productData }) => {
                             </span>
                           </div>
                           {expandedProductIds.includes(type.product_type_id) &&
-                            type.subProducts &&
-                            type.subProducts.map((subProduct) => (
+                            type?.subProducts &&
+                            type?.subProducts?.map((subProduct) => (
                               <div
                                 className={`text-blue-800 underline decoration-slate-300 underline-offset-4 ${
                                   spanStyle ? " mb-5" : ""
                                 }`}
                                 style={{
                                   paddingLeft: "20px",
-                                  // marginBottom: "20px",
                                 }}
                                 key={subProduct.product_sub_types_id}
                               >
                                 {/* <span> {subProduct.product_sub_types} </span> */}
                                 <Link
                                   title={subProduct.product_sub_types}
-                                  href={`/products/productdetails/${subProduct.product_sub_types_id}`}
+                                  href={`/${item.product_name_id}/${subProduct.product_sub_types_id}`}
                                 >
                                   {subProduct.product_sub_types}
                                 </Link>
@@ -231,36 +232,15 @@ const SidebarProduct = ({ productData }) => {
                             ))}
                         </React.Fragment>
                       ))}
+
+
+
+
+
                     {productsData.subCategory.filter(
                       (type) => type.product_id === item.product_id
                     ).length === 0 && (
                       <React.Fragment key={item.product_id}>
-                        <div
-                          style={{
-                            marginBottom: "20px",
-                            display: "flex",
-                            alignItems: "flex-start",
-                          }}
-                        >
-                          <span
-                            style={{
-                              cursor: "pointer",
-                              color: "white",
-                              padding: "2px 6px",
-                              marginRight: "4px",
-                              borderRadius: "2px",
-                              display: "inline-block",
-                              flexShrink: 0,
-                            }}
-                            className="bg-newgold "
-                            onClick={() => handleMainDropdown(item.product_id)}
-                          >
-                            {expandedProductIds.includes(item.product_id)
-                              ? "-"
-                              : "+"}
-                          </span>
-                          <span>{item.product_name}</span>
-                        </div>
                         {expandedProductIds.includes(item.product_id) &&
                           item.subProducts &&
                           item.subProducts.map((subProduct) => (
@@ -270,15 +250,13 @@ const SidebarProduct = ({ productData }) => {
                               }`}
                               style={{
                                 paddingLeft: "20px",
-                                // marginBottom: "20px",
                               }}
                               key={subProduct.product_sub_types_id}
                             >
-                              {/* <span> {subProduct.product_sub_types} </span> */}
                               <Link
                                 className=""
                                 title={subProduct.product_sub_types}
-                                href={`/products/productdetails/${subProduct.product_sub_types_id}`}
+                                href={`/${item.product_name_id}/${subProduct.product_sub_types_id}`}
                               >
                                 {subProduct.product_sub_types}
                               </Link>
