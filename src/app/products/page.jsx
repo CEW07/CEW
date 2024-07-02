@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 
 import { useData } from "@/app/contextapi/contextData";
-import ProductCard from "@/app/custom_components/product-ui/ProductCard";
-import { mainProductImages } from "@/app/staticdata/static";
+import ProductCard from "@/custom_components/product-ui/ProductCard";
+import { mainProductImages } from "@/staticdata/static";
 import Image from "next/image";
 const Products = () => {
   // Destructuring Context Data from contextData.js
@@ -28,9 +28,9 @@ const Products = () => {
                   key={item.product_id}
                   keyId={item.product_id}
                   name={item.product_name}
-                  href={`/pages/products/${item.product_id}`}
+                  href={`/${item.product_name_id}`}
                   imageSrc={correspondingImage?.image}
-                  imageAlt={correspondingImage?.alt}
+                  imageAlt={correspondingImage?.alt}  
                 />
               );
             })}

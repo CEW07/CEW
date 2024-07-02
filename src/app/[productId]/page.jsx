@@ -18,14 +18,15 @@ const ProductId = ({ params }) => {
   //     })
   //     .catch((err) => console.log(err));
   // }, []);
-
+  const [imageDataArray, setImageDataArray] = useState([])
   useEffect(() => {
     const fetchSubCategory = async () =>{
 
       await axios(`http://localhost:3000/api/fetchSubCategoryType?id=${productId}`)
       .then((res) => {
         setSubCategoryAll(res.data);
-        console.log(res.data);
+        console.log(res.data,'data here');
+        
       })
       .catch((err) => console.log(err));
     }
@@ -33,7 +34,17 @@ const ProductId = ({ params }) => {
   }, [])
   
   useEffect(() => {
-      console.log(subCategoryAll,'all products');
+    if(subCategoryAll){
+      console.log(subCategoryAll,'sub data here');
+      const dataArray = [];
+      subCategoryAll.filter((item)=>dataArray.push(item?.thumbnailImage?.data))
+      console.log(dataArray,'data arraya here');
+   const base64Images = dataArray.map(item => {
+     const uint8Array = new Uint8Array(item); // Assuming item.data is ArrayBuffer
+     return btoa(String.fromCharCode.apply(null, uint8Array));
+    });
+    setImageDataArray(base64Images);
+  }
   }, [subCategoryAll])
   
   return (
@@ -56,11 +67,14 @@ const ProductId = ({ params }) => {
                             filteredData.product_type_id ===
                             type.product_type_id
                         )
-                        .map((data) => (
+                        .map((data,index) => (
                           <ProductCard
                             keyId={data.product_type_id}
                             name={data.product_sub_types}
                             href={`/${productId}/${data.product_sub_types_id}`}
+                            imageSrc={imageDataArray[index]}
+                            imageAlt={data.product_type_name_id}
+                            params='subproductImage'
                           />
                         ))}
                   </div>
@@ -78,11 +92,14 @@ const ProductId = ({ params }) => {
                         (filteredData) =>
                           filteredData.product_type_name_id === productId
                       )
-                      .map((data) => (
+                      .map((data,index) => (
                         <ProductCard
                           keyId={data.product_type_id}
                           name={data.product_sub_types}
                           href={`/${productId}/${data.product_sub_types_id}`}
+                          imageSrc={imageDataArray[index]}
+                          imageAlt={data.product_type_name_id}
+                          params='subproductImage'
                         />
                       ))
                       }

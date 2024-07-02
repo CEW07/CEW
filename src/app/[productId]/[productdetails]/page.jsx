@@ -1,14 +1,13 @@
 "use client";
-import SizeChart from "@/app/custom_components/product-ui/SizeChart";
+import SizeChart from "@/custom_components/product-ui/SizeChart";
 import { data } from "autoprefixer";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const ProductDetails = ({ params }) => {
   const { productId, productdetails } = params;
-  const [productDetails, setProductDetails] = useState([]);
+  const [productDetails, setProductDetails] = useState();
   const [detailsLoader, setDetailsLoader] = useState(true);
-  const [mainData, setMainData] = useState([]);
   console.log(params, "details mai params");
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -17,9 +16,7 @@ const ProductDetails = ({ params }) => {
           `http://localhost:3000/api/fetchProductDetails?id=${productdetails}`
         )
           .then((res) => {
-            // setProductDetails(res)
-            console.log(res.data[0], "response details");
-            setProductDetails([res.data[0]]);
+            setProductDetails(res.data);
           })
           .catch((err) => {
             console.log(err, "error while fetching product details");
@@ -31,24 +28,44 @@ const ProductDetails = ({ params }) => {
     };
     fetchProductDetails();
   }, []);
+
+  function byteArrayToBase64(byteArray) {
+    let binary = '';
+    const bytes = new Uint8Array(byteArray);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  }
+  const [imageSrc, setImageSrc] = useState()
   useEffect(() => {
-    console.log(
-      productDetails[0]?.product_subTypes_name,
-      "main products idhr hai"
-    );
+    if(productDetails){
+      async function fetchAndConvertImage() {
+        const base64String = byteArrayToBase64(productDetails[0]?.image?.data);
+        setImageSrc(`data:image/png;base64,${base64String}`);
+        console.log(productDetails);
+      }
+      fetchAndConvertImage();
+    }
   }, [productDetails]);
+  
   return (
     <div className="">
       <section className="flex flex-row ">
         <div className="flex flex-col">
-          <span>{productDetails[0]?.product_subTypes_name} </span>
-          {productDetails[0]?.product_standard && (
-            <span>
+          <span>{productDetails && productDetails[0]?.product_subTypes_name} </span>
+          {productDetails && (
+            productDetails[0]?.product_standard && (
+              <span>
               Applicable Standard: {productDetails[0]?.product_standard}
-            </span>
+              </span>
+              )
+            
           )}
         </div>
-        <span>Image</span>
+        {/* <span>Image</span> */}
+        {imageSrc && <img src={imageSrc}/>}
       </section>
       <section className=" flex flex-col gap-2 my-8">
         <span className="font-semibold">Construction:</span>
