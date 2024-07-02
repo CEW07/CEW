@@ -4,6 +4,7 @@ import HeroSubMain from "@/app/custom_components/home-ui/hero-submain/page";
 import React, { useEffect, useState } from "react";
 import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "@/app/custom_components/product-ui/ProductCard";
+import { mainProductImages } from "@/app/staticdata/static";
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
@@ -20,13 +21,20 @@ const HomeContent = () => {
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
             {loading
               ? "loading..."
-              : productData?.mainCategory?.map((item) => (
-                  <ProductCard
-                    keyId={item.product_id}
-                    name={item.product_name}
-                    href={`/pages/products/${item.product_id}`}
-                  />
-                ))}
+              : productData?.mainCategory?.map((item, index) => {
+                  const correspondingImage = mainProductImages[index];
+
+                  return (
+                    <ProductCard
+                      key={item.product_id}
+                      keyId={item.product_id}
+                      name={item.product_name}
+                      href={`/pages/products/${item.product_id}`}
+                      imageSrc={correspondingImage?.image}
+                      imageAlt={correspondingImage?.alt}
+                    />
+                  );
+                })}
           </div>
         </div>
       </section>

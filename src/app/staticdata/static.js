@@ -29,6 +29,64 @@ export const chooseUs = [
   },
 ];
 
+export const mainProductImages = [
+  {
+    image: "/assests/images/mainProduct/Rubber.png",
+    alt: "Rubber",
+  },
+  {
+    image: "/assests/images/mainProduct/Thermoplastic.png",
+    alt: "Thermoplastic",
+  },
+  {
+    image: "/assests/images/mainProduct/teflon.png",
+    alt: "teflon",
+  },
+  {
+    image: "/assests/images/mainProduct/Composite.png",
+    alt: "Composite",
+  },
+  {
+    image: "/assests/images/mainProduct/Stainless.png",
+    alt: "Stainless",
+  },
+  {
+    image: "/assests/images/mainProduct/Silicone.png",
+    alt: "Silicone",
+  },
+  {
+    image: "/assests/images/mainProduct/Pvc.png",
+    alt: "Pvc",
+  },
+  {
+    image: "/assests/images/mainProduct/Expansion.png",
+    alt: "Expansion",
+  },
+  {
+    image: "/assests/images/mainProduct/SS.png",
+    alt: "SS",
+  },
+
+  {
+    image: "/assests/images/mainProduct/Standard.png",
+    alt: "Standard",
+  },
+  {
+    image: "/assests/images/mainProduct/Camlock.png",
+    alt: "Camlock",
+  },
+
+  {
+    image: "/assests/images/mainProduct/Quick.png",
+    alt: "Quick",
+  },
+
+  {
+    image: "/assests/images/mainProduct/SMS.png",
+    alt: "SMS",
+  },
+];
+
 export const industries = [
   {
     name: "Automotive, Aerospace & Defense",

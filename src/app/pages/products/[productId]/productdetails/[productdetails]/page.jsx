@@ -1,4 +1,5 @@
 "use client";
+import SizeChart from "@/app/custom_components/product-ui/SizeChart";
 import { data } from "autoprefixer";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -210,32 +211,7 @@ const ProductDetails = ({ params }) => {
             </div>
           ))}
       </section>
-      {/* <section className=" flex flex-col gap-4 border border-blue-300">
-        <h3 className="font-semibold">Construction:</h3>
-        <div>
-        </div>
-        <div>
-          <span>Industrial Application</span>
-        </div>
-        <div>
-          <span>Fluid compatibility</span>
-        </div>
-        <div>
-          <span>Inner tube </span>
-        </div>
-        <div>
-          <span>Reinforcement</span>
-        </div>
-        <div>
-          <span>Cover</span>
-        </div>
-        <div>
-          <span>Note</span>
-        </div>
-        <div>
-          <span>Temperature</span>
-        </div>
-      </section> */}
+      <SizeChart />
     </div>
   );
 };
