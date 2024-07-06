@@ -17,20 +17,20 @@ export default function ContextData({ children }) {
     // Fetching the data from fetchData routes - pages/api/fetchData.js
     const fetchData = async () => {
       try {
-        await axios("http://localhost:3000/api/fetchMainCategory")
+        await axios("https://crownengineerings/api/fetchMainCategory")
           .then((res) => {
             setProductData((prev) => ({ ...prev, mainCategory: res.data }));
             console.log(res.data, "response");
           })
           .catch((err) => console.log(err));
 
-        await axios("http://localhost:3000/api/fetchSubCategory")
+        await axios("https://crownengineerings/api/fetchSubCategory")
           .then((res) => {
             setProductData((prev) => ({ ...prev, subCategory: res.data }));
             console.log(res.data, "response");
           })
           .catch((err) => console.log(err));
-        // await fetch("http://localhost:3000/api/fetchMainCategory").then(
+        // await fetch("https://crownengineerings/api/fetchMainCategory").then(
         //   (response) => console.log(response, "main response")
         // );
         // .then((data) => setProductData(data));
