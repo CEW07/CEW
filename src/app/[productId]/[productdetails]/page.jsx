@@ -7,13 +7,20 @@ import React, { useEffect, useState } from "react";
 const ProductDetails = ({ params }) => {
   const { productId, productdetails } = params;
   const [productDetails, setProductDetails] = useState();
+  const [sizeChartDetails, setSizeChartDetails] = useState();
   const [detailsLoader, setDetailsLoader] = useState(true);
   console.log(params, "details mai params");
+  let details = 'details'
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
         await axios(
-          `http://localhost:3000/api/fetchProductDetails?id=${productdetails}`
+          `http://localhost:3000/api/fetchProductDetails`,{
+            params:{
+              id:productdetails,
+              data:'details'
+            }
+          }
         )
           .then((res) => {
             setProductDetails(res.data);
@@ -30,7 +37,31 @@ const ProductDetails = ({ params }) => {
     fetchProductDetails();
   }, []);
 
+  useEffect(() => {
+    const fetchSizeChart = async () => {
+      try {
+        await axios(
+          `http://localhost:3000/api/fetchSizeChart?id=${productdetails}`
+        )
+          .then((res) => {
+            setSizeChartDetails(res.data);
+            // console.log(res.data,'response for sizechart here');
+          })
+          .catch((err) => {
+            console.log(err, "error while fetching product details");
+          });
+      } catch (err) {
+        console.log("Error while fetching data: ", err);
+      }
+    };
+    fetchSizeChart();
+  }, [])
+  
 
+  useEffect(() => {
+    console.log(sizeChartDetails,'size chart');
+  }, [sizeChartDetails])
+  
   
   return (
     <div className="">
@@ -210,7 +241,7 @@ const ProductDetails = ({ params }) => {
             </div>
           ))}
       </section>
-      <SizeChart />
+      {sizeChartDetails && <SizeChart sizeChartDetails={sizeChartDetails} />}
     </div>
   );
 };
