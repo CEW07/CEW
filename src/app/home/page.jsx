@@ -25,7 +25,7 @@ const HomeContent = () => {
                       key={item.product_id}
                       keyId={item.product_id}
                       name={item.product_name}
-                      href={`/pages/products/${item.product_id}`}
+                      href={`/${item.product_name_id}`}
                       imageSrc={correspondingImage?.image}
                       imageAlt={correspondingImage?.alt}
                     />

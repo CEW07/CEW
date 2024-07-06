@@ -12,15 +12,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { mainProductImages } from "@/staticdata/static";
 const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
-  function test(id) {
-    console.log(id, "id here");
-  }
 
   return (
     <section className="">
       <div className=" ">
         <Link
-          onClick={() => test(keyId)}
           href={{
             pathname: href,
           }}
@@ -32,10 +28,11 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
                   src={`data:image/png;base64,${imageSrc}`}
                   alt={imageAlt}
                   fill
-                  className=" object-cover border-2 border-black  rounded-t-sm "
+                  className=" object-contain border-2 border-black  rounded-t-sm "
                 />
               ) : (
                 <Image
+                loading="lazy"
                   alt={imageAlt}
                   fill
                   src={imageSrc}

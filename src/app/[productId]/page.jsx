@@ -10,15 +10,7 @@ const ProductId = ({ params }) => {
   const { productId, query } = params;
   console.log(productData.subCategory);
   const [subCategoryAll, setSubCategoryAll] = useState();
-  // useEffect(() => {
-  //   axios(`http://localhost:3000/api/fetchSubCategoryTypeAll`)
-  //     .then((res) => {
-  //       setSubCategoryAll(res.data);
-  //       console.log(res.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
-  const [imageDataArray, setImageDataArray] = useState([])
+  
   useEffect(() => {
     const fetchSubCategory = async () =>{
 
@@ -33,19 +25,7 @@ const ProductId = ({ params }) => {
     fetchSubCategory();
   }, [])
   
-  useEffect(() => {
-    if(subCategoryAll){
-      console.log(subCategoryAll,'sub data here');
-      const dataArray = [];
-      subCategoryAll.filter((item)=>dataArray.push(item?.thumbnailImage?.data))
-      console.log(dataArray,'data arraya here');
-   const base64Images = dataArray.map(item => {
-     const uint8Array = new Uint8Array(item); // Assuming item.data is ArrayBuffer
-     return btoa(String.fromCharCode.apply(null, uint8Array));
-    });
-    setImageDataArray(base64Images);
-  }
-  }, [subCategoryAll])
+
   
   return (
     <div className="">
@@ -69,10 +49,10 @@ const ProductId = ({ params }) => {
                         )
                         .map((data,index) => (
                           <ProductCard
-                            keyId={data.product_type_id}
+                            keyId={index}
                             name={data.product_sub_types}
                             href={`/${productId}/${data.product_sub_types_id}`}
-                            imageSrc={imageDataArray[index]}
+                            imageSrc={data.images}
                             imageAlt={data.product_type_name_id}
                             params='subproductImage'
                           />
@@ -94,10 +74,10 @@ const ProductId = ({ params }) => {
                       )
                       .map((data,index) => (
                         <ProductCard
-                          keyId={data.product_type_id}
+                          keyId={index}
                           name={data.product_sub_types}
                           href={`/${productId}/${data.product_sub_types_id}`}
-                          imageSrc={imageDataArray[index]}
+                          imageSrc={data.images}
                           imageAlt={data.product_type_name_id}
                           params='subproductImage'
                         />

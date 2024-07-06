@@ -17,6 +17,7 @@ const ProductDetails = ({ params }) => {
         )
           .then((res) => {
             setProductDetails(res.data);
+            console.log(res.data,'image here');
           })
           .catch((err) => {
             console.log(err, "error while fetching product details");
@@ -29,26 +30,7 @@ const ProductDetails = ({ params }) => {
     fetchProductDetails();
   }, []);
 
-  function byteArrayToBase64(byteArray) {
-    let binary = '';
-    const bytes = new Uint8Array(byteArray);
-    const len = bytes.byteLength;
-    for (let i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return window.btoa(binary);
-  }
-  const [imageSrc, setImageSrc] = useState()
-  useEffect(() => {
-    if(productDetails){
-      async function fetchAndConvertImage() {
-        const base64String = byteArrayToBase64(productDetails[0]?.image?.data);
-        setImageSrc(`data:image/png;base64,${base64String}`);
-        console.log(productDetails);
-      }
-      fetchAndConvertImage();
-    }
-  }, [productDetails]);
+
   
   return (
     <div className="">
@@ -65,7 +47,7 @@ const ProductDetails = ({ params }) => {
           )}
         </div>
         {/* <span>Image</span> */}
-        {imageSrc && <img src={imageSrc}/>}
+        {productDetails && <img src={`data:image/png;base64,${productDetails[0]?.image}`}/>}
       </section>
       <section className=" flex flex-col gap-2 my-8">
         <span className="font-semibold">Construction:</span>
