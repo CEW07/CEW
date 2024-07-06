@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    MYSQL_HOST: "localhost",
-    MYSQL_PORT: "3306",
-    MYSQL_DATABASE: "cewengdb",
+    MYSQL_HOST: "viaduct.proxy.rlwy.net",
+    MYSQL_PORT: "38093",
+    MYSQL_DATABASE: "railway",
     MYSQL_USER: "root",
-    MYSQL_PASSWORD: "",
+    MYSQL_PASSWORD: "rWDLQfLcXISplKwZVSyKOFVayLzDawoP",
   },
   images: {
-    domains: ['static7.depositphotos.com'],
+    domains: ["static7.depositphotos.com"],
   },
 };
 
