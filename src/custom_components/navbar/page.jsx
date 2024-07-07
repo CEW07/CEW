@@ -84,12 +84,18 @@ const Navbar = () => {
           }
         )
           .then((res) => {
-            setSearchData(res.data)
+            // setSearchData(res.data)
+            if(res?.data?.message){
+              setSearchData(['No products available with this name'])
+            }
+            else{
+              setSearchData(res.data)
+            }
             console.log(res,'search response here');
           })
           .catch((err) => {
             setSearchData(['No products available with this name'])
-            // console.log(err, "error while fetching product details");
+            console.log(err, "error while fetching product details");
           });
       } catch (err) {
         console.log("Error while fetching data: ", err);
@@ -192,7 +198,7 @@ const Navbar = () => {
           </div>
           {isSearchFocus && (
             <section className="bg-gray-200 p-4 mt-0 w-[100%] lg:rounded-md h-[auto]">
-              {searchData && (searchData.map((item,index)=> (<span className="flex flex-col" key={index}>{item}</span>)))}
+              {searchData && (searchData.map((item,index)=> (<Link href={`${item?.post_url}`} className="flex flex-col" key={index}>{item?.product_subTypes_name ? item.product_subTypes_name : item}</Link>)))}
             </section>
           )}
         </div>

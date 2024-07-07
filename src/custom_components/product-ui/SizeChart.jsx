@@ -9,35 +9,35 @@ import WP from "/public/assests/images/SizeChart/WP.png";
 
 const SizeChart = ({sizeChartDetails}) => {
   const product_BP_bar = sizeChartDetails[0]['product_BP_bar']
-  sizeChartDetails.forEach((details) => {
-    const {
-      'product_BP_bar': product_BP_bar,
-      'product_BP_psi': product_BP_psi,
-      'product_BR/r_inch': product_BR_r_inch,
-      'product_BR/r_mm': product_BR_r_mm,
-      'product_DN': product_DN,
-      'product_ID_inch': product_ID_inch,
-      'product_ID_mm': product_ID_mm,
-      'product_Max_BP_@_23°C': product_Max_BP_at_23C,
-      'product_Max_WP_@_23°C': product_Max_WP_at_23C,
-      'product_Max_WP_bar_@_27°C': product_Max_WP_bar_at_27C,
-      'product_Min_BP_bar_@_27°C': product_Min_BP_bar_at_27C,
-      'product_OD_inch': product_OD_inch,
-      'product_OD_mm': product_OD_mm,
-      'product_WP_bar': product_WP_bar,
-      'product_WP_psi': product_WP_psi,
-      'product_WT': product_WT,
-      'product_W_g/m': product_W_g_per_m,
-      'product_W_kgm': product_W_kgm,
-      'product_dash_size': product_dash_size,
-      'product_item code': product_item_code,
-      'product_sub_types_id': product_sub_types_id,
-      'product_v': product_v,
-      'product_vacuum_hg_@_70°F/27°C_mm': product_vacuum_hg_at_70F_27C_mm
-    } = details;
+  // sizeChartDetails.forEach((details) => {
+  //   const {
+  //     'product_BP_bar': product_BP_bar,
+  //     'product_BP_psi': product_BP_psi,
+  //     'product_BR/r_inch': product_BR_r_inch,
+  //     'product_BR/r_mm': product_BR_r_mm,
+  //     'product_DN': product_DN,
+  //     'product_ID_inch': product_ID_inch,
+  //     'product_ID_mm': product_ID_mm,
+  //     'product_Max_BP_@_23°C': product_Max_BP_at_23C,
+  //     'product_Max_WP_@_23°C': product_Max_WP_at_23C,
+  //     'product_Max_WP_bar_@_27°C': product_Max_WP_bar_at_27C,
+  //     'product_Min_BP_bar_@_27°C': product_Min_BP_bar_at_27C,
+  //     'product_OD_inch': product_OD_inch,
+  //     'product_OD_mm': product_OD_mm,
+  //     'product_WP_bar': product_WP_bar,
+  //     'product_WP_psi': product_WP_psi,
+  //     'product_WT': product_WT,
+  //     'product_W_g/m': product_W_g_per_m,
+  //     'product_W_kgm': product_W_kgm,
+  //     'product_dash_size': product_dash_size,
+  //     'product_item code': product_item_code,
+  //     'product_sub_types_id': product_sub_types_id,
+  //     'product_v': product_v,
+  //     'product_vacuum_hg_@_70°F/27°C_mm': product_vacuum_hg_at_70F_27C_mm
+  //   } = details;
   
-    // console.log(product_BP_bar, product_BP_psi, product_BR_r_inch, product_BR_r_mm, product_DN, product_ID_inch, product_ID_mm, product_Max_BP_at_23C, product_Max_WP_at_23C, product_Max_WP_bar_at_27C, product_Min_BP_bar_at_27C, product_OD_inch, product_OD_mm, product_WP_bar, product_WP_psi, product_WT, product_W_g_per_m, product_W_kgm, product_dash_size, product_item_code, product_sub_types_id, product_v, product_vacuum_hg_at_70F_27C_mm);
-  });
+  //   // console.log(product_BP_bar, product_BP_psi, product_BR_r_inch, product_BR_r_mm, product_DN, product_ID_inch, product_ID_mm, product_Max_BP_at_23C, product_Max_WP_at_23C, product_Max_WP_bar_at_27C, product_Min_BP_bar_at_27C, product_OD_inch, product_OD_mm, product_WP_bar, product_WP_psi, product_WT, product_W_g_per_m, product_W_kgm, product_dash_size, product_item_code, product_sub_types_id, product_v, product_vacuum_hg_at_70F_27C_mm);
+  // });
   
   return (
     <div className="max">

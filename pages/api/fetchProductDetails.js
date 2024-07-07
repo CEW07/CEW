@@ -36,18 +36,18 @@ export default async function fetchMainCategory(req, res) {
       return res.status(400).json({ error: "Search text is required" });
     }
     try {
-      const sizeChartQuery = "SELECT product_sub_types_id FROM productdetails WHERE product_sub_types_id LIKE ? LIMIT 10";
       const searchPattern = `%${id}%`; // Add wildcards to search for partial matches
-      const sizeChartResults = await queryPromise(sizeChartQuery, [searchPattern]);
+
+      const searchProductQuery = "SELECT product_subTypes_name, post_url FROM productdetails WHERE product_subTypes_name LIKE ? LIMIT 10";
+      const searchProductResult = await queryPromise(searchProductQuery, [searchPattern]);
+      // const productSubTypeIds = searchProductResult.map(result => result.product_sub_types_id);
+
+      if (searchProductResult.length === 0) {
+        return res.status(200).json({ message: "No matching sub product found" });
+      } 
+      // console.log('result',searchProductResult);
   
-      if (sizeChartResults.length === 0) {
-        return res.status(404).json({ error: "No matching product sub type IDs found" });
-      }
-  
-      // Extracting only the product_sub_types_id values from the results
-      const productSubTypeIds = sizeChartResults.map(result => result.product_sub_types_id);
-  
-      res.status(200).json(productSubTypeIds);
+      res.status(200).json(searchProductResult);
       // console.log(productSubTypeIds);
     } catch (err) {
       console.error("Error executing query", err);
