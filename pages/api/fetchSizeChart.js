@@ -15,7 +15,7 @@ export default async function fetchMainCategory(req, res) {
     const sizeChartArray = await queryPromise(sizeChartQuery, [id]);
 
     if (sizeChartArray.length === 0) {
-      return res.status(404).json({ error: "sizeChartArray not found", });
+      return res.status(200).json({ error: "sizeChartArray table doesn't exist for this product", });
     }
     
     res.status(200).json(sizeChartArray);

@@ -8,7 +8,6 @@ import OD from "/public/assests/images/SizeChart/OD.png";
 import WP from "/public/assests/images/SizeChart/WP.png";
 
 const SizeChart = ({sizeChartDetails}) => {
-  const product_BP_bar = sizeChartDetails[0]['product_BP_bar']
   // sizeChartDetails.forEach((details) => {
   //   const {
   //     'product_BP_bar': product_BP_bar,
@@ -101,20 +100,20 @@ const SizeChart = ({sizeChartDetails}) => {
       <tbody>
         {sizeChartDetails.map((details, index) => (
           <tr key={index} className="text-[12px] font-medium">
-            <td className="px-4 py-2 border">{details['product_item code']}</td>
-            <td className="px-4 py-2 border">{details['product_dash_size']}</td>
-            <td className="px-4 py-2 border">{details['product_DN']}</td>
-            <td className="px-4 py-2 border">{details['product_ID_inch']}</td>
-            <td className="px-4 py-2 border">{details['product_ID_mm']}</td>
-            <td className="px-4 py-2 border">{details['product_OD_inch']}</td>
-            <td className="px-4 py-2 border">{details['product_OD_mm']}</td>
-            <td className="px-4 py-2 border">{details['product_WP_psi']}</td>
-            <td className="px-4 py-2 border">{details['product_WP_bar']}</td>
-            <td className="px-4 py-2 border">{details['product_BP_psi']}</td>
-            <td className="px-4 py-2 border">{details['product_BP_bar']}</td>
-            <td className="px-4 py-2 border">{details['product_BR/r_inch']}</td>
-            <td className="px-4 py-2 border">{details['product_BR/r_mm']}</td>
-            <td className="px-4 py-2 border">{details['product_W_kgm']}</td>
+            <td className="px-4 py-2 text-center border">{details['product_item code'] ? details['product_item code']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_dash_size'] ? details['product_dash_size']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_DN'] ? details['product_DN']    :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_ID_inch'] ? details['product_ID_inch']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_ID_mm'] ? details['product_ID_mm']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_OD_inch'] ? details['product_OD_inch']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_OD_mm'] ? details['product_OD_mm']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_WP_psi'] ? details['product_WP_psi']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_WP_bar'] ? details['product_WP_bar']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_BP_psi'] ? details['product_BP_psi']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_BP_bar'] ? details['product_BP_bar']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_BR/r_inch'] ?details['product_BR/r_inch']    :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_BR/r_mm'] ? details['product_BR/r_mm']   :"--"}</td>
+            <td className="px-4 py-2 text-center border">{details['product_W_kgm'] ?  details['product_W_kgm']  :"--"}</td>
           </tr>
         ))}
       </tbody>
