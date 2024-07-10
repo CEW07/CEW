@@ -5,56 +5,104 @@ const About = () => {
     <main>
       <section>
         <div className="bg-offwhite">
-          <div className="grid lg:grid-cols-2  gap-10 mx-5 md:mx-20 xl:mx-32  ">
-            <div className="max-lg:order-2 ">
+          <div className="grid lg:grid-cols-2 mt-16 gap-10 mx-5 md:mx-20 xl:mx-32  pb-20 ">
+            <div className="relative aspect-video max-lg:order-2 ">
               <Image
-                height={800}
-                width={800}
-                src="https://static7.depositphotos.com/1010683/702/i/450/depositphotos_7025209-stock-photo-cement-factory-at-night.jpg"
+                fill
+                src="/assests/images/OurStory.jpg"
+                className=" object-cover shadow-lg rounded-md w-full mt-2 h-full "
+                alt="Hero Background"
+              />
+            </div>
+            <div className="flex flex-col justify-center lg:max-xl:my-3">
+              <h1 className="text-3xl font-semibold text-newgold">Our story</h1>
+              <p className="max-galaxyFold:text-xs max-sm:text-sm mt-6">
+                Abdul Majeed Khan established Crown Engineering Works in 1979
+                with the intention of offering premium hydraulic hose assemblies
+                and high-pressure hose fittings to diverse sectors. At the time
+                of its establishment, it was one of several companies in Mumbai
+                that assembled and offered high-pressure hydraulic hoses. Over
+                the years, Crown Engineering Works has earned a reputation for
+                quality and client satisfaction by working with large
+                corporations and providing materials to a wide range of
+                industries. Our commitment to high-quality products and
+                exceptional customer service has made us a trusted and respected
+                name in the engineering business.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full ">
+            <Image
+              src="/assests/icons/WaveTop.png"
+              alt="waves"
+              width={500}
+              height={400}
+              className="w-full -mb-[4px]"
+            />
+          </div>
+          <section className="bg-newgold pt-20 pb-20">
+            <h1 className="text-3xl text-center text-white font-semibold ">
+              About us
+            </h1>
+            <div className="flex flex-col justify-center items-center text-white">
+              <p className="text-lg mt-3 text-center max-w-6xl">
+                Crown Engineering Works, an ISO 9001:2015 certified company,
+                specializes in manufacturing hose assemblies and fluid
+                connectors, including FDA-approved, Hydraulic, Stainless Steel
+                Flexible, Thermoplastic, PTFE, Industrial, Composite, Silicone,
+                and PVC hoses. Our commitment to upholding the highest standards
+                guarantees that every product meets stringent quality standards
+              </p>
+              <p className="text-lg mt-3 text-center max-w-6xl">
+                We have formed trusted partnerships with key corporations in the
+                pharmaceutical, food, defense, oil, industrial manufacturing,
+                and renewable energy sectors. Our success is built on strong
+                relationships and a deep understanding of our clients' needs,
+                allowing us to provide tailored solutions. Crown Engineering
+                Works is more than just a supplier; we are partners in our
+                clients' success, dedicated to providing businesses globally
+                with persistent, high-performance solutions they can trust.
+              </p>
+            </div>
+          </section>
+          <div className="w-full ">
+            <Image
+              src="/assests/icons/WaveBottom.png"
+              alt="waves"
+              width={500}
+              height={400}
+              className="w-full"
+            />
+          </div>
+
+          <div className="grid lg:grid-cols-2 mt-16 gap-10 mx-5 md:mx-20 xl:mx-32 pb-20 ">
+            <div className="relative aspect-video ">
+              <Image
+                fill
+                src="/assests/images/OurStory.jpg"
                 className=" object-cover shadow-lg rounded-md w-full mt-2 h-full "
                 alt="Hero Background"
               />
             </div>
             <div className="flex flex-col justify-center lg:max-xl:my-3">
               <h1 className="text-3xl font-semibold text-newgold">
-                Our Mission
-              </h1>
-              <p className="max-galaxyFold:text-xs max-sm:text-sm mt-6">
-                Our mission is to deliver holistic fluid solutions, encompassing
-                hose assembly, flexible solutions, and advanced hydraulic
-                systems. Committed to precision, innovation, and client
-                satisfaction, we strive to exceed expectations by providing
-                comprehensive services and superior products. Our dedication to
-                quality extends to every facet of fluid dynamics, ensuring
-                reliability and efficiency across diverse applications.
-              </p>
-            </div>
-          </div>
-          <div className="grid lg:grid-cols-2 mt-16 gap-10 mx-5 md:mx-20 xl:mx-32 pb-20 ">
-            <div className="flex flex-col justify-center lg:max-xl:my-3">
-              <h1 className="text-3xl font-semibold text-newgold">
-                {" "}
                 Our Vision
               </h1>
               <p className="max-galaxyFold:text-xs max-sm:text-sm mt-6">
-                At Crown Engineering Works, our vision is to stand as a
-                trailblazer in comprehensive Flexible solutions. We aim to
-                redefine industry norms by setting new standards in hose
-                assembly, flexible solutions, and hydraulic systems. Through
-                cutting-edge products and unparalleled services, we aspire to
-                make a lasting impact on global industries, fostering
-                sustainability, and engineering excellence for generations to
-                come.
+                To lead the global fluid conveyance industry with innovative,
+                high-quality hose solutions, fostering growth and reliability
+                worldwide
               </p>
-            </div>
-            <div className="w-full h-full ">
-              <Image
-                height={800}
-                width={800}
-                src="https://static7.depositphotos.com/1010683/702/i/450/depositphotos_7025209-stock-photo-cement-factory-at-night.jpg"
-                className=" object-cover shadow-lg rounded-md w-full h-full "
-                alt="Hero Background"
-              />
+              <h1 className="text-3xl font-semibold text-newgold mt-6">
+                Our Mission
+              </h1>
+              <p className="max-galaxyFold:text-xs max-sm:text-sm mt-2">
+                Our mission is to manufacture and deliver premium hose products
+                globally, leveraging advanced technology and prioritizing
+                customer-focused service to exceed expectations and drive
+                industry standards.
+              </p>
             </div>
           </div>
         </div>
@@ -66,14 +114,14 @@ const About = () => {
           alt="Hero Background"
         />
       </section>
-      <section>
+      <div>
         <h1 className="text-newgold text-center  text-3xl font-semibold">
           Why Choose us
         </h1>
         <div>
           <h1>Decades of Expertise</h1>
         </div>
-      </section>
+      </div>
     </main>
   );
 };

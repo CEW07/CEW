@@ -151,66 +151,51 @@ export const industries = [
 export const services = [
   {
     name: "Hose Assembly",
-    detail:
-      "Our expertise lies in the precise assembly of hoses, ensuring secure and efficient connections. From hydraulic to industrial hoses, we tailor solutions to meet your specific requirements.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
+    subPoint1: "Hydraulic Hose Assembly",
+    subPoint2: "FDA-Approved Hose Assembly",
+    subPoint3: "PTFE Hose Assembly",
+    subPoint4: "Stainless Steel Flexible Hose Assembly",
+    subPoint5: "Silicone Hose Assembly",
+    subPoint6: "Composite Hose Assembly",
   },
   {
     name: "Fittings and Flange Manufacturing",
-    detail:
-      "Crown Engineering Works boasts the capability to manufacture fittings and flanges customized to your unique specifications. Our skilled engineers utilize advanced machining techniques and quality materials for durable and reliable results.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
+    subPoint1: "Hydraulic Hose Assembly",
+    subPoint2: "Stainless Steel Hose Fittings",
+    subPoint3: "PTFE Hose Assembly",
+    subPoint4: "Camlock Couplings",
+    subPoint5: "Quick Release Couplings",
+    subPoint6: "Flange Manufacturing",
+  },
+  {
+    name: "Custom Solutions",
+    subPoint1: "Tailored solutions to meet specific industry needs",
+    subPoint2: "Customized hose assemblies and fittings",
+  },
+  {
+    name: "Technical Support",
+    subPoint1: "Expert technical guidance",
+    subPoint2: "Assistance with hose selection and installation",
+  },
+  {
+    name: "Logistics and Global Reach",
+    subPoint1: "Efficient logistics network",
+    subPoint2: "Global export capabilities to various countries",
   },
   {
     name: "High-End Hose Supply",
-    detail:
-      "As a leading provider of hydraulic solutions, we offer access to a wide range of high-end hoses. Whether for industrial, commercial, or specialized applications, our sourced hoses meet the highest standards of quality and performance.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
-  },
-  {
-    name: "Hydraulic Hoses and PTFE Hoses",
-    detail:
-      "Explore our comprehensive range of hydraulic hoses designed to withstand high pressure and extreme conditions. Additionally, our PTFE hoses are ideal for applications requiring excellent chemical resistance and temperature tolerance.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
-  },
-  {
-    name: "Fluid Connectors",
-    detail:
-      "Crown Engineering Works provides a suite of fluid connectors crucial to maintaining reliable and efficient fluid transfer in various industries. Our connectors are designed to meet industry-specific needs, ensuring seamless integration.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
-  },
-  {
-    name: "Customized Solutions",
-    detail:
-      "Recognizing that every client has unique requirements, our team excels in providing customized fluid solutions. From hose assembly configurations to tailored fittings, we collaborate closely to meet your specific needs.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
+    subPoint1: "Wide range of high-quality hoses",
+    subPoint2: "Suitable for industrial and specialized applications",
   },
   {
     name: "Quality Assurance",
-    detail:
-      "Quality is at the core of everything we do. Our stringent quality control processes, adherence to industry compliance, and certifications ensure that every product leaving our facilities meets or exceeds industry benchmarks.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
+    subPoint1: "Rigorous testing and inspection procedures",
+    subPoint2: "Compliance with industry standards",
   },
   {
-    name: "Global Distribution",
-    detail:
-      "With a global reach, Crown Engineering Works caters to industries worldwide. Our efficient distribution network ensures timely delivery of our products, providing clients across the globe with access to top-quality flexible solutions.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
-  },
-  {
-    name: "Consultation and Technical Support",
-    detail:
-      "Our team of experts is ready to provide consultation and technical support. Whether you're looking for advice on selecting the right fluid solution or need assistance with troubleshooting, we are here to help.",
-    image: "/hero-bg.jpeg",
-    alt: "Loading",
+    name: "Customer Service",
+    subPoint1: "Dedicated customer support",
+    subPoint2: "Responsive to customer inquiries and needs",
   },
 ];
 
@@ -259,6 +244,78 @@ export const products = [
     secondType: "Product 2",
     thirdType: "Product 3",
     fourthType: "Product 4",
+  },
+];
+
+export const Policies = [
+  {
+    name: "Quality policy:",
+    detail:
+      "At Crown Engineering Works, we are committed to delivering products and services that consistently meet or exceed our customers' expectations. We achieve this through:",
+    subPoint1: "Conformance to ISO 9001:2015 standards.",
+    subPoint2:
+      "Continuous improvement of our processes, products, and services.",
+    subPoint3:
+      "Building strong partnerships with our suppliers to maintain high quality standards.",
+    subPoint4:
+      "Providing training and development opportunities to our workforce.",
+  },
+  {
+    name: "Safety policy:",
+    detail:
+      "Safety is a top priority at Crown Engineering Works. We are dedicated to:",
+    subPoint1:
+      "Providing a safe work environment for all employees, contractors, and visitors.",
+    subPoint2:
+      "Ensuring compliance with health and safety regulations and standards.",
+    subPoint3:
+      "Conducting regular safety training and drills to prevent workplace incidents.",
+    subPoint4:
+      "Promoting a safety culture where every team member takes responsibility for their own safety and the safety of others.",
+  },
+  {
+    name: "Customer satisfaction policy:",
+    detail:
+      "Our success depends on the satisfaction of our customers. We are committed to:",
+    subPoint1:
+      "Understanding and meeting client requirements and expectations.",
+
+    subPoint2: "Improving our products and services based on client input.",
+
+    subPoint3: "Providing prompt and effective client support and service.",
+
+    subPoint4:
+      "Client complaints and issues are resolved immediately and professionally.",
+  },
+];
+
+export const testing = [
+  {
+    name: "Pressure Testing",
+    subPoint:
+      "Ensuring hoses withstand designated pressures without leakage or failure.",
+  },
+  {
+    name: "Burst PressureTesting",
+    subPoint: "Determining the maximum pressure hoses can handle safely.",
+  },
+  {
+    name: " Leakage Testing",
+    subPoint: "Guaranteeing leak-free performance under specified conditions.",
+  },
+  {
+    name: "Dimensional Inspection",
+    subPoint:
+      "Verifying that all products meet precise measurements and specifications.",
+  },
+  {
+    name: "Chemical Resistance Testing",
+    subPoint: "Testing resistance and compatibility with various chemicals.",
+  },
+  {
+    name: "Bend Radius Testing",
+    subPoint:
+      "Evaluating the flexibility of hoses to ensure they can be bent to specified radii without compromising their structural integrity.",
   },
 ];
 
