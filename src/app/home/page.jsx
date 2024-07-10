@@ -1,25 +1,13 @@
 "use client";
-import HeroMain from "@/app/custom_components/home-ui/hero-main/page";
-import HeroSubMain from "@/app/custom_components/home-ui/hero-submain/page";
 import React, { useEffect, useState } from "react";
 import { useData } from "@/app/contextapi/contextData";
-import ProductCard from "@/app/custom_components/product-ui/ProductCard";
-import { mainProductImages } from "@/app/staticdata/static";
-import Image from "next/image";
-import { services } from "@/app/staticdata/static";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import ProductCard from "@/custom_components/product-ui/ProductCard";
+import { mainProductImages } from "@/staticdata/static";
+import HeroMain from "@/custom_components/home-ui/hero-main/page";
+import HeroSubMain from "@/custom_components/home-ui/hero-submain/page";
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
-  console.log(productData, "contextt data here");
-  function testFunc() {
-    console.log(productData.productCategories);
-  }
   return (
     <main className="w-full relative">
       <section className="w-full relative">
@@ -73,7 +61,7 @@ const HomeContent = () => {
                       key={item.product_id}
                       keyId={item.product_id}
                       name={item.product_name}
-                      href={`/pages/products/${item.product_id}`}
+                      href={`/${item.product_name_id}`}
                       imageSrc={correspondingImage?.image}
                       imageAlt={correspondingImage?.alt}
                     />

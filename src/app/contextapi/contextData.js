@@ -30,7 +30,7 @@ export default function ContextData({ children }) {
             console.log(res.data, "response");
           })
           .catch((err) => console.log(err));
-        // await fetch("http://localhost:3000/api/fetchMainCategory").then(
+        // await fetch("https://crownengineerings/api/fetchMainCategory").then(
         //   (response) => console.log(response, "main response")
         // );
         // .then((data) => setProductData(data));

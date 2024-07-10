@@ -1,5 +1,5 @@
 import React from "react";
-import { services } from "@/app/staticdata/static";
+import { services } from "@/staticdata/static";
 import Image from "next/image";
 import {
   Accordion,

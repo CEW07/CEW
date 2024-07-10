@@ -1,5 +1,5 @@
 import React from "react";
-import { industries } from "@/app/staticdata/static";
+import { industries } from "@/staticdata/static";
 import Image from "next/image";
 const Industries = () => {
   return (

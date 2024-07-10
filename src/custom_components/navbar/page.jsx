@@ -4,17 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// import WhatsApp from '/assests/icons/whatsapp-icon.svg'
-import { useData } from "@/app/contextapi/contextData";
-import ProductCard from "../product-ui/ProductCard";
-import ProductNav from "../product-ui/ProductNav";
+import axios from "axios";
 import { usePathname } from "next/navigation";
 const Navbar = () => {
   const [isOpenMenu, setisOpenMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
 
-  const { productData } = useData();
   useEffect(() => {
     function handleScroll() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -37,13 +33,12 @@ const Navbar = () => {
 
   const Links = [
     { name: "Home", href: "/", index: "1" },
-    { name: "Products", href: "/pages/products", index: "2" },
-    { name: "Services", href: "/pages/services", index: "3" },
-    { name: "Industries", href: "/pages/industries", index: "4" },
-    { name: "Where to Buy", href: "/pages/industries", index: "5" },
-    { name: "Quality", href: "/pages/quality", index: "6" },
-    { name: "About Us", href: "/pages/about", index: "7" },
-    { name: "Contact", href: "/pages/contact", index: "8" },
+    { name: "Products", href: "/products/", index: "2" },
+    { name: "Services", href: "/services", index: "3" },
+    { name: "Industries", href: "/industries", index: "4" },
+    { name: "Quality", href: "/quality", index: "5" },
+    { name: "About Us", href: "/about", index: "6" },
+    { name: "Contact", href: "/contact", index: "7" },
   ];
 
   const pathname = usePathname();
@@ -52,6 +47,60 @@ const Navbar = () => {
     right: isOpenMenu ? 0 : "-100%",
     transition: "right 0.5s ease-in-out",
   };
+  const [isSearchFocus, setIsSearchFocus] = useState(false);
+  const [searchData, setSearchData] = useState(['Search products here'])
+  const handleInputFocus = () => {
+    setIsSearchFocus(true);
+    console.log('focus');
+  };
+
+  // search filter with debouncing
+  let timeoutFunc;
+
+  const handleSearchInput = (e) => {
+    const text = e.target.value;
+    console.log(text);
+    clearTimeout(timeoutFunc);
+    if(text.length > 0){
+      timeoutFunc = setTimeout(() => {
+        fetchSearchQuery(text);
+      }, 1100);
+    }
+
+    if(text.length === 0){
+      setSearchData(['Search products here'])
+    }
+  };
+
+ 
+    const fetchSearchQuery = async (searchText) => {
+      try {
+        await axios(
+          `http://localhost:3000/api/fetchProductDetails`,{
+            params:{
+              id:searchText ,
+              data:'search'
+            }
+          }
+        )
+          .then((res) => {
+            // setSearchData(res.data)
+            if(res?.data?.message){
+              setSearchData(['No products available with this name'])
+            }
+            else{
+              setSearchData(res.data)
+            }
+            console.log(res,'search response here');
+          })
+          .catch((err) => {
+            setSearchData(['No products available with this name'])
+            console.log(err, "error while fetching product details");
+          });
+      } catch (err) {
+        console.log("Error while fetching data: ", err);
+      }
+    };
   return (
     <main
       className={`w-full sticky top-0  z-20 bg-offwhite transition-all duration-500 ${
@@ -130,7 +179,10 @@ const Navbar = () => {
               type="text"
               className=" lg:w-[100%] bg-transparent p-2 mr-2 lg:rounded-md focus:outline-none lg:flex hidden  "
               placeholder="Search Products"
+              onFocus={handleInputFocus}
+              onChange={handleSearchInput}
             ></input>
+            
             <div
               className="sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:bg-newgold  cursor-pointer rounded-r-md "
               onClick={() => toggleSearch()}
@@ -144,6 +196,11 @@ const Navbar = () => {
               <Menu className=" h-6 w-6 sm:h-8 sm:w-8 " />
             </div>
           </div>
+          {isSearchFocus && (
+            <section className="bg-gray-200 p-4 mt-0 w-[100%] lg:rounded-md h-[auto]">
+              {searchData && (searchData.map((item,index)=> (<Link href={`${item?.post_url}`} className="flex flex-col" key={index}>{item?.product_subTypes_name ? item.product_subTypes_name : item}</Link>)))}
+            </section>
+          )}
         </div>
       </section>
 
@@ -154,6 +211,7 @@ const Navbar = () => {
         }`}
         placeholder="Search Products"
       ></input>
+       
       <div
         className={`lg:hidden w-[70vw] h-[100vh] bg-offwhite flex flex-col items-center gap-10 sm:gap-8 py-5 transition-all duration-500`}
         style={styles}
@@ -169,20 +227,11 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
+
+
     </main>
   );
 };
 
 export default Navbar;
 
-// item.name === "Products" ? (
-//   <ProductNav key={item.index} />
-// ) : (
-//   <Link
-//     href={item.href}
-//     className="hover:text-newgold text-center text-[1rem] mx-2 "
-//     key={item.index}
-//   >
-//     {item.name}
-//   </Link>
-// )
