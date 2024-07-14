@@ -5,10 +5,10 @@ const Industries = () => {
   return (
     <main className="py-6">
       <div className="flex justify-center items-center flex-col xl:mx-32 max-sm:mx-5 sm:mx-10">
-        <h1 className="text-center font-semibold xl:text-4xl text-3xl text-newgold">
+        <h1 className="text-center font-semibold text-xl smallest:text-3xl md:text-4xl lg:text-5xl text-newgold">
           Industries We Serve
         </h1>
-        <p className="max-galaxyFold:text-xs max-sm:text-sm text-lg text-center mt-6">
+        <p className="max-w-6xl text-xs smallest:text-sm  lg:text-base text-center mt-6">
           Crown Engineering Works is a versatile provider of precision flexible
           solutions, catering to a diverse array of industries. Our commitment
           to quality, innovation, and client satisfaction positions us as a
@@ -22,7 +22,7 @@ const Industries = () => {
           {industries?.map((industry, index) => (
             <div key={index} className="relative">
               <div className="absolute inset-0 flex items-center justify-center">
-                <h1 className="text-offwhite flex text-center justify-center max-small:text-lg  text-base lg:text-xl z-10 items-center px-4">
+                <h1 className="text-offwhite flex text-center justify-center max-smallest:text-sm  max-small:text-lg  text-base lg:text-xl z-10 items-center px-4">
                   {industry.name}
                 </h1>
               </div>

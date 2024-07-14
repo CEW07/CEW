@@ -8,16 +8,16 @@ import Image from "next/image";
 const Products = () => {
   // Destructuring Context Data from contextData.js
   const { productData, loading } = useData();
-  // function testFunc() 
+  // function testFunc()
 
   // console.log(productData, "data here");
   //
   return (
-    <div className="my-10  ">
-      <h1 className="text-3xl font-semibold text-newgold">Our Products</h1>
+    <div className="">
+      <h1 className="text-3xl my-5 font-semibold text-newgold">Our Products</h1>
       {/* <button onClick={()=>testFunc()} >test</button> */}
       {/* <ProductGrid productData={productData} /> */}
-      <div className="lg:pt-10 pt-10 grid mainProducts:grid-cols-2 xl:grid-cols-3 gap-6  ">
+      <div className=" pt-10 grid sm:max-md:grid-cols-2  mainProducts:grid-cols-2 xl:grid-cols-3 gap-6  ">
         {loading
           ? "loading..."
           : productData.mainCategory.map((item, index) => {
@@ -30,7 +30,7 @@ const Products = () => {
                   name={item.product_name}
                   href={`/${item.product_name_id}`}
                   imageSrc={correspondingImage?.image}
-                  imageAlt={correspondingImage?.alt}  
+                  imageAlt={correspondingImage?.alt}
                 />
               );
             })}

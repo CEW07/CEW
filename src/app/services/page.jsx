@@ -10,7 +10,7 @@ import {
 const Services = () => {
   return (
     <section className="">
-      <div className="relative w-full  lg:h-[100vh] overflow-hidden">
+      <div className="relative w-full h-[100vh] overflow-hidden">
         <Image
           fill
           src="/assests/images/service.jpg"
@@ -18,11 +18,11 @@ const Services = () => {
           alt="Hero Background"
         />
         <div className="absolute inset-0 bg-black opacity-50  "></div>
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center  text-white ">
-          <h2 className="text-2xl lg:text-6xl font-bold">
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center  text-white sm:px-10 px-5">
+          <h2 className="text-xl smallest:text-3xl md:text-4xl lg:text-5xl font-bold">
             Services at Crown Engineering Works
           </h2>
-          <p className="max-w-6xl text-base mt-6">
+          <p className="max-w-6xl text-xs smallest:text-sm  lg:text-base mt-6">
             At Crown Engineering Works, we pride ourselves on understanding and
             meeting your unique fluid conveyance needs. Our services are
             designed with you in mind, from custom hose assemblies and fittings
@@ -50,7 +50,7 @@ const Services = () => {
                 >
                   <AccordionItem value={service.name}>
                     <AccordionTrigger className="hover:no-underline">
-                      <h1 className="text-newgold  max-galaxyFold:text-base  text-lg  z-10 items-center px-4">
+                      <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  px-4">
                         {service.name}
                       </h1>
                     </AccordionTrigger>

@@ -41,7 +41,7 @@ const SidebarProduct = ({ productData }) => {
   }, [subCategory, mainCategory]);
 
   const handleFilter = useRef(false);
-  async function handleMainDropdown(params,id) {
+  async function handleMainDropdown(params, id) {
     const selectedProduct = productsData.mainCategory.find(
       (product) => product.product_id === id
     );
@@ -90,8 +90,8 @@ const SidebarProduct = ({ productData }) => {
     }
   }
   // function for dropdown which doesn't have subType
-  async function handleSubTypeDropDown(params,id) {
-    console.log(params,id,'id here');
+  async function handleSubTypeDropDown(params, id) {
+    console.log(params, id, "id here");
     const selectedProduct = productsData.subCategory.find(
       (product) => product.product_type_id === id
     );
@@ -141,7 +141,7 @@ const SidebarProduct = ({ productData }) => {
   useEffect(() => {
     console.log(expandedProductIds);
     console.log(productsData);
-  }, [expandedProductIds,productsData]);
+  }, [expandedProductIds, productsData]);
 
   return (
     <div>
@@ -156,13 +156,21 @@ const SidebarProduct = ({ productData }) => {
                 collapsible
                 className="py-2 px-10"
                 key={item.product_id}
-                onClick={item.product_types === 'FALSE' ? () => handleMainDropdown(item.product_name_id, item.product_id) : undefined}
+                onClick={
+                  item.product_types === "FALSE"
+                    ? () =>
+                        handleMainDropdown(
+                          item.product_name_id,
+                          item.product_id
+                        )
+                    : undefined
+                }
               >
                 <AccordionItem
                   value={`item-${item.product_id}`}
                   key={item.product_id}
                 >
-                  <AccordionTrigger  className="hover:no-underline text-newgold">
+                  <AccordionTrigger className="hover:no-underline text-newgold text-start">
                     {item.product_name}
                   </AccordionTrigger>
                   <AccordionContent>
@@ -189,7 +197,10 @@ const SidebarProduct = ({ productData }) => {
                               }}
                               className="bg-newgold "
                               onClick={() =>
-                                handleSubTypeDropDown(type.product_name_id,type.product_type_id)
+                                handleSubTypeDropDown(
+                                  type.product_name_id,
+                                  type.product_type_id
+                                )
                               }
                             >
                               {expandedProductIds.includes(type.product_type_id)
@@ -232,10 +243,6 @@ const SidebarProduct = ({ productData }) => {
                             ))}
                         </React.Fragment>
                       ))}
-
-
-
-
 
                     {productsData.subCategory.filter(
                       (type) => type.product_id === item.product_id

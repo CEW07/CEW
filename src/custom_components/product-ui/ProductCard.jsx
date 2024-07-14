@@ -1,47 +1,40 @@
-import React, { useState, useEffect } from "react";
-// import { Button } from "@/components/ui/button";
-// import {
-//   Card,
-//   CardContent,
-//   CardDescription,
-//   CardFooter,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { mainProductImages } from "@/staticdata/static";
-const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
 
+const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
   return (
-    <section className="">
-      <div className=" ">
+    <section className="h-full">
+      <div className="h-full">
         <Link
           href={{
             pathname: href,
           }}
         >
-          <div className=" hover:shadow-xl" key={keyId}>
+          <div
+            className="hover:shadow-xl h-full flex flex-col border-2 border-newgold rounded-md"
+            key={keyId}
+          >
             <div className="relative aspect-video">
               {params === "subproductImage" ? (
                 <Image
                   src={`data:image/png;base64,${imageSrc}`}
                   alt={imageAlt}
                   fill
-                  className=" object-contain border-2 border-black  rounded-t-sm "
+                  className="object-contain "
                 />
               ) : (
                 <Image
-                loading="lazy"
+                  loading="lazy"
                   alt={imageAlt}
                   fill
                   src={imageSrc}
-                  className=" object-cover border-2 border-black  rounded-t-sm "
+                  className="object-cover "
                 />
               )}
             </div>
-            <div>
-              <button className="w-full text-white px-4 py-2 rounded-b-sm bg-newgold  hover:bg-white hover:text-newgold hover:border-b-2 hover:border-r-2 hover:border-l-2 border-newgold hover:font-semibold">
+            <div className="flex-grow flex">
+              <button className="w-full h-full flex items-center justify-center text-white px-4 py-2  bg-newgold ">
                 {name}
               </button>
             </div>
