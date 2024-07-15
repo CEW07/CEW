@@ -111,7 +111,7 @@ const SizeChart = ({ sizeChartDetails }) => {
             </th>
           </tr>
         </thead>
-        <tbody cl>
+        <tbody >
           {sizeChartDetails.map((details, index) => (
             <tr key={index} className="text-[12px] font-medium">
               <td className="px-4 py-2 text-center border border-gray-300">

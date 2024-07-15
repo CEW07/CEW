@@ -15,7 +15,7 @@ export default function ContextData({ children }) {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     // Fetching the data from fetchData routes - pages/api/fetchData.js
-    const fetchData = async () => {
+    const fetchMainCategoryData = async () => {
       try {
         await axios("http://localhost:3000/api/fetchMainCategory")
           .then((res) => {
@@ -24,23 +24,22 @@ export default function ContextData({ children }) {
           })
           .catch((err) => console.log(err));
 
-        await axios("http://localhost:3000/api/fetchSubCategory")
-          .then((res) => {
-            setProductData((prev) => ({ ...prev, subCategory: res.data }));
-            console.log(res.data, "response");
-          })
-          .catch((err) => console.log(err));
-        // await fetch("https://crownengineerings/api/fetchMainCategory").then(
-        //   (response) => console.log(response, "main response")
-        // );
-        // .then((data) => setProductData(data));
-        setLoading(false);
+        
       } catch (err) {
         console.log("Error while fetching data: ", err);
       }
     };
-
-    fetchData();
+    const fetchSubCategoryData = async () => {
+      await axios("http://localhost:3000/api/fetchSubCategory")
+      .then((res) => {
+        setProductData((prev) => ({ ...prev, subCategory: res.data }));
+        console.log(res.data, "response");
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
+    }
+    fetchMainCategoryData();
+    fetchSubCategoryData();
   }, []);
   return (
     <DataContext.Provider
