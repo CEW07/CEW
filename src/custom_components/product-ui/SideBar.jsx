@@ -67,7 +67,7 @@ const SidebarProduct = ({ productData }) => {
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await fetch(
-          `http://localhost:3000/api/fetchSubCategoryType?id=${params}`
+          `${process.env.FRONTEND_URL}/api/fetchSubCategoryType?id=${params}`
         );
         const res = await response.json();
         console.log(res, "new fetch here");
@@ -117,7 +117,7 @@ const SidebarProduct = ({ productData }) => {
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await fetch(
-          `http://localhost:3000/api/fetchSubCategoryType?id=${params}`
+          `${process.env.FRONTEND_URL}/api/fetchSubCategoryType?id=${params}`
         );
         const res = await response.json();
         console.log(res, "new fetch here");
