@@ -3,7 +3,7 @@ import ProductIdPage from './productId';
 
 async function fetchProductData(productId) {
   try {
-    const res = await axios.get(`${process.env.FRONTEND_URL}/api/fetchSubCategoryType?id=${productId}`);
+    const res = await axios.get(`${process.env.FRONTEND_URL}api/fetchSubCategoryType?id=${productId}`);
     return res.data; // Ensure that only the data is returned
   } catch (error) {
     console.error('Failed to fetch product data:', error);
