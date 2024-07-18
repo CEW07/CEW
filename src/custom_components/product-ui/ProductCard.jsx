@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
+  // console.log(`data:image/png;base64,${imageSrc}`);
   return (
     <section className="h-full">
       <div className="h-full">

@@ -1,93 +1,20 @@
-"use client";
-import { useData } from "@/app/contextapi/contextData";
-import ProductCard from "@/custom_components/product-ui/ProductCard";
-import SideBar from "@/custom_components/product-ui/SideBar";
-import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
-const ProductId = ({ params }) => {
-  const { productData, loading } = useData();
-  //   console.log(productData.productTypes, "id");
-  const { productId, query } = params;
-  console.log(productData.subCategory);
-  const [subCategoryAll, setSubCategoryAll] = useState();
+import axios from 'axios';
+import ProductIdPage from './productId';
 
-  useEffect(() => {
-    const fetchSubCategory = async () => {
-      await axios(
-        `http://localhost:3000/api/fetchSubCategoryType?id=${productId}`
-      )
-        .then((res) => {
-          setSubCategoryAll(res.data);
-          console.log(res.data, "data here");
-        })
-        .catch((err) => console.log(err));
-    };
-    fetchSubCategory();
-  }, []);
+async function fetchProductData(productId) {
+  try {
+    const res = await axios(`/api/fetchSubCategoryType?id=${productId}`);
+    return res.data; // Ensure that only the data is returned
+  } catch (error) {
+    console.error('Failed to fetch product data:', error);
+    throw new Error('Failed to fetch product data');
+  }
+}
 
-  return (
-    <div className="">
-      {loading
-        ? "loading..."
-        : productData.subCategory.map(
-            (type) =>
-              type.product_name_id == params.productId && (
-                <div className="">
-                  <span className="flex flex-col max-smallest:text-base smallest:text-xl mt-6 mb-3">
-                    {type.product_types}
-                  </span>
-                  <div className="grid sm:max-md:grid-cols-2  mainProducts:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {subCategoryAll &&
-                      subCategoryAll
-                        .filter(
-                          (filteredData) =>
-                            filteredData.product_type_id ===
-                            type.product_type_id
-                        )
-                        .map((data, index) => (
-                          <div className="h-full">
-                            <ProductCard
-                              keyId={index}
-                              name={data.product_sub_types}
-                              href={`/${productId}/${data.product_sub_types_id}`}
-                              imageSrc={data.images}
-                              imageAlt={data.product_type_name_id}
-                              params="subproductImage"
-                            />
-                          </div>
-                        ))}
-                  </div>
-                </div>
-              )
-          )}
-      {loading
-        ? "loading...."
-        : productData.mainCategory.map(
-            (item) =>
-              item.product_types === "FALSE" &&
-              item.product_name_id === productId && (
-                <div className="grid sm:max-md:grid-cols-2  mainProducts:grid-cols-2 xl:grid-cols-3 gap-6">
-                  {subCategoryAll &&
-                    subCategoryAll
-                      .filter(
-                        (filteredData) =>
-                          filteredData.product_type_name_id === productId
-                      )
-                      .map((data, index) => (
-                        <ProductCard
-                          keyId={index}
-                          name={data.product_sub_types}
-                          href={`/${productId}/${data.product_sub_types_id}`}
-                          imageSrc={data.images}
-                          imageAlt={data.product_type_name_id}
-                          params="subproductImage"
-                        />
-                      ))}
-                </div>
-              )
-          )}
-    </div>
-  );
-};
-
-export default ProductId;
+export default async function ProductId({ params }) {
+  const { productId } = params;
+  console.log(params, 'params here');
+  const subCategoryAll = await fetchProductData(productId);
+  // console.log(subCategoryAll, 'subCategoryAll');
+  return <ProductIdPage subCategory={subCategoryAll} params={params} />;
+}

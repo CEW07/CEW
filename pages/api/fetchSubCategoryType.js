@@ -17,12 +17,13 @@ export default async function fetchMainCategory(req, res) {
     if (subProduct.length === 0) {
       return res.status(404).json({ error: "Subproduct not found" });
     }
-    const subProductWithImage = subProduct.map((product) => ({
-      ...product,
-      images: product.thumbnailImage
-        ? Buffer.from(product.thumbnailImage, "binary").toString("base64")
-        : null,
-    }));
+    const subProductWithImage = subProduct.map((product) => {
+      const { thumbnailImage, ...rest } = product;
+      return {
+        ...rest, // Spread the rest of the properties
+        images: thumbnailImage ? Buffer.from(thumbnailImage, "binary").toString("base64") : null,
+      };
+    });
     res.status(200).json(subProductWithImage);
   } catch (err) {
     console.error("Error executing query", err);

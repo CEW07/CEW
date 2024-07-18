@@ -15,7 +15,7 @@ const ProductDetails = ({ params }) => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        await axios(`http://localhost:3000/api/fetchProductDetails`, {
+        await axios(`/api/fetchProductDetails`, {
           params: {
             id: productdetails,
             data: "details",
@@ -40,7 +40,7 @@ const ProductDetails = ({ params }) => {
     const fetchSizeChart = async () => {
       try {
         await axios(
-          `http://localhost:3000/api/fetchSizeChart?id=${productdetails}`
+          `/api/fetchSizeChart?id=${productdetails}`
         )
           .then((res) => {
             setSizeChartDetails(res.data);
