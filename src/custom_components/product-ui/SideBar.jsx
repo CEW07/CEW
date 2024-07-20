@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { products } from "@/staticdata/static";
 import Link from "next/link";
+import axios from "axios";
 
 const SidebarProduct = ({ productData }) => {
   // Destructuring ProductData
@@ -66,16 +67,22 @@ const SidebarProduct = ({ productData }) => {
       );
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
-        const response = await fetch(
-          `https://crownengineerings.netlify.app/api/fetchSubCategoryType?id=${params}`
+        const response = await axios(
+          `${process.env.FRONTEND_URL}/api/fetchSubCategoryType`,
+          {
+            params:{
+              id:params,
+              data:'main'
+            }
+          }
         );
-        const res = await response.json();
+        const res = await response;
         console.log(res, "new fetch here");
         setProductsData((prev) => ({
           ...prev,
           mainCategory: prev.mainCategory.map((product) =>
             product.product_id === id
-              ? { ...product, subProducts: res }
+              ? { ...product, subProducts: res.data }
               : product
           ),
         }));
@@ -116,16 +123,22 @@ const SidebarProduct = ({ productData }) => {
       );
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
-        const response = await fetch(
-          `https://crownengineerings.netlify.app/api/fetchSubCategoryType?id=${params}`
+        const response = await axios(
+          `${process.env.FRONTEND_URL}/api/fetchSubCategoryType`,
+          {
+            params:{
+              id:params,
+              data:"sub"
+            }
+          }
         );
-        const res = await response.json();
+        const res = await response
         console.log(res, "new fetch here");
         setProductsData((prev) => ({
           ...prev,
           subCategory: prev.subCategory.map((product) =>
             product.product_type_id === id
-              ? { ...product, subProducts: res }
+              ? { ...product, subProducts: res.data }
               : product
           ),
         }));
@@ -198,7 +211,7 @@ const SidebarProduct = ({ productData }) => {
                               className="bg-newgold "
                               onClick={() =>
                                 handleSubTypeDropDown(
-                                  type.product_name_id,
+                                  type.product_type_id,
                                   type.product_type_id
                                 )
                               }
