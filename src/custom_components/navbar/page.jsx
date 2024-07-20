@@ -73,7 +73,7 @@
 
 //   const fetchSearchQuery = async (searchText) => {
 //     try {
-//       await axios(`https://crownengineerings.netlify.app/api/fetchProductDetails`, {
+//       await axios(`${process.env.FRONTEND_URL}/api/fetchProductDetails`, {
 //         params: {
 //           id: searchText,
 //           data: "search",
@@ -318,7 +318,7 @@ const Navbar = () => {
 
   const fetchSearchQuery = async (searchText) => {
     try {
-      await axios(`https://crownengineerings.netlify.app/api/fetchProductDetails`, {
+      await axios(`${process.env.FRONTEND_URL}/api/fetchProductDetails`, {
         params: {
           id: searchText,
           data: "search",

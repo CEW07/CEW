@@ -23,7 +23,7 @@ export default function ContextData({ children }) {
   //   const fetchMainCategoryData = async () => {
   //       try {
   //        await ApiCall({
-  //           api: "https://crownengineerings.netlify.app/api/fetchMainCategory",
+  //           api: "${process.env.FRONTEND_URL}/api/fetchMainCategory",
   //         })
   //           .then((res) => {
   //             setProductData((prev) => ({ ...prev, mainCategory: res }));
@@ -41,7 +41,7 @@ export default function ContextData({ children }) {
   //   const fetchSubCategoryData = async () => {
   //       try {
   //         await ApiCall({
-  //           api: "https://crownengineerings.netlify.app/api/fetchSubCategory",
+  //           api: "${process.env.FRONTEND_URL}/api/fetchSubCategory",
   //         })
   //         .then((res)=>{
   //           setProductData((prev) => ({ ...prev, subCategory: res }));
@@ -62,7 +62,7 @@ export default function ContextData({ children }) {
   useEffect(() => {
     const fetchMainCategoryData = async () => {
         try {
-          const res = await axios(`https://crownengineerings.netlify.app/api/fetchMainCategory`);
+          const res = await axios(`${process.env.FRONTEND_URL}/api/fetchMainCategory`);
           setProductData((prev) => ({ ...prev, mainCategory: res.data }));
           console.log(res.data, "mainCategory response");
         } catch (err) {
@@ -76,7 +76,7 @@ export default function ContextData({ children }) {
   useEffect(() => {
     const fetchSubCategoryData = async () => {
         try {
-          const res = await axios(`https://crownengineerings.netlify.app/api/fetchSubCategory`);
+          const res = await axios(`${process.env.FRONTEND_URL}/api/fetchSubCategory`);
           setProductData((prev) => ({ ...prev, subCategory: res.data }));
           console.log(res.data, "subCategory response");
           setLoading(false);
