@@ -23,7 +23,7 @@ export default function ContextData({ children }) {
   //   const fetchMainCategoryData = async () => {
   //       try {
   //        await ApiCall({
-  //           api: "http://localhost:3000/api/fetchMainCategory",
+  //           api: "https://crownengineerings.netlify.app/api/fetchMainCategory",
   //         })
   //           .then((res) => {
   //             setProductData((prev) => ({ ...prev, mainCategory: res }));
@@ -41,7 +41,7 @@ export default function ContextData({ children }) {
   //   const fetchSubCategoryData = async () => {
   //       try {
   //         await ApiCall({
-  //           api: "http://localhost:3000/api/fetchSubCategory",
+  //           api: "https://crownengineerings.netlify.app/api/fetchSubCategory",
   //         })
   //         .then((res)=>{
   //           setProductData((prev) => ({ ...prev, subCategory: res }));

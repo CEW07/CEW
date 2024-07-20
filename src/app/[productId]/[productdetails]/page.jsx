@@ -87,8 +87,8 @@ const ProductDetails = ({ params }) => {
       </section>
       <section className=" flex flex-col gap-2 my-8">
         {productDetails &&
-          productDetails?.map((details) => (
-            <div className="flex flex-col gap-2">
+          productDetails?.map((details,index) => (
+            <div className="flex flex-col gap-2" key={index}>
               {details.product_thread_type && (
                 <div className="flex gap-6  mt-3">
                   <p className="font-semibold min-w-48"> Thread :</p>

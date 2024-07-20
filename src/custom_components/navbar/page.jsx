@@ -73,7 +73,7 @@
 
 //   const fetchSearchQuery = async (searchText) => {
 //     try {
-//       await axios(`http://localhost:3000/api/fetchProductDetails`, {
+//       await axios(`https://crownengineerings.netlify.app/api/fetchProductDetails`, {
 //         params: {
 //           id: searchText,
 //           data: "search",

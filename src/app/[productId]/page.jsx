@@ -3,7 +3,7 @@ import ProductIdPage from './productId';
 
 async function fetchProductData(productId) {
   try {
-    const res = await axios.get(`https://crownengineerings.netlify.app/api/fetchSubCategoryType?id=${productId}`);
+    const res = await axios.get(`https://crownengineerings.netlify.app/api/fetchSubCategoryTypeAll?id=${productId}`);
     return res.data; // Ensure that only the data is returned
   } catch (error) {
     console.error('Failed to fetch product data:', error);
@@ -13,8 +13,6 @@ async function fetchProductData(productId) {
 
 export default async function ProductId({ params }) {
   const { productId } = params;
-  console.log(params, 'params here');
   const subCategoryAll = await fetchProductData(productId);
-  // console.log(subCategoryAll, 'subCategoryAll');
   return <ProductIdPage subCategory={subCategoryAll} params={params} />;
 }

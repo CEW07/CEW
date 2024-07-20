@@ -3,7 +3,7 @@ import { promisify } from "util";
 
 const queryPromise = promisify(connection.query).bind(connection);
 
-export default async function fetchMainCategory(req, res) {
+export default async function fetchSubCategoryType(req, res) {
   const { id, data } = req.query; // Extract id from query parameters
   console.log(req.query);
   if (!id) {
@@ -17,14 +17,13 @@ if(data === 'main'){
     if (subProduct.length === 0) {
       return res.status(404).json({ error: "Subproduct not found" });
     }
-    const subProductWithImage = subProduct.map((product) => {
+    const subProductDetails = subProduct.map((product) => {
       const { thumbnailImage, ...rest } = product;
       return {
-        ...rest, // Spread the rest of the properties
-        images: thumbnailImage ? Buffer.from(thumbnailImage, "binary").toString("base64") : null,
+        ...rest,
       };
     });
-    res.status(200).json(subProductWithImage);
+    res.status(200).json(subProductDetails);
   } catch (err) {
     console.error("Error executing query", err);
     res.status(500).json({ error: "Error fetching data", err });
@@ -38,14 +37,13 @@ else if(data==='sub'){
     if (subProduct.length === 0) {
       return res.status(404).json({ error: "Subproduct not found" });
     }
-    const subProductWithImage = subProduct.map((product) => {
+    const subProductDetails = subProduct.map((product) => {
       const { thumbnailImage, ...rest } = product;
       return {
-        ...rest, // Spread the rest of the properties
-        images: thumbnailImage ? Buffer.from(thumbnailImage, "binary").toString("base64") : null,
+        ...rest,
       };
     });
-    res.status(200).json(subProductWithImage);
+    res.status(200).json(subProductDetails);
   } catch (err) {
     console.error("Error executing query", err);
     res.status(500).json({ error: "Error fetching data", err });
