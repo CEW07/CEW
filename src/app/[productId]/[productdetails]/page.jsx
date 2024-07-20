@@ -15,7 +15,7 @@ const ProductDetails = ({ params }) => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        await axios(`${process.env.FRONTEND_URL}/api/fetchProductDetails`, {
+        await axios(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchProductDetails`, {
           params: {
             id: productdetails,
             data: "details",
@@ -40,7 +40,7 @@ const ProductDetails = ({ params }) => {
     const fetchSizeChart = async () => {
       try {
         await axios(
-          `${process.env.FRONTEND_URL}/api/fetchSizeChart?id=${productdetails}`
+          `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSizeChart?id=${productdetails}`
         )
           .then((res) => {
             setSizeChartDetails(res.data);

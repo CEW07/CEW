@@ -68,7 +68,7 @@ const SidebarProduct = ({ productData }) => {
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await axios(
-          `${process.env.FRONTEND_URL}/api/fetchSubCategoryType`,
+          `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategoryType`,
           {
             params:{
               id:params,
@@ -124,7 +124,7 @@ const SidebarProduct = ({ productData }) => {
       console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await axios(
-          `${process.env.FRONTEND_URL}/api/fetchSubCategoryType`,
+          `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategoryType`,
           {
             params:{
               id:params,
