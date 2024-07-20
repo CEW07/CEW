@@ -25,24 +25,21 @@ const HomeContent = () => {
             About us
           </h1>
           <div className="flex flex-col justify-center items-center text-white">
-            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
-              Crown Engineering Works, an ISO 9001:2015 certified company,
-              specializes in manufacturing hose assemblies and fluid connectors,
-              including FDA-approved, Hydraulic, Stainless Steel Flexible,
-              Thermoplastic, PTFE, Industrial, Composite, Silicone, and PVC
-              hoses. Our commitment to upholding the highest standards
-              guarantees that every product meets stringent quality standards
-            </p>
-            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
-              We have formed trusted partnerships with key corporations in the
-              pharmaceutical, food, defense, oil, industrial manufacturing, and
-              renewable energy sectors. Our success is built on strong
-              relationships and a deep understanding of our clients' needs,
-              allowing us to provide tailored solutions. Crown Engineering Works
-              is more than just a supplier; we are partners in our clients'
-              success, dedicated to providing businesses globally with
-              persistent, high-performance solutions they can trust.
-            </p>
+          <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-w-6xl ">
+                Crown Engineering Works, an ISO 9001:2015 certified company,
+                specializes in manufacturing hose assemblies and fluid
+                connectors, including FDA-approved, Hydraulic, Stainless Steel
+                Flexible, Thermoplastic, PTFE, Industrial, Composite, Silicone,
+                and PVC hoses. Our commitment to upholding the highest standards
+                guarantees that every product meets stringent quality standards.We have formed trusted partnerships with key corporations in the
+                pharmaceutical, food, defense, oil, industrial manufacturing,
+                and renewable energy sectors. Our success is built on strong
+                relationships and a deep understanding of our clients' needs,
+                allowing us to provide tailored solutions. Crown Engineering
+                Works is more than just a supplier; we are partners in our
+                clients' success, dedicated to providing businesses globally
+                with persistent, high-performance solutions they can trust.
+              </p>
           </div>
         </section>
         <div className="w-full ">
@@ -86,6 +83,8 @@ const HomeContent = () => {
             alt="Quality"
             className="rounded-md"
           />
+          <div className="absolute inset-0 bg-black opacity-50  "></div>
+          <p className="absolute bottom-2 font-semibold text-offwhite ml-3">Experience the Difference with us</p>
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="grid sm:grid-cols-2 gap-6">
@@ -93,7 +92,7 @@ const HomeContent = () => {
               <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
                 Industry Experts
               </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
+              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
                 With decades of expertise, our seasoned professionals bring
                 unparalleled knowledge and skill to every project, ensuring
                 exceptional results.
@@ -103,7 +102,7 @@ const HomeContent = () => {
               <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
                 Diverse Products
               </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
+              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
                 Our extensive selection of premium products, coupled with
                 reasonable pricing, guarantees the best value without
                 compromising quality.
@@ -113,7 +112,7 @@ const HomeContent = () => {
               <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
                 Customer Support
               </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
+              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
                 Our dedicated support team is always ready to assist, ensuring
                 our customers experience seamless service and complete
                 satisfaction.
@@ -123,7 +122,7 @@ const HomeContent = () => {
               <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
                 Investment in R&D
               </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
+              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
                 We continuously invest in research and development to drive
                 innovation, ensuring we deliver cutting-edge solutions that meet
                 evolving industry needs.
@@ -138,7 +137,7 @@ const HomeContent = () => {
           <p>Years of Experience</p>
         </div>
         <div className="text-center font-semibold text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">110+</p>
+          <p className="text-2xl xl:text-3xl">135+</p>
           <p>Products in Portfolio</p>
         </div>
         <div className="text-center font-semibold   text-xl xl:text-2xl">

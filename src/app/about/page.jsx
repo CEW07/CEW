@@ -5,7 +5,7 @@ const About = () => {
     <main>
       <section>
         <div className="bg-offwhite">
-          <div className="grid lg:grid-cols-2 mt-16 gap-10 mx-5 md:mx-20 xl:mx-32  pb-20 ">
+          <div className="grid lg:grid-cols-2 pt-16 gap-10 mx-5 md:mx-20 xl:mx-32  pb-20 ">
             <div className="relative aspect-video lg:aspect-square max-lg:order-2 ">
               <Image
                 fill
@@ -18,7 +18,7 @@ const About = () => {
               <h1 className="text-3xl md:text-4xl font-semibold text-newgold">
                 Our story
               </h1>
-              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-6">
+              <p className="max-smallest:text-xs text-justify text-sm sm:text-base  lg:text-lg mt-6">
                 Abdul Majeed Khan established Crown Engineering Works in 1979
                 with the intention of offering premium hydraulic hose assemblies
                 and high-pressure hose fittings to diverse sectors. At the time
@@ -44,20 +44,18 @@ const About = () => {
             />
           </div>
           <section className="bg-newgold pt-20 pb-20 md:px-20 px-10">
+
             <h1 className="text-3xl md:text-4xl text-center text-white font-semibold ">
               About us
             </h1>
-            <div className="flex flex-col justify-center items-center text-white">
-              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
+            <div className="flex flex-col justify-center items-center text-white   ">
+              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-w-6xl ">
                 Crown Engineering Works, an ISO 9001:2015 certified company,
                 specializes in manufacturing hose assemblies and fluid
                 connectors, including FDA-approved, Hydraulic, Stainless Steel
                 Flexible, Thermoplastic, PTFE, Industrial, Composite, Silicone,
                 and PVC hoses. Our commitment to upholding the highest standards
-                guarantees that every product meets stringent quality standards
-              </p>
-              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
-                We have formed trusted partnerships with key corporations in the
+                guarantees that every product meets stringent quality standards.We have formed trusted partnerships with key corporations in the
                 pharmaceutical, food, defense, oil, industrial manufacturing,
                 and renewable energy sectors. Our success is built on strong
                 relationships and a deep understanding of our clients' needs,
@@ -66,6 +64,7 @@ const About = () => {
                 clients' success, dedicated to providing businesses globally
                 with persistent, high-performance solutions they can trust.
               </p>
+             
             </div>
           </section>
           <div className="w-full ">
@@ -91,7 +90,7 @@ const About = () => {
               <h1 className="text-3xl md:text-4xl font-semibold text-newgold">
                 Our Vision
               </h1>
-              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-6">
+              <p className="max-smallest:text-xs text-sm sm:text-base text-justify lg:text-lg mt-6">
                 To lead the global fluid conveyance industry with innovative,
                 high-quality hose solutions, fostering growth and reliability
                 worldwide
@@ -99,7 +98,7 @@ const About = () => {
               <h1 className="text-3xl md:text-4xl font-semibold text-newgold mt-6">
                 Our Mission
               </h1>
-              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-2">
+              <p className="max-smallest:text-xs text-sm sm:text-base text-justify lg:text-lg mt-2">
                 Our mission is to manufacture and deliver premium hose products
                 globally, leveraging advanced technology and prioritizing
                 customer-focused service to exceed expectations and drive

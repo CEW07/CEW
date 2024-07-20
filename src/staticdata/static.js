@@ -160,9 +160,9 @@ export const services = [
   },
   {
     name: "Fittings and Flange Manufacturing",
-    subPoint1: "Hydraulic Hose Assembly",
+    subPoint1: "Hydraulic Hose Fitting",
     subPoint2: "Stainless Steel Hose Fittings",
-    subPoint3: "PTFE Hose Assembly",
+    subPoint3: "PTFE Hose Fitting",
     subPoint4: "Camlock Couplings",
     subPoint5: "Quick Release Couplings",
     subPoint6: "Flange Manufacturing",

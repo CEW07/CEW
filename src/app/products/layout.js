@@ -15,7 +15,7 @@ export default function Layout({ children }) {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="my-5 mx-3 small:mx-14 relative space-x-6  smallest:space-x-14 flex ">
+    <div className="my-5  relative space-x-6  smallest:space-x-14 flex ">
       <div className="md:hidden ">
         <button onClick={toggleNavigation}>
           {isOpen ? (

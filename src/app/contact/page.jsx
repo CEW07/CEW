@@ -11,12 +11,15 @@ const Contact = () => {
               Address
             </heading>
             <header className="text-[16px] lg:text-[18px] font-medium  py-1 lg:py-2">
-              Corporate office
+              Registered Office
             </header>
             <span className="text-[14px] max-lg:max-w-lg py-1 lg:py-2">
               Room no. 2, Municipal building no. 3, 71- Morland Road, Mumbai,
               Maharashtra 400 008, India
             </span>
+            <header className="text-[16px] lg:text-[18px] font-medium  py-1 lg:py-2">
+              Factory
+            </header>
             <span className="text-[14px] max-lg:max-w-lg py-1 lg:py-2">
               Hose Assembly unit: 67/A , Factory No. 1, Suryaji compound, Tank
               pakhadi Road, Byculla, Mumbai, Maharashtra 400 011, India

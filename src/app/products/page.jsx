@@ -14,7 +14,7 @@ const Products = () => {
   //
   return (
     <div className="">
-      <h1 className="text-3xl my-5 font-semibold text-newgold">Our Products</h1>
+      <h1 className="text-3xl my-5 font-semibold text-center text-newgold">Our Products</h1>
       {/* <button onClick={()=>testFunc()} >test</button> */}
       {/* <ProductGrid productData={productData} /> */}
       <div className=" pt-10 grid sm:max-md:grid-cols-2  mainProducts:grid-cols-2 xl:grid-cols-3 gap-6  ">

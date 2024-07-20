@@ -90,9 +90,9 @@ const ProductDetails = ({ params }) => {
           productDetails?.map((details,index) => (
             <div className="flex flex-col gap-2" key={index}>
               {details.product_thread_type && (
-                <div className="flex gap-6  mt-3">
-                  <p className="font-semibold min-w-48"> Thread :</p>
-                  <p className="max-w-2xl text-start">
+                <div className="flex max-sm:flex-col md:max-mainProducts:flex-col max-sm:gap-1 sm:gap-6 mt-3">
+                  <p className="font-semibold sm:min-w-48"> Thread :</p>
+                  <p className="max-w-2xl text-start max-smallest:text-sm">
                     {details.product_thread_type}
                   </p>
                 </div>
