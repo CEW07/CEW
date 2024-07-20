@@ -1,10 +1,11 @@
 "use client";
-import { useData } from "@/app/contextapi/contextData";
+// import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
 import SideBar from "@/custom_components/product-ui/SideBar";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-const ProductIdPage = ({ subCategory,params }) => {
+import { useData } from "../contextapi/contextData";
+const ProductTypePage = ({ subCategory,params }) => {
   const { productData, loading } = useData();
   const { productId, query } = params;
   const [subCategoryAll, setSubCategoryAll] = useState(subCategory);
@@ -73,4 +74,4 @@ const ProductIdPage = ({ subCategory,params }) => {
   );
 };
 
-export default ProductIdPage;
+export default ProductTypePage;

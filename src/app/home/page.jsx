@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
 import { mainProductImages } from "@/staticdata/static";
 import HeroMain from "@/custom_components/home-ui/hero-main/page";
@@ -12,6 +11,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useData } from "../contextapi/contextData";
 
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js

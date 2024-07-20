@@ -19,45 +19,6 @@ export default function ContextData({ children }) {
   });
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const fetchMainCategoryData = async () => {
-  //       try {
-  //        await ApiCall({
-  //           api: "${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchMainCategory",
-  //         })
-  //           .then((res) => {
-  //             setProductData((prev) => ({ ...prev, mainCategory: res }));
-  //             console.log(res)
-  //           })
-  //           .catch((err) => console.log(err));
-  //       } catch (err) {
-  //         console.log("Error while fetching main category data: ", err);
-  //       }
-  //   };
-  //   fetchMainCategoryData();
-  // }, []);
-
-  // useEffect(() => {
-  //   const fetchSubCategoryData = async () => {
-  //       try {
-  //         await ApiCall({
-  //           api: "${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategory",
-  //         })
-  //         .then((res)=>{
-  //           setProductData((prev) => ({ ...prev, subCategory: res }));
-  //           setLoading(false);
-  //         })
-  //         .catch((error)=>console.log(error,'error message here'))
-  //       } catch (err) {
-  //         console.log("Error while fetching sub category data: ", err);
-  //       }
-      
-  //   };
-  //   fetchSubCategoryData();
-  // }, []);
-
-  ////
-
   
   useEffect(() => {
     const fetchMainCategoryData = async () => {

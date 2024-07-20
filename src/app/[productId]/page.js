@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ProductIdPage from './productId';
+import ProductIdPage from './productType';
 
 async function fetchProductData(productId) {
   try {
