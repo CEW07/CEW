@@ -27,18 +27,18 @@ const SidebarProduct = ({ productData }) => {
         subCategory: subCategory,
       }));
       setIsLoading(false);
-      console.log("in sub ");
+      // console.log("in sub ");
     }
     if (mainCategory) {
       setProductsData((prev) => ({
         ...prev,
         mainCategory: mainCategory,
       }));
-      console.log("in main");
+      // console.log("in main");
       setIsLoading(false);
     }
 
-    console.log("useffect", productData.subCategory);
+    // console.log("useffect", productData.subCategory);
   }, [subCategory, mainCategory]);
 
   const handleFilter = useRef(false);
@@ -65,7 +65,7 @@ const SidebarProduct = ({ productData }) => {
             : (handleFilter.current = false)
           : ""
       );
-      console.log(handleFilter.current, "current useRef");
+      // console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await axios(
           `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategoryType`,
@@ -77,7 +77,7 @@ const SidebarProduct = ({ productData }) => {
           }
         );
         const res = await response;
-        console.log(res, "new fetch here");
+        // console.log(res, "new fetch here");
         setProductsData((prev) => ({
           ...prev,
           mainCategory: prev.mainCategory.map((product) =>
@@ -98,7 +98,7 @@ const SidebarProduct = ({ productData }) => {
   }
   // function for dropdown which doesn't have subType
   async function handleSubTypeDropDown(params, id) {
-    console.log(params, id, "id here");
+    // console.log(params, id, "id here");
     const selectedProduct = productsData.subCategory.find(
       (product) => product.product_type_id === id
     );
@@ -121,7 +121,7 @@ const SidebarProduct = ({ productData }) => {
             : (handleFilter.current = false)
           : ""
       );
-      console.log(handleFilter.current, "current useRef");
+      // console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
         const response = await axios(
           `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategoryType`,
@@ -133,7 +133,7 @@ const SidebarProduct = ({ productData }) => {
           }
         );
         const res = await response
-        console.log(res, "new fetch here");
+        // console.log(res, "new fetch here");
         setProductsData((prev) => ({
           ...prev,
           subCategory: prev.subCategory.map((product) =>
@@ -151,10 +151,7 @@ const SidebarProduct = ({ productData }) => {
       console.log(err);
     }
   }
-  useEffect(() => {
-    console.log(expandedProductIds);
-    console.log(productsData);
-  }, [expandedProductIds, productsData]);
+
 
   return (
     <div>

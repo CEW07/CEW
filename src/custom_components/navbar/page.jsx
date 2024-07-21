@@ -272,7 +272,7 @@ const Navbar = () => {
   }
   function toggleSearch() {
     setIsSearchClicked(!isSearchClicked);
-    console.log(isSearchClicked);
+    // console.log(isSearchClicked);
   }
 
   const Links = [
@@ -295,7 +295,7 @@ const Navbar = () => {
   const [searchData, setSearchData] = useState(["Search products here"]);
   const handleInputFocus = () => {
     setIsSearchFocus(true);
-    console.log("focus");
+    // console.log("focus");
   };
 
   // search filter with debouncing
@@ -303,7 +303,7 @@ const Navbar = () => {
 
   const handleSearchInput = (e) => {
     const text = e.target.value;
-    console.log(text);
+    // console.log(text);
     clearTimeout(timeoutFunc);
     if (text.length > 0) {
       timeoutFunc = setTimeout(() => {

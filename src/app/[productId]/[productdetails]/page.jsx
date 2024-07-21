@@ -6,8 +6,7 @@ async function fetchProductSize(productId) {
     const res = await axios.get(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSizeChart?id=${productId}`);
     return res.data; 
   } catch (error) {
-    console.error('Failed to fetch product data:', error);
-    throw new Error('Failed to fetch product data');
+    // console.error('Failed to fetch product data:', error);
   }
 }
 
@@ -21,8 +20,7 @@ async function fetchProductDetails(productId) {
     })
     return res.data;
   } catch (error) {
-    console.error('Failed to fetch product data:', error);
-    throw new Error('Failed to fetch product data');
+    // console.error('Failed to fetch product data:', error);
   }
 }
 

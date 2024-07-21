@@ -3,60 +3,19 @@ import SizeChart from "@/custom_components/product-ui/SizeChart";
 import { data } from "autoprefixer";
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ProductDetails = ({ sizeChartDetails,productDetails,params }) => {
-  const { productId, productdetails } = params;
-//   let details = "details";
-//   useEffect(() => {
-//     const fetchProductDetails = async () => {
-//       try {
-//         await axios(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchProductDetails`, {
-//           params: {
-//             id: productdetails,
-//             data: "details",
-//           },
-//         })
-//           .then((res) => {
-//             setProductDetails(res.data);
-//             console.log(res.data, "image here");
-//           })
-//           .catch((err) => {
-//             console.log(err, "error while fetching product details");
-//           });
-//         setDetailsLoader(false);
-//       } catch (err) {
-//         console.log("Error while fetching data: ", err);
-//       }
-//     };
-//     fetchProductDetails();
-//   }, []);
-
-//   useEffect(() => {
-//     const fetchSizeChart = async () => {
-//       try {
-//         await axios(
-//           `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSizeChart?id=${productdetails}`
-//         )
-//           .then((res) => {
-//             setSizeChartDetails(res.data);
-//             // console.log(res.data,'response for sizechart here');
-//             console.log(Array.isArray(res.data));
-//           })
-//           .catch((err) => {
-//             console.log(err, "error while fetching product details");
-//           });
-//       } catch (err) {
-//         console.log("Error while fetching data: ", err);
-//       }
-//     };
-//     fetchSizeChart();
-//   }, []);
-
+  console.log(sizeChartDetails,productDetails,'details here');
+  const router = useRouter();
   useEffect(() => {
-    console.log(Array.isArray(sizeChartDetails), "size chart");
-  }, [sizeChartDetails]);
-
+    
+    if(!Array.isArray(sizeChartDetails) && !Array.isArray(productDetails)){
+      router.replace('/not-found')
+    }
+  }, [])
+  
   return (
     <div className="">
       <section className="flex max-xl:flex-col small:justify-between">

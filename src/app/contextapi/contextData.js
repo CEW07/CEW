@@ -25,7 +25,7 @@ export default function ContextData({ children }) {
         try {
           const res = await axios(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchMainCategory`);
           setProductData((prev) => ({ ...prev, mainCategory: res.data }));
-          console.log(res.data, "mainCategory response");
+          // console.log(res.data, "mainCategory response");
         } catch (err) {
           console.log("Error while fetching main category data: ", err);
         } 
@@ -39,7 +39,7 @@ export default function ContextData({ children }) {
         try {
           const res = await axios(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategory`);
           setProductData((prev) => ({ ...prev, subCategory: res.data }));
-          console.log(res.data, "subCategory response");
+          // console.log(res.data, "subCategory response");
           setLoading(false);
         } catch (err) {
           console.log("Error while fetching sub category data: ", err);

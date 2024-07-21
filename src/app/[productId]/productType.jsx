@@ -5,10 +5,19 @@ import SideBar from "@/custom_components/product-ui/SideBar";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useData } from "../contextapi/contextData";
+import { useRouter } from "next/navigation";
 const ProductTypePage = ({ subCategory,params }) => {
   const { productData, loading } = useData();
   const { productId, query } = params;
   const [subCategoryAll, setSubCategoryAll] = useState(subCategory);
+  const router = useRouter();
+  // console.log(subCategory,'sub category here');
+  useEffect(() => {
+    if(!subCategory){
+      router.replace('/not-found')
+    }
+  }, [])
+  
   return (
     <div className="">
       {loading
