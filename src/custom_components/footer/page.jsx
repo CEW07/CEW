@@ -16,7 +16,7 @@ const Footer = () => {
               alt="logo"
               height={300}
               width={300}
-              src="/assests/images/cew-logo.png"
+              src="/assets/images/cew-logo.png"
               className="sm:w-20 w-16"
             />
             <span className="border border-newgold lg:min-w-[40px] mr-2 lg:mx-2 w-[30px] transform rotate-90"></span>
@@ -34,21 +34,21 @@ const Footer = () => {
               alt="logo"
               height={300}
               width={300}
-              src="/assests/icons/whatsapp-icon.svg"
+              src="/assets/icons/whatsapp-icon.svg"
               className="w-10 h-10 cursor-pointer  mx-2"
             />
             <Image
               alt="logo"
               height={300}
               width={300}
-              src="/assests/icons/instagram-icon.svg"
+              src="/assets/icons/instagram-icon.svg"
               className="w-10 h-10 cursor-pointer mx-2 "
             />
             <Image
               alt="logo"
               height={300}
               width={300}
-              src="/assests/icons/facebook-icon.svg"
+              src="/assets/icons/facebook-icon.svg"
               className="w-10 h-10 cursor-pointer mx-2 "
             />
           </div>

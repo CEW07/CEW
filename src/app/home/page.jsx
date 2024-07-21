@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
-import { mainProductImages } from "@/staticdata/static";
+import { mainProductImages, mainProducts } from "@/staticdata/static";
 import HeroMain from "@/custom_components/home-ui/hero-main/page";
 import { services } from "@/staticdata/static";
 import Image from "next/image";
@@ -15,7 +15,7 @@ import { useData } from "../contextapi/contextData";
 
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
-  const { productData, loading } = useData();
+  // const { productData, loading } = useData();
   return (
     <main>
       <section>
@@ -44,7 +44,7 @@ const HomeContent = () => {
         </section>
         <div className="w-full ">
           <Image
-            src="/assests/icons/WaveBottom.png"
+            src="/assets/icons/WaveBottom.png"
             alt="waves"
             width={500}
             height={400}
@@ -56,7 +56,7 @@ const HomeContent = () => {
         </h1>
         <div className="lg:pt-12 pt-16 flex justify-center mx-20">
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
-            {loading
+            {/* {loading
               ? "loading..."
               : productData?.mainCategory?.map((item, index) => {
                   const correspondingImage = mainProductImages[index];
@@ -71,6 +71,19 @@ const HomeContent = () => {
                       imageAlt={correspondingImage?.alt}
                     />
                   );
+            })} */}
+
+             { mainProducts?.map((item, index) => {
+                  return (
+                    <ProductCard
+                      key={item.product_id}
+                      keyId={item.product_id}
+                      name={item.product_name}
+                      href={`/${item.product_name_id}`}
+                      imageSrc={item?.image}
+                      imageAlt={item?.alt}
+                    />
+                  );
                 })}
           </div>
         </div>
@@ -78,7 +91,7 @@ const HomeContent = () => {
       <section className="grid xl:grid-cols-2 my-20 gap-6 mx-10 md:mx-20">
         <div className="relative aspect-video ">
           <Image
-            src="/assests/images/Qualities.jpg"
+            src="/assets/images/Qualities.jpg"
             fill
             alt="Quality"
             className="rounded-md"

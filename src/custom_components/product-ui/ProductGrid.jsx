@@ -29,7 +29,7 @@ const ProductGrid = ({ productData, loading, cardId }) => {
     //                 alt=""
     //                 height={300}
     //                 width={300}
-    //                 src="/assests/images/hero-bg.jpeg"
+    //                 src="/assets/images/hero-bg.jpeg"
     //                 className="h-[40%] object-cover w-[100%] rounded-tr-sm rounded-tl-sm"
     //               />
     //               <CardHeader className="mt-2">

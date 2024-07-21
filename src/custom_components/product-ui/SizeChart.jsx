@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import BP from "/public/assests/images/SizeChart/BP.png";
-import BR from "/public/assests/images/SizeChart/BR.png";
-import W from "/public/assests/images/SizeChart/W.png";
-import ID from "/public/assests/images/SizeChart/ID.png";
-import OD from "/public/assests/images/SizeChart/OD.png";
-import WP from "/public/assests/images/SizeChart/WP.png";
+import BP from "/public/assets/images/SizeChart/BP.png";
+import BR from "/public/assets/images/SizeChart/BR.png";
+import W from "/public/assets/images/SizeChart/W.png";
+import ID from "/public/assets/images/SizeChart/ID.png";
+import OD from "/public/assets/images/SizeChart/OD.png";
+import WP from "/public/assets/images/SizeChart/WP.png";
 
 const SizeChart = ({ sizeChartDetails }) => {
   // sizeChartDetails.forEach((details) => {

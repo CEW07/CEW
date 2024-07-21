@@ -3,9 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
-  // console.log(`data:image/png;base64,${imageSrc}`);
   return (
-    <section className="h-full">
+    <section className="h-full" key={keyId}>
       <div className="h-full">
         <Link
           href={{
@@ -16,13 +15,15 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
             className="hover:shadow-xl h-full flex flex-col border-2 border-newgold rounded-md"
             key={keyId}
           >
+             
             <div className="relative aspect-video">
               {params === "subproductImage" ? (
                 <Image
-                  src={`data:image/png;base64,${imageSrc}`}
+                  src={imageSrc}
                   alt={imageAlt}
                   fill
                   className="object-contain "
+                  loading="lazy"
                 />
               ) : (
                 <Image

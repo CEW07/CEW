@@ -9,7 +9,7 @@ const About = () => {
             <div className="relative aspect-video lg:aspect-square max-lg:order-2 ">
               <Image
                 fill
-                src="/assests/images/OurStory.jpg"
+                src="/assets/images/OurStory.jpg"
                 className=" object-cover shadow-lg rounded-md w-full mt-2 h-full "
                 alt="Hero Background"
               />
@@ -36,7 +36,7 @@ const About = () => {
 
           <div className="w-full ">
             <Image
-              src="/assests/icons/WaveTop.png"
+              src="/assets/icons/WaveTop.png"
               alt="waves"
               width={500}
               height={400}
@@ -69,7 +69,7 @@ const About = () => {
           </section>
           <div className="w-full ">
             <Image
-              src="/assests/icons/WaveBottom.png"
+              src="/assets/icons/WaveBottom.png"
               alt="waves"
               width={500}
               height={400}
@@ -81,7 +81,7 @@ const About = () => {
             <div className="relative aspect-video lg:aspect-square max-lg:order-2">
               <Image
                 fill
-                src="/assests/images/Mission.jpg"
+                src="/assets/images/Mission.jpg"
                 className=" object-cover shadow-lg rounded-md w-full mt-2 h-full "
                 alt="Hero Background"
               />
@@ -110,7 +110,7 @@ const About = () => {
         <Image
           height={800}
           width={800}
-          src="/assests/images/Waves.png"
+          src="/assets/images/Waves.png"
           className="w-full rounded-md"
           alt="Hero Background"
         />

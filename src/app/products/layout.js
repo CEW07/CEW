@@ -3,12 +3,14 @@ import SidebarProduct from "@/custom_components/product-ui/SideBar";
 import React, { useState } from "react";
 
 import { useData } from "@/app/contextapi/contextData";
+import { mainProducts, productTypes } from "@/staticdata/static";
 export default function Layout({ children }) {
   // Destructuring Context Data from contextData.js
-  const { productData, loading } = useData();
-  // function testFunc() {
-  //   console.log(productData);
-  // }
+  // const { productData, loading } = useData();
+  const productData = {
+    mainCategory:mainProducts,
+    subCategory:productTypes
+  }
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavigation = () => {
@@ -53,12 +55,12 @@ export default function Layout({ children }) {
       </div>
       {isOpen && (
         <div className="flex flex-col  md:hidden  py-6   absolute z-10 w-full h-full top-0 left-0">
-          <SidebarProduct productData={productData} loading={loading} />
+          <SidebarProduct productData={productData} />
         </div>
       )}
 
       <div className="max-md:hidden">
-        <SidebarProduct productData={productData} loading={loading} />
+      <SidebarProduct productData={productData} />
       </div>
 
       {children}

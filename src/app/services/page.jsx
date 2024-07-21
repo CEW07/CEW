@@ -13,7 +13,7 @@ const Services = () => {
       <div className="relative w-full h-[100vh] overflow-hidden">
         <Image
           fill
-          src="/assests/images/service.jpg"
+          src="/assets/images/service.jpg"
           className="w-full h-full object-cover shadow-md"
           alt="Hero Background"
         />

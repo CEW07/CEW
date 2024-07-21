@@ -5,7 +5,7 @@ const HeroMain = () => {
     <div className="relative w-full h-[100vh] overflow-hidden ">
       <Image
         fill
-        src="/assests/images/hero3.jpg"
+        src="/assets/images/hero3.jpg"
         className="w-full h-full object-cover shadow-md"
         alt="Hero Background"
       />

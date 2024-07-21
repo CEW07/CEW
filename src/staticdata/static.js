@@ -31,58 +31,58 @@ export const chooseUs = [
 
 export const mainProductImages = [
   {
-    image: "/assests/images/mainProduct/Rubber.png",
+    image: "/assets/images/mainProduct/Rubber.png",
     alt: "Rubber",
   },
   {
-    image: "/assests/images/mainProduct/Thermoplastic.png",
+    image: "/assets/images/mainProduct/Thermoplastic.png",
     alt: "Thermoplastic",
   },
   {
-    image: "/assests/images/mainProduct/teflon.png",
+    image: "/assets/images/mainProduct/teflon.png",
     alt: "teflon",
   },
   {
-    image: "/assests/images/mainProduct/Composite.png",
+    image: "/assets/images/mainProduct/Composite.png",
     alt: "Composite",
   },
   {
-    image: "/assests/images/mainProduct/Stainless.png",
+    image: "/assets/images/mainProduct/Stainless.png",
     alt: "Stainless",
   },
   {
-    image: "/assests/images/mainProduct/Silicone.png",
+    image: "/assets/images/mainProduct/Silicone.png",
     alt: "Silicone",
   },
   {
-    image: "/assests/images/mainProduct/Pvc.png",
+    image: "/assets/images/mainProduct/Pvc.png",
     alt: "Pvc",
   },
   {
-    image: "/assests/images/mainProduct/Expansion.png",
+    image: "/assets/images/mainProduct/Expansion.png",
     alt: "Expansion",
   },
   {
-    image: "/assests/images/mainProduct/SS.png",
+    image: "/assets/images/mainProduct/SS.png",
     alt: "SS",
   },
 
   {
-    image: "/assests/images/mainProduct/Standard.png",
+    image: "/assets/images/mainProduct/Standard.png",
     alt: "Standard",
   },
   {
-    image: "/assests/images/mainProduct/Camlock.png",
+    image: "/assets/images/mainProduct/Camlock.png",
     alt: "Camlock",
   },
 
   {
-    image: "/assests/images/mainProduct/Quick.png",
+    image: "/assets/images/mainProduct/Quick.png",
     alt: "Quick",
   },
 
   {
-    image: "/assests/images/mainProduct/SMS.png",
+    image: "/assets/images/mainProduct/SMS.png",
     alt: "SMS",
   },
 ];
@@ -90,60 +90,60 @@ export const mainProductImages = [
 export const industries = [
   {
     name: "Automotive, Aerospace & Defense",
-    image: "/assests/images/Industry/Automotive.jpg",
+    image: "/assets/images/Industry/Automotive.jpg",
     alt: "Loading",
   },
 
   {
     name: "Pharmaceutical, Healthcare & Life Sciences",
-    image: "/assests/images/Industry/Pharmaceutical.jpg",
+    image: "/assets/images/Industry/Pharmaceutical.jpg",
     alt: "Loading",
   },
 
   {
     name: "Oil, Gas & Petrochemical Refineries",
-    image: "/assests/images/Industry/Oil.jpg",
+    image: "/assets/images/Industry/Oil.jpg",
     alt: "Loading",
   },
 
   {
     name: "Semiconductors",
-    image: "/assests/images/Industry/Semiconductors.jpg",
+    image: "/assets/images/Industry/Semiconductors.jpg",
     alt: "Loading",
   },
 
   {
     name: "Chemical, Food & Beverages",
-    image: "/assests/images/Industry/Chemical.jpg",
+    image: "/assets/images/Industry/Chemical.jpg",
     alt: "Loading",
   },
 
   {
     name: "Power Generation & Renewable Energy",
-    image: "/assests/images/Industry/RenewableEnergy.jpg",
+    image: "/assets/images/Industry/RenewableEnergy.jpg",
     alt: "Loading",
   },
 
   {
     name: "HVAC & Refrigeration",
-    image: "/assests/images/Industry/HVAC.jpg",
+    image: "/assets/images/Industry/HVAC.jpg",
     alt: "Loading",
   },
 
   {
     name: "Steel, Metal & Industrial Manufacturing",
-    image: "/assests/images/Industry/Steel.jpg",
+    image: "/assets/images/Industry/Steel.jpg",
     alt: "Loading",
   },
 
   {
     name: "Robotics and Automation",
-    image: "/assests/images/Industry/Robotics.jpg",
+    image: "/assets/images/Industry/Robotics.jpg",
     alt: "Loading",
   },
   {
     name: "Mining, Construction & Heavy Machinery",
-    image: "/assests/images/Industry/Mining.jpg",
+    image: "/assets/images/Industry/Mining.jpg",
     alt: "Loading",
   },
 ];
@@ -356,4 +356,170 @@ export const productGrid = [
     image: "/hero-bg.jpeg",
     alt: "Loading",
   },
+];
+
+
+
+export const mainProducts = [
+  {
+    product_id: 1,
+    product_name: "Rubber hose",
+    product_name_id: "rubber-hose",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Rubber.png",
+    alt: "Rubber"
+  },
+  {
+    product_id: 2,
+    product_name: "Thermoplastic Hose",
+    product_name_id: "thermoplastic-hose",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Thermoplastic.png",
+    alt: "Thermoplastic"
+  },
+  {
+    product_id: 3,
+    product_name: "PTFE/Teflon Hose",
+    product_name_id: "ptfe-teflon-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/teflon.png",
+    alt: "teflon"
+  },
+  {
+    product_id: 4,
+    product_name: "Composite hose",
+    product_name_id: "composite-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Composite.png",
+    alt: "Composite"
+  },
+  {
+    product_id: 5,
+    product_name: "Stainless steel hose",
+    product_name_id: "stainless-steel-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Stainless.png",
+    alt: "Stainless"
+  },
+  {
+    product_id: 6,
+    product_name: "Silicone hose",
+    product_name_id: "silicone-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Silicone.png",
+    alt: "Silicone"
+  },
+  {
+    product_id: 7,
+    product_name: "PVC hose",
+    product_name_id: "pvc-hose",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Pvc.png",
+    alt: "Pvc"
+  },
+  {
+    product_id: 8,
+    product_name: "Expansion Joints",
+    product_name_id: "expansion-joints",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Expansion.png",
+    alt: "Expansion"
+  },
+  {
+    product_id: 9,
+    product_name: "SS Hose Fittings",
+    product_name_id: "ss-hose-fittings",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/SS.png",
+    alt: "SS"
+  },
+  {
+    product_id: 10,
+    product_name: "Standard End Fittings",
+    product_name_id: "standard-end-fittings",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Standard.png",
+    alt: "Standard"
+  },
+  {
+    product_id: 11,
+    product_name: "Camlock Couplings",
+    product_name_id: "camlock-couplings",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Camlock.png",
+    alt: "Camlock"
+  },
+  {
+    product_id: 12,
+    product_name: "Quick Release Coupling (QRC)",
+    product_name_id: "quick-realease-coupling",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Quick.png",
+    alt: "Quick"
+  },
+  {
+    product_id: 13,
+    product_name: "SMS union",
+    product_name_id: "sms-union",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/SMS.png",
+    alt: "SMS"
+  }
+];
+
+export const productTypes = [
+  {
+    product_id: 1,
+    product_types: "Hydraulic Low & Medium Pressure",
+    product_type_id: 100,
+    product_name_id: "rubber-hose"
+  },
+  {
+    product_id: 1,
+    product_types: "High-Pressure & Spiral hose",
+    product_type_id: 101,
+    product_name_id: "rubber-hose"
+  },
+  {
+    product_id: 1,
+    product_types: "Industrial Hose",
+    product_type_id: 102,
+    product_name_id: "rubber-hose"
+  },
+  {
+    product_id: 2,
+    product_types: "Hydraulic Hose",
+    product_type_id: 200,
+    product_name_id: "thermoplastic-hose"
+  },
+  {
+    product_id: 2,
+    product_types: "Industrial hose",
+    product_type_id: 201,
+    product_name_id: "thermoplastic-hose"
+  },
+  {
+    product_id: 7,
+    product_types: "Braided hose",
+    product_type_id: 700,
+    product_name_id: "pvc-hose"
+  },
+  {
+    product_id: 8,
+    product_types: "Stainless steel",
+    product_type_id: 800,
+    product_name_id: "expansion-joints"
+  },
+  {
+    product_id: 8,
+    product_types: "PTFE/Teflon",
+    product_type_id: 801,
+    product_name_id: "expansion-joints"
+  },
+  {
+    product_id: 8,
+    product_types: "Rubber",
+    product_type_id: 802,
+    product_name_id: "expansion-joints"
+  }
 ];

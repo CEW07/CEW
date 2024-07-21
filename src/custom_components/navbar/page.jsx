@@ -115,7 +115,7 @@
 //                   alt="logo"
 //                   height={300}
 //                   width={300}
-//                   src="/assests/icons/whatsapp-icon.svg"
+//                   src="/assets/icons/whatsapp-icon.svg"
 //                   className="sm:w-8 w-16"
 //                 />
 //                 <span className="text-green-700">Call on +91 1234567890</span>
@@ -144,7 +144,7 @@
 //             alt="logo"
 //             height={300}
 //             width={300}
-//             src="/assests/images/cew-logo.png"
+//             src="/assets/images/cew-logo.png"
 //             className="sm:w-20 w-16"
 //           />
 //           <span className="border border-newgold lg:min-w-[40px] mr-2 lg:mx-2 w-[30px] transform rotate-90"></span>
@@ -360,7 +360,7 @@ const Navbar = () => {
                   alt="logo"
                   height={300}
                   width={300}
-                  src="/assests/icons/whatsapp-icon.svg"
+                  src="/assets/icons/whatsapp-icon.svg"
                   className="sm:w-8 w-16"
                 />
                 <span className="text-green-700">Call on +91 1234567890</span>
@@ -389,7 +389,7 @@ const Navbar = () => {
             alt="logo"
             height={300}
             width={300}
-            src="/assests/images/cew-logo.png"
+            src="/assets/images/cew-logo.png"
             className="sm:w-20 w-16"
           />
           <span className="border border-newgold lg:min-w-[40px] mr-2 lg:mx-2 w-[30px] transform rotate-90"></span>

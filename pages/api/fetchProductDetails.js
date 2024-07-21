@@ -19,13 +19,7 @@ export default async function fetchMainCategory(req, res) {
       if (subProductDetails.length === 0) {
         return res.status(404).json({ error: "SubproductDetails not found" });
       }
-      const SubproductDetailsWithImage = subProductDetails.map((data) => ({
-        ...data,
-        image: data.image
-          ? Buffer.from(data.image, "binary").toString("base64")
-          : null,
-      }));
-      res.status(200).json(SubproductDetailsWithImage);
+      res.status(200).json(subProductDetails);
     } catch (err) {
       console.error("Error executing query", err);
       res.status(500).json({ error: "Error fetching data", err });

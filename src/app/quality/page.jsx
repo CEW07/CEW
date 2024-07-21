@@ -15,7 +15,7 @@ const Quality = () => {
       <div className="relative w-full h-[100vh] overflow-hidden">
         <Image
           fill
-          src="/assests/images/Quality.jpg"
+          src="/assets/images/Quality.jpg"
           className="w-full h-full object-cover shadow-md"
           alt="Hero Background"
         />

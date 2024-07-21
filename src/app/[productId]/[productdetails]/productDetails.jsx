@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ProductDetails = ({ sizeChartDetails,productDetails,params }) => {
-  console.log(sizeChartDetails,productDetails,'details here');
+  // console.log(productDetails,'details here');
   const router = useRouter();
   useEffect(() => {
     
@@ -36,7 +36,7 @@ const ProductDetails = ({ sizeChartDetails,productDetails,params }) => {
         {/* <span>Image</span> */}
         {productDetails && (
           <div className=" flex justify-end mt-2">
-            <img src={`data:image/png;base64,${productDetails[0]?.image}`} />
+            <img src={`${productDetails[0]?.ImageUrl}`} alt={productDetails[0]?.product_subTypes_name} />
           </div>
         )}
       </section>
