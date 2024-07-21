@@ -3,9 +3,7 @@ import React from "react";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 const ProductGrid = ({ productData, loading, cardId }) => {
-  
-  const { productCategories, productTypes, productSubTypes } = productData;
-  console.log(cardId);
+
   return (
     <>
     <div className="grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2 ">
@@ -31,7 +29,7 @@ const ProductGrid = ({ productData, loading, cardId }) => {
     //                 alt=""
     //                 height={300}
     //                 width={300}
-    //                 src="/assests/images/hero-bg.jpeg"
+    //                 src="/assets/images/hero-bg.jpeg"
     //                 className="h-[40%] object-cover w-[100%] rounded-tr-sm rounded-tl-sm"
     //               />
     //               <CardHeader className="mt-2">
