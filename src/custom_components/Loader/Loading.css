@@ -1,10 +1,10 @@
-svg {
+.loading {
     width: 3.25em;
     transform-origin: center;
     animation: rotate4 2s linear infinite;
    }
    
-   circle {
+   .LoadingCircle {
     fill: none;
     stroke: hsl(214, 97%, 59%);
     stroke-width: 2;
@@ -34,5 +34,5 @@ svg {
     100% {
      stroke-dashoffset: -125px;
     }
-   }
+   } 
    

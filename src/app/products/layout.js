@@ -59,8 +59,8 @@ export default function Layout({ children }) {
         </div>
       )}
 
-      <div className="max-md:hidden">
-      <SidebarProduct productData={productData} />
+      <div className="max-md:hidden min-w-96">
+       <SidebarProduct productData={productData}/> 
       </div>
 
       {children}

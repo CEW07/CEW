@@ -20,7 +20,7 @@ export default function Layout({ children }) {
     subCategory:productTypes
   }
   return (
-    <div className="my-5 mx-3 small:mx-14 relative space-x-6  flex ">
+    <div className="my-5 mx-3 relative space-x-6  flex ">
       <div className="md:hidden ">
         <button onClick={toggleNavigation}>
           {isOpen ? (
@@ -63,8 +63,8 @@ export default function Layout({ children }) {
         </div>
       )}
 
-      <div className="max-md:hidden">
-        <SidebarProduct productData={productData} />
+      <div className="max-md:hidden min-w-96">
+        {SidebarProduct?  <SidebarProduct productData={productData}/> : "Loading"}
       </div>
 
       {children}

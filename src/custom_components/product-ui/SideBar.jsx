@@ -5,38 +5,39 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { products } from "@/staticdata/static";
 import Link from "next/link";
 import axios from "axios";
+import LineLoading from "../Loader/LineLoading";
+import Loading from "../Loader/Loading";
+import { mainProducts, productTypes } from "@/staticdata/static";
 
 const SidebarProduct = ({ productData }) => {
   // Destructuring ProductData
   const { mainCategory, subCategory } = productData;
   const [productsData, setProductsData] = useState({
-    subCategory: [],
-    mainCategory: [],
+    subCategory: productTypes,
+    mainCategory: mainProducts,
   });
   const [isLoading, setIsLoading] = useState(true);
   const [expandedProductIds, setExpandedProductIds] = useState([]);
   const [spanStyle, setSpanStyle] = useState(false);
+  // useEffect(() => {
+  //   if (subCategory) {
+  //     setProductsData((prev) => ({
+  //       ...prev,
+  //       subCategory: subCategory,
+  //     }));
+  //   }
+  //   if (mainCategory) {
+  //     setProductsData((prev) => ({
+  //       ...prev,
+  //       mainCategory: mainCategory,
+  //     }));
+  //   }
 
-  useEffect(() => {
-    if (subCategory) {
-      setProductsData((prev) => ({
-        ...prev,
-        subCategory: subCategory,
-      }));
-    }
-    if (mainCategory) {
-      setProductsData((prev) => ({
-        ...prev,
-        mainCategory: mainCategory,
-      }));
-    }
-
-    // console.log("useffect", productData.subCategory);
-  }, [subCategory, mainCategory]);
-
+  //   console.log("useffect",productsData);
+  // }, [subCategory, mainCategory]);
+  
   const handleFilter = useRef(false);
   async function handleMainDropdown(params, id) {
     const selectedProduct = productsData.mainCategory.find(
@@ -63,6 +64,7 @@ const SidebarProduct = ({ productData }) => {
       );
       // console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
+        setExpandedProductIds((prevId) => [...prevId, id]);
         const response = await axios(
           `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategoryType`,
           {
@@ -83,7 +85,6 @@ const SidebarProduct = ({ productData }) => {
           ),
         }));
 
-        setExpandedProductIds((prevId) => [...prevId, id]);
         setSpanStyle((prev) => ({ ...prev, [id]: true }));
       } else {
         console.log("already exist ");
@@ -119,6 +120,7 @@ const SidebarProduct = ({ productData }) => {
       );
       // console.log(handleFilter.current, "current useRef");
       if (!handleFilter.current) {
+        setExpandedProductIds((prevId) => [...prevId, id]);
         const response = await axios(
           `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchSubCategoryType`,
           {
@@ -127,19 +129,22 @@ const SidebarProduct = ({ productData }) => {
               data: "sub",
             },
           }
-        );
-        const res = await response;
-        // console.log(res, "new fetch here");
-        setProductsData((prev) => ({
-          ...prev,
-          subCategory: prev.subCategory.map((product) =>
-            product.product_type_id === id
-              ? { ...product, subProducts: res.data }
-              : product
-          ),
-        }));
-        setExpandedProductIds((prevId) => [...prevId, id]);
-        setSpanStyle((prev) => ({ ...prev, [id]: true }));
+        )
+        .then((res)=>{
+          setProductsData((prev) => ({
+            ...prev,
+            subCategory: prev.subCategory.map((product) =>
+              product.product_type_id === id
+                ? { ...product, subProducts: res.data }
+                : product
+            ),
+          }));
+          setSpanStyle((prev) => ({ ...prev, [id]: true }));
+        })
+        .catch((err)=>{
+          console.log(err);
+        })
+              // const res = await response;
       } else {
         console.log("already exist ");
       }
@@ -147,9 +152,14 @@ const SidebarProduct = ({ productData }) => {
       console.log(err);
     }
   }
+useEffect(() => {
+  if(productsData.subCategory)
+    console.log(productsData.subCategory);
+}, [productsData])
 
   return (
     <div>
+     
       {
         productsData.mainCategory.map((item) => (
           <div className="bg-offwhite max-w-sm" key={item.product_id}>
@@ -173,10 +183,10 @@ const SidebarProduct = ({ productData }) => {
                   {item.product_name}
                 </AccordionTrigger>
                 <AccordionContent>
-                  {productsData.subCategory
+                  { productsData.subCategory
                     .filter((type) => type.product_id === item.product_id)
                     .map((type, index) => (
-                      <React.Fragment key={type.product_type_id}>
+                      <section className="relative" key={index}>
                         <div
                           style={{
                             marginBottom: "20px",
@@ -207,7 +217,7 @@ const SidebarProduct = ({ productData }) => {
                               : "+"}
                           </span>
                           <span
-                            className="text-red-700 "
+                            className=""
                             style={{
                               display: "inline-block",
                               verticalAlign: "middle",
@@ -216,14 +226,15 @@ const SidebarProduct = ({ productData }) => {
                           >
                             {type.product_types !== undefined
                               ? type.product_types
-                              : item.product_name}{" "}
+                              : item.product_name}
                           </span>
                         </div>
-                        {expandedProductIds.includes(type.product_type_id) &&
-                          type?.subProducts &&
+
+                        {expandedProductIds.includes(type.product_type_id) &&(
+                          type?.subProducts ?
                           type?.subProducts?.map((subProduct) => (
                             <div
-                              className={`text-blue-800 underline decoration-slate-300 underline-offset-4 ${
+                              className={`  ${
                                 spanStyle ? " mb-5" : ""
                               }`}
                               style={{
@@ -239,19 +250,25 @@ const SidebarProduct = ({ productData }) => {
                                 {subProduct.product_sub_types}
                               </Link>
                             </div>
-                          ))}
-                      </React.Fragment>
+                          ))
+                          : <LineLoading/>)
+                        }   
+         
+                      </section>
                     ))}
 
-                  {productsData.subCategory.filter(
+
+
+
+                  { productsData.subCategory.filter(
                     (type) => type.product_id === item.product_id
                   ).length === 0 && (
-                    <React.Fragment key={item.product_id}>
-                      {expandedProductIds.includes(item.product_id) &&
-                        item.subProducts &&
+                    <section className="relative" key={item.product_id}>
+                      {expandedProductIds.includes(item.product_id) &&(
+                        item.subProducts?
                         item.subProducts.map((subProduct) => (
                           <div
-                            className={`underline decoration-slate-300 underline-offset-4 ${
+                            className={` ${
                               spanStyle ? " mb-5" : ""
                             }`}
                             style={{
@@ -267,8 +284,9 @@ const SidebarProduct = ({ productData }) => {
                               {subProduct.product_sub_types}
                             </Link>
                           </div>
-                        ))}
-                    </React.Fragment>
+                        )): <LineLoading/>)}
+                            
+                    </section>
                   )}
                 </AccordionContent>
               </AccordionItem>
