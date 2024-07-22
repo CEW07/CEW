@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/custom_components/navbar/page";
 import Footer from "@/custom_components/footer/page";
 import ContextData from "./contextapi/contextData";
+import Enquiry from "@/custom_components/Enquiry/Enquiry";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,12 +12,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body  className={`relative ${montserrat.className}`}>
           <Navbar />
+         <Enquiry/>
           {children}
+          <div className="fixed ml-8 px-2 py-2 shadow-xl bg-offwhite bottom-8">
+          <p >ICON</p>
+          </div>
           <Footer />
+         
       </body>
     </html>
   );

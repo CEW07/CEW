@@ -1,15 +1,21 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { usePathname } from "next/navigation";
+
 const Navbar = () => {
   const [isOpenMenu, setisOpenMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
+  const [isSearchFocus, setIsSearchFocus] = useState(false);
+  const [searchData, setSearchData] = useState(["Search products here"]);
+
+  const searchInputRef = useRef(null);
+  const searchListRef = useRef(null);
 
   useEffect(() => {
     function handleScroll() {
@@ -21,45 +27,45 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  function toggleMenu() {
+  useEffect(() => {
+    const handleClickOutsideSearch = (event) => {
+      if (
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target) &&
+        searchListRef.current &&
+        !searchListRef.current.contains(event.target)
+      ) {
+        setIsSearchFocus(false);
+      }
+    };
+
+    if (isSearchFocus) {
+      document.addEventListener("mousedown", handleClickOutsideSearch);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutsideSearch);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideSearch);
+    };
+  }, [isSearchFocus]);
+
+  const toggleMenu = () => {
     setisOpenMenu(!isOpenMenu);
-
-    // console.log(productData)
-  }
-  function toggleSearch() {
-    setIsSearchClicked(!isSearchClicked);
-    // console.log(isSearchClicked);
-  }
-
-  const Links = [
-    { name: "Home", href: "/", index: "1" },
-    { name: "Products", href: "/products", index: "2" },
-    { name: "Services", href: "/services", index: "3" },
-    { name: "Industries", href: "/industries", index: "4" },
-    { name: "Quality", href: "/quality", index: "5" },
-    { name: "About Us", href: "/about", index: "6" },
-    { name: "Contact", href: "/contact", index: "7" },
-  ];
-
-  const pathname = usePathname();
-  const styles = {
-    position: "fixed",
-    right: isOpenMenu ? 0 : "-100%",
-    transition: "right 0.5s ease-in-out",
   };
-  const [isSearchFocus, setIsSearchFocus] = useState(false);
-  const [searchData, setSearchData] = useState(["Search products here"]);
+
+  const toggleSearch = () => {
+    setIsSearchClicked(!isSearchClicked);
+  };
+
   const handleInputFocus = () => {
     setIsSearchFocus(true);
-    // console.log("focus");
   };
 
-  // search filter with debouncing
   let timeoutFunc;
 
   const handleSearchInput = (e) => {
     const text = e.target.value;
-    // console.log(text);
     clearTimeout(timeoutFunc);
     if (text.length > 0) {
       timeoutFunc = setTimeout(() => {
@@ -81,27 +87,42 @@ const Navbar = () => {
         },
       })
         .then((res) => {
-          // setSearchData(res.data)
           if (res?.data?.message) {
             setSearchData(["No products available with this name"]);
           } else {
             setSearchData(res.data);
           }
-          console.log(res, "search response here");
         })
         .catch((err) => {
           setSearchData(["No products available with this name"]);
-          console.log(err, "error while fetching product details");
         });
     } catch (err) {
       console.log("Error while fetching data: ", err);
     }
   };
+
+  const pathname = usePathname();
+  const styles = {
+    position: "fixed",
+    right: isOpenMenu ? 0 : "-100%",
+    transition: "right 0.5s ease-in-out",
+  };
+
+  const Links = [
+    { name: "Home", href: "/", index: "1" },
+    { name: "Products", href: "/products", index: "2" },
+    { name: "Services", href: "/services", index: "3" },
+    { name: "Industries", href: "/industries", index: "4" },
+    { name: "Quality", href: "/quality", index: "5" },
+    { name: "About Us", href: "/about", index: "6" },
+    { name: "Contact", href: "/contact", index: "7" },
+  ];
+
   return (
     <main
       className={`w-full sticky top-0  z-20 bg-offwhite transition-all duration-500 ${
         isScrolled ? "-top-1" : "lg:pt-0 pt-18"
-      } lg:border-b-2 lg:border-newgold  `}
+      } lg:border-b-2 lg:border-newgold`}
     >
       <section className="w-full">
         <div
@@ -129,7 +150,7 @@ const Navbar = () => {
                   href={item.href}
                   className={`mx-4 ${
                     pathname === item.href ? "text-newgold" : ""
-                  }  hover:text-newgold`}
+                  } hover:text-newgold`}
                   key={item.index}
                 >
                   {item.name}
@@ -156,7 +177,7 @@ const Navbar = () => {
             <span className="sm:text-sm text-[0.6rem]">ENGINEERING WORKS</span>
           </div>
         </div>
-        <div className="lg:mx-10 flex flex-col h-[100%] justify-center lg:justify-evenly w-[20%] lg:w-[60%] border-slate-950 sticky top-0">
+        <div className="lg:mx-10 flex   flex-col h-[100%] justify-center lg:justify-evenly w-[20%] lg:w-[60%] border-slate-950 sticky top-0">
           <div className=" text-newbrown  font-medium hidden lg:flex w-[40%] lg:justify-between lg:items-center ">
             {Links.slice(0, 4).map((item) => (
               <Link
@@ -170,57 +191,86 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <div className="flex items-center lg:border  lg:border-newgold lg:rounded-md w-[100%] justify-end lg:bg-white ">
-            <input
-              type="text"
-              className=" lg:w-[100%] bg-transparent p-2 mr-2 lg:rounded-md focus:outline-none lg:flex hidden  "
-              placeholder="Search Products"
-              onFocus={handleInputFocus}
-              onChange={handleSearchInput}
-            ></input>
-
-            <div
-              className="sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:bg-newgold  cursor-pointer rounded-r-md "
-              onClick={() => toggleSearch()}
-            >
-              <Search className="sm:h-8 sm:w-8 lg:h-6  " />
+          <div>
+            <div className="flex items-center relative lg:border lg:border-newgold lg:rounded-md w-[70%] justify-end lg:bg-white ">
+              <input
+                type="text"
+                className=" lg:w-[100%] bg-transparent p-2 mr-2 lg:rounded-md focus:outline-none lg:flex hidden   "
+                placeholder="Search Products"
+                onFocus={handleInputFocus}
+                onChange={handleSearchInput}
+                ref={searchInputRef}
+              ></input>
+              <div
+                className="sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:bg-newgold  cursor-pointer rounded-r-md "
+                onClick={() => toggleSearch()}
+              >
+                <Search className="sm:h-8 sm:w-8 lg:h-6  " />
+              </div>
+              <div
+                onClick={() => toggleMenu()}
+                className="h-8 mr-2 lg:hidden p-1 sm:h-12 sm:w-12 sm:mx-3 flex justify-center items-center "
+              >
+                <Menu className=" h-6 w-6 sm:h-8 sm:w-8 " />
+              </div>
             </div>
-            <div
-              onClick={() => toggleMenu()}
-              className="h-8 mr-2 lg:hidden p-1 sm:h-12 sm:w-12 sm:mx-3 flex justify-center items-center "
-            >
-              <Menu className=" h-6 w-6 sm:h-8 sm:w-8 " />
-            </div>
+            {isSearchFocus && (
+              <section
+                className="bg-gray-200 p-4 mt-0 w-[70%] lg:rounded-md h-[auto] absolute max-lg:hidden "
+                ref={searchListRef}
+              >
+                {searchData &&
+                  searchData.map((item, index) => (
+                    <Link
+                      href={`${item?.post_url}`}
+                      className="flex flex-col"
+                      key={index}
+                    >
+                      {item?.product_subTypes_name
+                        ? item.product_subTypes_name
+                        : item}
+                    </Link>
+                  ))}
+              </section>
+            )}
           </div>
-          {isSearchFocus && (
-            <section className="bg-gray-200 p-4 mt-0 w-[100%] lg:rounded-md h-[auto]">
-              {searchData &&
-                searchData.map((item, index) => (
-                  <Link
-                    href={`${item?.post_url}`}
-                    className="flex flex-col"
-                    key={index}
-                  >
-                    {item?.product_subTypes_name
-                      ? item.product_subTypes_name
-                      : item}
-                  </Link>
-                ))}
-            </section>
-          )}
         </div>
       </section>
-
       <input
         type="text"
-        className={`w-[90%] bg-offwhite p-2 border self-center rounded-md focus:outline-none lg:hidden transition-all duration-500 absolute ${
+        className={`w-[70%]  bg-offwhite p-2 border  rounded-md focus:outline-none lg:hidden transition-all duration-500 absolute ${
           isSearchClicked ? "right-[5%]" : "right-[100%]"
         }`}
+        onFocus={handleInputFocus}
+        onChange={handleSearchInput}
         placeholder="Search Products"
+        ref={searchInputRef}
       ></input>
-
+      <div className="relative">
+        {isSearchFocus && (
+          <section
+            className={`bg-gray-200 p-4 w-[70%] lg:rounded-md h-[auto] absolute top-10 lg:hidden ${
+              isSearchClicked ? "right-[5%]" : "right-[100%]"
+            }`}
+            ref={searchListRef}
+          >
+            {searchData &&
+              searchData.map((item, index) => (
+                <Link
+                  href={`${item?.post_url}`}
+                  className="flex flex-col"
+                  key={index}
+                >
+                  {item?.product_subTypes_name
+                    ? item.product_subTypes_name
+                    : item}
+                </Link>
+              ))}
+          </section>
+        )}
+      </div>
       <div
-        className={`lg:hidden w-[70vw] h-[100vh] bg-offwhite flex flex-col items-center gap-10 sm:gap-8 py-5 transition-all duration-500`}
+        className={`lg:hidden w-[40vw] h-[100vh] bg-offwhite flex flex-col items-center gap-10 sm:gap-8 py-5 transition-all duration-500`}
         style={styles}
       >
         {Links.map((item) => (
