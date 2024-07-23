@@ -225,7 +225,6 @@ const HomeContent = () => {
           </div>
         </div>
       </section>
-      <Table/>
     </main>
   );
 };

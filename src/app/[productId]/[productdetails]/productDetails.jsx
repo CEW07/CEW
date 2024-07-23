@@ -1,5 +1,7 @@
 "use client";
 import SizeChart from "@/custom_components/product-ui/SizeChart";
+import Table from "@/custom_components/table/Table";
+import { CEW56, CEW57, CEW66, CEW67, CEW68 } from "@/staticdata/tableData/TableData";
 import { data } from "autoprefixer";
 import axios from "axios";
 import Image from "next/image";
@@ -15,7 +17,8 @@ const ProductDetails = ({ sizeChartDetails,productDetails,params }) => {
       router.replace('/not-found')
     }
   }, [])
-  
+  const tableProp = productDetails && productDetails[0]?.product_subTypes_name.split(' ')[0];
+  const tableValues = tableProp ==='CEW56' ? CEW56 : tableProp ==='CEW57' ? CEW57  : tableProp ==='CEW66' ? CEW66 :tableProp ==='CEW567' ? CEW67 : tableProp ==='CEW68' ? CEW68 : ''
   return (
     <div className="">
       <section className="flex max-xl:flex-col small:justify-between">
@@ -248,11 +251,17 @@ const ProductDetails = ({ sizeChartDetails,productDetails,params }) => {
             </div>
           ))}
       </section>
-      {sizeChartDetails && Array.isArray(sizeChartDetails) && (
+      {sizeChartDetails && Array.isArray(sizeChartDetails) ? (
         <div className="grid grid-cols-1 overflow-x-auto max-w-full">
           <SizeChart sizeChartDetails={sizeChartDetails} />
         </div>
-      )}
+      )
+      : 
+      (
+        <Table tableValues={tableValues} />
+      )
+      }
+      
     </div>
   );
 };
