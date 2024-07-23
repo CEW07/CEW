@@ -36,13 +36,15 @@ const Enquiry = () => {
     }, [isOpen]);
 
     return (
-        <div className={`fixed ${isOpen ? "top-0" : "top-56"} right-0 z-40`} ref={formRef}>
+        <div className={`fixed ${isOpen ? "top-0" : "top-56"}  z-40 right-0`} ref={formRef}>
+            <div className='fixed -right-[60px]  z-40'>
             <button className={`${isOpen ? 'hidden' : ''} -rotate-90 px-2 py-2 bg-offwhite`} onClick={handleOpenClick}>Business Enquiry</button>
-            <div className='bg-offwhite'>
+            </div>
+            <div className='bg-offwhite w-[500px]'>
                 <button className={`ml-3 ${isOpen ? '' : 'hidden'} mt-5`} onClick={handleCloseClick}>close</button>
                 {isOpen && <div>
-                    <section className="bg-offwhite px-12 h-[100vh] overflow-y-scroll flex flex-col items-center justify-evenly">
-                        <div className="flex flex-col lg:items-start">
+                    <section className="bg-offwhite  px-12 h-[100vh] overflow-y-scroll flex flex-col items-center justify-evenly">
+                        <div className="flex flex-col ">
                             <div className="flex flex-col w-full">
                                 <div className="flex flex-col">
                                     <heading className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">Name</heading>

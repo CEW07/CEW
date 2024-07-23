@@ -12,6 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useData } from "../contextapi/contextData";
+import Table from "@/custom_components/table/Table";
 
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
@@ -224,6 +225,7 @@ const HomeContent = () => {
           </div>
         </div>
       </section>
+      <Table/>
     </main>
   );
 };

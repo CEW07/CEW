@@ -12,7 +12,7 @@ const withCSP = (handler) => async (req, res) => {
 };
 
 const fetchMainCategory = async (req, res) => {
-  console.log('Response Headers:', res.getHeaders());
+  // console.log('Response Headers:', res.getHeaders());
   const { id, data } = req.query; // Extract id from query parameters
 
   if (!id) {

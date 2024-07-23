@@ -128,7 +128,7 @@ const Navbar = () => {
         <div
           className={`transition-all duration-500 ${
             isScrolled ? "h-0 opacity-0" : "h-[8vh] opacity-100"
-          } hidden lg:flex`}
+          } max-lg:hidden lg:flex`}
         >
           <div className="w-full h-full flex justify-between items-center text-newbrown font-medium border-b-2 border-newgold">
             <div className=" w-[35%] items-center flex justify-evenly mx-3">
@@ -178,7 +178,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="lg:mx-10 flex   flex-col h-[100%] justify-center lg:justify-evenly w-[20%] lg:w-[60%] border-slate-950 sticky top-0">
-          <div className=" text-newbrown  font-medium hidden lg:flex w-[40%] lg:justify-between lg:items-center ">
+          <div className=" text-newbrown  font-medium max-lg:hidden lg:flex w-[40%] lg:justify-between lg:items-center ">
             {Links.slice(0, 4).map((item) => (
               <Link
                 href={item.href}
@@ -195,7 +195,7 @@ const Navbar = () => {
             <div className="flex items-center relative lg:border lg:border-newgold lg:rounded-md w-[70%] justify-end lg:bg-white ">
               <input
                 type="text"
-                className=" lg:w-[100%] bg-transparent p-2 mr-2 lg:rounded-md focus:outline-none lg:flex hidden   "
+                className=" lg:w-[100%] bg-transparent p-2 mr-2 lg:rounded-md focus:outline-none lg:flex max-lg:hidden   "
                 placeholder="Search Products"
                 onFocus={handleInputFocus}
                 onChange={handleSearchInput}

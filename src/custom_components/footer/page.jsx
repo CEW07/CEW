@@ -6,10 +6,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { services, mainProducts } from "@/staticdata/static";
 const Footer = () => {
   return (
-    <footer className="bg-offwhite lg:h-[50vh] sm:h-[] w-[100%] flex items-center flex-col border-t gap-4 border-newgold justify-between ">
-      <div className=" lg:flex lg:flex-row lg:justify-around lg:items-center w-[100%] lg:h-[80%] h-[auto] flex flex-col  items-center lg:gap-10 gap-3 border-red-500 ">
+    <footer className="bg-offwhite w-[100%] flex items-center flex-col border-t gap-4 border-newgold justify-between pt-20">
+      <div className=" lg:flex lg:flex-row lg:justify-around lg:items-start w-[100%] lg:h-[80%] h-[auto] flex flex-col  items-center lg:gap-10 gap-3 border-red-500 ">
         <section className=" flex flex-col lg:gap-4 gap-1 lg:h-[auto] h-[auto] w-[90%] lg:w-[auto] lg:ml-0 pt-5  border-blue-800">
           <div className="lg:w-[100%] h-[auto] flex flex-row items-center border-red-500 ">
             <Image
@@ -53,19 +54,19 @@ const Footer = () => {
             />
           </div>
         </section>
-        <section className="lg:flex hidden lg:flex-col h-[40%]  gap-6">
+        <section className="lg:flex max-lg:hidden lg:flex-col   gap-4">
           <header className="font-bold">Products</header>
-          <span>About us</span>
-          <span>About us</span>
-          <span>About us</span>
+          { mainProducts.map((product)=>(
+          <span className="text-sm">{product.product_name}</span>
+         )) }
         </section>
-        <section className="lg:flex hidden lg:flex-col h-[40%]  gap-4">
+        <section className="lg:flex max-lg:hidden lg:flex-col   gap-4">
           <header className="font-bold">Services</header>
-          <span>About us</span>
-          <span>About us</span>
-          <span>About us</span>
+         { services.map((service)=>(
+          <span className="text-sm">{service.name}</span>
+         )) }
         </section>
-        <section className="lg:flex hidden lg:flex-col h-[40%]  gap-6">
+        <section className="lg:flex max-lg:hidden lg:flex-col   gap-6">
           <div className=" border-blue-600 flex flex-col lg:gap-2 gap-1   font-medium ">
             <header className="font-bold">Contact us</header>
             <span className="text-[14px]">
@@ -85,11 +86,14 @@ const Footer = () => {
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1" className="border-t ">
               <AccordionTrigger className="text-[12px] ">
-                Company
+                Products
               </AccordionTrigger>
+              { mainProducts.map((product)=>(
+         
               <AccordionContent className="text-[12px]">
-                Company Details
+                {product.product_name}
               </AccordionContent>
+         )) }
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger className="text-[12px]">
@@ -106,17 +110,19 @@ const Footer = () => {
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger className="text-[12px]">
-                Our Socials
+                Services
               </AccordionTrigger>
+              { services.map((service)=>(
               <AccordionContent className="text-[12px]">
-                Social Details
+                {service.name}
               </AccordionContent>
-            </AccordionItem>
+         )) }
+         </AccordionItem>
           </Accordion>
         </div>
       </div>
-      <div className="bg-newgold w-[100%] h-[10vh] lg:h-[20%] text-white">
-        @Copyright 2024
+      <div className="bg-newgold w-[100%]  text-white">
+      &#169; Copyright 2024
       </div>
     </footer>
   );
