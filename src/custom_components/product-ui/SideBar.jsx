@@ -158,7 +158,7 @@ useEffect(() => {
 }, [productsData])
 
   return (
-    <div>
+    <div className="w-[80%]">
      
       {
         productsData.mainCategory.map((item) => (
@@ -166,7 +166,7 @@ useEffect(() => {
             <Accordion
               type="single"
               collapsible
-              className="py-2 px-10"
+              className="py-2 px-[1rem]"
               key={item.product_id}
               onClick={
                 item.product_types === "FALSE"
@@ -178,8 +178,9 @@ useEffect(() => {
               <AccordionItem
                 value={`item-${item.product_id}`}
                 key={item.product_id}
+                className='border-none'
               >
-                <AccordionTrigger className="hover:no-underline text-newgold text-start">
+                <AccordionTrigger className="hover:no-underline border-none font-semibold text-[14px] text-newgold text-start">
                   {item.product_name}
                 </AccordionTrigger>
                 <AccordionContent>
@@ -189,7 +190,7 @@ useEffect(() => {
                       <section className="relative" key={index}>
                         <div
                           style={{
-                            marginBottom: "20px",
+                            marginBottom: "10px",
                             display: "flex",
                             alignItems: "flex-start",
                           }}
@@ -217,12 +218,18 @@ useEffect(() => {
                               : "+"}
                           </span>
                           <span
-                            className=""
+                            className="font-medium cursor-pointer"
                             style={{
                               display: "inline-block",
                               verticalAlign: "middle",
                               marginLeft: "5px",
                             }}
+                            onClick={() =>
+                              handleSubTypeDropDown(
+                                type.product_type_id,
+                                type.product_type_id
+                              )
+                            }
                           >
                             {type.product_types !== undefined
                               ? type.product_types
@@ -234,11 +241,11 @@ useEffect(() => {
                           type?.subProducts ?
                           type?.subProducts?.map((subProduct) => (
                             <div
-                              className={`  ${
-                                spanStyle ? " mb-5" : ""
+                              className={`pb-1 border-b border-[#C89F23]  ${
+                                spanStyle ? " mb-4" : ""
                               }`}
                               style={{
-                                paddingLeft: "20px",
+                                // paddingLeft: "20px",
                               }}
                               key={subProduct.product_sub_types_id}
                             >
@@ -246,6 +253,7 @@ useEffect(() => {
                               <Link
                                 title={subProduct.product_sub_types}
                                 href={`/${item.product_name_id}/${subProduct.product_sub_types_id}`}
+                                className="text-[12px] text-[#] font-medium p-0 "
                               >
                                 {subProduct.product_sub_types}
                               </Link>
@@ -268,16 +276,16 @@ useEffect(() => {
                         item.subProducts?
                         item.subProducts.map((subProduct) => (
                           <div
-                            className={` ${
-                              spanStyle ? " mb-5" : ""
+                            className={`pb-1 border-b border-[#C89F23]  ${
+                              spanStyle ? " mb-2" : ""
                             }`}
                             style={{
-                              paddingLeft: "20px",
+                              // paddingLeft: "20px",
                             }}
                             key={subProduct.product_sub_types_id}
                           >
                             <Link
-                              className=""
+                              className="text-[12px] text-[#] font-medium "
                               title={subProduct.product_sub_types}
                               href={`/${item.product_name_id}/${subProduct.product_sub_types_id}`}
                             >

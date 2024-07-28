@@ -1,102 +1,147 @@
-'use client'
-import React, { useEffect, useRef, useState } from 'react';
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const Enquiry = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const formRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const formRef = useRef(null);
 
-    const handleOpenClick = () => {
-        setIsOpen(true);
+  const handleOpenClick = () => {
+    setIsOpen(true);
+  };
+
+  const handleCloseClick = () => {
+    setIsOpen(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (formRef.current && !formRef.current.contains(event.target)) {
+      setIsOpen(false);
     }
+  };
 
-    const handleCloseClick = () => {
-        setIsOpen(false);
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.classList.add("no-scroll");
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.classList.remove("no-scroll");
     }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isOpen]);
 
-    const handleClickOutside = (event) => {
-        if (formRef.current && !formRef.current.contains(event.target)) {
-            setIsOpen(false);
-        }
-    }
-
-    useEffect(() => {
-        if (isOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-        } else {
-            document.removeEventListener('mousedown', handleClickOutside);
-        }
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        }
-    }, [isOpen]);
-
-    useEffect(() => {
-        console.log("I got clicked", isOpen);
-    }, [isOpen]);
-
-    return (
-        <div className={`fixed ${isOpen ? "top-0" : "top-56"}  z-40 right-0`} ref={formRef}>
-            <div className='fixed -right-[60px]  z-40'>
-            <button className={`${isOpen ? 'hidden' : ''} -rotate-90 px-2 py-2 bg-offwhite`} onClick={handleOpenClick}>Business Enquiry</button>
-            </div>
-            <div className='bg-offwhite w-[500px]'>
-                <button className={`ml-3 ${isOpen ? '' : 'hidden'} mt-5`} onClick={handleCloseClick}>close</button>
-                {isOpen && <div>
-                    <section className="bg-offwhite  px-12 h-[100vh] overflow-y-scroll flex flex-col items-center justify-evenly">
-                        <div className="flex flex-col ">
-                            <div className="flex flex-col w-full">
-                                <div className="flex flex-col">
-                                    <heading className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">Name</heading>
-                                    <input
-                                        placeholder="Enter your name"
-                                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
-                                    />
-                                </div>
-
-                                <div className="flex flex-col">
-                                    <heading className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">Company Name</heading>
-                                    <input
-                                        placeholder="Enter your company name"
-                                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="flex flex-col w-full">
-                                <div className="flex flex-col">
-                                    <heading className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">Email</heading>
-                                    <input
-                                        placeholder="Enter your email"
-                                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
-                                    />
-                                </div>
-
-                                <div className="flex flex-col">
-                                    <heading className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">Contact number</heading>
-                                    <input
-                                        placeholder="Enter your contact no"
-                                        type="number"
-                                        maxLength="10"
-                                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
-                                    />
-                                </div>
-                            </div>
-
-                            <heading className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">Details</heading>
-                            <textarea
-                                placeholder="Enter your message"
-                                className="resize-none p-2 h-28 w-[100%] focus:outline-none border border-newgold rounded-md"
-                            />
-                            <Button className="my-4 w-[100%]" variant="goldbtn">
-                                Send message
-                            </Button>
-                        </div>
-                    </section>
-                </div>}
-            </div>
+  useEffect(() => {
+    console.log("Component mounted");
+  }, []);
+  return (
+    <>
+      {isOpen && <div className="fixed inset-0 bg-black opacity-50 z-40"></div>}
+      <div
+        className={`fixed ${isOpen ? "top-0" : "top-56"} z-40 right-0`}
+        ref={formRef}
+      >
+        <div className="fixed -right-[60px] z-30">
+          <button
+            className={`${
+              isOpen ? "hidden" : ""
+            } -rotate-90 px-2 py-2 bg-newgold text-offwhite border-4 border-offwhite rounded`}
+            onClick={handleOpenClick}
+          >
+            Business Enquiry
+          </button>
         </div>
-    );
-}
+        <div className="bg-offwhite w-[500px]">
+          <button
+            className={`ml-3 ${isOpen ? "" : "hidden"} mt-5`}
+            onClick={handleCloseClick}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          {isOpen && (
+            <div>
+              <section className="bg-offwhite px-12 h-[100vh] overflow-y-scroll flex flex-col items-center justify-center ">
+                <div className="flex flex-col w-[90%] h-auto">
+                  <div className="flex flex-col">
+                    <div className="flex flex-col">
+                      <h1 className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+                        Name
+                      </h1>
+                      <input
+                        placeholder="Enter your name"
+                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <h1 className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+                        Company Name
+                      </h1>
+                      <input
+                        placeholder="Enter your company name"
+                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col w-full">
+                    <div className="flex flex-col">
+                      <h1 className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+                        Email
+                      </h1>
+                      <input
+                        placeholder="Enter your email"
+                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <h1 className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+                        Contact number
+                      </h1>
+                      <input
+                        placeholder="Enter your contact no"
+                        type="number"
+                        maxLength="10"
+                        className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <h1 className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+                    Details
+                  </h1>
+                  <textarea
+                    placeholder="Enter your message"
+                    className="resize-none p-2 h-28 w-[100%] focus:outline-none border border-newgold rounded-md"
+                  />
+                  <Button className="my-4 w-[100%]" variant="goldbtn">
+                    Send message
+                  </Button>
+                </div>
+              </section>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Enquiry;

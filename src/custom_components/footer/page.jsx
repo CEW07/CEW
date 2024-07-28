@@ -7,12 +7,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { services, mainProducts } from "@/staticdata/static";
+import { FaPhoneAlt, FaCalendarAlt } from "react-icons/fa";
+import { MdOutlineMarkEmailRead } from "react-icons/md";
+import { PiCertificate } from "react-icons/pi";
+import { FaLocationDot } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <footer className="bg-offwhite w-[100%] flex items-center flex-col border-t gap-4 border-newgold justify-between pt-20">
-      <div className=" lg:flex lg:flex-row lg:justify-around lg:items-start w-[100%] lg:h-[80%] h-[auto] flex flex-col  items-center lg:gap-10 gap-3 border-red-500 ">
-        <section className=" flex flex-col lg:gap-4 gap-1 lg:h-[auto] h-[auto] w-[90%] lg:w-[auto] lg:ml-0 pt-5  border-blue-800">
-          <div className="lg:w-[100%] h-[auto] flex flex-row items-center border-red-500 ">
+    <footer className="bg-offwhite h-[] flex flex-col  justify-between border-t border-newgold ">
+      <section className="w-[100%] py-10 relative flex flex-col lg:flex-row justify-evenly items-start h-[100%]">
+        <section className=" border-gray-800 flex  justify-center flex-col w-[100%] lg:w-[30%] xl:w-[22%]">
+          <div className="lg:w-[] h-[auto] flex  items-center flex-row ">
             <Image
               alt="logo"
               height={300}
@@ -20,110 +24,185 @@ const Footer = () => {
               src="/assets/images/cew-logo.png"
               className="sm:w-20 w-16"
             />
-            <span className="border border-newgold lg:min-w-[40px] mr-2 lg:mx-2 w-[30px] transform rotate-90"></span>
-            <div className="w-80% flex flex-col ">
+            <span className="border border-newgold lg:min-w-[40px] mr-2 lg:mx-2 w-[20px] transform rotate-90"></span>
+            <div className=" flex flex-col ">
               <button className="text-center font-semibold sm:text-xl sm:tracking-[1.1rem] tracking-[0.6rem]">
                 CROWN
               </button>
-              <span className="sm:text-sm text-[0.6rem]">
-                ENGINEERING WORKS
-              </span>
+              <p className="sm:text-sm text-[0.6rem] m-0">ENGINEERING WORKS</p>
             </div>
           </div>
-          <div className="flex justify-start w-[full]  ">
-            <Image
-              alt="logo"
-              height={300}
-              width={300}
-              src="/assets/icons/whatsapp-icon.svg"
-              className="w-10 h-10 cursor-pointer  mx-2"
-            />
-            <Image
-              alt="logo"
-              height={300}
-              width={300}
-              src="/assets/icons/instagram-icon.svg"
-              className="w-10 h-10 cursor-pointer mx-2 "
-            />
-            <Image
-              alt="logo"
-              height={300}
-              width={300}
-              src="/assets/icons/facebook-icon.svg"
-              className="w-10 h-10 cursor-pointer mx-2 "
-            />
-          </div>
-        </section>
-        <section className="lg:flex max-lg:hidden lg:flex-col   gap-4">
-          <header className="font-bold">Products</header>
-          { mainProducts.map((product)=>(
-          <span className="text-sm">{product.product_name}</span>
-         )) }
-        </section>
-        <section className="lg:flex max-lg:hidden lg:flex-col   gap-4">
-          <header className="font-bold">Services</header>
-         { services.map((service)=>(
-          <span className="text-sm">{service.name}</span>
-         )) }
-        </section>
-        <section className="lg:flex max-lg:hidden lg:flex-col   gap-6">
-          <div className=" border-blue-600 flex flex-col lg:gap-2 gap-1   font-medium ">
-            <header className="font-bold">Contact us</header>
-            <span className="text-[14px]">
-              Location: Mumbai Maharastra, India{" "}
-            </span>
-            <span className="text-[14px]">
-              Email - crownengineering@gmail.com{" "}
-            </span>
-            <span className="text-[14px]">Contact - +91 0123456789 </span>
-            <span className="text-[14px]">
-              Address - Mazgaon Dockyard road{" "}
-            </span>
-          </div>
+          <p className="m-0 text-[12px] mt-2 px-4 text-[] font-medium text-justify ">
+            Crown Engineering Works specializes in the design, development, and
+            production of premium hose assemblies and fittings. With a global
+            reach, we deliver reliable fluid conveyance solutions across diverse
+            industries.
+          </p>
         </section>
 
-        <div className="lg:hidden h-[auto] w-[90%]  ">
-          <Accordion type="single" collapsible>
-            <AccordionItem value="item-1" className="border-t ">
-              <AccordionTrigger className="text-[12px] ">
-                Products
+        <section className="w-[24%] xl:block max-xl:hidden">
+          <h1 className="text-xl font-semibold text-newgold">Find us at</h1>
+          <header className="m-0 text-[16px] font-semibold mt-4">
+            Registered Office
+          </header>
+          <p className="m-0 text-[14px] text-justify">
+            Room no. 2, Municipal building no. 3, 71- Morland Road, Mumbai,
+            Maharashtra 400 008, India
+          </p>
+
+          <header className="m-0 text-[16px] font-semibold mt-4">
+            Factory
+          </header>
+          <p className="m-0 text-[14px] text-justify">
+            Hose Assembly unit: 67/A, Factory No. 1, Suryaji compound, Tank
+            pakhadi Road, Byculla, Mumbai, Maharashtra 400 011, India
+          </p>
+        </section>
+
+        <section className="w-[16%] xl:block max-xl:hidden">
+          <h1 className="text-xl font-semibold text-newgold">Contact us at</h1>
+          <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-2 items-center">
+            <FaPhoneAlt color="#C89F23" className="text-[18px]" />
+            <p className="m-0 text-[14px]  font-medium">+91 12346567890</p>
+          </header>
+
+          <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
+            <MdOutlineMarkEmailRead color="#C89F23" className="text-[24px]" />
+            <p className="m-0 text-[14px]  font-medium">crowneng@gmail.com</p>
+          </header>
+
+          <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
+            <FaCalendarAlt color="#C89F23" className="text-[18px]" />
+            <p className="m-0 text-[14px]  font-medium">
+              Monday - Saturday <br />
+              10 am - 8 pm
+            </p>
+          </header>
+        </section>
+
+        <section className="w-[100%] lg:w-[50%] mt-4 px-6 xl:hidden max-xl:flex">
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger className="text-black font-medium text-[14px] flex justify-between  ">
+                <div className="flex items-center gap-4">
+                  {/* <FaLocationDot color="#C89F23" /> */}
+                  Find us at
+                </div>
               </AccordionTrigger>
-              { mainProducts.map((product)=>(
-         
-              <AccordionContent className="text-[12px]">
-                {product.product_name}
+              <AccordionContent>
+                <header className="m-0 text-[14px] font-semibold ">
+                  Registered Office
+                </header>
+                <p className="m-0 text-[14px] text-justify">
+                  Room no. 2, Municipal building no. 3, 71- Morland Road,
+                  Mumbai, Maharashtra 400 008, India
+                </p>
+
+                <header className="m-0 text-[14px] font-semibold mt-4">
+                  Factory
+                </header>
+                <p className="m-0 text-[14px] text-[#0C0A09] text-justify">
+                  Hose Assembly unit: 67/A, Factory No. 1, Suryaji compound,
+                  Tank pakhadi Road, Byculla, Mumbai, Maharashtra 400 011, India
+                </p>
               </AccordionContent>
-         )) }
             </AccordionItem>
+
             <AccordionItem value="item-2">
-              <AccordionTrigger className="text-[12px]">
-                Contact us
+              <AccordionTrigger className="text-black font-medium text-[14px] ">
+                <div className="flex items-center gap-4">
+                  {/* <FaPhoneAlt color="#C89F23" /> */}
+                  Contact us
+                </div>
               </AccordionTrigger>
-              <AccordionContent className="text-[12px]">
-                <div className=" border-blue-600 flex flex-col lg:gap-2 gap-1 text-[12px] sm:text-sm  font-medium ">
-                  <span className="">Location: Mumbai Maharastra, India </span>
-                  <span className="">Email - crownengineering@gmail.com </span>
-                  <span className="">Contact - +91 0123456789 </span>
-                  <span className="">Address - Mazgaon Dockyard road </span>
+              <AccordionContent className="">
+                <div className="flex flex-row gap-4 items-center">
+                  <header className="m-0 text-[16px] font-semibold flex flex-row gap-4 items-center">
+                    <FaPhoneAlt color="#C89F23" className="text-[18px]" />
+
+                    <p className="m-0 text-[14px] font-medium">
+                      +91 12346567890
+                    </p>
+                  </header>
+                </div>
+
+                <div className="flex flex-row gap-4 items-center">
+                  <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-4 pt-1 items-center">
+                    <MdOutlineMarkEmailRead
+                      color="#C89F23"
+                      className="text-[18px]"
+                    />
+
+                    <p className="m-0 text-[14px] font-medium">
+                      crowneng@gmail.com
+                    </p>
+                  </header>
+                </div>
+
+                <div className="flex flex-row gap-4 items-center">
+                  <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-4 pt-1 items-center">
+                    <FaCalendarAlt color="#C89F23" className="text-[18px]" />
+
+                    <p className="m-0 text-[14px] font-medium">
+                      Monday - Saturday (10 am - 8 pm)
+                    </p>
+                  </header>
                 </div>
               </AccordionContent>
             </AccordionItem>
+
             <AccordionItem value="item-3">
-              <AccordionTrigger className="text-[12px]">
-                Services
+              <AccordionTrigger className="text-black font-medium text-[14px] ">
+                <div className="flex items-center gap-4">Certifications</div>
               </AccordionTrigger>
-              { services.map((service)=>(
-              <AccordionContent className="text-[12px]">
-                {service.name}
+              <AccordionContent>
+                <div className="flex flex-row gap-4 mt-2">
+                  <img
+                    alt="iccon"
+                    src="/assets/icons/fdalogo.svg"
+                    className=" mix-blend-multiply w-[50px]"
+                  />
+                  <img
+                    alt="iccon"
+                    src="/assets/icons/isologo.svg"
+                    className=" mix-blend-multiply w-[50px]"
+                  />
+                </div>
               </AccordionContent>
-         )) }
-         </AccordionItem>
+            </AccordionItem>
           </Accordion>
-        </div>
-      </div>
-      <div className="bg-newgold w-[100%]  text-white">
-      &#169; Copyright 2024
-      </div>
+        </section>
+
+        <section className="w-[16%] xl:block max-xl:hidden">
+          <header className="m-0 xl:text-xl text-[16px] text-newgold font-semibold flex flex-row gap-2 items-center">
+            {/* <PiCertificate color="#C89F23" className="" /> */}
+            Certifications
+          </header>
+          <div className="flex flex-row gap-2 mt-2">
+            <img
+              alt="iccon"
+              src="/assets/icons/fdalogo.svg"
+              className=" mix-blend-multiply w-[50px] lg:w-[100px]"
+            />
+            <img
+              alt="iccon"
+              src="/assets/icons/isologo.svg"
+              className=" mix-blend-multiply w-[50px] lg:w-[100px]"
+            />
+          </div>
+        </section>
+
+        {/* mobile screen footer */}
+      </section>
+
+      <section className="h-[] bg-newgold flex flex-row items-center p-4">
+        <p className="bg- w-[100%] m-0  text-white text-[14px]">
+          Copyright &#169; 2024 Crown Engineering. All rights reserved
+        </p>
+        {/* <p className="text-nowrap m-0 text-offwhite font-semibold text-[10px] md:text-[16px] xl:text-lg pr-4">
+          PIONEERS IN FLUID CONVEYANCE SOLUTIONS.
+        </p> */}
+      </section>
     </footer>
   );
 };

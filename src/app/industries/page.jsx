@@ -3,8 +3,10 @@ import { industries } from "@/staticdata/static";
 import Image from "next/image";
 const Industries = () => {
   return (
-    <main className="py-6">
-      <div className="flex justify-center items-center flex-col xl:mx-32 max-sm:mx-5 sm:mx-10">
+    <main className="flex justify-center">
+
+    <div className="py-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+      <div className="flex justify-center items-center flex-col ">
         <h1 className="text-center font-semibold text-xl smallest:text-3xl md:text-4xl lg:text-5xl text-newgold">
           Industries We Serve
         </h1>
@@ -18,7 +20,7 @@ const Industries = () => {
       </div>
 
       <section className="mt-10">
-        <div className="xl:mx-32  grid small:grid-cols-2 md:grid-cols-3 gap-6  max-sm:mx-5 sm:mx-10">
+        <div className=" grid small:grid-cols-2 md:grid-cols-3 gap-6  ">
           {industries?.map((industry, index) => (
             <div key={index} className="relative">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -39,6 +41,7 @@ const Industries = () => {
           ))}
         </div>
       </section>
+    </div>
     </main>
   );
 };

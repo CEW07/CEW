@@ -3,9 +3,9 @@ import Image from "next/image";
 const About = () => {
   return (
     <main>
-      <section>
-        <div className="bg-offwhite">
-          <div className="grid lg:grid-cols-2 pt-16 gap-10 mx-5 md:mx-20 xl:mx-32  pb-20 ">
+      <section className="bg-offwhite">
+        <div className="flex  justify-center mb-10">
+          <div className="grid lg:grid-cols-2 pt-16 gap-10 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem] ">
             <div className="relative aspect-video lg:aspect-square max-lg:order-2 ">
               <Image
                 fill
@@ -18,7 +18,9 @@ const About = () => {
               <h1 className="text-3xl md:text-4xl font-semibold text-newgold">
                 Our story
               </h1>
-              <p className="max-smallest:text-xs text-justify text-sm sm:text-base  lg:text-lg mt-6">
+              <div className="flex justify-center">
+
+              <p className="max-smallest:text-xs text-justify text-sm sm:text-base  lg:text-lg mt-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
                 Abdul Majeed Khan established Crown Engineering Works in 1979
                 with the intention of offering premium hydraulic hose assemblies
                 and high-pressure hose fittings to diverse sectors. At the time
@@ -31,7 +33,9 @@ const About = () => {
                 exceptional customer service has made us a trusted and respected
                 name in the engineering business.
               </p>
+              </div>
             </div>
+          </div>
           </div>
 
           <div className="w-full ">
@@ -77,7 +81,11 @@ const About = () => {
             />
           </div>
 
-          <div className="grid lg:grid-cols-2 mt-16 gap-10 mx-5 md:mx-20 xl:mx-32 pb-20 ">
+          <div className="flex  justify-center">
+           
+            
+
+          <div className="grid lg:grid-cols-2 mt-16 gap-10 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem] ">
             <div className="relative aspect-video lg:aspect-square max-lg:order-2">
               <Image
                 fill
@@ -106,25 +114,37 @@ const About = () => {
               </p>
             </div>
           </div>
-        </div>
-        <Image
-          height={800}
-          width={800}
-          src="/assets/images/Waves.png"
-          className="w-full rounded-md"
-          alt="Hero Background"
-        />
+ 
+      
+          </div>
+
+         
+       
       </section>
-      <div>
+      <div className="flex justify-center bg-offwhite pt-10">
+
+      <div className=" max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
         <h1 className="text-newgold text-center  text-3xl font-semibold">
           Why Choose us
         </h1>
         <div>
           <h1>Decades of Expertise</h1>
+          <h1>Commitment to Quality</h1>
+          <h1>Custom Solutions</h1>
+
+          <h1>Client-Centric Approach</h1>
+          <h1>Industry  Partnership</h1>
+          <h1>Innovation and Technology</h1>
+          <h1>Global Reach</h1>
         </div>
+      </div>
       </div>
     </main>
   );
 };
 
 export default About;
+ 
+
+
+

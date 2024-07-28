@@ -20,15 +20,14 @@ export default function RootLayout({ children }) {
         <Navbar />
         <Enquiry />
         {children}
-        <div className="fixed ml-6 px-2 py-2 shadow-xl bg-[#25d366] bottom-8 rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-none;">
+        <div className="fixed ml-6 px-2 py-2 shadow-xl bg-[#25d366] bottom-8 rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-none z-10">
           <Link
             href="https://wa.me/1234567890"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaWhatsapp className="text-4xl text-offwhite" />
+            <FaWhatsapp className="text-4xl text-offwhite " />
           </Link>
-          {/* <p >ICON</p> */}
         </div>
         <Footer />
       </body>
