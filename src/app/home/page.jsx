@@ -12,6 +12,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useData } from "../contextapi/contextData";
+import Table from "@/custom_components/table/Table";
+import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian";
 
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
@@ -20,12 +22,12 @@ const HomeContent = () => {
     <main>
       <section>
         <HeroMain />
-        <section className="bg-newgold pt-20 pb-20 md:px-20 px-10">
+        <section className="bg-newgold pt-20 pb-20 ">
           <h1 className="text-2xl md:text-4xl text-center text-white font-semibold ">
             About us
           </h1>
-          <div className="flex flex-col justify-center items-center text-white">
-          <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-w-6xl ">
+          <div className="flex flex-col justify-center items-center  text-white">
+          <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
                 Crown Engineering Works, an ISO 9001:2015 certified company,
                 specializes in manufacturing hose assemblies and fluid
                 connectors, including FDA-approved, Hydraulic, Stainless Steel
@@ -54,7 +56,7 @@ const HomeContent = () => {
         <h1 className="text-3xl text-center text-newgold font-semibold">
           Our Products
         </h1>
-        <div className="lg:pt-12 pt-16 flex justify-center mx-20">
+        <div className="lg:pt-12 pt-16 flex items-center justify-center max-smallest:mx-5 ">
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
             {/* {loading
               ? "loading..."
@@ -82,13 +84,17 @@ const HomeContent = () => {
                       href={`/${item.product_name_id}`}
                       imageSrc={item?.image}
                       imageAlt={item?.alt}
+                    
                     />
                   );
                 })}
           </div>
         </div>
       </section>
-      <section className="grid xl:grid-cols-2 my-20 gap-6 mx-10 md:mx-20">
+
+      <div className="flex justify-center">
+
+      <section className="grid xl:grid-cols-2 my-20 gap-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
         <div className="relative aspect-video ">
           <Image
             src="/assets/images/Qualities.jpg"
@@ -144,7 +150,10 @@ const HomeContent = () => {
           </div>
         </div>
       </section>
-      <section className="bg-newgold grid small:grid-cols-2  md:grid-cols-4 gap-6 py-10 text-offwhite px-10 md:px-20">
+      </div>
+
+
+      <section className="bg-newgold grid small:grid-cols-2  md:grid-cols-4 gap-6 py-10 text-offwhite ">
         <div className="text-center font-semibold text-xl xl:text-2xl">
           <p className="text-2xl xl:text-3xl">45+</p>
           <p>Years of Experience</p>
@@ -162,64 +171,16 @@ const HomeContent = () => {
           <p>Industries Served</p>
         </div>
       </section>
-      <section>
-        <div className="mt-20 xl:mx-32  max-sm:mx-5 sm:mx-10 mb-20">
+
+      
+      <section className="flex justify-center">
+        <div className="mt-20 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
           <h1 className="text-newgold text-3xl mb-6 text-center font-semibold">
             Our Services
           </h1>
-          <div className="  grid small:grid-cols-2 md:grid-cols-3 gap-6 ">
+          <div className="  grid small:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
             {services.slice(0, 3)?.map((service, index) => (
-              <div key={index} className="">
-                <div className=" h-full rounded-md ">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full bg-lightgrey rounded-md px-4 shadow-xl"
-                  >
-                    <AccordionItem value={service.name}>
-                      <AccordionTrigger className="hover:no-underline ">
-                        <h1 className="text-newgold max-galaxyFold:text-base  text-lg  z-10  px-4">
-                          {service.name}
-                        </h1>
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className=" px-4">
-                          <li className="mt-3">{service.subPoint1}</li>
-                          <li className="mt-3">{service.subPoint2}</li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint3 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint3}
-                          </li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint4 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint4}
-                          </li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint5 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint5}
-                          </li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint6 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint6}
-                          </li>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                </div>
-              </div>
+              <CustomAccordian key={index} service={service} index={index} />
             ))}
           </div>
         </div>

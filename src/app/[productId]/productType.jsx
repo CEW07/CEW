@@ -36,7 +36,7 @@ const ProductTypePage = ({ subCategory,params }) => {
                             type.product_type_id
                         )
                         .map((data, index) => (
-                          <div className="h-full">
+                          <div className="h-full" key={index}>
                             <ProductCard
                               keyId={index}
                               name={data.product_sub_types}

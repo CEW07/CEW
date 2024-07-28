@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian";
 
 const Quality = () => {
   return (
@@ -39,7 +40,7 @@ const Quality = () => {
 
       <div className="mt-20 xl:mx-32 max-sm:mx-5 sm:mx-10 ">
         <h1 className="text-3xl mb-6 text-center">Our Policies</h1>
-        <div className=" bg-lightgrey px-4 py-4 h-full rounded-md shadow-xl">
+        {/* <div className=" bg-lightgrey px-4 py-4 h-full rounded-md shadow-xl">
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="Quality policy">
               <AccordionTrigger className="hover:no-underline">
@@ -73,34 +74,40 @@ const Quality = () => {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-        </div>
+        </div> */}
 
-        <div className=" grid small:grid-cols-2 md:grid-cols-2 gap-6 mt-6 ">
-          {Policies.slice(1, 3)?.map((policy, index) => (
-            <div key={index} className="">
-              <div className=" bg-lightgrey px-4 py-4 rounded-md shadow-xl">
-                <Accordion type="single" collapsible className="w-full ">
-                  <AccordionItem value={policy.name}>
-                    <AccordionTrigger className="hover:no-underline">
-                      <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  ">
-                        {policy.name}
-                      </h1>
-                    </AccordionTrigger>
-                    <p className="mt-3 text-xs smallest:text-sm  lg:text-base">
-                      {policy.detail}
-                    </p>
-                    <AccordionContent>
-                      <div className=" ">
-                        <li className="mt-3">{policy.subPoint1}</li>
-                        <li className="mt-3">{policy.subPoint2}</li>
-                        <li className="mt-3">{policy.subPoint3}</li>
-                        <li className="mt-3">{policy.subPoint4}</li>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-            </div>
+        <div className=" grid small:grid-cols-2 md:grid-cols-3 gap-6 mt-6 ">
+          {Policies.slice(0, 3)?.map((policy, index) => (
+            // <div key={index} className="">
+            //   <div className=" bg-lightgrey px-4 py-4 rounded-md shadow-xl">
+            //     <Accordion type="single" collapsible className="w-full ">
+            //       <AccordionItem value={policy.name}>
+            //         <AccordionTrigger className="hover:no-underline">
+            //           <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  ">
+            //             {policy.name}
+            //           </h1>
+            //         </AccordionTrigger>
+            //         <p className="mt-3 text-xs smallest:text-sm  lg:text-base">
+            //           {policy.detail}
+            //         </p>
+            //         <AccordionContent>
+            //           <div className=" ">
+            //             <li className="mt-3">{policy.subPoint1}</li>
+            //             <li className="mt-3">{policy.subPoint2}</li>
+            //             <li className="mt-3">{policy.subPoint3}</li>
+            //             <li className="mt-3">{policy.subPoint4}</li>
+            //           </div>
+            //         </AccordionContent>
+            //       </AccordionItem>
+            //     </Accordion>
+            //   </div>
+            // </div>
+            <CustomAccordian
+            key={index}
+              service={policy}
+              index={index}
+              header={index === 0 ? true : false}
+            />
           ))}
         </div>
       </div>
@@ -119,13 +126,13 @@ const Quality = () => {
         <div className=" grid small:grid-cols-2 lg:grid-cols-3 gap-6  ">
           {testing?.map((test, index) => (
             <div key={index} className="">
-              <div className=" bg-lightgrey px-4 py-4 h-full rounded-md shadow-xl">
-                <h1 className="text-newgold  max-galaxyFold:text-base  text-xl lg:text-2xl z-10  px-4">
+              <div className=" bg-offwhite hover:scale-105 transform transition-transform duration-300 text-newgold cursor-pointer px-4 py-4 h-full  shadow-lg hover:bg-newgold hover:text-offwhite">
+                <h1 className="  max-galaxyFold:text-base  text-[16px] lg:text-[18px] font-semibold z-10  px-4">
                   {test.name}
                 </h1>
 
                 <div className="mt-4 px-4">
-                  <p className="mt-3 max-galaxyFold:text-xs galaxyFold:text-sm sm:text-base">
+                  <p className="mt-3 max-galaxyFold:text-xs text-[12px] galaxyFold:text-sm ">
                     {test.subPoint}
                   </p>
                 </div>
