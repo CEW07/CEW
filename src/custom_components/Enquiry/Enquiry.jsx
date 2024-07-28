@@ -39,12 +39,7 @@ const Enquiry = () => {
   }, []);
   return (
     <>
-      {isOpen && <div className="fixed inset-0 bg-black opacity-50 z-40"></div>}
-      <div
-        className={`fixed ${isOpen ? "top-0" : "top-56"} z-40 right-0`}
-        ref={formRef}
-      >
-        <div className="fixed -right-[60px] z-30">
+     <div className="fixed -right-[60px] top-56 z-10">
           <button
             className={`${
               isOpen ? "hidden" : ""
@@ -54,9 +49,16 @@ const Enquiry = () => {
             Business Enquiry
           </button>
         </div>
-        <div className="bg-offwhite w-[500px]">
+      {isOpen && <div className="fixed inset-0 bg-black opacity-50 z-30"></div>}
+      <div
+        className={`fixed ${isOpen ? "top-0" : "top-56"} z-30 right-0`}
+        ref={formRef}
+      >
+       
+        {isOpen && (
+        <div className={`bg-offwhite  h-[100vh]  w-[100%] sm:w-[400px] lg:w-[500px] overflow-y-scroll`}>
           <button
-            className={`ml-3 ${isOpen ? "" : "hidden"} mt-5`}
+            className="ml-3  mt-5"
             onClick={handleCloseClick}
           >
             <svg
@@ -74,10 +76,10 @@ const Enquiry = () => {
               />
             </svg>
           </button>
-          {isOpen && (
+          
             <div>
-              <section className="bg-offwhite px-12 h-[100vh] overflow-y-scroll flex flex-col items-center justify-center ">
-                <div className="flex flex-col w-[90%] h-auto">
+              <section className="px-5 sm:px-12  flex flex-col items-center justify-center ">
+                <div className="flex flex-col w-[100%] sm:w-[90%] h-auto">
                   <div className="flex flex-col">
                     <div className="flex flex-col">
                       <h1 className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
@@ -137,8 +139,8 @@ const Enquiry = () => {
                 </div>
               </section>
             </div>
-          )}
         </div>
+          )}
       </div>
     </>
   );
