@@ -21,14 +21,14 @@ export default function CustomAccordian({ service, index, header }) {
             </AccordionTrigger>
 
             <AccordionContent>
-              {header && (
+              
                 <p className="my-2 ml-4 text-xs smallest:text-sm  lg:text-base">
-                  At Crown Engineering Works, we are committed to delivering
-                  products and services that consistently meet or exceed our
-                  customers' expectations. We achieve this through:
+                  {header}
                 </p>
-              )}
-              <div className="px-4 text-[14px] font-medium text-newgold ">
+        
+              <div className=" text-[14px] font-medium text-newgold ">
+                <ul className="list-disc  px-8">
+
                 {service?.subPoint1 && (
                   <li className="mt-3">{service?.subPoint1}</li>
                 )}
@@ -55,6 +55,7 @@ export default function CustomAccordian({ service, index, header }) {
                     {service?.subPoint6}
                   </li>
                 )}
+                </ul>
               </div>
             </AccordionContent>
           </AccordionItem>

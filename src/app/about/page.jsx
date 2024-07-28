@@ -20,7 +20,7 @@ const About = () => {
               </h1>
               <div className="flex justify-center">
 
-              <p className="max-smallest:text-xs text-justify text-sm sm:text-base  lg:text-lg mt-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+              <p className="max-smallest:text-xs text-justify text-sm sm:text-base  lg:text-lg mt-6    max-w-[74rem]">
                 Abdul Majeed Khan established Crown Engineering Works in 1979
                 with the intention of offering premium hydraulic hose assemblies
                 and high-pressure hose fittings to diverse sectors. At the time

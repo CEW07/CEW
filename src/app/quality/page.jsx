@@ -106,7 +106,7 @@ const Quality = () => {
             key={index}
               service={policy}
               index={index}
-              header={index === 0 ? true : false}
+              header={policy.detail}
             />
           ))}
         </div>

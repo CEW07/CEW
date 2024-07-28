@@ -17,6 +17,24 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false);
   const searchInputRef = useRef(null);
   const searchListRef = useRef(null);
+  const navBarRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (navBarRef.current && !navBarRef.current.contains(event.target)) {
+      setisOpenMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpenMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpenMenu]);
 
   useEffect(() => {
     function handleScroll() {
@@ -114,6 +132,7 @@ const Navbar = () => {
     position: "fixed",
     right: isOpenMenu ? 0 : "-100%",
     transition: "right 0.5s ease-in-out",
+    zIndex: "50"
   };
 
   const Links = [
@@ -302,9 +321,11 @@ const Navbar = () => {
           </section>
         )}
       </div>
+      {isOpenMenu &&   <div className="fixed inset-0 bg-black opacity-50 z-10"></div>}
       <div
-        className={`lg:hidden w-[70vw] small:w-[50vw] z-50 h-[100vh] bg-offwhite flex flex-col relative items-center gap-10 sm:gap-8 py-5 transition-all duration-500`}
+        className={`lg:hidden w-[70vw] small:w-[50vw]  h-[100vh] bg-offwhite flex flex-col relative items-center gap-10 sm:gap-8 py-5 transition-all duration-500`}
         style={styles}
+        ref={navBarRef}
       >
         {Links.map((item) => (
           <Link
