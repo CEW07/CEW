@@ -37,7 +37,7 @@ const Services = () => {
       </div>
 
       <div className="mt-20 xl:mx-32  max-sm:mx-5 sm:mx-10 pb-20">
-        <h1 className="text-newgold text-3xl mb-6 text-center font-semibold">
+        <h1 className="text-newgold text-2xl md:text-4xl mb-6 text-center font-semibold">
           Our Services
         </h1>
         <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">

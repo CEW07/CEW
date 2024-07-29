@@ -22,11 +22,11 @@ const HomeContent = () => {
     <main>
       <section>
         <HeroMain />
-        <section className="bg-newgold pt-20 pb-20 ">
-          <h1 className="text-2xl md:text-4xl text-center text-white font-semibold ">
+        <section className="bg-offwhite pt-20 pb-20 ">
+          <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold ">
             About us
           </h1>
-          <div className="flex flex-col justify-center items-center  text-white">
+          <div className="flex flex-col justify-center items-center  text-black">
           <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
                 Crown Engineering Works, an ISO 9001:2015 certified company,
                 specializes in manufacturing hose assemblies and fluid
@@ -46,14 +46,14 @@ const HomeContent = () => {
         </section>
         <div className="w-full ">
           <Image
-            src="/assets/icons/WaveBottom.png"
+            src="/assets/icons/WaveTop-1.png"
             alt="waves"
             width={500}
             height={400}
             className="w-full -mb-[4px]"
           />
         </div>
-        <h1 className="text-3xl text-center text-newgold font-semibold">
+        <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold">
           Our Products
         </h1>
         <div className="lg:pt-12 pt-16 flex items-center justify-center max-smallest:mx-5 ">
@@ -103,7 +103,7 @@ const HomeContent = () => {
             className="rounded-md"
           />
           <div className="absolute inset-0 bg-black opacity-50  "></div>
-          <p className="absolute bottom-2 font-semibold text-offwhite ml-3">Experience the Difference with us</p>
+          <p className="absolute bottom-2 galaxyFold:bottom-4 small:text-2xl text-offwhite ml-3">Experience the Difference with us</p>
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="grid sm:grid-cols-2 gap-6">
@@ -153,21 +153,21 @@ const HomeContent = () => {
       </div>
 
 
-      <section className="bg-newgold grid small:grid-cols-2  md:grid-cols-4 gap-6 py-10 text-offwhite ">
-        <div className="text-center font-semibold text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">45+</p>
+      <section className="bg-offwhite grid small:grid-cols-2  md:grid-cols-4 gap-6 py-10 text-black ">
+        <div className="text-center  text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">45+</p>
           <p>Years of Experience</p>
         </div>
-        <div className="text-center font-semibold text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">135+</p>
+        <div className="text-center  text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">135+</p>
           <p>Products in Portfolio</p>
         </div>
-        <div className="text-center font-semibold   text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">15+</p>
+        <div className="text-center    text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">15+</p>
           <p>Countries Served</p>
         </div>
-        <div className="text-center font-semibold   text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">10+</p>
+        <div className="text-center    text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">10+</p>
           <p>Industries Served</p>
         </div>
       </section>
@@ -175,7 +175,7 @@ const HomeContent = () => {
       
       <section className="flex justify-center">
         <div className="mt-20 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
-          <h1 className="text-newgold text-3xl mb-6 text-center font-semibold">
+          <h1 className="text-newgold text-2xl md:text-4xl mb-6 text-center font-semibold">
             Our Services
           </h1>
           <div className="  grid small:grid-cols-2 md:grid-cols-3 gap-6 mb-20">

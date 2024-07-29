@@ -39,7 +39,7 @@ const Quality = () => {
       </div>
 
       <div className="mt-20 xl:mx-32 max-sm:mx-5 sm:mx-10 ">
-        <h1 className="text-3xl mb-6 text-center">Our Policies</h1>
+        <h1 className="text-2xl md:text-4xl mb-6 text-center">Our Policies</h1>
         {/* <div className=" bg-lightgrey px-4 py-4 h-full rounded-md shadow-xl">
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="Quality policy">
@@ -113,7 +113,7 @@ const Quality = () => {
       </div>
 
       <div className="mt-20 xl:mx-32 max-sm:mx-5 sm:mx-10">
-        <h1 className="text-xl smallest:text-3xl md:text-4xl  text-center">
+        <h1 className="text-2xl md:text-4xl  text-center">
           Testing and Inspection Procedures
         </h1>
         <div className="flex justify-center items-center ">
@@ -142,7 +142,7 @@ const Quality = () => {
         </div>
       </div>
       <div className="mt-20 xl:mx-32 max-sm:mx-5 sm:mx-10">
-        <h1 className="text-xl smallest:text-3xl md:text-4xl  text-center">
+        <h1 className="text-2xl md:text-4xl text-center">
           Certification
         </h1>
         <div className="flex justify-center items-center ">
