@@ -15,7 +15,7 @@ export default function CustomAccordian({ service, index, header }) {
         >
           <AccordionItem value={service?.name} className="border-none">
             <AccordionTrigger className="hover:no-underline text-newgold hover:bg-newgold hover:text-offwhite  font-semibold px-4 ">
-              <h1 className=" max-galaxyFold:text-base  text-[16px]   z-10 ">
+              <h1 className=" max-galaxyFold:text-base  text-[16px] px-3 z-10 ">
                 {service?.name && service?.name}
               </h1>
             </AccordionTrigger>

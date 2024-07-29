@@ -27,21 +27,22 @@ const HomeContent = () => {
             About us
           </h1>
           <div className="flex flex-col justify-center items-center  text-black">
-          <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
-                Crown Engineering Works, an ISO 9001:2015 certified company,
-                specializes in manufacturing hose assemblies and fluid
-                connectors, including FDA-approved, Hydraulic, Stainless Steel
-                Flexible, Thermoplastic, PTFE, Industrial, Composite, Silicone,
-                and PVC hoses. Our commitment to upholding the highest standards
-                guarantees that every product meets stringent quality standards.We have formed trusted partnerships with key corporations in the
-                pharmaceutical, food, defense, oil, industrial manufacturing,
-                and renewable energy sectors. Our success is built on strong
-                relationships and a deep understanding of our clients' needs,
-                allowing us to provide tailored solutions. Crown Engineering
-                Works is more than just a supplier; we are partners in our
-                clients' success, dedicated to providing businesses globally
-                with persistent, high-performance solutions they can trust.
-              </p>
+            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+              Crown Engineering Works, an ISO 9001:2015 certified company,
+              specializes in manufacturing hose assemblies and fluid connectors,
+              including FDA-approved, Hydraulic, Stainless Steel Flexible,
+              Thermoplastic, PTFE, Industrial, Composite, Silicone, and PVC
+              hoses. Our commitment to upholding the highest standards
+              guarantees that every product meets stringent quality standards.We
+              have formed trusted partnerships with key corporations in the
+              pharmaceutical, food, defense, oil, industrial manufacturing, and
+              renewable energy sectors. Our success is built on strong
+              relationships and a deep understanding of our clients' needs,
+              allowing us to provide tailored solutions. Crown Engineering Works
+              is more than just a supplier; we are partners in our clients'
+              success, dedicated to providing businesses globally with
+              persistent, high-performance solutions they can trust.
+            </p>
           </div>
         </section>
         <div className="w-full ">
@@ -75,83 +76,148 @@ const HomeContent = () => {
                   );
             })} */}
 
-             { mainProducts?.map((item, index) => {
-                  return (
-                    <ProductCard
-                      key={item.product_id}
-                      keyId={item.product_id}
-                      name={item.product_name}
-                      href={`/${item.product_name_id}`}
-                      imageSrc={item?.image}
-                      imageAlt={item?.alt}
-                    
-                    />
-                  );
-                })}
+            {mainProducts?.map((item, index) => {
+              return (
+                <ProductCard
+                  key={item.product_id}
+                  keyId={item.product_id}
+                  name={item.product_name}
+                  href={`/${item.product_name_id}`}
+                  imageSrc={item?.image}
+                  imageAlt={item?.alt}
+                />
+              );
+            })}
           </div>
         </div>
+      </section>
+
+      <section className="flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20 bg-offwhite mt-20 ">
+       <div className="grid smallest:grid-cols-2 small:grid-cols-3 lg:grid-cols-6 gap-6 py-10 max-w-[74rem] w-full">
+      
+      
+
+       <img
+            src="/assets/icons/certificate/USP.svg"
+            alt=""
+            className=" mix-blend-multiply w-20"
+          />
+
+
+<div  className="flex justify-center">
+
+          <img
+            src="/assets/icons/certificate/bfr.svg"
+            alt=""
+            className=" mix-blend-multiply w-20"
+          />
+</div>
+
+
+<div  className="flex justify-center">
+
+          <img
+            src="/assets/icons/certificate/european.svg"
+            alt=""
+            className=" mix-blend-multiply w-20"
+          />
+</div>
+
+
+<div  className="flex justify-center">
+
+
+          <img
+            src="/assets/icons/certificate/iso_0993.svg"
+            alt=""
+            className=" mix-blend-multiply w-20"
+          />
+</div>
+
+          <div  className="flex justify-center">
+
+          <img
+            src="/assets/icons/isologo.svg"
+            alt=""
+            className=" mix-blend-multiply w-32 "
+          />
+          </div>
+
+
+          <div className="flex justify-end items-end">
+          <img
+            src="/assets/icons/certificate/ROHS.svg"
+            alt=""
+            className=" mix-blend-multiply w-20"
+          />
+
+          </div>
+
+       </div>
+         
+       
       </section>
 
       <div className="flex justify-center">
-
-      <section className="grid xl:grid-cols-2 my-20 gap-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
-        <div className="relative aspect-video ">
-          <Image
-            src="/assets/images/Qualities.jpg"
-            fill
-            alt="Quality"
-            className="rounded-md"
-          />
-          <div className="absolute inset-0 bg-black opacity-50  "></div>
-          <p className="absolute bottom-2 galaxyFold:bottom-4 small:text-2xl text-offwhite ml-3">Experience the Difference with us</p>
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Industry Experts
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
-                With decades of expertise, our seasoned professionals bring
-                unparalleled knowledge and skill to every project, ensuring
-                exceptional results.
-              </p>
-            </div>
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Diverse Products
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
-                Our extensive selection of premium products, coupled with
-                reasonable pricing, guarantees the best value without
-                compromising quality.
-              </p>
-            </div>
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Customer Support
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
-                Our dedicated support team is always ready to assist, ensuring
-                our customers experience seamless service and complete
-                satisfaction.
-              </p>
-            </div>
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Investment in R&D
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
-                We continuously invest in research and development to drive
-                innovation, ensuring we deliver cutting-edge solutions that meet
-                evolving industry needs.
-              </p>
+        <section className="grid xl:grid-cols-2 my-20 gap-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+          <div className="relative aspect-video ">
+            <Image
+              src="/assets/images/Qualities.jpg"
+              fill
+              alt="Quality"
+              className="rounded-md"
+            />
+            <div className="absolute inset-0 bg-black opacity-50  "></div>
+            <p className="absolute bottom-2 galaxyFold:bottom-4 small:text-2xl text-offwhite ml-3">
+              Experience the Difference with us
+            </p>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                  Industry Experts
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  With decades of expertise, our seasoned professionals bring
+                  unparalleled knowledge and skill to every project, ensuring
+                  exceptional results.
+                </p>
+              </div>
+              <div>
+                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                  Diverse Products
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  Our extensive selection of premium products, coupled with
+                  reasonable pricing, guarantees the best value without
+                  compromising quality.
+                </p>
+              </div>
+              <div>
+                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                  Customer Support
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  Our dedicated support team is always ready to assist, ensuring
+                  our customers experience seamless service and complete
+                  satisfaction.
+                </p>
+              </div>
+              <div>
+                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                  Investment in R&D
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  We continuously invest in research and development to drive
+                  innovation, ensuring we deliver cutting-edge solutions that
+                  meet evolving industry needs.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
-
 
       <section className="bg-offwhite grid small:grid-cols-2  md:grid-cols-4 gap-6 py-10 text-black ">
         <div className="text-center  text-xl xl:text-2xl">
@@ -172,15 +238,57 @@ const HomeContent = () => {
         </div>
       </section>
 
-      
       <section className="flex justify-center">
-        <div className="mt-20 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
-          <h1 className="text-newgold text-2xl md:text-4xl mb-6 text-center font-semibold">
+        <div className="my-20 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+          <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold">
             Our Services
           </h1>
-          <div className="  grid small:grid-cols-2 md:grid-cols-3 gap-6 mb-20">
+          <div className=" grid small:grid-cols-2 lg:grid-cols-3 gap-6  mt-6">
             {services.slice(0, 3)?.map((service, index) => (
-              <CustomAccordian key={index} service={service} index={index} />
+              <div
+                className=" bg-offwhite hover:scale-105 transform transition-transform duration-300 text-newgold cursor-pointer px-4 py-4 h-full  shadow-lg hover:bg-newgold hover:text-offwhite"
+                key={index}
+              >
+                <h1 className="  max-galaxyFold:text-base xl:text-nowrap text-[16px] lg:text-[18px] font-semibold z-10  px-4">
+                  {service.name}
+                </h1>
+                <ul className="list-disc  text-[14px] px-8">
+                  {service?.subPoint1 && (
+                    <li className="mt-3">{service?.subPoint1}</li>
+                  )}
+                  {service?.subPoint2 && (
+                    <li className="mt-3">{service?.subPoint2}</li>
+                  )}
+                  {service?.subPoint3 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint3 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint3}
+                    </li>
+                  )}
+                  {service?.subPoint4 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint4 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint4}
+                    </li>
+                  )}
+                  {service?.subPoint5 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint5 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint5}
+                    </li>
+                  )}
+                  {service?.subPoint6 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint6 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint6}
+                    </li>
+                  )}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
