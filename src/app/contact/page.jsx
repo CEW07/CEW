@@ -87,14 +87,27 @@ const Contact = () => {
                 />
               </div>
             </div>
-
-            <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+                      <label className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4"> Enquiry Category</label>
+                      <select className="lg:w-[70%] w-[100%]  p-2 rounded-md border border-newgold text-gray-700   leading-tight focus:outline-none ">
+                        <option value="" disabled selected>
+                          Select enquiry type
+                        </option>
+                        <option value="Hose Assembly">Hose Assembly</option>
+                        <option value="Hose fitting">Hose fitting</option>
+                        <option value="Bare Hose">Bare Hose</option>
+                        <option value="General enquiry">General enquiry</option>
+                      </select>
+              <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
               Details
             </heading>
             <textarea
               placeholder="Enter your message"
               className="lg:w-[70%] resize-none p-2 h-28 w-[100%] focus:outline-none border border-newgold rounded-md "
             />
+          
+
+
+            
             <Button className="my-4 lg:w-[70%] w-[100%]" variant="goldbtn">
               Send message
             </Button>

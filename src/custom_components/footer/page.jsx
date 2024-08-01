@@ -16,21 +16,14 @@ const Footer = () => {
     <footer className="bg-offwhite h-[] flex flex-col  justify-between border-t border-newgold ">
       <section className="w-[100%] py-10 relative flex flex-col lg:flex-row justify-evenly items-start h-[100%]">
         <section className=" border-gray-800 flex  justify-center flex-col w-[100%] lg:w-[30%] xl:w-[22%]">
-          <div className="lg:w-[] h-[auto] flex  items-center flex-row ">
+          <div className=" h-[auto] flex lg:justify-center ml-3 flex-row ">
             <Image
               alt="logo"
-              height={300}
-              width={300}
-              src="/assets/images/cew-logo.png"
-              className="sm:w-20 w-16"
+              height={200}
+              width={200}
+              src="/assets/icons/fullLogo.png"
+              className="lg:w-[60%]"
             />
-            <span className="border border-newgold lg:min-w-[40px] mr-2 lg:mx-2 w-[20px] transform rotate-90"></span>
-            <div className=" flex flex-col ">
-              <button className="text-center font-semibold sm:text-xl sm:tracking-[1.1rem] tracking-[0.6rem]">
-                CROWN
-              </button>
-              <p className="sm:text-sm text-[0.6rem] m-0">ENGINEERING WORKS</p>
-            </div>
           </div>
           <p className="m-0 text-[12px] mt-2 px-4 text-[] font-medium text-justify ">
             Crown Engineering Works specializes in the design, development, and

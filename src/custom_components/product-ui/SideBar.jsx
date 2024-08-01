@@ -158,7 +158,7 @@ useEffect(() => {
 }, [productsData])
 
   return (
-    <div className="w-[80%]">
+    <div className="sideBar:w-[250px] smallest:w-[300px]">
      
       {
         productsData.mainCategory.map((item) => (

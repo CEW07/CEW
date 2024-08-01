@@ -1,25 +1,25 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
-import { mainProductImages, mainProducts } from "@/staticdata/static";
-import Image from "next/image";
+import { mainProducts } from "@/staticdata/static";
+
 const Products = () => {
   return (
-    <div className="">
-      <h1 className="text-2xl md:text-4xl my-5 font-semibold text-center text-newgold">Our Products</h1>
-      <div className=" pt-10 grid sm:max-md:grid-cols-2  mainProducts:grid-cols-2 xl:grid-cols-3 gap-6  ">
-        {mainProducts.map((item, index) => {
-              return (
-                <ProductCard
-                  key={item.product_id}
-                  keyId={item.product_id}
-                  name={item.product_name}
-                  href={`/${item.product_name_id}`}
-                  imageSrc={item.image}
-                  imageAlt={item.alt}
-                />
-              );
-            })}
+    <div className="text-center">
+      <h1 className="text-2xl md:text-4xl my-5 font-semibold text-newgold">Our Products</h1>
+      <div className="flex justify-center">
+        <div className="pt-10 grid small:max-md:grid-cols-2 mainProducts:grid-cols-2 xl:grid-cols-3 gap-6">
+          {mainProducts.map((item) => (
+            <ProductCard
+              key={item.product_id}
+              keyId={item.product_id}
+              name={item.product_name}
+              href={`/${item.product_name_id}`}
+              imageSrc={item.image}
+              imageAlt={item.alt}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

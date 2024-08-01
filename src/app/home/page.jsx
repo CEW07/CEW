@@ -1,10 +1,13 @@
 "use client";
+import CountUp from "react-countup";
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
 import { mainProductImages, mainProducts } from "@/staticdata/static";
 import HeroMain from "@/custom_components/home-ui/hero-main/page";
 import { services } from "@/staticdata/static";
+import Link from "next/link";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 import {
   Accordion,
   AccordionContent,
@@ -18,6 +21,10 @@ import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
   // const { productData, loading } = useData();
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.1, // Trigger when 10% of the section is in view
+  });
   return (
     <main>
       <section>
@@ -93,69 +100,56 @@ const HomeContent = () => {
       </section>
 
       <section className="flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20 bg-offwhite mt-20 ">
-       <div className="grid smallest:grid-cols-2 small:grid-cols-3 lg:grid-cols-6 gap-6 py-10 max-w-[74rem] w-full">
-      
-      
+        <div className="grid smallest:grid-cols-2 small:grid-cols-3 lg:grid-cols-6 gap-6 py-10 max-w-[74rem] w-full">
+          <div className="flex max-smallest:justify-center">
 
-       <img
+          <img
             src="/assets/icons/certificate/USP.svg"
             alt=""
             className=" mix-blend-multiply w-20"
           />
-
-
-<div  className="flex justify-center">
-
-          <img
-            src="/assets/icons/certificate/bfr.svg"
-            alt=""
-            className=" mix-blend-multiply w-20"
-          />
-</div>
-
-
-<div  className="flex justify-center">
-
-          <img
-            src="/assets/icons/certificate/european.svg"
-            alt=""
-            className=" mix-blend-multiply w-20"
-          />
-</div>
-
-
-<div  className="flex justify-center">
-
-
-          <img
-            src="/assets/icons/certificate/iso_0993.svg"
-            alt=""
-            className=" mix-blend-multiply w-20"
-          />
-</div>
-
-          <div  className="flex justify-center">
-
-          <img
-            src="/assets/icons/isologo.svg"
-            alt=""
-            className=" mix-blend-multiply w-32 "
-          />
           </div>
 
-
-          <div className="flex justify-end items-end">
-          <img
-            src="/assets/icons/certificate/ROHS.svg"
-            alt=""
-            className=" mix-blend-multiply w-20"
-          />
-
+          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
+            <img
+              src="/assets/icons/certificate/bfr.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
           </div>
 
-       </div>
-         
-       
+          <div className="flex max-smallest:justify-center small:justify-end lg:justify-center">
+            <img
+              src="/assets/icons/certificate/european.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:max-small:justify-end lg:justify-center">
+            <img
+              src="/assets/icons/certificate/iso_0993.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center small:justify-center">
+            <img
+              src="/assets/icons/isologo.svg"
+              alt=""
+              className=" mix-blend-multiply w-32 "
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:justify-end items-end">
+            <img
+              src="/assets/icons/certificate/ROHS.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+        </div>
       </section>
 
       <div className="flex justify-center">
@@ -175,7 +169,7 @@ const HomeContent = () => {
           <div className="flex flex-col justify-center items-center">
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
                   Industry Experts
                 </h1>
                 <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
@@ -185,7 +179,7 @@ const HomeContent = () => {
                 </p>
               </div>
               <div>
-                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
                   Diverse Products
                 </h1>
                 <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
@@ -195,7 +189,7 @@ const HomeContent = () => {
                 </p>
               </div>
               <div>
-                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
                   Customer Support
                 </h1>
                 <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
@@ -205,7 +199,7 @@ const HomeContent = () => {
                 </p>
               </div>
               <div>
-                <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
                   Investment in R&D
                 </h1>
                 <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
@@ -219,30 +213,59 @@ const HomeContent = () => {
         </section>
       </div>
 
-      <section className="bg-offwhite grid small:grid-cols-2  md:grid-cols-4 gap-6 py-10 text-black ">
-        <div className="text-center  text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">45+</p>
+      <section
+        ref={ref}
+        className="bg-offwhite grid small:grid-cols-2 md:grid-cols-4 gap-6 py-10 text-black"
+      >
+        <div className="text-center text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">
+            {inView ? <CountUp end={45} duration={2} /> : 0}+
+          </p>
           <p>Years of Experience</p>
         </div>
-        <div className="text-center  text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">135+</p>
+        <div className="text-center text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">
+            {inView ? <CountUp end={135} duration={2} /> : 0}+
+          </p>
           <p>Products in Portfolio</p>
         </div>
-        <div className="text-center    text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">15+</p>
+        <div className="text-center text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">
+            {inView ? <CountUp end={15} duration={2} /> : 0}+
+          </p>
           <p>Countries Served</p>
         </div>
-        <div className="text-center    text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">10+</p>
+        <div className="text-center text-xl xl:text-2xl">
+          <p className="text-2xl xl:text-3xl font-semibold">
+            {inView ? <CountUp end={10} duration={2} /> : 0}+
+          </p>
           <p>Industries Served</p>
         </div>
       </section>
 
       <section className="flex justify-center">
         <div className="my-20 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
-          <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold">
-            Our Services
-          </h1>
+            <h1 className="text-2xl md:text-4xl text-newgold font-semibold flex justify-center items-center gap-1">
+              Our Services
+          <Link href="/services">
+              <div className="mt-2 hover:cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                  />
+                </svg>
+              </div>
+          </Link>
+            </h1>
           <div className=" grid small:grid-cols-2 lg:grid-cols-3 gap-6  mt-6">
             {services.slice(0, 3)?.map((service, index) => (
               <div

@@ -7,11 +7,11 @@ import {
 } from "@/components/ui/accordion";
 export default function CustomAccordian({ service, index, header }) {
   return (
-      <div key={index} className=" h-full rounded-md ">
+      <div key={index} className=" h-full  rounded-md  ">
         <Accordion
           type="single"
           collapsible
-          className="w-full bg-offhwhite rounded-md  shadow-xl  border-2 border-newgold"
+          className=" bg-offhwhite rounded-md  shadow-xl  border-2 border-newgold"
         >
           <AccordionItem value={service?.name} className="border-none">
             <AccordionTrigger className="hover:no-underline text-newgold hover:bg-newgold hover:text-offwhite  font-semibold px-4 ">
