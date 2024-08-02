@@ -37,7 +37,7 @@ const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
       ? CEW68
       : "";
   return (
-    <div className="">
+    <div className=" select-none ">
       <section className="flex max-xl:flex-col small:justify-between">
         <div className="flex flex-col">
           <span className="font-semibold mb-3">

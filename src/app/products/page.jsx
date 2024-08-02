@@ -5,7 +5,7 @@ import { mainProducts } from "@/staticdata/static";
 
 const Products = () => {
   return (
-    <div className="text-center">
+    <div className="text-center  select-none ">
       <h1 className="text-2xl md:text-4xl my-5 font-semibold text-newgold">Our Products</h1>
       <div className="flex justify-center">
         <div className="pt-10 grid small:max-md:grid-cols-2 mainProducts:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -14,7 +14,7 @@ const Products = () => {
               key={item.product_id}
               keyId={item.product_id}
               name={item.product_name}
-              href={`/${item.product_name_id}`}
+              href={`/products/${item.product_name_id}`}
               imageSrc={item.image}
               imageAlt={item.alt}
             />

@@ -13,7 +13,7 @@ import { PiCertificate } from "react-icons/pi";
 import { FaLocationDot } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <footer className="bg-offwhite h-[] flex flex-col  justify-between border-t border-newgold ">
+    <footer className="bg-offwhite h-[] flex flex-col  justify-between border-t border-newgold  select-none ">
       <section className="w-[100%] py-10 relative flex flex-col lg:flex-row justify-evenly items-start h-[100%]">
         <section className=" border-gray-800 flex  justify-center flex-col w-[100%] lg:w-[30%] xl:w-[22%]">
           <div className=" h-[auto] flex lg:justify-center ml-3 flex-row ">

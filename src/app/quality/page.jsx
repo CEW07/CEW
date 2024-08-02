@@ -12,7 +12,7 @@ import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian
 
 const Quality = () => {
   return (
-    <section className=" ">
+    <section className=" select-none  ">
       <div className="relative w-full h-[100vh] overflow-hidden">
         <Image
           fill

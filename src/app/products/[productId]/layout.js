@@ -34,8 +34,9 @@ export default function Layout({ children }) {
   }, [isOpen]);
 
   return (
-    <div>
-      <div className="mt-5  sm:hidden relative z-20">
+    <div className="">
+    {children}
+      {/* <div className="mt-5  sm:hidden relative z-20">
         <button onClick={toggleNavigation}>
           {isOpen ? (
              <div className="bg-offwhite px-1 py-1 rounded-full mx-1">
@@ -115,7 +116,7 @@ export default function Layout({ children }) {
 
           {children}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

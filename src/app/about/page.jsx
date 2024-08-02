@@ -19,7 +19,7 @@ const About = () => {
                 Our story
               </h1>
               <div className="flex justify-center">
-                <p className="max-smallest:text-xs text-justify text-sm sm:text-base  lg:text-lg mt-6    max-w-[74rem]">
+                <p className="max-smallest:text-xs select-none text-justify text-sm sm:text-base  lg:text-lg mt-6    max-w-[74rem]">
                   Abdul Majeed Khan established Crown Engineering Works in 1979
                   with the intention of offering premium hydraulic hose
                   assemblies and high-pressure hose fittings to diverse sectors.
@@ -51,7 +51,7 @@ const About = () => {
             About us
           </h1>
           <div className="flex flex-col justify-center items-center text-black   ">
-            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-w-6xl ">
+            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-w-6xl  select-none ">
               Crown Engineering Works, an ISO 9001:2015 certified company,
               specializes in manufacturing hose assemblies and fluid connectors,
               including FDA-approved, Hydraulic, Stainless Steel Flexible,
@@ -93,7 +93,7 @@ const About = () => {
               <h1 className="text-2xl md:text-4xl font-semibold text-newgold">
                 Our Vision
               </h1>
-              <p className="max-smallest:text-xs text-sm sm:text-base text-justify lg:text-lg mt-2">
+              <p className="max-smallest:text-xs text-sm sm:text-base text-justify lg:text-lg mt-2  select-none ">
                 To lead the global fluid conveyance industry with innovative,
                 high-quality hose solutions, fostering growth and reliability
                 worldwide
@@ -101,7 +101,7 @@ const About = () => {
               <h1 className="text-2xl md:text-4xl font-semibold text-newgold mt-6">
                 Our Mission
               </h1>
-              <p className="max-smallest:text-xs text-sm sm:text-base text-justify lg:text-lg mt-2">
+              <p className="max-smallest:text-xs text-sm sm:text-base text-justify lg:text-lg mt-2  select-none ">
                 Our mission is to manufacture and deliver premium hose products
                 globally, leveraging advanced technology and prioritizing
                 customer-focused service to exceed expectations and drive
@@ -126,7 +126,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Decades of Expertise</h1>
+                <h1 className="mt-2  select-none ">Decades of Expertise</h1>
               </div>
 
               <div>
@@ -137,7 +137,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Commitment to Quality</h1>
+                <h1 className="mt-2  select-none ">Commitment to Quality</h1>
               </div>
 
               <div>
@@ -148,7 +148,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Custom Solutions</h1>
+                <h1 className="mt-2  select-none ">Custom Solutions</h1>
               </div>
             </div>
 
@@ -158,7 +158,7 @@ const About = () => {
                 alt=""
                 className="w-12 h-12"
               />
-              <h1 className="mt-2">Client-Centric Approach</h1>
+              <h1 className="mt-2  select-none ">Client-Centric Approach</h1>
             </div>
 
             <div className="space-y-4 w-full flex flex-col items-end">
@@ -170,7 +170,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Industry Partnership</h1>
+                <h1 className="mt-2  select-none ">Industry Partnership</h1>
               </div>
 
               <div>
@@ -181,7 +181,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Innovation and Technology</h1>
+                <h1 className="mt-2  select-none ">Innovation and Technology</h1>
               </div>
 
               <div>
@@ -192,7 +192,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Global Reach</h1>
+                <h1 className="mt-2  select-none " >Global Reach</h1>
               </div>
             </div>
           </div>
@@ -214,7 +214,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Decades of Expertise</h1>
+                <h1 className="mt-2  select-none ">Decades of Expertise</h1>
               </div>
 
               <div>
@@ -225,7 +225,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Commitment to Quality</h1>
+                <h1 className="mt-2  select-none ">Commitment to Quality</h1>
               </div>
 
               <div>
@@ -236,7 +236,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Custom Solutions</h1>
+                <h1 className="mt-2  select-none ">Custom Solutions</h1>
               </div>
 
               <div>
@@ -247,7 +247,7 @@ const About = () => {
                 className="w-12 h-12"
               />
                 </div>
-              <h1 className="mt-2">Client-Centric Approach</h1>
+              <h1 className="mt-2  select-none ">Client-Centric Approach</h1>
               </div>
 
          
@@ -263,7 +263,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Industry Partnership</h1>
+                <h1 className="mt-2  select-none ">Industry Partnership</h1>
               </div>
 
               <div>
@@ -274,7 +274,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Innovation and Technology</h1>
+                <h1 className="mt-2  select-none ">Innovation and Technology</h1>
               </div>
 
               <div>
@@ -285,7 +285,7 @@ const About = () => {
                     className="w-12 h-12"
                   />
                 </div>
-                <h1 className="mt-2">Global Reach</h1>
+                <h1 className="mt-2  select-none ">Global Reach</h1>
               </div>
 
             </div>

@@ -42,79 +42,79 @@ const SizeChart = ({ sizeChartDetails }) => {
     <>
       <table className="table-auto border-collapse text-xs">
         <thead>
-          <tr className="text-newgold">
+          <tr className="text-offwhite">
             <th
-              className="px-4 py-2 border border-l-newgold bg-offwhite "
+              className="px-4 py-2 border border-l-newgold bg-newgold "
               rowSpan="2"
             >
               Item Code
             </th>
-            <th className="px-4 py-2 border bg-offwhite" rowSpan="2">
+            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
               Dash size
             </th>
-            <th className="px-4 py-2 border bg-offwhite" rowSpan="2">
+            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
               DN
             </th>
-            <th className="px-4 py-2 border bg-offwhite" colSpan="2">
+            <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={ID} width={30} height={30} alt="ID" />
-                <span className="mt-2 text-newgold">ID</span>
+                <span className="mt-2 text-offwhite">ID</span>
               </div>
             </th>
-            <th className="px-4 py-2 border bg-offwhite" colSpan="2">
+            <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={OD} width={30} height={30} alt="OD" />
-                <span className="mt-2 text-newgold">OD</span>
+                <span className="mt-2 text-offwhite">OD</span>
               </div>
             </th>
-            <th className="px-4 py-2 border bg-offwhite" colSpan="2">
+            <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={WP} width={30} height={30} alt="WP" />
-                <span className="mt-2 text-newgold">WP</span>
+                <span className="mt-2 text-offwhite">WP</span>
               </div>
             </th>
-            <th className="px-4 py-2 border bg-offwhite" colSpan="2">
+            <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={BP} width={30} height={30} alt="BP" />
-                <span className="mt-2 text-newgold">BP</span>
+                <span className="mt-2 text-offwhite">BP</span>
               </div>
             </th>
-            <th className="px-4 py-2 border bg-offwhite" colSpan="2">
+            <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={BR} width={30} height={30} alt="BR" />
-                <span className="mt-2 text-newgold">BR/r</span>
+                <span className="mt-2 text-offwhite">BR/r</span>
               </div>
             </th>
             <th
-              className="px-4 py-2 border border-r-offwhite bg-offwhite"
+              className="px-4 py-2 border bg-newgold"
               colSpan="2"
             >
               <div className="flex flex-col items-center">
                 <Image src={W} width={30} height={30} alt="W" />
-                <span className="mt-2 text-newgold">W</span>
+                <span className="mt-2 text-offwhite">W</span>
               </div>
             </th>
           </tr>
           <tr>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">inch</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">mm</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">inch</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">mm</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">psi</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">bar</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">psi</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">bar</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">inch</th>
-            <th className="px-4 py-2 border bg-offwhite text-newgold">mm</th>
-            <th className="px-4 py-2 border  border-r-offwhite text-newgold bg-offwhite">
+            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">psi</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">bar</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">psi</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">bar</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
+            <th className="px-4 py-2 border  text-offwhite bg-newgold">
               kg/m
             </th>
           </tr>
         </thead>
         <tbody >
           {sizeChartDetails.map((details, index) => (
-            <tr key={index} className="text-[12px] font-medium">
-              <td className="px-4 py-2 text-center border border-newgold">
+            <tr key={index} className="text-[10px] font-medium">
+              <td className="px-4 py-2 text-center border text-nowrap border-newgold">
                 {details["product_item code"]
                   ? details["product_item code"]
                   : "--"}

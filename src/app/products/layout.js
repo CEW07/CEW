@@ -68,7 +68,7 @@ export default function Layout({ children }) {
       </div>
 
       <div className="my-5 relative md:space-x-6  max-md:flex-col flex justify-center">
-        <div className="flex justify-center md:space-x-6 max-md:px-4 max-md:flex-col max-w-[74rem]">
+        <div className="flex justify-between  max-md:px-4 max-md:flex-col max-w-[74rem] w-full max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20">
           <div className="max-sm:hidden md:hidden relative z-20">
             <button onClick={toggleNavigation}>
               {isOpen ? (
@@ -112,7 +112,7 @@ export default function Layout({ children }) {
             </div>
           )}
 
-          <div className="max-md:hidden min-w-96">
+          <div className="max-md:hidden min-w-[20rem]">
             {SidebarProduct ? <SidebarProduct productData={productData} /> : "Loading"}
           </div>
 

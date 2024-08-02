@@ -35,7 +35,7 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
               )}
             </div>
             <div className="flex-grow flex ">
-              <button className="w-full h-full hover:border-newgold hover:border-t font-semibold text-start text-[14px]  text-white px-4 py-2 bg-newgold hover:text-newgold hover:bg-offwhite ">
+              <button className="w-full h-full hover:border-newgold hover:border-t font-semibold text-start text-[13px]  text-white px-4 py-2 bg-newgold hover:text-newgold hover:bg-offwhite ">
                 {name}
               </button>
             </div>

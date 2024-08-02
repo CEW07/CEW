@@ -27,14 +27,14 @@ const HomeContent = () => {
   });
   return (
     <main>
-      <section>
+      <section className=" select-none ">
         <HeroMain />
         <section className="bg-offwhite pt-20 pb-20 ">
           <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold ">
             About us
           </h1>
           <div className="flex flex-col justify-center items-center  text-black">
-            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-justify max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+            <p className="max-smallest:text-xs  select-none  text-sm sm:text-base lg:text-lg mt-3 text-justify max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
               Crown Engineering Works, an ISO 9001:2015 certified company,
               specializes in manufacturing hose assemblies and fluid connectors,
               including FDA-approved, Hydraulic, Stainless Steel Flexible,

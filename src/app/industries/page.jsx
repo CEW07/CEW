@@ -3,7 +3,7 @@ import { industries } from "@/staticdata/static";
 import Image from "next/image";
 const Industries = () => {
   return (
-    <main className="flex justify-center">
+    <main className="flex justify-center  select-none ">
 
     <div className="py-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
       <div className="flex justify-center items-center flex-col ">

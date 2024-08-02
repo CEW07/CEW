@@ -20,12 +20,12 @@ const ProductTypePage = ({ subCategory, params }) => {
   }, [subCategory, router]);
 
   return (
-    <div className="">
+    <div className=" select-none ">
       {productTypes.map(
         (type, index) =>
           type.product_name_id === productId && (
             <div className="" key={index}>
-              <span className="flex flex-col max-smallest:text-base smallest:text-xl mt-6 mb-3">
+              <span className="flex flex-col max-smallest:text-base smallest:text-xl mt-6 mb-3 ">
                 {type.product_types && type.product_types}
               </span>
               <div className="galaxyFold:flex galaxyFold:justify-center">
@@ -41,7 +41,7 @@ const ProductTypePage = ({ subCategory, params }) => {
                           <ProductCard
                             keyId={index}
                             name={data.product_sub_types}
-                            href={`/${productId}/${data.product_sub_types_id}`}
+                            href={`/products/${productId}/${data.product_sub_types_id}`}
                             imageSrc={data.ImageUrl}
                             imageAlt={data.product_type_name_id}
                             params="subproductImage"
@@ -58,7 +58,7 @@ const ProductTypePage = ({ subCategory, params }) => {
         (item, index) =>
           item.product_types === "FALSE" &&
           item.product_name_id === productId && (
-            <div className="galaxyFold:flex galaxyFold:justify-center" key={index}>
+            <div className="galaxyFold:flex galaxyFold:justify-center  " key={index}>
               <div className="grid small:max-md:grid-cols-2 mainProducts:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
                 {subCategoryAll &&
                   subCategoryAll
@@ -70,7 +70,7 @@ const ProductTypePage = ({ subCategory, params }) => {
                       <ProductCard
                         keyId={index}
                         name={data.product_sub_types}
-                        href={`/${productId}/${data.product_sub_types_id}`}
+                        href={`/products/${productId}/${data.product_sub_types_id}`}
                         imageSrc={data.ImageUrl}
                         imageAlt={data.product_type_name_id}
                         params="subproductImage"
