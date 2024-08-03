@@ -12,7 +12,7 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
           }}
         >
           <div
-            className="hover:scale-105 transform transition-transform duration-300 h-full flex flex-col border-2 border-newgold "
+            className="hover:scale-105 transform transition-transform duration-300 h-full flex flex-col border-2 border-newgold galaxyFold:w-[234px] "
             key={keyId}
           >
             <div className="relative aspect-video overflow-hidden bg-offwhite">
@@ -35,7 +35,7 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
               )}
             </div>
             <div className="flex-grow flex ">
-              <button className="w-full h-full hover:border-newgold hover:border-t font-semibold flex items-center text-[14px] justify-center text-white px-4 py-2 bg-newgold hover:text-newgold hover:bg-offwhite ">
+              <button className="w-full h-full hover:border-newgold hover:border-t font-semibold text-start text-[13px]  text-white px-4 py-2 bg-newgold hover:text-newgold hover:bg-offwhite ">
                 {name}
               </button>
             </div>

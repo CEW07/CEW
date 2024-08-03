@@ -42,7 +42,7 @@ const SizeChart = ({ sizeChartDetails }) => {
     <>
       <table className="table-auto border-collapse text-xs">
         <thead>
-          <tr>
+          <tr className="text-offwhite">
             <th
               className="px-4 py-2 border border-l-newgold bg-newgold "
               rowSpan="2"
@@ -58,108 +58,108 @@ const SizeChart = ({ sizeChartDetails }) => {
             <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={ID} width={30} height={30} alt="ID" />
-                <span className="mt-2">ID</span>
+                <span className="mt-2 text-offwhite">ID</span>
               </div>
             </th>
             <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={OD} width={30} height={30} alt="OD" />
-                <span className="mt-2">OD</span>
+                <span className="mt-2 text-offwhite">OD</span>
               </div>
             </th>
             <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={WP} width={30} height={30} alt="WP" />
-                <span className="mt-2">WP</span>
+                <span className="mt-2 text-offwhite">WP</span>
               </div>
             </th>
             <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={BP} width={30} height={30} alt="BP" />
-                <span className="mt-2">BP</span>
+                <span className="mt-2 text-offwhite">BP</span>
               </div>
             </th>
             <th className="px-4 py-2 border bg-newgold" colSpan="2">
               <div className="flex flex-col items-center">
                 <Image src={BR} width={30} height={30} alt="BR" />
-                <span className="mt-2">BR/r</span>
+                <span className="mt-2 text-offwhite">BR/r</span>
               </div>
             </th>
             <th
-              className="px-4 py-2 border border-r-newgold bg-newgold"
+              className="px-4 py-2 border bg-newgold"
               colSpan="2"
             >
               <div className="flex flex-col items-center">
                 <Image src={W} width={30} height={30} alt="W" />
-                <span className="mt-2">W</span>
+                <span className="mt-2 text-offwhite">W</span>
               </div>
             </th>
           </tr>
           <tr>
-            <th className="px-4 py-2 border bg-newgold">inch</th>
-            <th className="px-4 py-2 border bg-newgold">mm</th>
-            <th className="px-4 py-2 border bg-newgold">inch</th>
-            <th className="px-4 py-2 border bg-newgold">mm</th>
-            <th className="px-4 py-2 border bg-newgold">psi</th>
-            <th className="px-4 py-2 border bg-newgold">bar</th>
-            <th className="px-4 py-2 border bg-newgold">psi</th>
-            <th className="px-4 py-2 border bg-newgold">bar</th>
-            <th className="px-4 py-2 border bg-newgold">inch</th>
-            <th className="px-4 py-2 border bg-newgold">mm</th>
-            <th className="px-4 py-2 border  border-r-newgold bg-newgold">
+            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">psi</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">bar</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">psi</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">bar</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
+            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
+            <th className="px-4 py-2 border  text-offwhite bg-newgold">
               kg/m
             </th>
           </tr>
         </thead>
         <tbody >
           {sizeChartDetails.map((details, index) => (
-            <tr key={index} className="text-[12px] font-medium">
-              <td className="px-4 py-2 text-center border border-gray-300">
+            <tr key={index} className="text-[10px] font-medium">
+              <td className="px-4 py-2 text-center border text-nowrap border-newgold">
                 {details["product_item code"]
                   ? details["product_item code"]
                   : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_dash_size"]
                   ? details["product_dash_size"]
                   : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_DN"] ? details["product_DN"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_ID_inch"] ? details["product_ID_inch"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_ID_mm"] ? details["product_ID_mm"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_OD_inch"] ? details["product_OD_inch"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_OD_mm"] ? details["product_OD_mm"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_WP_psi"] ? details["product_WP_psi"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_WP_bar"] ? details["product_WP_bar"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_BP_psi"] ? details["product_BP_psi"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_BP_bar"] ? details["product_BP_bar"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_BR/r_inch"]
                   ? details["product_BR/r_inch"]
                   : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_BR/r_mm"] ? details["product_BR/r_mm"] : "--"}
               </td>
-              <td className="px-4 py-2 text-center border border-gray-300">
+              <td className="px-4 py-2 text-center border border-newgold">
                 {details["product_W_kgm"] ? details["product_W_kgm"] : "--"}
               </td>
             </tr>

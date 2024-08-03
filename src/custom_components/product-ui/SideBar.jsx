@@ -158,7 +158,7 @@ useEffect(() => {
 }, [productsData])
 
   return (
-    <div className="w-[80%]">
+    <div className="sideBar:w-[250px] smallest:w-[300px]  select-none ">
      
       {
         productsData.mainCategory.map((item) => (
@@ -252,7 +252,7 @@ useEffect(() => {
                               {/* <span> {subProduct.product_sub_types} </span> */}
                               <Link
                                 title={subProduct.product_sub_types}
-                                href={`/${item.product_name_id}/${subProduct.product_sub_types_id}`}
+                                href={`/products/${item.product_name_id}/${subProduct.product_sub_types_id}`}
                                 className="text-[12px] text-[#] font-medium p-0 "
                               >
                                 {subProduct.product_sub_types}
@@ -287,7 +287,7 @@ useEffect(() => {
                             <Link
                               className="text-[12px] text-[#] font-medium "
                               title={subProduct.product_sub_types}
-                              href={`/${item.product_name_id}/${subProduct.product_sub_types_id}`}
+                              href={`/products/${item.product_name_id}/${subProduct.product_sub_types_id}`}
                             >
                               {subProduct.product_sub_types}
                             </Link>

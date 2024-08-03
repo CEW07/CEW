@@ -3,8 +3,8 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <main className=" pt-3 flex justify-center items-center py-5 xl:mx-32 max-sm:mx-5 sm:mx-10">
-      <div className="  flex lg:flex-row flex-col bg-offwhite rounded-sm lg:rounded-xl border border-newgold items-center justify-center ">
+    <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 ">
+      <div className="  flex lg:flex-row flex-col bg-offwhite rounded-sm lg:rounded-xl w-full max-w-[74rem] shadow-xl py-10 border items-center justify-center  ">
         <section className="lg:w-[50%]  w-[100%] h-auto flex flex-col items-center justify-evenly lg:border-b-0 py-3  border-newgold ">
           <div className=" w-[80%] flex flex-col">
             <heading className="lg:text-2xl text-[16px] font-medium lg:py-2">
@@ -87,7 +87,19 @@ const Contact = () => {
                 />
               </div>
             </div>
-
+            <label className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+              {" "}
+              Enquiry Category
+            </label>
+            <select className="lg:w-[70%] w-[100%]  p-2 rounded-md border border-newgold text-gray-700   leading-tight focus:outline-none ">
+              <option value="" disabled selected>
+                Select enquiry type
+              </option>
+              <option value="Hose Assembly">Hose Assembly</option>
+              <option value="Hose fitting">Hose fitting</option>
+              <option value="Bare Hose">Bare Hose</option>
+              <option value="General enquiry">General enquiry</option>
+            </select>
             <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
               Details
             </heading>
@@ -95,11 +107,25 @@ const Contact = () => {
               placeholder="Enter your message"
               className="lg:w-[70%] resize-none p-2 h-28 w-[100%] focus:outline-none border border-newgold rounded-md "
             />
+
             <Button className="my-4 lg:w-[70%] w-[100%]" variant="goldbtn">
               Send message
             </Button>
           </div>
         </section>
+      </div>
+
+      <div className="mt-20 mb-20 h-[100%]  smallest:w-[100%] flex justify-center">
+        {/* <div className="grid grid-cols-1 max-w-[74rem] overflow-x-auto "> */}
+
+        <iframe
+          className="border-2 border-newgold rounded-md  smallest:w-[74rem] h-[500px]"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.0080428387796!2d72.8292141!3d18.975252200000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce69b9b7f711%3A0x4f9e67b0fbc590ea!2sCrown%20Engineering%20Works%20-%20FDA%20Hoses%20Suppliers%20-%20Mumbai!5e0!3m2!1sen!2sin!4v1722600233190!5m2!1sen!2sin"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+        {/* </div> */}
       </div>
     </main>
   );

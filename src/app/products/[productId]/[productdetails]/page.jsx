@@ -23,6 +23,37 @@ async function fetchProductDetails(productId) {
     // console.error('Failed to fetch product data:', error);
   }
 }
+export async function generateMetadata({ params }) {
+  const { productId,productdetails } = params;
+  let title = "Product Details";
+  let imageUrl = ''
+  try {
+    const productDetails = await fetchProductDetails(productdetails);
+    if (productDetails && productDetails[0]?.product_subTypes_name) {
+      title = productDetails[0]?.product_subTypes_name;
+      imageUrl = productDetails[0]?.ImageUrl
+    }
+  } catch (error) {
+    console.error("Error fetching product details:", error);
+  }
+
+  return {
+    title,
+    description: "Product details and size chart.",
+    openGraph: {
+      title,
+      description: "Product details and size chart.",
+      images:[
+        {
+          url: imageUrl,
+          width: 800,
+          height: 600,
+          alt: `${title}`,
+        }
+      ]
+    },
+  };
+}
 
 export default async function ProductId({ params }) {
   const { productId,productdetails } = params;

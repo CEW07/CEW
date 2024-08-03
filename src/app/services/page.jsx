@@ -36,8 +36,10 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="mt-20 xl:mx-32  max-sm:mx-5 sm:mx-10 pb-20">
-        <h1 className="text-newgold text-3xl mb-6 text-center font-semibold">
+      <div className="flex justify-center max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20  mb-20 ">
+
+      <div className="mt-20  max-w-[74rem]">
+        <h1 className="text-newgold text-2xl md:text-4xl mb-6 text-center font-semibold">
           Our Services
         </h1>
         <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
@@ -99,6 +101,7 @@ const Services = () => {
             <CustomAccordian key={index} service={service} index={index} />
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

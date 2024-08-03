@@ -7,27 +7,27 @@ import {
 } from "@/components/ui/accordion";
 export default function CustomAccordian({ service, index, header }) {
   return (
-      <div key={index} className=" h-full rounded-md ">
+      <div key={index} className=" h-full  rounded-md  ">
         <Accordion
           type="single"
           collapsible
-          className="w-full bg-offhwhite rounded-md  shadow-xl  border-2 border-newgold"
+          className=" bg-offhwhite rounded-md  shadow-xl  border-2 border-newgold"
         >
           <AccordionItem value={service?.name} className="border-none">
             <AccordionTrigger className="hover:no-underline text-newgold hover:bg-newgold hover:text-offwhite  font-semibold px-4 ">
-              <h1 className=" max-galaxyFold:text-base  text-[16px]   z-10 ">
+              <h1 className=" max-galaxyFold:text-base  text-[16px] px-3 z-10  select-none ">
                 {service?.name && service?.name}
               </h1>
             </AccordionTrigger>
 
             <AccordionContent>
               
-                <p className="my-2 ml-4 text-xs smallest:text-sm  lg:text-base">
+                <p className="my-2 ml-4 text-xs smallest:text-sm  lg:text-base  select-none ">
                   {header}
                 </p>
         
               <div className=" text-[14px] font-medium text-newgold ">
-                <ul className="list-disc  px-8">
+                <ul className="list-disc  px-8  select-none ">
 
                 {service?.subPoint1 && (
                   <li className="mt-3">{service?.subPoint1}</li>

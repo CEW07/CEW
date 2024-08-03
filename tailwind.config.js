@@ -80,6 +80,8 @@ module.exports = {
         smallest: "356px",
         small: "520px",
         mainProducts: "1000px",
+        sideBar: "262px"
+      
       },
     },
   },

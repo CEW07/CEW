@@ -12,7 +12,7 @@ import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian
 
 const Quality = () => {
   return (
-    <section className=" ">
+    <section className=" select-none  ">
       <div className="relative w-full h-[100vh] overflow-hidden">
         <Image
           fill
@@ -38,8 +38,86 @@ const Quality = () => {
         </div>
       </div>
 
-      <div className="mt-20 xl:mx-32 max-sm:mx-5 sm:mx-10 ">
-        <h1 className="text-3xl mb-6 text-center">Our Policies</h1>
+      <section className="mt-20 flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20  mb-20">
+        <div className=" max-w-[74rem]">
+
+        <h1 className="text-2xl md:text-4xl text-center">
+          Certification
+        </h1>
+        <div className="flex justify-center items-center ">
+          <p className="text-xs smallest:text-sm  sm:text-base my-6 max-w-3xl text-center">
+            Our ISO 9001:2015 certification confirms our dedication to quality.
+            This certification demonstrates our adherence to international
+            quality standards and our commitment to continuous improvement
+          </p>
+        </div>
+        <div className="flex justify-center">
+
+        <img src="/assets/images/ISO-Certificate.jpg" alt="certificate" className="w-[80%]"/>
+        </div>
+        </div>
+
+      </section>
+
+      <section className="flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20 bg-offwhite mt-20 ">
+        <div className="grid smallest:grid-cols-2 small:grid-cols-3 lg:grid-cols-6 gap-6 py-10 max-w-[74rem] w-full">
+          <div className="flex max-smallest:justify-center">
+
+          <img
+            src="/assets/icons/certificate/USP.svg"
+            alt=""
+            className=" mix-blend-multiply w-20"
+          />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
+            <img
+              src="/assets/icons/certificate/bfr.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center small:justify-end lg:justify-center">
+            <img
+              src="/assets/icons/certificate/european.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:max-small:justify-end lg:justify-center">
+            <img
+              src="/assets/icons/certificate/iso_0993.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center small:justify-center">
+            <img
+              src="/assets/icons/isologo.svg"
+              alt=""
+              className=" mix-blend-multiply w-32 "
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:justify-end items-end">
+            <img
+              src="/assets/icons/certificate/ROHS.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+        </div>
+      </section>
+
+      
+
+      <section className="mt-20 flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20  mb-20 ">
+        <div className="max-w-[74rem]">
+
+        <h1 className="text-2xl md:text-4xl mb-6 text-center">Our Policies</h1>
         {/* <div className=" bg-lightgrey px-4 py-4 h-full rounded-md shadow-xl">
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="Quality policy">
@@ -76,7 +154,7 @@ const Quality = () => {
           </Accordion>
         </div> */}
 
-        <div className=" grid small:grid-cols-2 md:grid-cols-3 gap-6 mt-6 ">
+        <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 ">
           {Policies.slice(0, 3)?.map((policy, index) => (
             // <div key={index} className="">
             //   <div className=" bg-lightgrey px-4 py-4 rounded-md shadow-xl">
@@ -110,10 +188,13 @@ const Quality = () => {
             />
           ))}
         </div>
-      </div>
+        </div>
+      </section>
 
-      <div className="mt-20 xl:mx-32 max-sm:mx-5 sm:mx-10">
-        <h1 className="text-xl smallest:text-3xl md:text-4xl  text-center">
+      <section className="mt-20 flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20  mb-20">
+        <div className="max-w-[74rem]">
+
+        <h1 className="text-2xl md:text-4xl  text-center">
           Testing and Inspection Procedures
         </h1>
         <div className="flex justify-center items-center ">
@@ -140,19 +221,10 @@ const Quality = () => {
             </div>
           ))}
         </div>
-      </div>
-      <div className="mt-20 xl:mx-32 max-sm:mx-5 sm:mx-10">
-        <h1 className="text-xl smallest:text-3xl md:text-4xl  text-center">
-          Certification
-        </h1>
-        <div className="flex justify-center items-center ">
-          <p className="text-xs smallest:text-sm  sm:text-base my-6 max-w-3xl text-center">
-            Our ISO 9001:2015 certification confirms our dedication to quality.
-            This certification demonstrates our adherence to international
-            quality standards and our commitment to continuous improvement
-          </p>
         </div>
-      </div>
+      </section>
+
+     
     </section>
   );
 };

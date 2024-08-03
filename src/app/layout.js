@@ -14,6 +14,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
       <body className={`relative ${montserrat.className}`}>
@@ -30,6 +31,14 @@ export default function RootLayout({ children }) {
           </Link>
         </div>
         <Footer />
+        <section className="h-[] bg-newgold flex flex-row items-center p-4">
+        <p className="bg- w-[100%] m-0  text-white text-[14px]">
+          Copyright &#169; 2024 Crown Engineering. All rights reserved
+        </p>
+        {/* <p className="text-nowrap m-0 text-offwhite font-semibold text-[10px] md:text-[16px] xl:text-lg pr-4">
+          PIONEERS IN FLUID CONVEYANCE SOLUTIONS.
+        </p> */}
+      </section>
       </body>
     </html>
   );
