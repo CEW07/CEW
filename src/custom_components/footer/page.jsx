@@ -13,16 +13,16 @@ import { PiCertificate } from "react-icons/pi";
 import { FaLocationDot } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <footer className="bg-offwhite h-[] flex flex-col  justify-between border-t border-newgold  select-none ">
-      <section className="w-[100%] py-10 relative flex flex-col lg:flex-row justify-evenly items-start h-[100%]">
-        <section className=" border-gray-800 flex  justify-center flex-col w-[100%] lg:w-[30%] xl:w-[22%]">
-          <div className=" h-[auto] flex lg:justify-center ml-3 flex-row ">
+    <footer className="bg-offwhite w-[100%] md:px-[80px] px-[38px]  flex items-center justify-center border-t border-newgold  select-none ">
+      <section className="w-[100%] max-w-[74rem] py-10 relative flex flex-col justify-between lg:flex-row items-start h-[100%]">
+        <section className=" border-gray-800 flex  justify- flex-col w-[100%] lg:w-[30%] xl:w-[22%]">
+          <div className=" h-[auto] flex ml-3 flex-row ">
             <Image
               alt="logo"
-              height={200}
-              width={200}
+              height={100}
+              width={100}
               src="/assets/icons/fullLogo.png"
-              className="lg:w-[60%]"
+              className="lg:w-[50%]"
             />
           </div>
           <p className="m-0 text-[12px] mt-2 px-4 text-[] font-medium text-justify ">
@@ -188,14 +188,7 @@ const Footer = () => {
         {/* mobile screen footer */}
       </section>
 
-      <section className="h-[] bg-newgold flex flex-row items-center p-4">
-        <p className="bg- w-[100%] m-0  text-white text-[14px]">
-          Copyright &#169; 2024 Crown Engineering. All rights reserved
-        </p>
-        {/* <p className="text-nowrap m-0 text-offwhite font-semibold text-[10px] md:text-[16px] xl:text-lg pr-4">
-          PIONEERS IN FLUID CONVEYANCE SOLUTIONS.
-        </p> */}
-      </section>
+      
     </footer>
   );
 };

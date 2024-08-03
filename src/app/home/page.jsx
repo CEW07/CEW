@@ -64,7 +64,7 @@ const HomeContent = () => {
         <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold">
           Our Products
         </h1>
-        <div className="lg:pt-12 pt-16 flex items-center justify-center max-smallest:mx-5 ">
+        <div className="lg:pt-12 pt-16 w-full max-smallest:px-5 smallest:max-sm:px-10 flex items-center justify-center max-smallest:mx-5 ">
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
             {/* {loading
               ? "loading..."
@@ -89,7 +89,7 @@ const HomeContent = () => {
                   key={item.product_id}
                   keyId={item.product_id}
                   name={item.product_name}
-                  href={`/${item.product_name_id}`}
+                  href={`/products/${item.product_name_id}`}
                   imageSrc={item?.image}
                   imageAlt={item?.alt}
                 />
@@ -215,32 +215,37 @@ const HomeContent = () => {
 
       <section
         ref={ref}
-        className="bg-offwhite grid small:grid-cols-2 md:grid-cols-4 gap-6 py-10 text-black"
+        className="bg-offwhite small:grid-cols-2 flex items-center justify-center w-full md:grid-cols-4 gap-6 py-10 text-black max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20"
       >
-        <div className="text-center text-xl xl:text-2xl">
+          <div className="w-full max-w-[74rem] flex flex-row justify-center sm:justify-between gap-6 flex-wrap items-center lg:flex-nowrap "> 
+
+        <div className="py-2 text-center text-xl xl:text-2xl">
           <p className="text-2xl xl:text-3xl font-semibold">
             {inView ? <CountUp end={45} duration={2} /> : 0}+
           </p>
           <p>Years of Experience</p>
         </div>
-        <div className="text-center text-xl xl:text-2xl">
+        <div className="py-2 text-center text-xl xl:text-2xl">
           <p className="text-2xl xl:text-3xl font-semibold">
             {inView ? <CountUp end={135} duration={2} /> : 0}+
           </p>
           <p>Products in Portfolio</p>
         </div>
-        <div className="text-center text-xl xl:text-2xl">
+        <div className="py-2 text-center text-xl xl:text-2xl">
           <p className="text-2xl xl:text-3xl font-semibold">
             {inView ? <CountUp end={15} duration={2} /> : 0}+
           </p>
           <p>Countries Served</p>
         </div>
-        <div className="text-center text-xl xl:text-2xl">
+        <div className="py-2 text-center text-xl xl:text-2xl">
           <p className="text-2xl xl:text-3xl font-semibold">
             {inView ? <CountUp end={10} duration={2} /> : 0}+
           </p>
           <p>Industries Served</p>
         </div>
+
+        </div>
+
       </section>
 
       <section className="flex justify-center">

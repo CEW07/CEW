@@ -10,6 +10,7 @@ import {
 } from "@/staticdata/tableData/TableData";
 import { data } from "autoprefixer";
 import axios from "axios";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -36,6 +37,7 @@ const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
       : tableProp === "CEW68"
       ? CEW68
       : "";
+      
   return (
     <div className=" select-none ">
       <section className="flex max-xl:flex-col small:justify-between">

@@ -99,9 +99,11 @@ const Navbar = () => {
       }, 1100);
     }
 
-    // if (text.length === 0) {
-    //   setSearchBarText("Search products !!");
-    // }
+    if (text.length === 0) {
+      // setSearchBarText("Search products !!");
+      console.log('sdddddddddddd');
+            
+    }
   };
 
   const fetchSearchQuery = async (searchText) => {
@@ -188,11 +190,11 @@ const Navbar = () => {
     >
       <section className="">
         <div
-          className={`transition-all duration-500 flex justify-center  ${
+          className={`transition-all max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20 duration-500 flex justify-center  ${
             isScrolled ? "h-0 opacity-0" : "h-[8vh] opacity-100"
           } max-lg:hidden lg:flex`}
         >
-          <div className=" flex justify-between items-center font-medium max-w-[74rem] w-full max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20 relative">
+          <div className="py-6 flex justify-between items-center font-medium max-w-[74rem] w-full  relative">
             <div className=" items-center flex justify-evenly mx-3 gap-6">
               <div className="flex flex-row items-center gap-2">
                 <FaPhoneAlt color="#C89F23" className="text-[18px]" />

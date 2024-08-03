@@ -3,8 +3,8 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <main className="pt-3 flex flex-col justify-center items-center py-5  max-sm:px-5 sm:px-10 ">
-      <div className="  flex lg:flex-row flex-col bg-offwhite rounded-sm lg:rounded-xl border border-newgold items-center justify-center  ">
+    <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 ">
+      <div className="  flex lg:flex-row flex-col bg-offwhite rounded-sm lg:rounded-xl w-full max-w-[74rem] shadow-xl py-10 border items-center justify-center  ">
         <section className="lg:w-[50%]  w-[100%] h-auto flex flex-col items-center justify-evenly lg:border-b-0 py-3  border-newgold ">
           <div className=" w-[80%] flex flex-col">
             <heading className="lg:text-2xl text-[16px] font-medium lg:py-2">
