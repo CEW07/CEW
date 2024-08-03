@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
       description: "Product details and size chart.",
       images:[
         {
-          url: imageUrl,
+          url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}${imageUrl}`,
           width: 800,
           height: 600,
           alt: `${title}`,
