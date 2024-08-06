@@ -28,9 +28,9 @@ const HeroMain = () => {
             Explore Products
           </button>
           </Link>
-          <button className="px-4 py-2 text-xs smallest:text-sm  lg:text-base border-2 border-newgold rounded-full">
+          {/* <button className="px-4 py-2 text-xs smallest:text-sm  lg:text-base border-2 border-newgold rounded-full">
             Get a Quote
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

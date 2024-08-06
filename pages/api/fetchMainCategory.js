@@ -1,6 +1,7 @@
 import connection from "./dbconnect";
 import { promisify } from "util";
 
+
 const queryPromise = promisify(connection.query).bind(connection);
 
 export default async function fetchMainCategory(req, res) {

@@ -134,7 +134,7 @@ const HomeContent = () => {
             />
           </div>
 
-          <div className="flex max-smallest:justify-center small:justify-center">
+          <div className="flex  max-smallest:justify-center small:justify-center">
             <img
               src="/assets/icons/isologo.svg"
               alt=""

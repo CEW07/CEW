@@ -1,10 +1,67 @@
+'use client'
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import ToastMessage from "@/custom_components/Toast Message/ToastMessage";
 
 const Contact = () => {
+  const [toastMessage, setToastMessage] = useState(false)
+  const [checkData, setCheckData] = useState({
+    userName:false,
+    email:false,
+    companyName:false,
+    contactNumber:false,
+    details:false,
+    category:false
+  });
+
+   const submitForm = async (formData) => {
+    for (let [name, value] of formData.entries()) {
+      // console.log(`Name: ${name}, Value: ${value}`);
+      if(formData.get(name).length === 0 || formData.get(name) === null){
+        setCheckData((prev)=>({
+          ...prev,
+          [name]:true
+        }))
+      }
+      else {
+        setCheckData((prev)=>({
+          ...prev,
+          [name]:false
+        }))
+      }
+    }
+    let data = {
+      name:formData.get('userName') || '',
+      company:formData.get('companyName'),
+      category:formData.get('category') || '',
+      details:formData.get('details'),
+      contact:formData.get('contactNumber'),
+      email:formData.get('email')
+    }
+    console.log(data);
+    
+    // const res = await axios
+    //   .post(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/submitEmail`, {
+    //     name: formDataRef.nameRef.current.value,
+    //     company: formDataRef.companyRef.current.value,
+    //     email: formDataRef.emailRef.current.value,
+    //     number: formDataRef.numberRef.current.value,
+    //     category: formDataRef.categoryRef.current.value,
+    //     details: formDataRef.detailRef.current.value,
+    //   })
+    //   .then(() => {
+    //     console.log("This is the response", res);
+    //   })
+    //   .catch((error) => {
+    //     console.log("There is an error", error);
+    //   });
+  };
+
   return (
-    <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 ">
-      <div className="  flex lg:flex-row flex-col bg-offwhite rounded-sm lg:rounded-xl w-full max-w-[74rem] shadow-xl py-10 border items-center justify-center  ">
+    <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 relative">
+      <ToastMessage/>
+      <form action={submitForm} className="  flex lg:flex-row flex-col bg-offwhite rounded-sm lg:rounded-xl w-full max-w-[74rem] shadow-xl py-10 border items-center justify-center  ">
         <section className="lg:w-[50%]  w-[100%] h-auto flex flex-col items-center justify-evenly lg:border-b-0 py-3  border-newgold ">
           <div className=" w-[80%] flex flex-col">
             <heading className="lg:text-2xl text-[16px] font-medium lg:py-2">
@@ -30,13 +87,17 @@ const Contact = () => {
               <heading className="lg:text-2xl text-[16px] font-medium lg:py-3">
                 Call us
               </heading>
+              <Link href='tel:+12346567890'>
               <span className="text-[14px]">+91 123456789</span>
+              </Link>
             </div>
-            <div className="  flex flex-col">
+            <div className="  flex flex-col ">
               <heading className="lg:text-2xl text-[16px] font-medium lg:py-3">
                 Email
               </heading>
-              <span className="text-[14px] ">crownengineering@gmail.com</span>
+            <Link href='https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com' target="_blank">
+              <span className="text-[14px] ">cewtech2024@gmail.com</span>
+            </Link>
             </div>
           </div>
         </section>
@@ -47,7 +108,8 @@ const Contact = () => {
                 <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Name
                 </heading>
-                <input
+                <input 
+                name="userName"
                   placeholder="Enter your name"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
@@ -57,10 +119,12 @@ const Contact = () => {
                 <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Company Name
                 </heading>
-                <input
+                <input 
+                name="companyName"
                   placeholder="Enter your company name"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
+                 {checkData.companyName && <p className="text-red-600 text-[14px] pt-2">Company name is required</p>}
               </div>
             </div>
 
@@ -69,22 +133,27 @@ const Contact = () => {
                 <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Email
                 </heading>
-                <input
+                <input 
+                 name="email"
+                 type="email"
                   placeholder="Enter your email"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
+                 {checkData.companyName && <p className="text-red-600 text-[14px] pt-2">Email is required</p>}
               </div>
 
               <div className="flex flex-col">
                 <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Contact number
                 </heading>
-                <input
+                <input 
+                 name="contactNumber"
                   placeholder="Enter your contact no"
                   type="number"
                   maxLength="10"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
+                 {checkData.companyName && <p className="text-red-600 text-[14px] pt-2">Contact Number is required</p>}
               </div>
             </div>
             <label className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
@@ -101,19 +170,21 @@ const Contact = () => {
               <option value="General enquiry">General enquiry</option>
             </select>
             <heading className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
-              Details
+              Message
             </heading>
             <textarea
+            name="details"
               placeholder="Enter your message"
               className="lg:w-[70%] resize-none p-2 h-28 w-[100%] focus:outline-none border border-newgold rounded-md "
             />
+            {checkData.companyName && <p className="text-red-600 text-[14px] pt-2">Please enter a Message </p>}
 
             <Button className="my-4 lg:w-[70%] w-[100%]" variant="goldbtn">
               Send message
             </Button>
           </div>
         </section>
-      </div>
+      </form>
 
       <div className="mt-20 mb-20 h-[100%]  smallest:w-[100%] flex justify-center">
         {/* <div className="grid grid-cols-1 max-w-[74rem] overflow-x-auto "> */}
@@ -127,6 +198,8 @@ const Contact = () => {
         ></iframe>
         {/* </div> */}
       </div>
+
+    
     </main>
   );
 };

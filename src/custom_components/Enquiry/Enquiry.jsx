@@ -1,10 +1,19 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import axios from "axios";
 
 const Enquiry = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [checkData, setCheckData] = useState({
+    userName:false,
+    email:false,
+    companyName:false,
+    contactNumber:false,
+    details:false,
+    category:false
+  });
+  
   const formRef = useRef(null);
 
   const handleOpenClick = () => {
@@ -20,7 +29,6 @@ const Enquiry = () => {
       setIsOpen(false);
     }
   };
-
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -35,9 +43,50 @@ const Enquiry = () => {
     };
   }, [isOpen]);
 
-  useEffect(() => {
-    console.log("Component mounted");
-  }, []);
+  const submitForm = async (formData) => {
+    for (let [name, value] of formData.entries()) {
+      // console.log(`Name: ${name}, Value: ${value}`);
+      if(formData.get(name).length === 0 || formData.get(name) === null){
+        setCheckData((prev)=>({
+          ...prev,
+          [name]:true
+        }))
+      }
+      else {
+        setCheckData((prev)=>({
+          ...prev,
+          [name]:false
+        }))
+      }
+    }
+    let data = {
+      name:formData.get('userName') || '',
+      company:formData.get('companyName'),
+      category:formData.get('category') || '',
+      details:formData.get('details'),
+      contact:formData.get('contactNumber'),
+      email:formData.get('email')
+    }
+    console.log(data);
+    
+    // const res = await axios
+    //   .post(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/submitEmail`, {
+    //     name: formDataRef.nameRef.current.value,
+    //     company: formDataRef.companyRef.current.value,
+    //     email: formDataRef.emailRef.current.value,
+    //     number: formDataRef.numberRef.current.value,
+    //     category: formDataRef.categoryRef.current.value,
+    //     details: formDataRef.detailRef.current.value,
+    //   })
+    //   .then(() => {
+    //     console.log("This is the response", res);
+    //   })
+    //   .catch((error) => {
+    //     console.log("There is an error", error);
+    //   });
+  };
+
+
   return (
     <>
       <div className="fixed -right-[60px] top-56 z-10">
@@ -76,7 +125,7 @@ const Enquiry = () => {
               </svg>
             </button>
 
-            <div>
+            <form action={submitForm} >
               <section className="px-5 sm:px-12  flex flex-col items-center justify-center ">
                 <div className="flex flex-col w-[100%] sm:w-[90%] h-auto">
                   <div className="flex flex-col">
@@ -87,7 +136,9 @@ const Enquiry = () => {
                       <input
                         placeholder="Enter your name"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
+                        name="userName"
                       />
+                      {/* <p className="text-red-600 text-[14px] pt-2">This field is required</p> */}
                     </div>
 
                     <div className="flex flex-col">
@@ -95,9 +146,11 @@ const Enquiry = () => {
                         Company Name
                       </h1>
                       <input
+                        name="companyName"
                         placeholder="Enter your company name"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
+                      {checkData.companyName && <p className="text-red-600 text-[14px] pt-2">Company name is required</p>}
                     </div>
                   </div>
 
@@ -107,9 +160,12 @@ const Enquiry = () => {
                         Email
                       </h1>
                       <input
+                      name="email"
+                      type="email"
                         placeholder="Enter your email"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
+                      {checkData.email && <p className="text-red-600 text-[14px] pt-2">Email is required</p>}
                     </div>
 
                     <div className="flex flex-col">
@@ -117,18 +173,26 @@ const Enquiry = () => {
                         Contact number
                       </h1>
                       <input
+                      name="contactNumber"
                         placeholder="Enter your contact no"
                         type="number"
                         maxLength="10"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
+                      {checkData.contactNumber && <p className="text-red-600 text-[14px] pt-2">Contact Number is required</p>}
                     </div>
                   </div>
 
                   <div className="flex flex-col w-full">
                     <div className="flex flex-col relative text-left">
-                      <label className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4"> Enquiry Category</label>
-                      <select className=" w-full p-2 rounded-md border border-newgold text-gray-700   leading-tight focus:outline-none ">
+                      <label className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
+                        {" "}
+                        Enquiry Category
+                      </label>
+                      <select
+                        name="category"
+                        className=" w-full p-2 rounded-md border border-newgold text-gray-700   leading-tight focus:outline-none "
+                      >
                         <option value="" disabled selected>
                           Select enquiry type
                         </option>
@@ -141,12 +205,14 @@ const Enquiry = () => {
 
                     <div className="flex flex-col">
                       <h1 className="text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
-                        Details
+                        Message
                       </h1>
                       <textarea
+                        name="details"
                         placeholder="Enter your message"
                         className="resize-none p-2 h-28 w-[100%] focus:outline-none border border-newgold rounded-md"
                       />
+                      {checkData.details && <p className="text-red-600 text-[14px] pt-2">Please enter a message</p>}
                     </div>
                   </div>
 
@@ -155,7 +221,7 @@ const Enquiry = () => {
                   </Button>
                 </div>
               </section>
-            </div>
+            </form>
           </div>
         )}
       </div>

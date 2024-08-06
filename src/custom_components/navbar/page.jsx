@@ -191,24 +191,28 @@ const Navbar = () => {
       <section className="">
         <div
           className={`transition-all max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20 duration-500 flex justify-center  ${
-            isScrolled ? "h-0 opacity-0" : "h-[8vh] opacity-100"
+            isScrolled ? "h-0 opacity-0 " : "h-[8vh] opacity-100"
           } max-lg:hidden lg:flex`}
         >
           <div className="py-6 flex justify-between items-center font-medium max-w-[74rem] w-full  relative">
             <div className=" items-center flex justify-evenly mx-3 gap-6">
+              <Link href='tel:+12346567890'>
               <div className="flex flex-row items-center gap-2">
                 <FaPhoneAlt color="#C89F23" className="text-[18px]" />
                 <p className="m-0 text-[14px]  font-medium">+91 12346567890</p>
               </div>
+              </Link>
+                <Link href='https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com' target="_blank">
               <div className="flex flex-row items-center gap-2">
                 <MdOutlineMarkEmailRead
                   color="#C89F23"
                   className="text-[24px]"
                 />
-                <p className="m-0 text-[14px]  font-medium">
-                  crowneng@gmail.com
+                <p className="m-0 text-[14px]  font-medium ">
+                cewtech2024@gmail.com
                 </p>
               </div>
+                </Link>
             </div>
 
              <div className=" flex items-center lg:flex lg:border lg:border-newgold lg:rounded-md w-[41%] justify-end lg:bg-white">
@@ -221,7 +225,7 @@ const Navbar = () => {
                   ref={searchInputRef}
                 />
                 <div
-                  className="sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:bg-newgold cursor-pointer rounded-r-md"
+                  className="  sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:bg-newgold cursor-pointer rounded-r-md"
                   onClick={() => toggleSearch()}
                 >
                   <Search className="sm:h-8 sm:w-8 lg:h-6" />
@@ -283,29 +287,34 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className=" border-b-2 border-newgold lg:px-20"></div>
+        <div className={` ${isScrolled ? `border-0` : 'border-b-2 border-newgold'} max-lg:hidden lg:px-20`}></div>
       </section>
 
       <section className="sticky top-0 flex items-center justify-center w-full flex-row lg:border-0 border-b-2 border-newgold">
         <div className="flex flex-row justify-center w-full max-w-screen-2xl ">
           <div className="flex items-center max-w-[74rem] w-full max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20 justify-between ">
-            <div className="flex items-center max-smallest:w-[20%] lg:w-[22%] w-full h-full  justify-start">
+            <div className="flex items-center max-smallest:w-[40%] lg:w-[22%] w-full h-full  justify-start">
               {isScrolled ? (
+                <Link href='/'>
+                
                 <Image
                   alt="logo"
                   height={200}
                   width={200}
                   src="/assets/icons/shortIcon.png"
-                  className="w-20 h-20 my-3"
+                  className="w-[100%] max-small:w-[80px]  small:max-md:w-[80px] md:w-[25%]"
                 />
+                </Link>
               ) : (
+                <Link href='/'>
                 <Image
                   alt="logo"
                   height={200}
                   width={200}
                   src="/assets/icons/fullLogo.png"
-                  className="lg:w-[60%] my-3"
+                  className="w-[100%] max-small:w-[150px]  small:max-lg:w-[150px] lg:w-[60%] my-3"
                 />
+                </Link>
               )}
             </div>
 
@@ -324,7 +333,7 @@ const Navbar = () => {
                 ))}
               </div>
 
-              <div className=" flex items-center lg:flex lg:border lg:border-newgold lg:rounded-md w-auto justify-end lg:bg-white">
+              <div className=" flex items-center lg:flex  lg:rounded-md w-auto justify-end lg:bg-white">
                
                 <div
                   className="sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:hidden cursor-pointer rounded-r-md"
