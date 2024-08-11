@@ -37,6 +37,7 @@ const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
       : tableProp === "CEW68"
       ? CEW68
       : "";
+      console.log(productDetails,'sdgadshfgsjfhg');
       
   return (
     <div className=" select-none ">

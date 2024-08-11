@@ -3,10 +3,15 @@ import SidebarProduct from "@/custom_components/product-ui/SideBar";
 import React, { useEffect, useState, useRef } from "react";
 import { mainProducts, productTypes } from "@/staticdata/static";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
+import { FaAnglesRight } from "react-icons/fa6";
+import Link from "next/link";
 
-export default function Layout({ children,props }) {
+export default function Layout({ children, props }) {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const router = usePathname();
 
   const toggleNavigation = () => {
     setIsOpen(!isOpen);
@@ -16,11 +21,6 @@ export default function Layout({ children,props }) {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
       setIsOpen(false);
     }
-  };
-
-  const productData = {
-    mainCategory: mainProducts,
-    subCategory: productTypes,
   };
 
   useEffect(() => {
@@ -33,12 +33,23 @@ export default function Layout({ children,props }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
-  console.log(children.props,'assssssssssssssssssssssssss');
-  console.log(props,'fsdddddddddddddddddddddddddddddddddd');
-  
+  let routes = router.split("/");
   return (
     <div className="">
-    {children}
+      <div className="flex items-center text-[1rem] gap-[20px] mb-[20px]">
+        <Link href={`/products/${routes[2]}`} className={`font-medium border-b-2 ${routes[3] === undefined && 'border-newgold'}`}>
+          {routes[2]
+            ?.replace(/-/g, " ")
+            ?.toLowerCase()
+            ?.replace(/\b\w/g, (char) => char.toUpperCase())}
+        </Link>
+        <FaAnglesRight className="text-newgold className='text-newgold font-semibold'" />
+        <Link href={`/products/${routes[3]}`} className={`font-medium border-b-2 ${routes[3] !== undefined && 'border-newgold'}`}>
+          {routes[3]
+            ?.replace(/-/g, " ").toUpperCase()}
+        </Link>
+      </div>
+      {children}
     </div>
   );
 }

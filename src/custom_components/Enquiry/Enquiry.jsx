@@ -86,6 +86,11 @@ const Enquiry = () => {
     //   });
   };
 
+  useEffect(()=>{
+    console.log(checkData);
+    
+  },[checkData])
+
 
   return (
     <>

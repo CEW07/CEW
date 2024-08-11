@@ -15,7 +15,8 @@ const Navbar = () => {
   const [isOpenMenu, setisOpenMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
-  const [isSearchFocus, setIsSearchFocus] = useState(false);
+  // const [isSearchFocus, setIsSearchFocus] = useState(false);
+  const [isSearchData, setIsSearchData] = useState(false);
   const [searchData, setSearchData] = useState({
     searchMainProducts: [],
     searchSubTypes: [],
@@ -24,6 +25,7 @@ const Navbar = () => {
   const searchInputRef = useRef(null);
   const searchListRef = useRef(null);
   const navBarRef = useRef(null);
+  const clickOriginRef = useRef(false);
   const [searchBarText, setSearchBarText] = useState("");
   const handleClickOutside = (event) => {
     if (navBarRef.current && !navBarRef.current.contains(event.target)) {
@@ -54,26 +56,28 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutsideSearch = (event) => {
-      console.log("Entering the Click");
       if (
+        !clickOriginRef.current &&
         searchInputRef.current &&
         !searchInputRef.current.contains(event.target) &&
         searchListRef.current &&
         !searchListRef.current.contains(event.target)
       ) {
-        console.log("Input false");
-        setIsSearchFocus(false);
-      }
+        setIsSearchData(false);
+        // setTimeout(() => {
+          //   setIsSearchData(false);
+          // }, 150);
+        }
+        clickOriginRef.current = false;
     };
 
-    if (isSearchFocus) {
+    if (isSearchData) {
       document.addEventListener("mousedown", handleClickOutsideSearch);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutsideSearch);
     };
-  }, [isSearchFocus]);
+  }, [isSearchData]);
 
   const toggleMenu = () => {
     setisOpenMenu(!isOpenMenu);
@@ -85,13 +89,16 @@ const Navbar = () => {
 
   const handleInputFocus = () => {
     console.log("Input focused");
-    setIsSearchFocus(true);
+    // setIsSearchFocus(true);
   };
 
   let timeoutFunc;
 
   const handleSearchInput = (e) => {
     const text = e.target.value;
+    if (!isSearchData) {
+      setIsSearchData(true);
+    }
     clearTimeout(timeoutFunc);
     if (text.length > 0) {
       timeoutFunc = setTimeout(() => {
@@ -101,8 +108,7 @@ const Navbar = () => {
 
     if (text.length === 0) {
       // setSearchBarText("Search products !!");
-      console.log('sdddddddddddd');
-            
+      console.log("sdddddddddddd");
     }
   };
 
@@ -181,10 +187,12 @@ const Navbar = () => {
     { name: "About Us", href: "/about", index: "6" },
     { name: "Contact", href: "/contact", index: "7" },
   ];
-
+  const handleMouseDownInside = () => {
+    clickOriginRef.current = true;
+  };
   return (
     <main
-      className={`w-full sticky top-0  z-30 bg-offwhite transition-all duration-500 ${
+      className={`w-full sticky top-0  z-30 bg-offwhite transition-all duration-200 ${
         isScrolled ? "-top-1" : "lg:pt-0 pt-18"
       } lg:border-b-2 lg:border-newgold`}
     >
@@ -196,98 +204,95 @@ const Navbar = () => {
         >
           <div className="py-6 flex justify-between items-center font-medium max-w-[74rem] w-full  relative">
             <div className=" items-center flex justify-evenly mx-3 gap-6">
-              <Link href='tel:+12346567890'>
-              <div className="flex flex-row items-center gap-2">
-                <FaPhoneAlt color="#C89F23" className="text-[18px]" />
-                <p className="m-0 text-[14px]  font-medium">+91 12346567890</p>
-              </div>
+              <Link href="tel:+12346567890">
+                <div className="flex flex-row items-center gap-2">
+                  <FaPhoneAlt color="#C89F23" className="text-[18px]" />
+                  <p className="m-0 text-[14px]  font-medium">
+                    +91 12346567890
+                  </p>
+                </div>
               </Link>
-                <Link href='https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com' target="_blank">
-              <div className="flex flex-row items-center gap-2">
-                <MdOutlineMarkEmailRead
-                  color="#C89F23"
-                  className="text-[24px]"
-                />
-                <p className="m-0 text-[14px]  font-medium ">
-                cewtech2024@gmail.com
-                </p>
-              </div>
-                </Link>
+              <Link
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
+                target="_blank"
+              >
+                <div className="flex flex-row items-center gap-2">
+                  <MdOutlineMarkEmailRead
+                    color="#C89F23"
+                    className="text-[24px]"
+                  />
+                  <p className="m-0 text-[14px]  font-medium ">
+                    cewtech2024@gmail.com
+                  </p>
+                </div>
+              </Link>
             </div>
 
-             <div className=" flex items-center lg:flex lg:border lg:border-newgold lg:rounded-md w-[41%] justify-end lg:bg-white">
-                <input
-                  type="text"
-                  className="lg:w-full bg-transparent p-2 mr-2 lg:rounded-md focus:outline-none lg:flex max-lg:hidden "
-                  placeholder="Search Products"
-                  onFocus={handleInputFocus}
-                  onChange={handleSearchInput}
-                  ref={searchInputRef}
-                />
-                <div
-                  className="  sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:bg-newgold cursor-pointer rounded-r-md"
-                  onClick={() => toggleSearch()}
-                >
-                  <Search className="sm:h-8 sm:w-8 lg:h-6" />
-                </div>
+            <div className=" flex items-center lg:flex lg:border lg:border-newgold lg:rounded-md w-[41%] justify-end lg:bg-white">
+              <input
+                type="text"
+                className="lg:w-full bg-transparent p-2 mr-2 lg:rounded-md focus:outline-none lg:flex max-lg:hidden "
+                placeholder="Search Products"
+                onFocus={handleInputFocus}
+                onChange={handleSearchInput}
+                // value={isSearchData}
+                ref={searchInputRef}
+              />
+              <div
+                className="  sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:bg-newgold cursor-pointer rounded-r-md"
+                onClick={() => toggleSearch()}
+              >
+                <Search className="sm:h-8 sm:w-8 lg:h-6" />
               </div>
+            </div>
 
-
-            {isSearchFocus && (
-                <div
-                  ref={searchListRef}
-                  className="absolute bg-[#F4F3EE] top-[3.9rem] z-10 rounded-[20px] left-[59%]  font-semibold leading-6  lg:min-w-[41%] lg:rounded-md h-auto max-lg:hidden"
+            <div
+              ref={searchListRef}
+              onMouseDown={handleMouseDownInside}
+              className={`${
+                isSearchData ? "visible" : "hidden"
+              }  absolute max-h-[300px] grid grid-row-1 overflow-y-auto bg-[#F4F3EE] top-[3.9rem] z-10 rounded-[20px] left-[59%]  font-semibold leading-6  lg:min-w-[41%] lg:rounded-md h-auto max-lg:hidden`}
+            >
+              <p>{searchBarText}</p>
+              {searchData.searchMainProducts?.map((item, index) => (
+                <Link
+                  href={`/products/${item?.product_name_id}`}
+                  className="flex flex-col text-[#C89F23] hover:text-[#F4F3EE] hover:bg-[#C89F23] border border-b-[#C89F23] text-[12px] p-[8px] "
+                  key={index}
+                  onClick={() => setIsSearchClicked(false)}
                 >
-                  <p>{searchBarText}</p>
-                  {searchData.searchMainProducts?.map((item, index) => (
+                  {item?.product_name && item?.product_name.toUpperCase()}
+                </Link>
+              ))}
+              {loading ? (
+                <div className="text-center flex items-center justify-center p-1">
+                  <Loading />{" "}
+                </div>
+              ) : (
+                <>
+                  {searchData.searchSubTypes?.map((item, index) => (
                     <Link
-                      href={`/products/${item.product_name_id}`}
+                      href={`/products${item?.post_url}`}
                       className="flex flex-col text-[#C89F23] hover:text-[#F4F3EE] hover:bg-[#C89F23] border border-b-[#C89F23] text-[12px] p-[8px] "
                       key={index}
                       onClick={() => setIsSearchClicked(false)}
                     >
-                      {item?.product_name && item.product_name.toUpperCase()}
+                      {item?.product_subTypes_name
+                        ? item?.product_subTypes_name
+                        : item}
                     </Link>
                   ))}
-                  {loading ? (
-                    <div className="text-center flex items-center justify-center p-1">
-                      <Loading />{" "}
-                    </div>
-                  ) : (
-                    <>
-                      {searchData.searchSubTypes?.map((item, index) => (
-                        <Link
-                          href={`/products${item?.post_url}`}
-                          className="flex flex-col text-[#C89F23] hover:text-[#F4F3EE] hover:bg-[#C89F23] border border-b-[#C89F23] text-[12px] p-[8px] "
-                          key={index}
-                          onClick={() => setIsSearchClicked(false)}
-                        >
-                          {item?.product_subTypes_name
-                            ? item.product_subTypes_name
-                            : item}
-                        </Link>
-                      ))}
-                    </>
-                  )}
-                </div>
+                </>
               )}
-            {/* <div className="">
-              {Links.slice(4, 8).map((item) => (
-                <Link
-                  href={item.href}
-                  className={`mx-4 ${
-                    pathname === item.href ? "text-newgold" : ""
-                  } hover:text-newgold`}
-                  key={item.index}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div> */}
+            </div>
           </div>
         </div>
 
-        <div className={` ${isScrolled ? `border-0` : 'border-b-2 border-newgold'} max-lg:hidden lg:px-20`}></div>
+        <div
+          className={` ${
+            isScrolled ? `border-0` : "border-b-2 border-newgold"
+          } max-lg:hidden lg:px-20`}
+        ></div>
       </section>
 
       <section className="sticky top-0 flex items-center justify-center w-full flex-row lg:border-0 border-b-2 border-newgold">
@@ -295,25 +300,24 @@ const Navbar = () => {
           <div className="flex items-center max-w-[74rem] w-full max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20 justify-between ">
             <div className="flex items-center max-smallest:w-[40%] lg:w-[22%] w-full h-full  justify-start">
               {isScrolled ? (
-                <Link href='/'>
-                
-                <Image
-                  alt="logo"
-                  height={200}
-                  width={200}
-                  src="/assets/icons/shortIcon.png"
-                  className="w-[100%] max-small:w-[80px]  small:max-md:w-[80px] md:w-[25%]"
-                />
+                <Link href="/">
+                  <Image
+                    alt="logo"
+                    height={200}
+                    width={200}
+                    src="/assets/icons/shortIcon.png"
+                    className="w-[100%] max-small:w-[80px] transition duration-400 ease-in-out small:max-md:w-[80px] md:w-[25%]"
+                  />
                 </Link>
               ) : (
-                <Link href='/'>
-                <Image
-                  alt="logo"
-                  height={200}
-                  width={200}
-                  src="/assets/icons/fullLogo.png"
-                  className="w-[100%] max-small:w-[150px]  small:max-lg:w-[150px] lg:w-[60%] my-3"
-                />
+                <Link href="/">
+                  <Image
+                    alt="logo"
+                    height={200}
+                    width={200}
+                    src="/assets/icons/fullLogo.png"
+                    className="w-[100%] max-small:w-[150px]  transition-all duration-500  small:max-lg:w-[150px] lg:w-[60%] my-3"
+                  />
                 </Link>
               )}
             </div>
@@ -334,7 +338,6 @@ const Navbar = () => {
               </div>
 
               <div className=" flex items-center lg:flex  lg:rounded-md w-auto justify-end lg:bg-white">
-               
                 <div
                   className="sm:h-12 sm:w-12 sm:mx-3 lg:h-10 flex justify-center items-center lg:mx-0 ml-4 h-8 w-8 mx-1 lg:hidden cursor-pointer rounded-r-md"
                   onClick={() => toggleSearch()}
@@ -348,8 +351,6 @@ const Navbar = () => {
                   <Menu className="h-6 w-6 sm:h-8 sm:w-8" />
                 </div>
               </div>
-
-           
             </div>
           </div>
         </div>
@@ -366,9 +367,9 @@ const Navbar = () => {
         ref={searchInputRef}
       />
       <div className="relative">
-        {isSearchFocus && (
+        {isSearchData && (
           <section
-            className={`bg-[#F4F3EE] w-[70%] lg:rounded-md h-[auto] z-10 font-semibold leading-6  absolute top-11 lg:hidden ${
+            className={`bg-[#F4F3EE] w-[70%] lg:rounded-md h-[auto] z-10 font-semibold leading-6 max-h-[300px] grid grid-row-1 overflow-y-auto  absolute top-11 lg:hidden ${
               isSearchClicked ? "right-[14%]" : "right-[100%]"
             }`}
             ref={searchListRef}
@@ -381,7 +382,7 @@ const Navbar = () => {
                 key={index}
                 onClick={() => setIsSearchClicked(false)}
               >
-                {item?.product_name && item.product_name.toUpperCase()}
+                {item?.product_name && item?.product_name.toUpperCase()}
               </Link>
             ))}
             {loading ? (
@@ -399,7 +400,7 @@ const Navbar = () => {
                     onClick={() => setIsSearchClicked(false)}
                   >
                     {item?.product_subTypes_name
-                      ? item.product_subTypes_name
+                      ? item?.product_subTypes_name
                       : item}
                   </Link>
                 ))}

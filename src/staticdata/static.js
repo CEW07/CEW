@@ -296,7 +296,7 @@ export const testing = [
       "Ensuring hoses withstand designated pressures without leakage or failure.",
   },
   {
-    name: "Burst PressureTesting",
+    name: "Burst Pressure Testing",
     subPoint: "Determining the maximum pressure hoses can handle safely.",
   },
   {
@@ -370,12 +370,28 @@ export const mainProducts = [
     alt: "Rubber"
   },
   {
-    product_id: 2,
-    product_name: "Thermoplastic Hose",
-    product_name_id: "thermoplastic-hose",
-    product_types: "TRUE",
-    image: "/assets/images/mainProduct/Thermoplastic.png",
-    alt: "Thermoplastic"
+    product_id: 5,
+    product_name: "Stainless steel hose",
+    product_name_id: "stainless-steel-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Stainless.png",
+    alt: "Stainless"
+  },
+  {
+    product_id: 14,
+    product_name: "Food & Beverage Hoses",
+    product_name_id: "food-beverage-hoses",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/FoodBeverageHoses.png",
+    alt: "SMS"
+  },
+  {
+    product_id: 6,
+    product_name: "Silicone hose",
+    product_name_id: "silicone-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Silicone.png",
+    alt: "Silicone"
   },
   {
     product_id: 3,
@@ -386,28 +402,36 @@ export const mainProducts = [
     alt: "teflon"
   },
   {
+    product_id: 15,
+    product_name: "Pharmaceutical Hoses",
+    product_name_id: "pharmaceutical-hoses",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/pharmaceuticalHoses.png",
+    alt: "SMS"
+  },
+  {
+    product_id: 16,
+    product_name: "Chemical Hoses",
+    product_name_id: "chemical-hoses",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/ChemicalHoses.png",
+    alt: "SMS"
+  },
+  {
+    product_id: 2,
+    product_name: "Thermoplastic Hose",
+    product_name_id: "thermoplastic-hose",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Thermoplastic.png",
+    alt: "Thermoplastic"
+  },
+  {
     product_id: 4,
     product_name: "Composite hose",
     product_name_id: "composite-hose",
     product_types: "FALSE",
     image: "/assets/images/mainProduct/Composite.png",
     alt: "Composite"
-  },
-  {
-    product_id: 5,
-    product_name: "Stainless steel hose",
-    product_name_id: "stainless-steel-hose",
-    product_types: "FALSE",
-    image: "/assets/images/mainProduct/Stainless.png",
-    alt: "Stainless"
-  },
-  {
-    product_id: 6,
-    product_name: "Silicone hose",
-    product_name_id: "silicone-hose",
-    product_types: "FALSE",
-    image: "/assets/images/mainProduct/Silicone.png",
-    alt: "Silicone"
   },
   {
     product_id: 7,
@@ -464,7 +488,10 @@ export const mainProducts = [
     product_types: "FALSE",
     image: "/assets/images/mainProduct/SMS.png",
     alt: "SMS"
-  }
+  },
+
+
+
 ];
 
 export const productTypes = [

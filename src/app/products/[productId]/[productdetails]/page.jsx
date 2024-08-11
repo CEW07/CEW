@@ -39,10 +39,10 @@ export async function generateMetadata({ params }) {
 
   return {
     title,
-    description: "Product details and size chart.",
+    description: "Product details.",
     openGraph: {
       title,
-      description: "Product details and size chart.",
+      description: "Product details.",
       images:[
         {
           url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}${imageUrl}`,

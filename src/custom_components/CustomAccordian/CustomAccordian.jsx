@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 export default function CustomAccordian({ service, index, header }) {
   return (
-      <div key={index} className=" h-full  rounded-md  ">
+      <div key={index} className="  rounded-md  ">
         <Accordion
           type="single"
           collapsible
