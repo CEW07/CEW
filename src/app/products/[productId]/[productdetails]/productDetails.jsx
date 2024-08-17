@@ -62,6 +62,7 @@ const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
             <img
               src={`${productDetails[0]?.ImageUrl}`}
               alt={productDetails[0]?.product_subTypes_name}
+              title={productDetails[0]?.product_subTypes_name}
             />
           </div>
         )}

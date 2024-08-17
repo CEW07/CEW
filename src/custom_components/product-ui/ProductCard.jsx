@@ -23,6 +23,7 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
                   fill
                   className="object-contain transform transition-transform duration-300 hover:scale-110"
                   loading="lazy"
+                  title={name}
                 />
               ) : (
                 <Image
@@ -31,6 +32,7 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
                   fill
                   src={imageSrc}
                   className="object-contain transform transition-transform duration-300 hover:scale-110"
+                  title={name}
                 />
               )}
             </div>

@@ -24,7 +24,7 @@ function formatTitleFromParam(param) {
 
 export async function generateMetadata({ params }) {
   const { productId } = params;
-  let title = "Products types";
+  let title ;
   let findProduct;
   try {
     // const productDetails = await fetchProductData(productId);
@@ -41,10 +41,10 @@ export async function generateMetadata({ params }) {
 
   return {
     title,
-    description: "Product Types.",
+    description: `${findProduct?.meta_description}`,
     openGraph: {
       title,
-      description: "Product Types",
+      description: `${findProduct?.meta_description}`,
       images: [
         {
           url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}${findProduct?.image}`,
