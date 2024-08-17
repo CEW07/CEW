@@ -152,10 +152,6 @@ const SidebarProduct = ({ productData }) => {
       console.log(err);
     }
   }
-useEffect(() => {
-  if(productsData.subCategory)
-    console.log(productsData.subCategory);
-}, [productsData])
 
   return (
     <div className="sideBar:w-[250px] smallest:w-[300px]  select-none ">

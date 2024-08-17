@@ -45,7 +45,6 @@ const Enquiry = () => {
 
   const submitForm = async (formData) => {
     for (let [name, value] of formData.entries()) {
-      // console.log(`Name: ${name}, Value: ${value}`);
       if(formData.get(name).length === 0 || formData.get(name) === null){
         setCheckData((prev)=>({
           ...prev,
@@ -67,7 +66,6 @@ const Enquiry = () => {
       contact:formData.get('contactNumber'),
       email:formData.get('email')
     }
-    console.log(data);
     
     // const res = await axios
     //   .post(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/submitEmail`, {
