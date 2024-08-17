@@ -89,7 +89,6 @@ const Navbar = () => {
 
   const handleInputFocus = () => {
     console.log("Input focused");
-    // setIsSearchFocus(true);
   };
 
   let timeoutFunc;
@@ -166,9 +165,6 @@ const Navbar = () => {
       // }
     }
   };
-  useEffect(() => {
-    console.log("UseEffect", searchData);
-  }, [searchData]);
 
   const pathname = usePathname();
   const styles = {

@@ -5,7 +5,6 @@ const queryPromise = promisify(connection.query).bind(connection);
 
 export default async function fetchSubCategoryTypeAll(req, res) {
   const { id, data } = req.query; // Extract id from query parameters
-  // console.log(req.query);
   if (!id) {
     return res.status(400).json({ error: "ID is required" });
   }

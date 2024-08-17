@@ -16,7 +16,6 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
-  // console.log(productDetails,'details here');
   const router = useRouter();
   useEffect(() => {
     if (!Array.isArray(sizeChartDetails) && !Array.isArray(productDetails)) {
@@ -37,7 +36,6 @@ const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
       : tableProp === "CEW68"
       ? CEW68
       : "";
-      console.log(productDetails,'sdgadshfgsjfhg');
       
   return (
     <div className=" select-none ">
@@ -50,13 +48,11 @@ const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
             <span className="max-w-lg">
               <span className="font-semibold"> Applicable Standard: </span>
               <span className="max-smallest:text-sm ">
-                {" "}
                 {productDetails[0]?.product_standard}
               </span>
             </span>
           )}
         </div>
-        {/* <span>Image</span> */}
         {productDetails && (
           <div className=" flex justify-end mt-2">
             <img

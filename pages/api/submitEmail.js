@@ -1,7 +1,6 @@
 import nodemailer from "nodemailer";
 
 export default async function submitEmail(req, res) {
-  console.log(req.body);
 
   let testAccount = await nodemailer.createTestAccount();
   try {

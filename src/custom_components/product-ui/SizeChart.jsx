@@ -8,8 +8,6 @@ import OD from "/public/assets/images/SizeChart/OD.png";
 import WP from "/public/assets/images/SizeChart/WP.png";
 
 const SizeChart = ({ sizeChartDetails }) => {
-  console.log(sizeChartDetails);
-  
   return (
     <>
       <table className="table-auto border-collapse text-xs">

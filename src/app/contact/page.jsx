@@ -18,7 +18,6 @@ const Contact = () => {
 
   const submitForm = async (formData) => {
     for (let [name, value] of formData.entries()) {
-      // console.log(`Name: ${name}, Value: ${value}`);
       if (formData.get(name).length === 0 || formData.get(name) === null) {
         setCheckData((prev) => ({
           ...prev,
@@ -39,7 +38,6 @@ const Contact = () => {
       contact: formData.get("contactNumber"),
       email: formData.get("email"),
     };
-    console.log(data);
 
     // const res = await axios
     //   .post(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/submitEmail`, {
@@ -52,11 +50,6 @@ const Contact = () => {
     //     console.log("There is an error", error);
     //   });
   };
-
-  useEffect(()=>{
-    console.log(checkData);
-    
-  },[checkData])
 
   return (
     <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 relative">
