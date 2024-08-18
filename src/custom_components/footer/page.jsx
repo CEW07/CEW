@@ -55,21 +55,24 @@ const Footer = () => {
 
         <section className="w-[20%] xl:block max-xl:hidden">
           <h1 className="text-xl font-semibold text-newgold">Contact us at</h1>
-            <Link  href='tel:+12346567890'>
-          <header className="m-0  font-semibold mt-4 flex flex-row gap-2 items-center">
-            
-            <FaPhoneAlt color="#C89F23" className="text-[18px]" />
-            <p className="m-0 text-[14px]  font-medium">+91 12346567890</p>
-          </header>
-            </Link>
+          <Link href="tel:+12346567890">
+            <header className="m-0  font-semibold mt-4 flex flex-row gap-2 items-center">
+              <FaPhoneAlt color="#C89F23" className="text-[18px]" />
+              <p className="m-0 text-[14px]  font-medium">+91 12346567890</p>
+            </header>
+          </Link>
 
-            <Link href='https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com' target="_blank">
-          <header className="m-0  font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
-
-            <MdOutlineMarkEmailRead color="#C89F23" className="text-[24px]" />
-            <p className="m-0 text-[14px]  font-medium">cewtech2024@gmail.com</p>
-          </header>
-            </Link>
+          <Link
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
+            target="_blank"
+          >
+            <header className="m-0  font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
+              <MdOutlineMarkEmailRead color="#C89F23" className="text-[24px]" />
+              <p className="m-0 text-[14px]  font-medium">
+                cewtech2024@gmail.com
+              </p>
+            </header>
+          </Link>
 
           <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
             <FaCalendarAlt color="#C89F23" className="text-[18px]" />
@@ -117,32 +120,33 @@ const Footer = () => {
               </AccordionTrigger>
               <AccordionContent className="">
                 <div className="flex flex-row gap-4 items-center">
-                <Link  href='tel:+12346567890'>
-                
-                  <header className="m-0 text-[16px] font-semibold flex flex-row gap-4 items-center">
-                    <FaPhoneAlt color="#C89F23" className="text-[18px]" />
+                  <Link href="tel:+12346567890">
+                    <header className="m-0 text-[16px] font-semibold flex flex-row gap-4 items-center">
+                      <FaPhoneAlt color="#C89F23" className="text-[18px]" />
 
-                    <p className="m-0 text-[14px] font-medium">
-                      +91 12346567890
-                    </p>
-                  </header>
-                </Link>
-
+                      <p className="m-0 text-[14px] font-medium">
+                        +91 12346567890
+                      </p>
+                    </header>
+                  </Link>
                 </div>
 
                 <div className="flex flex-row gap-4 items-center">
-                <Link href='https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com' target="_blank">
-                
-                  <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-4 pt-1 items-center">
-                    <MdOutlineMarkEmailRead
-                      color="#C89F23"
-                      className="text-[18px]"
-                    />
+                  <Link
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
+                    target="_blank"
+                  >
+                    <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-4 pt-1 items-center">
+                      <MdOutlineMarkEmailRead
+                        color="#C89F23"
+                        className="text-[18px]"
+                      />
 
-                    <p className="m-0 text-[14px] font-medium">
-                    cewtech2024@gmail.com                    </p>
-                  </header>
-                </Link>
+                      <p className="m-0 text-[14px] font-medium">
+                        cewtech2024@gmail.com{" "}
+                      </p>
+                    </header>
+                  </Link>
                 </div>
 
                 <div className="flex flex-row gap-4 items-center">
@@ -200,8 +204,6 @@ const Footer = () => {
 
         {/* mobile screen footer */}
       </section>
-
-      
     </footer>
   );
 };

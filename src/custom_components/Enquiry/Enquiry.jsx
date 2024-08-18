@@ -6,14 +6,14 @@ import axios from "axios";
 const Enquiry = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [checkData, setCheckData] = useState({
-    userName:false,
-    email:false,
-    companyName:false,
-    contactNumber:false,
-    details:false,
-    category:false
+    userName: false,
+    email: false,
+    companyName: false,
+    contactNumber: false,
+    details: false,
+    category: false,
   });
-  
+
   const formRef = useRef(null);
 
   const handleOpenClick = () => {
@@ -45,28 +45,27 @@ const Enquiry = () => {
 
   const submitForm = async (formData) => {
     for (let [name, value] of formData.entries()) {
-      if(formData.get(name).length === 0 || formData.get(name) === null){
-        setCheckData((prev)=>({
+      if (formData.get(name).length === 0 || formData.get(name) === null) {
+        setCheckData((prev) => ({
           ...prev,
-          [name]:true
-        }))
-      }
-      else {
-        setCheckData((prev)=>({
+          [name]: true,
+        }));
+      } else {
+        setCheckData((prev) => ({
           ...prev,
-          [name]:false
-        }))
+          [name]: false,
+        }));
       }
     }
     let data = {
-      name:formData.get('userName') || '',
-      company:formData.get('companyName'),
-      category:formData.get('category') || '',
-      details:formData.get('details'),
-      contact:formData.get('contactNumber'),
-      email:formData.get('email')
-    }
-    
+      name: formData.get("userName") || "",
+      company: formData.get("companyName"),
+      category: formData.get("category") || "",
+      details: formData.get("details"),
+      contact: formData.get("contactNumber"),
+      email: formData.get("email"),
+    };
+
     // const res = await axios
     //   .post(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/submitEmail`, {
     //     name: formDataRef.nameRef.current.value,
@@ -84,11 +83,9 @@ const Enquiry = () => {
     //   });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(checkData);
-    
-  },[checkData])
-
+  }, [checkData]);
 
   return (
     <>
@@ -128,7 +125,7 @@ const Enquiry = () => {
               </svg>
             </button>
 
-            <form action={submitForm} >
+            <form action={submitForm}>
               <section className="px-5 sm:px-12  flex flex-col items-center justify-center ">
                 <div className="flex flex-col w-[100%] sm:w-[90%] h-auto">
                   <div className="flex flex-col">
@@ -153,7 +150,11 @@ const Enquiry = () => {
                         placeholder="Enter your company name"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
-                      {checkData.companyName && <p className="text-red-600 text-[14px] pt-2">Company name is required</p>}
+                      {checkData.companyName && (
+                        <p className="text-red-600 text-[14px] pt-2">
+                          Company name is required
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -163,12 +164,16 @@ const Enquiry = () => {
                         Email
                       </h1>
                       <input
-                      name="email"
-                      type="email"
+                        name="email"
+                        type="email"
                         placeholder="Enter your email"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
-                      {checkData.email && <p className="text-red-600 text-[14px] pt-2">Email is required</p>}
+                      {checkData.email && (
+                        <p className="text-red-600 text-[14px] pt-2">
+                          Email is required
+                        </p>
+                      )}
                     </div>
 
                     <div className="flex flex-col">
@@ -176,13 +181,17 @@ const Enquiry = () => {
                         Contact number
                       </h1>
                       <input
-                      name="contactNumber"
+                        name="contactNumber"
                         placeholder="Enter your contact no"
                         type="number"
                         maxLength="10"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
-                      {checkData.contactNumber && <p className="text-red-600 text-[14px] pt-2">Contact Number is required</p>}
+                      {checkData.contactNumber && (
+                        <p className="text-red-600 text-[14px] pt-2">
+                          Contact Number is required
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -215,7 +224,11 @@ const Enquiry = () => {
                         placeholder="Enter your message"
                         className="resize-none p-2 h-28 w-[100%] focus:outline-none border border-newgold rounded-md"
                       />
-                      {checkData.details && <p className="text-red-600 text-[14px] pt-2">Please enter a message</p>}
+                      {checkData.details && (
+                        <p className="text-red-600 text-[14px] pt-2">
+                          Please enter a message
+                        </p>
+                      )}
                     </div>
                   </div>
 
