@@ -26,12 +26,14 @@ async function fetchProductDetails(productId) {
 export async function generateMetadata({ params }) {
   const { productId,productdetails } = params;
   let title = "Product Details";
-  let imageUrl = ''
+  let imageUrl = '';
+  let productDetail = ''
   try {
     const productDetails = await fetchProductDetails(productdetails);
     if (productDetails && productDetails[0]?.product_subTypes_name) {
       title = productDetails[0]?.product_subTypes_name;
-      imageUrl = productDetails[0]?.ImageUrl
+      imageUrl = productDetails[0]?.ImageUrl;
+      productDetail = productDetails[0].meta_description
     }
   } catch (error) {
     console.error("Error fetching product details:", error);
@@ -39,10 +41,10 @@ export async function generateMetadata({ params }) {
 
   return {
     title,
-    description: "Product details.",
+    description: `${productDetail}`,
     openGraph: {
       title,
-      description: "Product details.",
+      description: `${productDetail}`,
       images:[
         {
           url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}${imageUrl}`,
