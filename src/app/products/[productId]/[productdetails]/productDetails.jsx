@@ -17,9 +17,13 @@ import React, { useEffect, useState } from "react";
 
 const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
   const router = useRouter();
+  console.log(sizeChartDetails,'idsfiosdfdsohfdosf',productDetails,'outside');
+
   useEffect(() => {
     if (!Array.isArray(sizeChartDetails) && !Array.isArray(productDetails)) {
-      router.replace("/not-found");
+      console.log(sizeChartDetails,'idsfiosdfdsohfdosf',productDetails,'useeffect');
+      
+      // router.replace("/not-found");
     }
   }, []);
   const tableProp =
