@@ -17,11 +17,11 @@ import React, { useEffect, useState } from "react";
 
 const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
   const router = useRouter();
-  console.log(sizeChartDetails,'idsfiosdfdsohfdosf',productDetails,'outside');
+  // console.log(sizeChartDetails,'idsfiosdfdsohfdosf',productDetails,'outside');
 
   useEffect(() => {
     if (!Array.isArray(sizeChartDetails) && !Array.isArray(productDetails)) {
-      console.log(sizeChartDetails,'idsfiosdfdsohfdosf',productDetails,'useeffect');
+      // console.log(sizeChartDetails,'idsfiosdfdsohfdosf',productDetails,'useeffect');
       
       // router.replace("/not-found");
     }

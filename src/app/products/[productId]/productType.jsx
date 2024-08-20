@@ -12,7 +12,7 @@ const ProductTypePage = ({ subCategory, params }) => {
   const { productId } = params;
   const [subCategoryAll, setSubCategoryAll] = useState(subCategory);
   const router = useRouter();
-console.log(subCategory,'sub outside');
+// console.log(subCategory,'sub outside');
 
   useEffect(() => {
     if (!subCategory) {
