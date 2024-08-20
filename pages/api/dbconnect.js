@@ -1,6 +1,5 @@
 import mysql from 'mysql2';
 
-// Create a connection pool
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
@@ -12,7 +11,6 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// Export a query function that returns a promise
 export function query(sql, values) {
   return new Promise((resolve, reject) => {
     pool.query(sql, values, (error, results) => {
@@ -25,8 +23,13 @@ export function query(sql, values) {
   });
 }
 
-// Properly close the pool when the app is shut down
-process.on('SIGINT', () => {
+// Use a single instance to handle the shutdown
+let isShuttingDown = false;
+
+function handleShutdown() {
+  if (isShuttingDown) return;
+  isShuttingDown = true;
+
   pool.end((err) => {
     if (err) {
       console.error('Error closing the MySQL pool:', err);
@@ -35,7 +38,10 @@ process.on('SIGINT', () => {
     }
     process.exit(0);
   });
-});
+}
 
-// Export the pool object (this is equivalent to the old connection export)
+// Add listener only if it hasn't been added yet
+process.once('SIGINT', handleShutdown);
+process.once('SIGTERM', handleShutdown);
+
 export default pool;
