@@ -183,8 +183,8 @@ const Enquiry = () => {
                       <input
                         name="contactNumber"
                         placeholder="Enter your contact no"
-                        type="number"
-                        maxLength="10"
+                        type="text"
+                        // maxLength="10"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
                       {checkData.contactNumber && (

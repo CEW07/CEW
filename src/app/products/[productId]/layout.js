@@ -35,8 +35,8 @@ export default function Layout({ children, props }) {
   }, [isOpen]);
   let routes = router.split("/");
   return (
-    <div className="">
-      <div className="flex items-center text-[1rem] gap-[20px] mb-[20px]">
+    <div className="max-md:pt-10">
+      <div className="flex max-lg:hidden  md:mt-0 mt-4 items-center text-[1rem] gap-[20px] mb-[20px]">
         <Link href={`/products/${routes[2]}`} className={`font-medium border-b-2 ${routes[3] === undefined && 'border-newgold'}`}>
           {routes[2]
             ?.replace(/-/g, " ")
@@ -44,7 +44,7 @@ export default function Layout({ children, props }) {
             ?.replace(/\b\w/g, (char) => char.toUpperCase())}
         </Link>
         <FaAnglesRight className="text-newgold className='text-newgold font-semibold'" />
-        <Link href={`/products/${routes[3]}`} className={`font-medium border-b-2 ${routes[3] !== undefined && 'border-newgold'}`}>
+        <Link href={`/products/${routes[3]}`} className={`font-medium border-b-2 text-justify text-[0.9rem] ${routes[3] !== undefined && 'border-newgold'}`}>
           {routes[3]
             ?.replace(/-/g, " ").toUpperCase()}
         </Link>

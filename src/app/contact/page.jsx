@@ -53,7 +53,7 @@ const Contact = () => {
 
   return (
     <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 relative">
-      <ToastMessage />
+      {/* <ToastMessage /> */}
       <section className="  flex lg:flex-row flex-col bg-offwhite rounded-sm lg:rounded-xl w-full max-w-[74rem] shadow-xl py-10 border items-center justify-center  ">
         <section className="lg:w-[50%]  w-[100%] h-auto flex flex-col items-center justify-evenly lg:border-b-0 py-3  border-newgold ">
           <div className=" w-[80%] flex flex-col">
@@ -72,7 +72,7 @@ const Contact = () => {
             </header>
             <span className="text-[14px] max-lg:max-w-lg py-1 lg:py-2">
               Hose Assembly unit: 67/A , Factory No. 1, Suryaji compound, Tank
-              pakhadi Road, Byculla, Mumbai, Maharashtra 400 011, India
+              pakhadi Road, Byculla west, Mumbai, Maharashtra 400 011, India
             </span>
           </div>
           <div className="w-[80%] max-small:flex-col max-lg:mt-4 max-lg:flex gap-3 small:max-lg:gap-10">
@@ -157,7 +157,7 @@ const Contact = () => {
                 <input
                   name="contactNumber"
                   placeholder="Enter your contact no"
-                  type="number"
+                  type="text"e
                   maxLength="10"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />

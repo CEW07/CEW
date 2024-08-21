@@ -11,6 +11,7 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 export const metadata = {
   title: "Crown Engineering Works",
   description: "Pioneers in fluid Conveyance Solutions",
+  metadataBase:new URL(`${process.env.NEXT_PUBLIC_FRONTEND_URL}`),
   openGraph:{
     title: "Crown Engineering Works",
     description: "Pioneers in Fluid Conveyance Solutions",
@@ -35,7 +36,7 @@ export default function RootLayout({ children }) {
         {children}
         <div className="fixed ml-6 px-2 py-2 shadow-xl bg-[#25d366] bottom-8 rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] rounded-bl-none z-10">
           <Link
-            href="https://wa.me/1234567890"
+            href="https://wa.me/9820786752"
             target="_blank"
             rel="noopener noreferrer"
           >
