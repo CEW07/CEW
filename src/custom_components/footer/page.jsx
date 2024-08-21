@@ -49,18 +49,31 @@ const Footer = () => {
           </header>
           <p className="m-0 text-[14px] text-justify">
             Hose Assembly unit: 67/A, Factory No. 1, Suryaji compound, Tank
-            pakhadi Road, Byculla, Mumbai, Maharashtra 400 011, India
+            pakhadi Road, Byculla west, Mumbai, Maharashtra 400 011, India
           </p>
         </section>
 
         <section className="w-[20%] xl:block max-xl:hidden">
           <h1 className="text-xl font-semibold text-newgold">Contact us at</h1>
-          <Link href="tel:+12346567890">
+          <div>
             <header className="m-0  font-semibold mt-4 flex flex-row gap-2 items-center">
               <FaPhoneAlt color="#C89F23" className="text-[18px]" />
-              <p className="m-0 text-[14px]  font-medium">+91 12346567890</p>
+              <div className="flex flex-col">
+                <Link
+                  href="tel:+9820382786"
+                  className="m-0 text-[14px]  font-medium border-b border-newgold "
+                >
+                  +91 9820382786
+                </Link>
+                <Link
+                  href="tel:+9820786752"
+                  className="m-0 text-[14px]  font-medium"
+                >
+                  +91 9820786752
+                </Link>
+              </div>
             </header>
-          </Link>
+          </div>
 
           <Link
             href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
@@ -77,8 +90,7 @@ const Footer = () => {
           <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
             <FaCalendarAlt color="#C89F23" className="text-[18px]" />
             <p className="m-0 text-[14px]  font-medium">
-              Monday - Saturday <br />
-              10 am - 8 pm
+              Monday - Saturday <br />9 am - 6 : 30 pm
             </p>
           </header>
         </section>
@@ -106,7 +118,8 @@ const Footer = () => {
                 </header>
                 <p className="m-0 text-[14px] text-[#0C0A09] text-justify">
                   Hose Assembly unit: 67/A, Factory No. 1, Suryaji compound,
-                  Tank pakhadi Road, Byculla, Mumbai, Maharashtra 400 011, India
+                  Tank pakhadi Road, Byculla west, Mumbai, Maharashtra 400 011,
+                  India
                 </p>
               </AccordionContent>
             </AccordionItem>
@@ -124,8 +137,10 @@ const Footer = () => {
                     <header className="m-0 text-[16px] font-semibold flex flex-row gap-4 items-center">
                       <FaPhoneAlt color="#C89F23" className="text-[18px]" />
 
-                      <p className="m-0 text-[14px] font-medium">
-                        +91 12346567890
+                      <p className="m-0 text-[14px] font-medium flex gap-2">
+                      <Link href='tel:+9820382786' className="m-0 text-[14px]  font-medium">+91 9820382786</Link>
+                      <Link href='tel:+9820786752' className="m-0 text-[14px]  font-medium">+91 9820786752</Link>
+                       
                       </p>
                     </header>
                   </Link>
@@ -154,7 +169,7 @@ const Footer = () => {
                     <FaCalendarAlt color="#C89F23" className="text-[18px]" />
 
                     <p className="m-0 text-[14px] font-medium">
-                      Monday - Saturday (10 am - 8 pm)
+                      Monday - Saturday (9 am - 6 : 30 pm)
                     </p>
                   </header>
                 </div>
