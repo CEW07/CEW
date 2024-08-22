@@ -73,4 +73,71 @@
   body {
     @apply bg-background text-foreground;
   }
+  .no-scroll {
+    overflow: hidden;
 }
+}
+
+
+@keyframes slider {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (min-width: 640px) {
+
+  
+.logo:before{
+  left: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0), #F4F3EE);
+  z-index: 2;
+}
+
+.logo::after{
+  right: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0), #F4F3EE);
+  z-index: 2;
+}
+  
+}
+
+
+
+.logo::before, .logo::after{
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 250px;
+  height: 100%;
+}
+
+.logo-slide {
+  display: flex;
+  animation: slider 20s linear infinite;
+}
+
+.logo-slide img {
+  margin-right: 32px; 
+}
+
+
+.logo {
+  overflow: hidden;
+  position: relative;
+}
+
+
+.logo-slide-container {
+  display: flex;
+  width: 2820px;
+}
+
+.logo-slide-container:hover .logo-slide {
+  animation-play-state: paused;
+}
+
+

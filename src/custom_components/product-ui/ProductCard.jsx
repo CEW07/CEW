@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
   return (
-    <section className="h-full">
+    <section className="h-full" key={keyId}>
       <div className="h-full">
         <Link
           href={{
@@ -12,16 +12,18 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
           }}
         >
           <div
-            className="hover:shadow-xl h-full flex flex-col border-2 border-newgold rounded-md"
+            className="hover:scale-105 transform transition-transform duration-300 h-full flex flex-col border-2 border-newgold galaxyFold:w-[234px] "
             key={keyId}
           >
-            <div className="relative aspect-video">
+            <div className="relative aspect-video overflow-hidden bg-offwhite">
               {params === "subproductImage" ? (
                 <Image
-                  src={`data:image/png;base64,${imageSrc}`}
+                  src={imageSrc}
                   alt={imageAlt}
                   fill
-                  className="object-contain "
+                  className="object-contain transform transition-transform duration-300 hover:scale-110"
+                  loading="lazy"
+                  title={name}
                 />
               ) : (
                 <Image
@@ -29,12 +31,13 @@ const ProductCard = ({ keyId, name, href, imageSrc, imageAlt, params }) => {
                   alt={imageAlt}
                   fill
                   src={imageSrc}
-                  className="object-cover "
+                  className="object-contain transform transition-transform duration-300 hover:scale-110"
+                  title={name}
                 />
               )}
             </div>
-            <div className="flex-grow flex">
-              <button className="w-full h-full flex items-center justify-center text-white px-4 py-2  bg-newgold ">
+            <div className="flex-grow flex ">
+              <button className="w-full h-full hover:border-newgold hover:border-t font-semibold text-start text-[13px]  text-white px-4 py-2 bg-newgold hover:text-newgold hover:bg-offwhite ">
                 {name}
               </button>
             </div>

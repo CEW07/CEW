@@ -1,39 +1,47 @@
 "use client";
+import CountUp from "react-countup";
 import React, { useEffect, useState } from "react";
-import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
-import { mainProductImages } from "@/staticdata/static";
+import { mainProductImages, mainProducts } from "@/staticdata/static";
 import HeroMain from "@/custom_components/home-ui/hero-main/page";
 import { services } from "@/staticdata/static";
+import Link from "next/link";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useData } from "../contextapi/contextData";
+import Table from "@/custom_components/table/Table";
+import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian";
 
 const HomeContent = () => {
   // Destructuring Context Data from contextData.js
-  const { productData, loading } = useData();
+  // const { productData, loading } = useData();
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.1, // Trigger when 10% of the section is in view
+  });
+
   return (
     <main>
-      <section>
+      <section className=" select-none ">
         <HeroMain />
-        <section className="bg-elementColor pt-20 pb-20 md:px-20 px-10">
-          <h1 className="text-textColor text-2xl md:text-4xl text-center font-semibold ">
+        <section className="bg-newgold pt-20 pb-20 md:px-20 px-10">
+          <h1 className="text-2xl md:text-4xl text-center text-white font-semibold ">
             About us
           </h1>
-          <div className="flex flex-col justify-center items-center text-textColor">
+          <div className="flex flex-col justify-center items-center text-white">
             <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
               Crown Engineering Works, an ISO 9001:2015 certified company,
               specializes in manufacturing hose assemblies and fluid connectors,
               including FDA-approved, Hydraulic, Stainless Steel Flexible,
               Thermoplastic, PTFE, Industrial, Composite, Silicone, and PVC
               hoses. Our commitment to upholding the highest standards
-              guarantees that every product meets stringent quality standards
-            </p>
-            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
+              guarantees that every product meets stringent quality standards.
               We have formed trusted partnerships with key corporations in the
               pharmaceutical, food, defense, oil, industrial manufacturing, and
               renewable energy sectors. Our success is built on strong
@@ -47,19 +55,19 @@ const HomeContent = () => {
         </section>
         <div className="w-full ">
           <Image
-            src="/assests/icons/WaveBottom.png"
+            src="/assets/icons/WaveTop-1.png"
             alt="waves"
             width={500}
             height={400}
             className="w-full -mb-[4px]"
           />
         </div>
-        <h1 className="text-3xl text-center text-newgold font-semibold">
+        <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold">
           Our Products
         </h1>
-        <div className="lg:pt-12 pt-16 flex justify-center mx-20">
+        <div className="lg:pt-12 pt-16   flex items-center justify-center mx-5 ">
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
-            {loading
+            {/* {loading
               ? "loading..."
               : productData?.mainCategory?.map((item, index) => {
                   const correspondingImage = mainProductImages[index];
@@ -74,88 +82,294 @@ const HomeContent = () => {
                       imageAlt={correspondingImage?.alt}
                     />
                   );
-                })}
+            })} */}
+
+            {mainProducts?.map((item, index) => {
+              return (
+                <ProductCard
+                  key={item.product_id}
+                  keyId={item.product_id}
+                  name={item.product_name}
+                  href={`/products/${item.product_name_id}`}
+                  imageSrc={item?.image}
+                  imageAlt={item?.alt}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
-      <section className="grid xl:grid-cols-2 my-20 gap-6 mx-10 md:mx-20">
-        <div className="relative aspect-video ">
-          <Image
-            src="/assests/images/Qualities.jpg"
-            fill
-            alt="Quality"
-            className="rounded-md"
+
+      {/* <section className="flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20 bg-offwhite mt-20 ">
+        <div className="grid smallest:grid-cols-2 small:grid-cols-3 lg:grid-cols-6 gap-6 py-10 max-w-[74rem] w-full">
+          <div className="flex max-smallest:justify-center">
+
+          <img
+            src="/assets/icons/certificate/USP.svg"
+            alt=""
+            className=" mix-blend-multiply w-20"
           />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
+            <img
+              src="/assets/icons/certificate/sanitary.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
+            <img
+              src="/assets/icons/certificate/sanitary.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+       
+
+          <div className="flex max-smallest:justify-center small:justify-end lg:justify-center">
+            <img
+              src="/assets/icons/certificate/european.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
+            <img
+              src="/assets/icons/fdalogo.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:max-small:justify-end lg:justify-center">
+            <img
+              src="/assets/icons/certificate/iso_0993.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
+
+          <div className="flex  max-smallest:justify-center small:justify-center">
+            <img
+              src="/assets/icons/isologo.svg"
+              alt=""
+              className=" mix-blend-multiply w-32 "
+            />
+          </div>
+
+          <div className="flex max-smallest:justify-center smallest:justify-end items-end">
+            <img
+              src="/assets/icons/certificate/ROHS.svg"
+              alt=""
+              className=" mix-blend-multiply w-20"
+            />
+          </div>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Industry Experts
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
-                With decades of expertise, our seasoned professionals bring
-                unparalleled knowledge and skill to every project, ensuring
-                exceptional results.
-              </p>
+      </section> */}
+
+      <section className="flex justify-center">
+        <div className="logo py-20  overflow-hidden relative largest:max-w-[74rem] bg-offwhite mt-20">
+          <div className="logo-slide-container  gap-[10%]">
+            <div className="logo-slide gap-16">
+              <img
+                src="/assets/icons/certificate/USP.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/sanitary.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/european.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/fdalogo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/iso_0993.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/isologo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/ROHS.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
             </div>
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Diverse Products
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
-                Our extensive selection of premium products, coupled with
-                reasonable pricing, guarantees the best value without
-                compromising quality.
-              </p>
-            </div>
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Customer Support
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
-                Our dedicated support team is always ready to assist, ensuring
-                our customers experience seamless service and complete
-                satisfaction.
-              </p>
-            </div>
-            <div>
-              <h1 className="max-smallest:text-xl text-2xl font-semibold text-newgold mb-3">
-                Investment in R&D
-              </h1>
-              <p className="max-smallest:text-xs text-sm md:text-base xl:text-sm">
-                We continuously invest in research and development to drive
-                innovation, ensuring we deliver cutting-edge solutions that meet
-                evolving industry needs.
-              </p>
+
+            <div className="logo-slide gap-16">
+              <img
+                src="/assets/icons/certificate/USP.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/sanitary.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/european.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/fdalogo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/iso_0993.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/isologo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/ROHS.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-newgold grid small:grid-cols-2  md:grid-cols-4 gap-6 py-10 text-offwhite px-10 md:px-20">
-        <div className="text-center font-semibold text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">45+</p>
-          <p>Years of Experience</p>
-        </div>
-        <div className="text-center font-semibold text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">110+</p>
-          <p>Products in Portfolio</p>
-        </div>
-        <div className="text-center font-semibold   text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">15+</p>
-          <p>Countries Served</p>
-        </div>
-        <div className="text-center font-semibold   text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl">10+</p>
-          <p>Industries Served</p>
+
+      <div className="flex justify-center">
+        <section className="grid xl:grid-cols-2 my-20 gap-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+          <div className="relative aspect-video ">
+            <Image
+              src="/assets/images/Qualities.jpg"
+              fill
+              alt="Quality"
+              className="rounded-md"
+            />
+            <div className="absolute inset-0 bg-black opacity-50  "></div>
+            <p className="absolute bottom-2 galaxyFold:bottom-4 small:text-2xl text-offwhite ml-3">
+              Experience the Difference with us
+            </p>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div>
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
+                  Industry Experts
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  With decades of expertise, our seasoned professionals bring
+                  unparalleled knowledge and skill to every project, ensuring
+                  exceptional results.
+                </p>
+              </div>
+              <div>
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
+                  Diverse Products
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  Our extensive selection of premium products, coupled with
+                  reasonable pricing, guarantees the best value without
+                  compromising quality.
+                </p>
+              </div>
+              <div>
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
+                  Customer Support
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  Our dedicated support team is always ready to assist, ensuring
+                  our customers experience seamless service and complete
+                  satisfaction.
+                </p>
+              </div>
+              <div>
+                <h1 className="max-smallest:text-lg text-xl font-semibold text-newgold mb-3">
+                  Investment in R&D
+                </h1>
+                <p className="max-smallest:text-xs text-sm md:text-base text-justify xl:text-sm">
+                  We continuously invest in research and development to drive
+                  innovation, ensuring we deliver cutting-edge solutions that
+                  meet evolving industry needs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section
+        ref={ref}
+        className=" max-largest:bg-offwhite  small:grid-cols-2 flex items-center justify-center w-full md:grid-cols-4 gap-6  text-black max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20"
+      >
+        <div className="w-full max-w-[74rem] flex flex-row largest:bg-offwhite py-10  2xl:px-10 justify-center sm:justify-between gap-6 flex-wrap items-center lg:flex-nowrap ">
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={45} duration={2} /> : 0}+
+            </p>
+            <p>Years of Experience</p>
+          </div>
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={135} duration={2} /> : 0}+
+            </p>
+            <p>Products in Portfolio</p>
+          </div>
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={15} duration={2} /> : 0}+
+            </p>
+            <p>Countries Served</p>
+          </div>
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={10} duration={2} /> : 0}+
+            </p>
+            <p>Industries Served</p>
+          </div>
         </div>
       </section>
-      <section>
-        <div className="mt-20 xl:mx-32  max-sm:mx-5 sm:mx-10 mb-20">
-          <h1 className="text-newgold text-3xl mb-6 text-center font-semibold">
+
+      <section className="flex justify-center">
+        <div className="my-20 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
+          <h1 className="text-2xl md:text-4xl text-newgold font-semibold flex justify-center items-center gap-1">
             Our Services
+            <Link href="/services">
+              <div className="mt-2 hover:cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                  />
+                </svg>
+              </div>
+            </Link>
           </h1>
-          <div className="  grid small:grid-cols-2 md:grid-cols-3 gap-6 ">
+          <div className=" grid small:grid-cols-2 lg:grid-cols-3 gap-6  mt-6">
             {services.slice(0, 3)?.map((service, index) => (
               <div key={index} className="">
                 <div className=" h-full rounded-md ">
@@ -166,12 +380,12 @@ const HomeContent = () => {
                   >
                     <AccordionItem value={service.name}>
                       <AccordionTrigger className="hover:no-underline ">
-                        <h1 className="text-newgold max-galaxyFold:text-base text-textColor text-lg  z-10  px-4">
+                        <h1 className="text-newgold max-galaxyFold:text-base  text-lg  z-10  px-4">
                           {service.name}
                         </h1>
                       </AccordionTrigger>
                       <AccordionContent>
-                        <div className="text-textColor px-4">
+                        <div className=" px-4">
                           <li className="mt-3">{service.subPoint1}</li>
                           <li className="mt-3">{service.subPoint2}</li>
                           <li

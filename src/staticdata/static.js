@@ -31,58 +31,58 @@ export const chooseUs = [
 
 export const mainProductImages = [
   {
-    image: "/assests/images/mainProduct/Rubber.png",
+    image: "/assets/images/mainProduct/Rubber.png",
     alt: "Rubber",
   },
   {
-    image: "/assests/images/mainProduct/Thermoplastic.png",
+    image: "/assets/images/mainProduct/Thermoplastic.png",
     alt: "Thermoplastic",
   },
   {
-    image: "/assests/images/mainProduct/teflon.png",
+    image: "/assets/images/mainProduct/teflon.png",
     alt: "teflon",
   },
   {
-    image: "/assests/images/mainProduct/Composite.png",
+    image: "/assets/images/mainProduct/Composite.png",
     alt: "Composite",
   },
   {
-    image: "/assests/images/mainProduct/Stainless.png",
+    image: "/assets/images/mainProduct/Stainless.png",
     alt: "Stainless",
   },
   {
-    image: "/assests/images/mainProduct/Silicone.png",
+    image: "/assets/images/mainProduct/Silicone.png",
     alt: "Silicone",
   },
   {
-    image: "/assests/images/mainProduct/Pvc.png",
+    image: "/assets/images/mainProduct/Pvc.png",
     alt: "Pvc",
   },
   {
-    image: "/assests/images/mainProduct/Expansion.png",
+    image: "/assets/images/mainProduct/Expansion.png",
     alt: "Expansion",
   },
   {
-    image: "/assests/images/mainProduct/SS.png",
+    image: "/assets/images/mainProduct/SS.png",
     alt: "SS",
   },
 
   {
-    image: "/assests/images/mainProduct/Standard.png",
+    image: "/assets/images/mainProduct/Standard.png",
     alt: "Standard",
   },
   {
-    image: "/assests/images/mainProduct/Camlock.png",
+    image: "/assets/images/mainProduct/Camlock.png",
     alt: "Camlock",
   },
 
   {
-    image: "/assests/images/mainProduct/Quick.png",
+    image: "/assets/images/mainProduct/Quick.png",
     alt: "Quick",
   },
 
   {
-    image: "/assests/images/mainProduct/SMS.png",
+    image: "/assets/images/mainProduct/SMS.png",
     alt: "SMS",
   },
 ];
@@ -90,60 +90,60 @@ export const mainProductImages = [
 export const industries = [
   {
     name: "Automotive, Aerospace & Defense",
-    image: "/assests/images/Industry/Automotive.jpg",
+    image: "/assets/images/Industry/Automotive.jpg",
     alt: "Loading",
   },
 
   {
     name: "Pharmaceutical, Healthcare & Life Sciences",
-    image: "/assests/images/Industry/Pharmaceutical.jpg",
+    image: "/assets/images/Industry/Pharmaceutical.jpg",
     alt: "Loading",
   },
 
   {
     name: "Oil, Gas & Petrochemical Refineries",
-    image: "/assests/images/Industry/Oil.jpg",
+    image: "/assets/images/Industry/Oil.jpg",
     alt: "Loading",
   },
 
   {
     name: "Semiconductors",
-    image: "/assests/images/Industry/Semiconductors.jpg",
+    image: "/assets/images/Industry/Semiconductors.jpg",
     alt: "Loading",
   },
 
   {
     name: "Chemical, Food & Beverages",
-    image: "/assests/images/Industry/Chemical.jpg",
+    image: "/assets/images/Industry/Chemical.jpg",
     alt: "Loading",
   },
 
   {
     name: "Power Generation & Renewable Energy",
-    image: "/assests/images/Industry/RenewableEnergy.jpg",
+    image: "/assets/images/Industry/RenewableEnergy.jpg",
     alt: "Loading",
   },
 
   {
     name: "HVAC & Refrigeration",
-    image: "/assests/images/Industry/HVAC.jpg",
+    image: "/assets/images/Industry/HVAC.jpg",
     alt: "Loading",
   },
 
   {
     name: "Steel, Metal & Industrial Manufacturing",
-    image: "/assests/images/Industry/Steel.jpg",
+    image: "/assets/images/Industry/Steel.jpg",
     alt: "Loading",
   },
 
   {
     name: "Robotics and Automation",
-    image: "/assests/images/Industry/Robotics.jpg",
+    image: "/assets/images/Industry/Robotics.jpg",
     alt: "Loading",
   },
   {
     name: "Mining, Construction & Heavy Machinery",
-    image: "/assests/images/Industry/Mining.jpg",
+    image: "/assets/images/Industry/Mining.jpg",
     alt: "Loading",
   },
 ];
@@ -160,9 +160,9 @@ export const services = [
   },
   {
     name: "Fittings and Flange Manufacturing",
-    subPoint1: "Hydraulic Hose Assembly",
+    subPoint1: "Hydraulic Hose Fitting",
     subPoint2: "Stainless Steel Hose Fittings",
-    subPoint3: "PTFE Hose Assembly",
+    subPoint3: "PTFE Hose Fitting",
     subPoint4: "Camlock Couplings",
     subPoint5: "Quick Release Couplings",
     subPoint6: "Flange Manufacturing",
@@ -296,7 +296,7 @@ export const testing = [
       "Ensuring hoses withstand designated pressures without leakage or failure.",
   },
   {
-    name: "Burst PressureTesting",
+    name: "Burst Pressure Testing",
     subPoint: "Determining the maximum pressure hoses can handle safely.",
   },
   {
@@ -355,5 +355,213 @@ export const productGrid = [
     name: "Name of the Product",
     image: "/hero-bg.jpeg",
     alt: "Loading",
+  },
+];
+
+export const mainProducts = [
+  {
+    product_id: 1,
+    product_name: "Rubber hose",
+    product_name_id: "rubber-hose",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Rubber.png",
+    alt: "Rubber",
+    meta_description:
+      "High-performance hydraulic hoses made from durable rubber, designed for diverse industrial applications. Reliable for high-pressure fluid conveyance. Discover our range now!",
+  },
+  {
+    product_id: 5,
+    product_name: "Stainless steel hose",
+    product_name_id: "stainless-steel-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Stainless.png",
+    alt: "Stainless",
+    meta_description:
+      "Explore SS corrugated hose and Jacketed hose—premium solutions for secure fluid conveyance in demanding environments.",
+  },
+  {
+    product_id: 14,
+    product_name: "Food & Beverage Hoses",
+    product_name_id: "food-beverage-hoses",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/FoodBeverageHoses.png",
+    alt: "SMS",
+    meta_description:
+      "Hoses specifically designed for the food and beverage industry. Safe, reliable, and compliant with industry standards for fluid transfer. Browse our food & beverage hoses.",
+  },
+  {
+    product_id: 6,
+    product_name: "Silicone hose",
+    product_name_id: "silicone-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Silicone.png",
+    alt: "Silicone",
+    meta_description:
+      "Flexible silicone hoses for high-temperature and food-grade applications. Reliable for a range of industries including automotive and pharmaceutical.",
+  },
+  {
+    product_id: 3,
+    product_name: "PTFE/Teflon Hose",
+    product_name_id: "ptfe-teflon-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/teflon.png",
+    alt: "teflon",
+    meta_description: "Durable PTFE/Teflon hoses for high-temperature and chemical resistance. Perfect for demanding applications in various industries. Shop our high-quality options now.",
+  },
+  {
+    product_id: 15,
+    product_name: "Pharmaceutical Hoses",
+    product_name_id: "pharmaceutical-hoses",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/pharmaceuticalHoses.png",
+    alt: "SMS",
+    meta_description: "High-purity pharmaceutical hoses for safe and reliable transfer of pharmaceutical products. Designed to meet stringent industry requirements. Discover our pharmaceutical hoses.",
+  },
+  {
+    product_id: 16,
+    product_name: "Chemical Hoses",
+    product_name_id: "chemical-hoses",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/ChemicalHoses.png",
+    alt: "SMS",
+    meta_description: "Chemical hoses for safe transfer of various chemicals. Durable and resistant to a wide range of chemical compounds. Explore our chemical hose solutions.",
+  },
+  {
+    product_id: 2,
+    product_name: "Thermoplastic Hose",
+    product_name_id: "thermoplastic-hose",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Thermoplastic.png",
+    alt: "Thermoplastic",
+    meta_description: "Versatile thermoplastic hoses designed for high pressure and flexibility. Ideal for a variety of industrial and hydraulic applications. Explore our selection today.",
+  },
+  {
+    product_id: 4,
+    product_name: "Composite hose",
+    product_name_id: "composite-hose",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Composite.png",
+    alt: "Composite",
+    meta_description:"Lightweight composite hoses offering excellent flexibility and resistance. Ideal for chemical, oil, and gas transfer. Browse our durable composite hose range."
+  },
+  {
+    product_id: 7,
+    product_name: "PVC hose",
+    product_name_id: "pvc-hose",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Pvc.png",
+    alt: "Pvc",
+    meta_description: "Cost-effective PVC hoses for fluid transfer in various industries. Lightweight and flexible for both suction and delivery applications. Browse our PVC hose collection.",
+  },
+  {
+    product_id: 8,
+    product_name: "Expansion Joints",
+    product_name_id: "expansion-joints",
+    product_types: "TRUE",
+    image: "/assets/images/mainProduct/Expansion.png",
+    alt: "Expansion",
+    meta_description: "Versatile expansion joints in rubber, stainless steel, and PTFE. Designed for flexibility and movement compensation in piping systems. Discover our expansion joint options.",
+  },
+  {
+    product_id: 9,
+    product_name: "SS Hose Fittings",
+    product_name_id: "ss-hose-fittings",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/SS.png",
+    alt: "SS",
+    meta_description: "Precision-engineered stainless steel hose fittings for secure connections. Available in various sizes and threads for versatile industrial use. Shop our fittings now.",
+  },
+  {
+    product_id: 10,
+    product_name: "Standard End Fittings",
+    product_name_id: "standard-end-fittings",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Standard.png",
+    alt: "Standard",
+    meta_description:"Reliable standard end fittings for easy hose connections. Available in multiple sizes and threads for various applications. Find your standard end fittings here."
+  },
+  {
+    product_id: 11,
+    product_name: "Camlock Couplings",
+    product_name_id: "camlock-couplings",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Camlock.png",
+    alt: "Camlock",
+    meta_description: "Efficient Camlock couplings for quick and secure hose connections. Available in multiple materials and sizes for diverse industrial uses. Explore our Camlock options.",
+  },
+  {
+    product_id: 12,
+    product_name: "Quick Release Coupling (QRC)",
+    product_name_id: "quick-realease-coupling",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/Quick.png",
+    alt: "Quick",
+    meta_description: "High-quality quick-release couplings for rapid and reliable hose connections. Suitable for various applications with robust and secure designs. Shop our QRCs now.",
+  },
+  {
+    product_id: 13,
+    product_name: "SMS union",
+    product_name_id: "sms-union",
+    product_types: "FALSE",
+    image: "/assets/images/mainProduct/SMS.png",
+    alt: "SMS",
+    meta_description: "Durable SMS unions for sanitary applications in the food and beverage industry. Ensure secure and leak-proof connections with our high-quality SMS unions.",
+  },
+];
+
+export const productTypes = [
+  {
+    product_id: 1,
+    product_types: "Hydraulic Low & Medium Pressure",
+    product_type_id: 100,
+    product_name_id: "rubber-hose",
+  },
+  {
+    product_id: 1,
+    product_types: "High-Pressure & Spiral hose",
+    product_type_id: 101,
+    product_name_id: "rubber-hose",
+  },
+  {
+    product_id: 1,
+    product_types: "Industrial Hose",
+    product_type_id: 102,
+    product_name_id: "rubber-hose",
+  },
+  {
+    product_id: 2,
+    product_types: "Hydraulic Hose",
+    product_type_id: 200,
+    product_name_id: "thermoplastic-hose",
+  },
+  {
+    product_id: 2,
+    product_types: "Industrial hose",
+    product_type_id: 201,
+    product_name_id: "thermoplastic-hose",
+  },
+  {
+    product_id: 7,
+    product_types: "Braided hose",
+    product_type_id: 700,
+    product_name_id: "pvc-hose",
+  },
+  {
+    product_id: 8,
+    product_types: "Stainless steel",
+    product_type_id: 800,
+    product_name_id: "expansion-joints",
+  },
+  {
+    product_id: 8,
+    product_types: "PTFE/Teflon",
+    product_type_id: 801,
+    product_name_id: "expansion-joints",
+  },
+  {
+    product_id: 8,
+    product_types: "Rubber",
+    product_type_id: 802,
+    product_name_id: "expansion-joints",
   },
 ];
