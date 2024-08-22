@@ -18,9 +18,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        newgold: "#C89F23",
-        offwhite: "#F4F3EE",
-        lightgrey: "#ced4da",
+        textColor: "#003566",
+        newgold: "#003566",
+        // newgold: "#001233",
+        elementColor: "#caf0f8",
+        offwhite: "#E4E9FF",
+        // lightgrey: F7F4F3001233",
+        lightgrey: "#caf0f8",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

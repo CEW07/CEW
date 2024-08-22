@@ -43,12 +43,12 @@ const About = () => {
               className="w-full -mb-[1px] sm:-mb-[3px]"
             />
           </div>
-          <section className="bg-newgold pt-20 pb-20 md:px-20 px-10">
-            <h1 className="text-3xl md:text-4xl text-center text-white font-semibold ">
+          <section className="bg-elementColor pt-20 pb-20 md:px-20 px-10">
+            <h1 className="text-textColor text-3xl md:text-4xl text-center  font-semibold ">
               About us
             </h1>
-            <div className="flex flex-col justify-center items-center text-white">
-              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
+            <div className="flex flex-col justify-center items-center ">
+              <p className="text-textColor max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
                 Crown Engineering Works, an ISO 9001:2015 certified company,
                 specializes in manufacturing hose assemblies and fluid
                 connectors, including FDA-approved, Hydraulic, Stainless Steel
@@ -56,7 +56,7 @@ const About = () => {
                 and PVC hoses. Our commitment to upholding the highest standards
                 guarantees that every product meets stringent quality standards
               </p>
-              <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
+              <p className="text-textColor max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
                 We have formed trusted partnerships with key corporations in the
                 pharmaceutical, food, defense, oil, industrial manufacturing,
                 and renewable energy sectors. Our success is built on strong

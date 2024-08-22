@@ -50,12 +50,12 @@ const Services = () => {
                 >
                   <AccordionItem value={service.name}>
                     <AccordionTrigger className="hover:no-underline">
-                      <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  px-4">
+                      <h1 className="text-newgold text-textColor max-smallest:text-base text-start text-lg  z-10  px-4">
                         {service.name}
                       </h1>
                     </AccordionTrigger>
                     <AccordionContent>
-                      <div className=" px-4">
+                      <div className="text-textColor px-4">
                         <li className="mt-3">{service.subPoint1}</li>
                         <li className="mt-3">{service.subPoint2}</li>
                         <li

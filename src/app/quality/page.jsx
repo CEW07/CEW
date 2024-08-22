@@ -43,17 +43,17 @@ const Quality = () => {
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="Quality policy">
               <AccordionTrigger className="hover:no-underline">
-                <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  ">
+                <h1 className="text-textColor max-smallest:text-base text-start text-lg  z-10  ">
                   Quality policy:
                 </h1>
               </AccordionTrigger>
-              <p className="mt-3 text-xs smallest:text-sm  lg:text-base">
+              <p className="mt-3 text-xs smallest:text-sm text-textColor lg:text-base">
                 At Crown Engineering Works, we are committed to delivering
                 products and services that consistently meet or exceed our
                 customers' expectations. We achieve this through:
               </p>
               <AccordionContent>
-                <div className=" ">
+                <div className=" text-textColor">
                   <li className="mt-3">
                     Conformance to ISO 9001:2015 standards.
                   </li>
@@ -82,15 +82,15 @@ const Quality = () => {
                 <Accordion type="single" collapsible className="w-full ">
                   <AccordionItem value={policy.name}>
                     <AccordionTrigger className="hover:no-underline">
-                      <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  ">
+                      <h1 className=" text-textColor max-smallest:text-base text-start text-lg  z-10  ">
                         {policy.name}
                       </h1>
                     </AccordionTrigger>
-                    <p className="mt-3 text-xs smallest:text-sm  lg:text-base">
+                    <p className="mt-3 text-xs smallest:text-sm text-textColor lg:text-base">
                       {policy.detail}
                     </p>
                     <AccordionContent>
-                      <div className=" ">
+                      <div className=" text-textColor ">
                         <li className="mt-3">{policy.subPoint1}</li>
                         <li className="mt-3">{policy.subPoint2}</li>
                         <li className="mt-3">{policy.subPoint3}</li>
@@ -120,12 +120,12 @@ const Quality = () => {
           {testing?.map((test, index) => (
             <div key={index} className="">
               <div className=" bg-lightgrey px-4 py-4 h-full rounded-md shadow-xl">
-                <h1 className="text-newgold  max-galaxyFold:text-base  text-xl lg:text-2xl z-10  px-4">
+                <h1 className="text-newgold text-textColor  max-galaxyFold:text-base  text-xl lg:text-2xl z-10  px-4">
                   {test.name}
                 </h1>
 
                 <div className="mt-4 px-4">
-                  <p className="mt-3 max-galaxyFold:text-xs galaxyFold:text-sm sm:text-base">
+                  <p className="mt-3 text-textColor max-galaxyFold:text-xs galaxyFold:text-sm sm:text-base">
                     {test.subPoint}
                   </p>
                 </div>

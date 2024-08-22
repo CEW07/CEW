@@ -20,11 +20,11 @@ const HomeContent = () => {
     <main>
       <section>
         <HeroMain />
-        <section className="bg-newgold pt-20 pb-20 md:px-20 px-10">
-          <h1 className="text-2xl md:text-4xl text-center text-white font-semibold ">
+        <section className="bg-elementColor pt-20 pb-20 md:px-20 px-10">
+          <h1 className="text-textColor text-2xl md:text-4xl text-center font-semibold ">
             About us
           </h1>
-          <div className="flex flex-col justify-center items-center text-white">
+          <div className="flex flex-col justify-center items-center text-textColor">
             <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
               Crown Engineering Works, an ISO 9001:2015 certified company,
               specializes in manufacturing hose assemblies and fluid connectors,
@@ -166,12 +166,12 @@ const HomeContent = () => {
                   >
                     <AccordionItem value={service.name}>
                       <AccordionTrigger className="hover:no-underline ">
-                        <h1 className="text-newgold max-galaxyFold:text-base  text-lg  z-10  px-4">
+                        <h1 className="text-newgold max-galaxyFold:text-base text-textColor text-lg  z-10  px-4">
                           {service.name}
                         </h1>
                       </AccordionTrigger>
                       <AccordionContent>
-                        <div className=" px-4">
+                        <div className="text-textColor px-4">
                           <li className="mt-3">{service.subPoint1}</li>
                           <li className="mt-3">{service.subPoint2}</li>
                           <li
