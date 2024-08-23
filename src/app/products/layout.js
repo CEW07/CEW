@@ -1,8 +1,6 @@
 "use client";
 import SidebarProduct from "@/custom_components/product-ui/SideBar";
 import React, { useState, useRef, useEffect } from "react";
-
-import { useData } from "@/app/contextapi/contextData";
 import { mainProducts, productTypes } from "@/staticdata/static";
 export default function Layout({ children }) {
   // Destructuring Context Data from contextData.js

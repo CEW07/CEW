@@ -1,6 +1,7 @@
 import axios from "axios";
 import ProductIdPage from "./productType";
 import { mainProducts } from "@/staticdata/static";
+import { redirect } from 'next/navigation';
 async function fetchProductData(productId) {
   try {
     const res = await axios.get(
@@ -56,8 +57,33 @@ export async function generateMetadata({ params }) {
     },
   };
 }
+
+
+
+async function fetchProductDetails(productId) {
+  try {
+    const res = await axios(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchProductDetails`, {
+      params: {
+        id: productId,
+        data: "details",
+      },
+    })
+    return res.data;
+  } catch (error) {
+    // console.error('Failed to fetch product data:', error);
+  }
+}
 export default async function ProductId({ params }) {
   const { productId } = params;
   const subCategoryAll = await fetchProductData(productId);
+  if (!subCategoryAll) {
+    const additionalData = await fetchProductDetails(productId);
+
+    if (additionalData) {
+      redirect(`/products/${additionalData[0].post_url}`);
+    } else {
+      redirect(`/not-found`);
+    }
+  }
   return <ProductIdPage subCategory={subCategoryAll} params={params} />;
 }
