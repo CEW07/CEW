@@ -71,6 +71,8 @@ const ProductTypePage = ({ subCategory, params }) => {
                         filteredData.product_type_name_id === productId
                     )
                     .map((data, index) => (
+                      <div key={index}>
+
                       <ProductCard
                         keyId={index}
                         name={data.product_sub_types}
@@ -78,7 +80,8 @@ const ProductTypePage = ({ subCategory, params }) => {
                         imageSrc={data.ImageUrl}
                         imageAlt={data.product_type_name_id}
                         params="subproductImage"
-                      />
+                        />
+                        </div>
                     ))}
               </div>
             </div>
