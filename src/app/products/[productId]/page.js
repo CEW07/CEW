@@ -80,7 +80,7 @@ export default async function ProductId({ params }) {
     const additionalData = await fetchProductDetails(productId);
 
     if (additionalData) {
-      redirect(`/products/${additionalData[0].post_url}`);
+      redirect(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/products/${additionalData[0].post_url}`);
     } else {
       redirect(`/not-found`);
     }
