@@ -14,7 +14,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useData } from "../contextapi/contextData";
 import Table from "@/custom_components/table/Table";
 import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian";
 

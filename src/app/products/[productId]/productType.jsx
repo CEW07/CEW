@@ -1,5 +1,4 @@
 "use client";
-// import { useData } from "@/app/contextapi/contextData";
 import ProductCard from "@/custom_components/product-ui/ProductCard";
 import SideBar from "@/custom_components/product-ui/SideBar";
 import axios from "axios";
@@ -12,15 +11,14 @@ const ProductTypePage = ({ subCategory, params }) => {
   const { productId } = params;
   const [subCategoryAll, setSubCategoryAll] = useState(subCategory);
   const router = useRouter();
-// console.log(subCategory,'sub outside');
-
   useEffect(() => {
     if (!subCategory) {
-      console.log(subCategory,'useeffect');
-      
+      console.log(subCategory, "useeffect");
+
       // router.replace('/not-found');
     }
   }, [subCategory, router]);
+
 
   return (
     <div className=" select-none ">
@@ -61,7 +59,10 @@ const ProductTypePage = ({ subCategory, params }) => {
         (item, index) =>
           item.product_types === "FALSE" &&
           item.product_name_id === productId && (
-            <div className="galaxyFold:flex galaxyFold:justify-center  " key={index}>
+            <div
+              className="galaxyFold:flex galaxyFold:justify-center  "
+              key={index}
+            >
               <div className="grid small:max-md:grid-cols-2 mainProducts:grid-cols-2 xl:grid-cols-3 gap-6 w-full">
                 {subCategoryAll &&
                   subCategoryAll
