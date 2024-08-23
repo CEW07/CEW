@@ -11,6 +11,7 @@ export const metadata = {
   title: "Crown Engineering Works",
   description: "Pioneers in fluid Conveyance Solutions",
   metadataBase:new URL(`${process.env.NEXT_PUBLIC_FRONTEND_URL}`),
+  
   openGraph:{
     title: "Crown Engineering Works",
     description: "Pioneers in Fluid Conveyance Solutions",
@@ -29,6 +30,8 @@ export default function RootLayout({ children }) {
   
   return (
     <html lang="en">
+      <meta name="robots" content="index, follow"/>
+
       <body className={`relative ${montserrat.className}`}>
         <Navbar />
         <Enquiry />
