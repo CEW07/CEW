@@ -1,23 +1,62 @@
-
-import SizeChart from '@/custom_components/product-ui/SizeChart';
-import Table from '@/custom_components/table/Table';
-import { CEW56, CEW57, CEW66, CEW67, CEW68 } from '@/staticdata/tableData/TableData';
-import { prdctdetails } from '@/staticdata/productdetails/staticdetails';
-import { productsizechart } from '@/staticdata/productsizechart/prdctsizechart';
+import SizeChart from "@/custom_components/product-ui/SizeChart";
+import Table from "@/custom_components/table/Table";
+import {
+  CEW56,
+  CEW57,
+  CEW66,
+  CEW67,
+  CEW68,
+} from "@/staticdata/tableData/TableData";
+import { prdctdetails } from "@/staticdata/productdetails/staticdetails";
+import { productsizechart } from "@/staticdata/productsizechart/prdctsizechart";
 export async function generateStaticParams() {
-  // Generate static paths for your product details pages
-  return prdctdetails.map((item) => ({
-    productdetails: item.product_sub_types_id, // Adjust based on your actual parameter names
-  }));
+  const params = [];
+
+  // Example data; replace with actual dynamic values if needed
+  const productIds = [
+    "rubber-hose",
+    "silicone-hose",
+    "stainless-steel-hose",
+    "food-beverage-hoses",
+    "ptfe-teflon-hose",
+    "pharmaceutical-hoses",
+    "chemical-hoses",
+    'thermoplastic-hose',
+    'composite-hose',
+    'pvc-hose',
+    'expansion-joints',
+    'ss-hose-fittings',
+    'standard-end-fittings',
+    'camlock-couplings',
+    'quick-realease-coupling',
+    'sms-union'
+  ]; // Replace with actual product IDs if dynamic
+  const productDetails = Array.from(
+    new Set(prdctdetails.map((detail) => detail.product_sub_types_id))
+  );
+
+  // Create combinations of productId, productdetails, and page
+  productIds.forEach((productId) => {
+    productDetails.forEach((detailId) => {
+      // Assume page can be any value or a range of values
+      params.push({
+        productId: productId,
+        productdetails: detailId,
+        page: "1", // Add logic if page values are dynamic
+      });
+    });
+  });
+  return params;
 }
 
 export async function generateMetadata({ params }) {
   const { productdetails } = params;
-  const productDetail = prdctdetails.find(pd => pd.product_sub_types_id === productdetails) || {};
-  
-  const title = productDetail.product_subTypes_name || 'Product Details';
-  const imageUrl = productDetail.ImageUrl || '';
-  const description = productDetail.meta_description || '';
+  const productDetail =
+    prdctdetails.find((pd) => pd.product_sub_types_id === productdetails) || {};
+
+  const title = productDetail.product_subTypes_name || "Product Details";
+  const imageUrl = productDetail.ImageUrl || "";
+  const description = productDetail.meta_description || "";
 
   return {
     title,
@@ -38,11 +77,15 @@ export async function generateMetadata({ params }) {
 }
 
 export default function ProductPage({ params }) {
-  const {productId, productdetails } = params;
-  
-  const productDetail = [prdctdetails.find(pd => pd.product_sub_types_id === productdetails)] || {};
-  const productSizeChart = productsizechart.filter(p => p.product_sub_types_id === productdetails) || '';
-  
+  const { productId, productdetails } = params;
+
+  const productDetail =
+    [prdctdetails.find((pd) => pd.product_sub_types_id === productdetails)] ||
+    {};
+  const productSizeChart =
+    productsizechart.filter((p) => p.product_sub_types_id === productdetails) ||
+    "";
+
   const tableProp =
     productDetail && productDetail?.[0]?.product_subTypes_name.split(" ")[0];
   const tableValues =
@@ -293,7 +336,7 @@ export default function ProductPage({ params }) {
             </div>
           ))}
       </section>
-      {(productSizeChart.length > 0) ? (
+      {productSizeChart.length > 0 ? (
         <div className="grid grid-cols-1 overflow-x-auto max-w-full">
           <SizeChart productSizeChart={productSizeChart} />
         </div>
