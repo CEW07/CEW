@@ -10,7 +10,7 @@ import Loading from "../Loader/Loading";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { mainProducts } from "@/staticdata/static";
-
+import { prdctdetails } from "@/staticdata/productdetails/staticdetails";
 const Navbar = () => {
   const [isOpenMenu, setisOpenMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -94,7 +94,7 @@ const Navbar = () => {
   let timeoutFunc;
 
   const handleSearchInput = (e) => {
-    const text = e.target.value;
+    const text = e.target.value.toLowerCase();
     if (!isSearchData) {
       setIsSearchData(true);
     }
@@ -102,69 +102,34 @@ const Navbar = () => {
     if (text.length > 0) {
       timeoutFunc = setTimeout(() => {
         fetchSearchQuery(text);
-      }, 1100);
+      }, 100);
     }
 
     if (text.length === 0) {
-      // setSearchBarText("Search products !!");
-      console.log("sdddddddddddd");
+      setSearchData({
+        searchMainProducts: [],
+        searchSubTypes: [],
+      });
     }
   };
 
-  const fetchSearchQuery = async (searchText) => {
+  const fetchSearchQuery = (searchText) => {
     setLoading(true);
-    const newArr = mainProducts.filter((item) =>
-      item.product_name.toLocaleLowerCase().includes(searchText)
+    const filteredMainProducts = mainProducts.filter((item) =>
+      item.product_name.toLowerCase().includes(searchText)
     );
-    if (newArr.length > 0) {
-      setSearchData((prev) => ({
-        ...prev,
-        searchMainProducts: newArr,
-      }));
-    } else {
-      setSearchData((prev) => ({
-        ...prev,
-        searchMainProducts: [],
-      }));
-    }
-    try {
-      await axios(
-        `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/fetchProductDetails`,
-        {
-          params: {
-            id: searchText,
-            data: "search",
-          },
-        }
-      )
-        .then((res) => {
-          if (res?.data?.message) {
-            setSearchData((prev) => ({
-              ...prev,
-              searchSubTypes: [],
-            }));
-          } else {
-            setSearchData((prev) => ({
-              ...prev,
-              searchSubTypes: res?.data,
-            }));
-          }
-        })
-        .catch((err) => {
-          // setSearchData(["No products available with this name"]);
-        });
-    } catch (err) {
-      console.log("Error while fetching data: ", err);
-    } finally {
-      setLoading(false);
-      // if (
-      //   searchData.searchMainProducts.length === 0 &&
-      //   searchData.searchSubTypes.length === 0
-      // ) {
-      //   setSearchBarText("No Products Found");
-      // }
-    }
+    const filteredSubTypes = prdctdetails.filter((item) =>
+      item.product_subTypes_name.toLowerCase().includes(searchText)
+    );
+
+    setSearchData({
+      searchMainProducts: filteredMainProducts,
+      searchSubTypes: filteredSubTypes,
+    });
+
+    setLoading(false);
   };
+
 
   const pathname = usePathname();
   const styles = {

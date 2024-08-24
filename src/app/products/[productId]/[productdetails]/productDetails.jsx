@@ -14,7 +14,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-
+import { prdctdetails } from "@/staticdata/productdetails/staticdetails";
+import { productsizechart } from "@/staticdata/productsizechart/prdctsizechart";
 const ProductDetails = ({ sizeChartDetails, productDetails, params }) => {
   const router = useRouter();
   // console.log(sizeChartDetails,'idsfiosdfdsohfdosf',productDetails,'outside');

@@ -7,7 +7,7 @@ import ID from "/public/assets/images/SizeChart/ID.png";
 import OD from "/public/assets/images/SizeChart/OD.png";
 import WP from "/public/assets/images/SizeChart/WP.png";
 
-const SizeChart = ({ sizeChartDetails }) => {
+const SizeChart = ({ productSizeChart }) => {
   return (
     <>
       <table className="table-auto border-collapse text-xs">
@@ -105,7 +105,7 @@ const SizeChart = ({ sizeChartDetails }) => {
           </tr>
         </thead>
         <tbody>
-          {sizeChartDetails.map((details, index) => (
+          {productSizeChart?.map((details, index) => (
             <tr key={index} className="text-[10px] font-medium">
               <td className="px-4 py-2 text-center border text-nowrap border-newgold">
                 {details["product_item_code"]
