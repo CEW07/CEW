@@ -30,12 +30,12 @@ const HomeContent = () => {
     <main>
       <section className=" select-none ">
         <HeroMain />
-        <section className="bg-newgold pt-20 pb-20 md:px-20 px-10">
-          <h1 className="text-2xl md:text-4xl text-center text-white font-semibold ">
+        <section className="bg-offwhite pt-20 pb-20 ">
+          <h1 className="text-2xl md:text-4xl text-center text-newgold font-semibold ">
             About us
           </h1>
-          <div className="flex flex-col justify-center items-center text-white">
-            <p className="max-smallest:text-xs text-sm sm:text-base lg:text-lg mt-3 text-center max-w-6xl">
+          <div className="flex flex-col justify-center items-center  text-black">
+            <p className="max-smallest:text-xs  select-none  text-sm sm:text-base lg:text-lg mt-3 text-justify max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
               Crown Engineering Works, an ISO 9001:2015 certified company,
               specializes in manufacturing hose assemblies and fluid connectors,
               including FDA-approved, Hydraulic, Stainless Steel Flexible,
@@ -371,56 +371,49 @@ const HomeContent = () => {
           </h1>
           <div className=" grid small:grid-cols-2 lg:grid-cols-3 gap-6  mt-6">
             {services.slice(0, 3)?.map((service, index) => (
-              <div key={index} className="">
-                <div className=" h-full rounded-md ">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full bg-lightgrey rounded-md px-4 shadow-xl"
-                  >
-                    <AccordionItem value={service.name}>
-                      <AccordionTrigger className="hover:no-underline ">
-                        <h1 className="text-newgold max-galaxyFold:text-base  text-lg  z-10  px-4">
-                          {service.name}
-                        </h1>
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className=" px-4">
-                          <li className="mt-3">{service.subPoint1}</li>
-                          <li className="mt-3">{service.subPoint2}</li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint3 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint3}
-                          </li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint4 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint4}
-                          </li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint5 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint5}
-                          </li>
-                          <li
-                            className={`mt-3 ${
-                              service.subPoint6 ? "" : "hidden"
-                            } `}
-                          >
-                            {service.subPoint6}
-                          </li>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                </div>
+              <div
+                className=" bg-offwhite hover:scale-105 transform transition-transform duration-300 text-newgold cursor-pointer px-4 py-4 h-full  shadow-lg hover:bg-newgold hover:text-offwhite"
+                key={index}
+              >
+                <h1 className="  max-galaxyFold:text-base xl:text-nowrap text-[16px] lg:text-[18px] font-semibold z-10  px-4">
+                  {service.name}
+                </h1>
+                <ul className="list-disc  text-[14px] px-8">
+                  {service?.subPoint1 && (
+                    <li className="mt-3">{service?.subPoint1}</li>
+                  )}
+                  {service?.subPoint2 && (
+                    <li className="mt-3">{service?.subPoint2}</li>
+                  )}
+                  {service?.subPoint3 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint3 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint3}
+                    </li>
+                  )}
+                  {service?.subPoint4 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint4 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint4}
+                    </li>
+                  )}
+                  {service?.subPoint5 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint5 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint5}
+                    </li>
+                  )}
+                  {service?.subPoint6 && (
+                    <li
+                      className={`mt-3 ${service?.subPoint6 ? "" : "hidden"} `}
+                    >
+                      {service?.subPoint6}
+                    </li>
+                  )}
+                </ul>
               </div>
             ))}
           </div>

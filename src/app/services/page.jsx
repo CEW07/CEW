@@ -37,125 +37,66 @@ const Services = () => {
       </div>
 
       <div className="flex justify-center max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20  mb-20 ">
-
-      <div className="mt-20  max-w-[74rem]">
-        <h1 className="text-newgold text-2xl md:text-4xl mb-6 text-center font-semibold">
-          Our Services
-        </h1>
-        <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-          {services?.map((service, index) => (
-<<<<<<< HEAD
-            <div key={index} className="">
-              <div className=" ">
-                <Accordion
-                  type="single"
-                  collapsible
-                  className="w-full bg-lightgrey rounded-md px-4 shadow-xl"
-                >
-                  <AccordionItem value={service.name}>
-                    <AccordionTrigger className="hover:no-underline">
-                      <h1 className="text-newgold text-textColor max-smallest:text-base text-start text-lg  z-10  px-4">
-                        {service.name}
-                      </h1>
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      <div className="text-textColor px-4">
-                        <li className="mt-3">{service.subPoint1}</li>
-                        <li className="mt-3">{service.subPoint2}</li>
-                        <li
-                          className={`mt-3 ${
-                            service.subPoint3 ? "" : "hidden"
-                          } `}
-                        >
-                          {service.subPoint3}
-                        </li>
-                        <li
-                          className={`mt-3 ${
-                            service.subPoint4 ? "" : "hidden"
-                          } `}
-                        >
-                          {service.subPoint4}
-                        </li>
-                        <li
-                          className={`mt-3 ${
-                            service.subPoint5 ? "" : "hidden"
-                          } `}
-                        >
-                          {service.subPoint5}
-                        </li>
-                        <li
-                          className={`mt-3 ${
-                            service.subPoint6 ? "" : "hidden"
-                          } `}
-                        >
-                          {service.subPoint6}
-                        </li>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
+        <div className="mt-20  max-w-[74rem]">
+          <h1 className="text-newgold text-2xl md:text-4xl mb-6 text-center font-semibold">
+            Our Services
+          </h1>
+          <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            {services?.map((service, index) => (
+              <div key={index} className="">
+                <div className=" ">
+                  <Accordion
+                    type="single"
+                    collapsible
+                    className="w-full bg-lightgrey rounded-md px-4 shadow-xl"
+                  >
+                    <AccordionItem value={service.name}>
+                      <AccordionTrigger className="hover:no-underline">
+                        <h1 className="text-newgold text-textColor max-smallest:text-base text-start text-lg  z-10  px-4">
+                          {service.name}
+                        </h1>
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="text-textColor px-4">
+                          <li className="mt-3">{service.subPoint1}</li>
+                          <li className="mt-3">{service.subPoint2}</li>
+                          <li
+                            className={`mt-3 ${
+                              service.subPoint3 ? "" : "hidden"
+                            } `}
+                          >
+                            {service.subPoint3}
+                          </li>
+                          <li
+                            className={`mt-3 ${
+                              service.subPoint4 ? "" : "hidden"
+                            } `}
+                          >
+                            {service.subPoint4}
+                          </li>
+                          <li
+                            className={`mt-3 ${
+                              service.subPoint5 ? "" : "hidden"
+                            } `}
+                          >
+                            {service.subPoint5}
+                          </li>
+                          <li
+                            className={`mt-3 ${
+                              service.subPoint6 ? "" : "hidden"
+                            } `}
+                          >
+                            {service.subPoint6}
+                          </li>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
               </div>
-            </div>
-=======
-            // <div key={index} className="">
-            //   <div className=" ">
-            //     <Accordion
-            //       type="single"
-            //       collapsible
-            //       className="w-full bg-lightgrey rounded-md px-4 shadow-xl"
-            //     >
-            //       <AccordionItem value={service.name}>
-            //         <AccordionTrigger className="hover:no-underline">
-            //           <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  px-4">
-            //             {service.name}
-            //           </h1>
-            //         </AccordionTrigger>
-            //         <AccordionContent>
-            //           <div className=" px-4">
-            //             <ul className="list-disc">
-
-            //             <li className="mt-3 ">{service.subPoint1}</li>
-            //             <li className="mt-3">{service.subPoint2}</li>
-            //             <li
-            //               className={`mt-3 ${
-            //                 service.subPoint3 ? "" : "hidden"
-            //               } `}
-            //             >
-            //               {service.subPoint3}
-            //             </li>
-            //             <li
-            //               className={`mt-3 ${
-            //                 service.subPoint4 ? "" : "hidden"
-            //               } `}
-            //             >
-            //               {service.subPoint4}
-            //             </li>
-            //             <li
-            //               className={`mt-3 ${
-            //                 service.subPoint5 ? "" : "hidden"
-            //               } `}
-            //             >
-            //               {service.subPoint5}
-            //             </li>
-            //             <li
-            //               className={`mt-3 ${
-            //                 service.subPoint6 ? "" : "hidden"
-            //               } `}
-            //             >
-            //               {service.subPoint6}
-            //             </li>
-            //             </ul>
-            //           </div>
-            //         </AccordionContent>
-            //       </AccordionItem>
-            //     </Accordion>
-            //   </div>
-            // </div>
-            <CustomAccordian key={index} service={service} index={index} />
->>>>>>> 4737a38f8324161b1d276603ce0a9fac179d873e
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );

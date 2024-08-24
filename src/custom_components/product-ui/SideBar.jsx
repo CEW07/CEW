@@ -37,7 +37,7 @@ const SidebarProduct = ({ productData }) => {
 
   //   console.log("useffect",productsData);
   // }, [subCategory, mainCategory]);
-  
+
   const handleFilter = useRef(false);
   async function handleMainDropdown(params, id) {
     const selectedProduct = productsData.mainCategory.find(
@@ -130,21 +130,21 @@ const SidebarProduct = ({ productData }) => {
             },
           }
         )
-        .then((res)=>{
-          setProductsData((prev) => ({
-            ...prev,
-            subCategory: prev.subCategory.map((product) =>
-              product.product_type_id === id
-                ? { ...product, subProducts: res.data }
-                : product
-            ),
-          }));
-          setSpanStyle((prev) => ({ ...prev, [id]: true }));
-        })
-        .catch((err)=>{
-          console.log(err);
-        })
-              // const res = await response;
+          .then((res) => {
+            setProductsData((prev) => ({
+              ...prev,
+              subCategory: prev.subCategory.map((product) =>
+                product.product_type_id === id
+                  ? { ...product, subProducts: res.data }
+                  : product
+              ),
+            }));
+            setSpanStyle((prev) => ({ ...prev, [id]: true }));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        // const res = await response;
       } else {
         console.log("already exist ");
       }
@@ -155,14 +155,13 @@ const SidebarProduct = ({ productData }) => {
 
   return (
     <div className="sideBar:w-[250px] smallest:w-[300px]  select-none ">
-     
       {
         productsData.mainCategory.map((item) => (
           <div className="bg-offwhite max-w-sm" key={item.product_id}>
             <Accordion
               type="single"
               collapsible
-              className="py-2 px-[1rem]"
+              className="px-[1rem]"
               key={item.product_id}
               onClick={
                 item.product_types === "FALSE"
@@ -174,13 +173,13 @@ const SidebarProduct = ({ productData }) => {
               <AccordionItem
                 value={`item-${item.product_id}`}
                 key={item.product_id}
-                className='border-none'
+                className=" border-none"
               >
                 <AccordionTrigger className="hover:no-underline border-none font-semibold text-[14px] text-newgold text-start">
                   {item.product_name}
                 </AccordionTrigger>
-                <AccordionContent>
-                  { productsData.subCategory
+                <AccordionContent className="pb-0">
+                  {productsData.subCategory
                     .filter((type) => type.product_id === item.product_id)
                     .map((type, index) => (
                       <section className="relative" key={index}>
@@ -233,63 +232,67 @@ const SidebarProduct = ({ productData }) => {
                           </span>
                         </div>
 
-                        {expandedProductIds.includes(type.product_type_id) &&(
-                          type?.subProducts ?
-                          type?.subProducts?.map((subProduct) => (
+                        {expandedProductIds.includes(type.product_type_id) &&
+                          (type?.subProducts ? (
+                            type?.subProducts?.map((subProduct) => (
+                              <div
+                                className={`py-2 border-b border-[#C89F23]  `}
+                                style={
+                                  {
+                                    // paddingLeft: "20px",
+                                  }
+                                }
+                                key={subProduct.product_sub_types_id}
+                              >
+                                {/* <span> {subProduct.product_sub_types} </span> */}
+                                <Link
+                                  title={subProduct.product_sub_types}
+                                  href={`/products/${item.product_name_id}/${subProduct.product_sub_types_id}`}
+                                  className="text-[12px] text-[#] font-medium p-0 "
+                                >
+                                  {subProduct.product_sub_types}
+                                </Link>
+                              </div>
+                            ))
+                          ) : (
+                            <LineLoading />
+                          ))}
+                      </section>
+                    ))}
+
+                  {productsData.subCategory.filter(
+                    (type) => type.product_id === item.product_id
+                  ).length === 0 && (
+                    <section className="relative" key={item.product_id}>
+                      {expandedProductIds.includes(item.product_id) &&
+                        (item.subProducts ? (
+                          item.subProducts.map((subProduct) => (
                             <div
-                              className={`pb-1 border-b border-[#C89F23]  ${
-                                spanStyle ? " mb-4" : ""
-                              }`}
-                              style={{
-                                // paddingLeft: "20px",
-                              }}
+                              className={`py-2 border-b border-[#C89F23]  
+                                `}
+                              style={
+                                {
+                                  // paddingLeft: "20px",
+                                }
+                              }
                               key={subProduct.product_sub_types_id}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                              }}
                             >
-                              {/* <span> {subProduct.product_sub_types} </span> */}
                               <Link
+                                className="text-[12px] text-[#] font-medium "
                                 title={subProduct.product_sub_types}
                                 href={`/products/${item.product_name_id}/${subProduct.product_sub_types_id}`}
-                                className="text-[12px] text-[#] font-medium p-0 "
                               >
                                 {subProduct.product_sub_types}
                               </Link>
                             </div>
                           ))
-                          : <LineLoading/>)
-                        }   
-         
-                      </section>
-                    ))}
-
-
-
-
-                  { productsData.subCategory.filter(
-                    (type) => type.product_id === item.product_id
-                  ).length === 0 && (
-                    <section className="relative" key={item.product_id}>
-                      {expandedProductIds.includes(item.product_id) &&(
-                        item.subProducts?
-                        item.subProducts.map((subProduct) => (
-                          <div
-                            className={`pb-1 border-b border-[#C89F23]  ${
-                              spanStyle ? " mb-2" : ""
-                            }`}
-                            style={{
-                              // paddingLeft: "20px",
-                            }}
-                            key={subProduct.product_sub_types_id}
-                          >
-                            <Link
-                              className="text-[12px] text-[#] font-medium "
-                              title={subProduct.product_sub_types}
-                              href={`/products/${item.product_name_id}/${subProduct.product_sub_types_id}`}
-                            >
-                              {subProduct.product_sub_types}
-                            </Link>
-                          </div>
-                        )): <LineLoading/>)}
-                            
+                        ) : (
+                          <LineLoading />
+                        ))}
                     </section>
                   )}
                 </AccordionContent>
@@ -305,4 +308,3 @@ const SidebarProduct = ({ productData }) => {
 };
 
 export default React.memo(SidebarProduct);
-
