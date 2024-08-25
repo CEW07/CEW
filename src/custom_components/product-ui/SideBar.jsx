@@ -60,9 +60,7 @@ const SidebarProduct = ({ productData }) => {
     setProductsData((prev) => ({
       ...prev,
       mainCategory: prev.mainCategory.map((product) =>
-        product.product_id === id
-          ? { ...product, subProducts }
-          : product
+        product.product_id === id ? { ...product, subProducts } : product
       ),
     }));
     setSpanStyle((prev) => ({ ...prev, [id]: true }));
@@ -92,9 +90,7 @@ const SidebarProduct = ({ productData }) => {
     setProductsData((prev) => ({
       ...prev,
       subCategory: prev.subCategory.map((product) =>
-        product.product_type_id === id
-          ? { ...product, subProducts }
-          : product
+        product.product_type_id === id ? { ...product, subProducts } : product
       ),
     }));
     setSpanStyle((prev) => ({ ...prev, [id]: true }));
@@ -123,7 +119,7 @@ const SidebarProduct = ({ productData }) => {
               <AccordionTrigger className="hover:no-underline border-none font-semibold text-[14px] text-newgold text-start">
                 {item.product_name}
               </AccordionTrigger>
-              <AccordionContent>
+              <AccordionContent className="pb-0">
                 {productsData.subCategory
                   .filter((type) => type.product_id === item.product_id)
                   .map((type) => (
@@ -142,10 +138,13 @@ const SidebarProduct = ({ productData }) => {
                             padding: "2px 6px",
                             marginRight: "4px",
                             borderRadius: "2px",
-                            display: "inline-block",
+                            // display: "inline-block",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
                             flexShrink: 0,
                           }}
-                          className="bg-newgold"
+                          className="bg-newgold w-5"
                           onClick={() =>
                             handleSubTypeDropDown(type.product_type_id)
                           }
@@ -201,10 +200,12 @@ const SidebarProduct = ({ productData }) => {
                       (item.subProducts ? (
                         item.subProducts.map((subProduct) => (
                           <div
-                            className={`pb-1 border-b border-[#C89F23] ${
-                              spanStyle[item.product_id] ? "mb-2" : ""
-                            }`}
+                            className={`py-2 border-b border-[#C89F23] `}
                             key={subProduct.product_sub_types_id}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                            }}
                           >
                             <Link
                               className="text-[12px] text-[#] font-medium"

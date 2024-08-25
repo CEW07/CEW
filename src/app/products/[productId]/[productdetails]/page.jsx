@@ -21,15 +21,15 @@ export async function generateStaticParams() {
     "ptfe-teflon-hose",
     "pharmaceutical-hoses",
     "chemical-hoses",
-    'thermoplastic-hose',
-    'composite-hose',
-    'pvc-hose',
-    'expansion-joints',
-    'ss-hose-fittings',
-    'standard-end-fittings',
-    'camlock-couplings',
-    'quick-realease-coupling',
-    'sms-union'
+    "thermoplastic-hose",
+    "composite-hose",
+    "pvc-hose",
+    "expansion-joints",
+    "ss-hose-fittings",
+    "standard-end-fittings",
+    "camlock-couplings",
+    "quick-realease-coupling",
+    "sms-union",
   ]; // Replace with actual product IDs if dynamic
   const productDetails = Array.from(
     new Set(prdctdetails.map((detail) => detail.product_sub_types_id))
@@ -341,7 +341,7 @@ export default function ProductPage({ params }) {
           <SizeChart productSizeChart={productSizeChart} />
         </div>
       ) : (
-        <div className="grid grid-cols-1 overflow-x-auto max-w-full">
+        <div className="grid grid-cols-1 overflow-x-auto max-w-full ">
           <Table tableValues={tableValues} />
         </div>
       )}

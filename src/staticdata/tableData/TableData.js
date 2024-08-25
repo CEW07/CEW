@@ -1,4 +1,4 @@
-export const CEW56 =`<div>
+export const CEW56 = `<div>
          <table >
         <thead>
           <tr>
@@ -53,7 +53,7 @@ export const CEW56 =`<div>
     <td>70</td>
     <td>12 <br/> 120 <br/> 192</td>
     <td>18 <br/> 180 <br/> 288</td>
-    <td>480 <br/> 768</td> <!-- New data added here -->
+    <td id="nominalBurst">480 <br/> 768</td> <!-- New data added here -->
     <td>0.100 <br/> 0.175 <br/> 0.256</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -66,7 +66,7 @@ export const CEW56 =`<div>
     <td>90</td>
     <td>10 <br/> 100 <br/> 160</td>
     <td>15 <br/> 150 <br/> 240</td>
-    <td>400 <br/> 640</td> <!-- New data added here -->
+    <td id="nominalBurst">400 <br/> 640</td> <!-- New data added here -->
     <td>0.115 <br/> 0.195 <br/> 0.288</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -79,7 +79,7 @@ export const CEW56 =`<div>
     <td>100</td>
     <td>9 <br/> 90 <br/> 144</td>
     <td>14 <br/> 135 <br/> 216</td>
-    <td>360 <br/> 576</td> <!-- New data added here -->
+    <td id="nominalBurst">360 <br/> 576</td> <!-- New data added here -->
     <td>0.150 <br/> 0.253 <br/> 0.371</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -92,7 +92,7 @@ export const CEW56 =`<div>
     <td>110</td>
     <td>9 <br/> 80 <br/> 128</td>
     <td>14 <br/> 128 <br/> 192</td>
-    <td>320 <br/> 512</td> <!-- New data added here -->
+    <td id="nominalBurst">320 <br/> 512</td> <!-- New data added here -->
     <td>0.175 <br/> 0.297 <br/> 0.436</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -105,7 +105,7 @@ export const CEW56 =`<div>
     <td>120</td>
     <td>8 <br/> 70 <br/> 112</td>
     <td>12 <br/> 105 <br/> 168</td>
-    <td>280 <br/> 448</td> <!-- New data added here -->
+    <td id="nominalBurst">280 <br/> 448</td> <!-- New data added here -->
     <td>0.250 <br/> 0.455 <br/> 0.685</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -118,7 +118,7 @@ export const CEW56 =`<div>
     <td>130</td>
     <td>4 <br/> 64 <br/> 102</td>
     <td>6 <br/> 96 <br/> 154</td>
-    <td>256 <br/> 410</td> <!-- New data added here -->
+    <td id="nominalBurst">256 <br/> 410</td> <!-- New data added here -->
     <td>0.340 <br/> 0.585 <br/> 0.855</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -131,7 +131,7 @@ export const CEW56 =`<div>
     <td>150</td>
     <td>3 <br/> 50 <br/> 80</td>
     <td>5 <br/> 75 <br/> 120</td>
-    <td>200 <br/>  320</td> <!-- New data added here -->
+    <td id="nominalBurst">200 <br/>  320</td> <!-- New data added here -->
     <td>0.460 <br/> 0.735 <br/> 1.035</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -144,7 +144,7 @@ export const CEW56 =`<div>
     <td>230</td>
     <td>2 <br/> 40 <br/> 64</td>
     <td>3 <br/> 60 <br/> 96</td>
-    <td>160<br/> 256</td> <!-- New data added here -->
+    <td id="nominalBurst">160<br/> 256</td> <!-- New data added here -->
     <td>0.590 <br/> 0.992 <br/> 1.426</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -157,7 +157,7 @@ export const CEW56 =`<div>
     <td>240</td>
     <td>1 <br/> 35 <br/> 54</td>
     <td>2 <br/> 53 <br/> 84</td>
-    <td>140 <br/> 224</td> <!-- New data added here -->
+    <td id="nominalBurst">140 <br/> 224</td> <!-- New data added here -->
     <td>0.865 <br/> 1.355 <br/> 1.877</td> <!-- Extended data added here -->
   </tr>
   <tr>
@@ -170,7 +170,7 @@ export const CEW56 =`<div>
     <td>260</td>
     <td>1 <br/> 30 <br/> 48</td>
     <td>2 <br/> 45 <br/> 72</td>
-    <td>120 <br/> 192</td> <!-- New data added here -->
+    <td id="nominalBurst">120 <br/> 192</td> <!-- New data added here -->
     <td>1.12 <br/> 1.846 <br/> 2.623</td> <!-- Extended data added here -->
   </tr>
 
@@ -287,7 +287,7 @@ export const CEW56 =`<div>
   </tr>
         </tbody>
       </table>
-    </div>`
+    </div>`;
 
 export const CEW57 = `<div>
 <table >
@@ -377,7 +377,7 @@ export const CEW57 = `<div>
 
 </tbody>
 </table>
-</div> ` 
+</div> `;
 
 export const CEW66 = `<div>
          <table >
@@ -761,7 +761,7 @@ export const CEW66 = `<div>
     </tr>
         </tbody>
       </table>
-    </div>`
+    </div>`;
 
 export const CEW67 = `<div>
          <table >
@@ -929,8 +929,8 @@ export const CEW67 = `<div>
     </tr>
         </tbody>
       </table>
-    </div>` 
-   
+    </div>`;
+
 export const CEW68 = `     <div>
      <table className="table-auto border-collapse text-xs">
     <thead>
@@ -1163,26 +1163,11 @@ export const CEW68 = `     <div>
     </tr>
     </tbody>
   </table>
-</div>`    
-
-
-
-
-
-
-
-                                  
-
-
-
-
-
-
-
+</div>`;
 
 export const cewTable = `
-        <table border="1">
-  <thead>
+        <table border="1" >
+  <thead >
     <tr>
       <th>Nominal hose size (inch)</th>
       <th>Item code</th>
@@ -1374,4 +1359,4 @@ export const cewTable = `
 
 
 
-`
+`;
