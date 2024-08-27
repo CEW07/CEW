@@ -1,7 +1,8 @@
 # Ignore everything
 *
 
-# Except the files inside the out/ directory
-!out/
-out/*
+# Except the contents of the out/ directory
 !out/**/*
+
+# Ignore the out/ directory itself
+out/
