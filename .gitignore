@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# Except the files inside the out/ directory
+!out/
+out/*
+!out/**/*
