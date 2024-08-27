@@ -1,0 +1,42 @@
+{
+  "name": "cewwebsite",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
+    "@radix-ui/react-slot": "^1.0.2",
+    "axios": "^1.7.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.363.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.3",
+    "net": "^1.0.2",
+    "next": "14.1.4",
+    "nodemailer": "^6.9.14",
+    "react": "^18",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18",
+    "react-icons": "^5.2.1",
+    "react-intersection-observer": "^9.13.0",
+    "react-loader-spinner": "^6.1.6",
+    "serverless-mysql": "^1.5.5",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "^14.1.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0"
+  }
+}
