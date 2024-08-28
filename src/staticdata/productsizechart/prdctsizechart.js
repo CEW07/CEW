@@ -5832,7 +5832,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r8",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-03",
       "product_dash_size": -3,
@@ -5859,7 +5859,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r9",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-04",
       "product_dash_size": -4,
@@ -5886,7 +5886,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r10",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-05",
       "product_dash_size": -5,
@@ -5913,7 +5913,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r11",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-06",
       "product_dash_size": -6,
@@ -5940,7 +5940,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r12",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-08",
       "product_dash_size": -8,
@@ -5967,7 +5967,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r13",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-10",
       "product_dash_size": -10,
@@ -5994,7 +5994,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r14",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-12",
       "product_dash_size": -12,
@@ -6021,7 +6021,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r15",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-16",
       "product_dash_size": -16,
@@ -6048,7 +6048,7 @@ export const productsizechart = [
       "product_Min_WP_bar": ""
     },
     {
-      "product_sub_types_id": "cew-26-r16",
+      "product_sub_types_id": "cew-26-r7",
       "product_name": "CEW26",
       "product_item_code": "CEW26-20",
       "product_dash_size": -20,
