@@ -11,8 +11,12 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
+  # Rewrite requests to the out directory
+  RewriteCond %{REQUEST_URI} !^/out/ [NC]
+  RewriteRule ^(.*)$ /out/$1 [L]
+
   # Handle all other requests with Next.js routing
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ /index.html [L]
+  RewriteRule ^ /out/index.html [L]
 </IfModule>

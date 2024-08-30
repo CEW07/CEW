@@ -1,0 +1,1 @@
+.progress-loader-line{bottom:-8px;left:60%;position:absolute;transform:translate(-50%,-50%);width:100%;background:#f4f3ee;height:3px;border-radius:7px}.progress-line{width:1px;height:3px;border-radius:7px;background:#c89f23;transition:.5s;animation:loading1274 2s ease infinite}@keyframes loading1274{0%{width:0}10%{width:10%}50%{width:40%}60%{width:60%}to{width:100%}}

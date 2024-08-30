@@ -8,190 +8,88 @@ import OD from "/public/assets/images/SizeChart/OD.png";
 import WP from "/public/assets/images/SizeChart/WP.png";
 
 const SizeChart = ({ productSizeChart }) => {
+  const getColumnHeaders = () => {
+    const headers = [
+      { key: 'product_item_code', label: 'Item Code' },
+      { key: 'product_dash_size', label: 'Dash size' },
+      { key: 'product_DN', label: 'DN' },
+      { key: 'product_ID_inch', label: 'ID', img: ID, subheaders: ['inch', 'mm'], keys: ['product_ID_inch', 'product_ID_mm'] },
+      { key: 'product_OD_inch', label: 'OD', img: OD, subheaders: ['inch', 'mm'], keys: ['product_OD_inch', 'product_OD_mm'] },
+      { key: 'product_WP_psi', label: 'WP', img: WP, subheaders: ['psi', 'bar'], keys: ['product_WP_psi', 'product_WP_bar'] },
+      { key: 'product_BP_psi', label: 'BP', img: BP, subheaders: ['psi', 'bar'], keys: ['product_BP_psi', 'product_BP_bar'] },
+      { key: 'product_BR/r_inch', label: 'BR/r', img: BR, subheaders: ['inch', 'mm'], keys: ['product_BR/r_inch', 'product_BR/r_mm'] },
+      { key: 'product_W_kgm', label: 'W (kg/m)', img: W },
+      { key: 'product_v', label: 'Vacuum' },
+      { key: 'product_WT', label: 'Wall thickness' },
+      { key: 'product_Max_WP_bar_@_27°C', label: 'MAX WORKING PRESSURE (IN BAR) @ 27°C' },
+      { key: 'product_Min_BP_bar_@_27°C', label: 'MIN BURST PRESSURE' },
+      { key: 'product_vacuum_hg_@_70°F/27°C_mm', label: 'VACUUM Hg @ 70°F/27°C (IN MM)' },
+      { key: 'product_Max_WP_@_23°C', label: 'Max WP @ 23°C' },
+      { key: 'product_Max_BP_@_23°C', label: 'Max BP @ 23°C' },
+      { key: 'product_W_g/m', label: 'W g/m' },
+      { key: 'product_Min_WP_bar', label: 'MIN WP bar' },
+    ];
+
+    return headers.filter(header => productSizeChart.some(detail => header.keys ? header.keys.some(key => detail[key]) : detail[header.key]));
+  };
+
+  const headers = getColumnHeaders();
+
+  // Separate headers with subheaders
+  const mainHeaders = headers.filter(header => header.subheaders);
+  const singleHeaders = headers.filter(header => !header.subheaders);
+
   return (
     <>
       <table className="table-auto border-collapse text-xs">
         <thead>
           <tr className="text-offwhite">
-            <th
-              className="px-4 py-2 border border-l-newgold bg-newgold "
-              rowSpan="2"
-            >
-              Item Code
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              Dash size
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              DN
-            </th>
-            <th className="px-4 py-2 border bg-newgold" colSpan="2">
-              <div className="flex flex-col items-center">
-                <Image src={ID} width={30} height={30} alt="ID" />
-                <span className="mt-2 text-offwhite">ID</span>
-              </div>
-            </th>
-            <th className="px-4 py-2 border bg-newgold" colSpan="2">
-              <div className="flex flex-col items-center">
-                <Image src={OD} width={30} height={30} alt="OD" />
-                <span className="mt-2 text-offwhite">OD</span>
-              </div>
-            </th>
-            <th className="px-4 py-2 border bg-newgold" colSpan="2">
-              <div className="flex flex-col items-center">
-                <Image src={WP} width={30} height={30} alt="WP" />
-                <span className="mt-2 text-offwhite">WP</span>
-              </div>
-            </th>
-            <th className="px-4 py-2 border bg-newgold" colSpan="2">
-              <div className="flex flex-col items-center">
-                <Image src={BP} width={30} height={30} alt="BP" />
-                <span className="mt-2 text-offwhite">BP</span>
-              </div>
-            </th>
-            <th className="px-4 py-2 border bg-newgold" colSpan="2">
-              <div className="flex flex-col items-center">
-                <Image src={BR} width={30} height={30} alt="BR" />
-                <span className="mt-2 text-offwhite">BR/r</span>
-              </div>
-            </th>
-            <th className="px-4 py-2 border bg-newgold" colSpan="1">
-              <div className="flex flex-col items-center">
-                <Image src={W} width={30} height={30} alt="W" />
-                <span className="mt-2 text-offwhite">W</span>
-              </div>
-            </th>
-
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              Vaccum
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              Wall thickness
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              MAX WORKING PRESSURE (IN BAR) @ 27°C
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              MIN BURST PRESSURE
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              VACCUM Hg @ 70°F/27°C (IN MM)
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              Max WP @ 23°C
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              Max BP @ 23°C
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-              W g/m
-            </th>
-            <th className="px-4 py-2 border bg-newgold" rowSpan="2">
-            MIN WP bar
-            </th>
+            {singleHeaders.map((header, index) => (
+              <th key={index} className={`px-4 py-2 border ${index === 0 ? 'border-l-newgold' : ''} bg-newgold`}>
+                {header.img ? (
+                  <div className="flex flex-col items-center">
+                    <Image src={header.img} width={30} height={30} alt={header.label} />
+                    <span className="mt-2 text-offwhite">{header.label}</span>
+                  </div>
+                ) : (
+                  header.label
+                )}
+              </th>
+            ))}
+            {mainHeaders.map((header, index) => (
+              <th key={index} colSpan={header.subheaders.length} className="px-4 py-2 border bg-newgold">
+                {header.img && <Image src={header.img} width={30} height={30} alt={header.label} />}
+                <div>{header.label}</div>
+              </th>
+            ))}
           </tr>
+
           <tr>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">psi</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">bar</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">psi</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">bar</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">inch</th>
-            <th className="px-4 py-2 border bg-newgold text-offwhite">mm</th>
-            <th className="px-4 py-2 border  text-offwhite bg-newgold">kg/m</th>
+            {singleHeaders.map((header, index) => (
+              <th key={index} className="px-4 py-2 border bg-newgold text-offwhite">
+                --
+              </th>
+            ))}
+            {mainHeaders.flatMap(header => header.subheaders.map((subheader, subIndex) => (
+              <th key={subIndex} className="px-4 py-2 border bg-newgold text-offwhite">
+                {subheader}
+              </th>
+            )))}
           </tr>
         </thead>
         <tbody>
-          {productSizeChart?.map((details, index) => (
+          {productSizeChart?.filter(details => headers.some(header => header.keys ? header.keys.some(key => details[key]) : details[header.key])).map((details, index) => (
             <tr key={index} className="text-[10px] font-medium">
-              <td className="px-4 py-2 text-center border text-nowrap border-newgold">
-                {details["product_item_code"]
-                  ? details["product_item_code"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_dash_size"]
-                  ? details["product_dash_size"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_DN"] ? details["product_DN"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_ID_inch"] ? details["product_ID_inch"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_ID_mm"] ? details["product_ID_mm"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_OD_inch"] ? details["product_OD_inch"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_OD_mm"] ? details["product_OD_mm"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_WP_psi"] ? details["product_WP_psi"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_WP_bar"] ? details["product_WP_bar"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_BP_psi"] ? details["product_BP_psi"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_BP_bar"] ? details["product_BP_bar"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_BR/r_inch"]
-                  ? details["product_BR/r_inch"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_BR/r_mm"] ? details["product_BR/r_mm"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_W_kgm"] ? details["product_W_kgm"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_v"] ? details["product_v"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_WT"] ? details["product_WT"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_Max_WP_bar_@_27°C"]
-                  ? details["product_Max_WP_bar_@_27°C"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_Min_BP_bar_@_27°C"]
-                  ? details["product_Min_BP_bar_@_27°C"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_vacuum_hg_@_70°F/27°C_mm"]
-                  ? details["product_vacuum_hg_@_70°F/27°C_mm"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_Max_WP_@_23°C"]
-                  ? details["product_Max_WP_@_23°C"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_Max_BP_@_23°C"]
-                  ? details["product_Max_BP_@_23°C"]
-                  : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_W_g/m"] ? details["product_W_g/m"] : "--"}
-              </td>
-              <td className="px-4 py-2 text-center border border-newgold">
-                {details["product_Min_WP_bar"] ? details["product_Min_WP_bar"] : "--"}
-              </td>
+              {singleHeaders.map((header, headerIndex) => (
+                <td key={headerIndex} className="px-4 py-2 text-center border border-newgold">
+                  {details[header.key] || '--'}
+                </td>
+              ))}
+              {mainHeaders.flatMap(header => header.keys.map((key, keyIndex) => (
+                <td key={keyIndex} className="px-4 py-2 text-center border border-newgold">
+                  {details[key] || '--'}
+                </td>
+              )))}
             </tr>
           ))}
         </tbody>

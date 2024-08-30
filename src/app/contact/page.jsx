@@ -17,6 +17,7 @@ const Contact = () => {
   });
 
   const submitForm = async (formData) => {
+    // Validation
     for (let [name, value] of formData.entries()) {
       if (formData.get(name).length === 0 || formData.get(name) === null) {
         setCheckData((prev) => ({
@@ -30,26 +31,21 @@ const Contact = () => {
         }));
       }
     }
-    let data = {
-      name: formData.get("userName") || "",
-      company: formData.get("companyName"),
-      category: formData.get("category") || "",
-      details: formData.get("details"),
-      contact: formData.get("contactNumber"),
-      email: formData.get("email"),
-    };
-
-    // const res = await axios
-    //   .post(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/submitEmail`, {
-    //    data
-    //   })
-    //   .then((res) => {
-    //     console.log("This is the response", res);
-    //   })
-    //   .catch((error) => {
-    //     console.log("There is an error", error);
-    //   });
+  
+    // Send data using FormData
+    try {
+      const res = await axios.post('http://localhost:80/emailscript/send-email.php', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', 
+        },
+      });
+      console.log("This is the response", res);
+    } catch (error) {
+      console.error("There is an error", error.response || error.message);
+    }
   };
+  
+  
 
   return (
     <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 relative">
