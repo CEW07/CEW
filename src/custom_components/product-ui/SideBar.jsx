@@ -10,7 +10,7 @@ import LineLoading from "../Loader/LineLoading";
 import { mainProducts, productTypes } from "@/staticdata/static";
 import { subproduct } from "@/staticdata/subproduct/subproduct";
 
-const SidebarProduct = ({ productData }) => {
+const SidebarProduct = ({ productData, handleSideBarClick }) => {
   // Destructuring ProductData
   const { mainCategory, subCategory } = productData;
   const [productsData, setProductsData] = useState({
@@ -178,6 +178,7 @@ const SidebarProduct = ({ productData }) => {
                               key={subProduct.product_sub_types_id}
                             >
                               <Link
+                                onClick={handleSideBarClick}
                                 title={subProduct.product_sub_types}
                                 href={`/products/${item.product_name_id}/${subProduct.product_sub_types_id}`}
                                 className="text-[12px] text-[#] font-medium p-0"
@@ -208,6 +209,7 @@ const SidebarProduct = ({ productData }) => {
                             }}
                           >
                             <Link
+                              onClick={handleSideBarClick}
                               className="text-[12px] text-[#] font-medium"
                               title={subProduct.product_sub_types}
                               href={`/products/${item.product_name_id}/${subProduct.product_sub_types_id}`}

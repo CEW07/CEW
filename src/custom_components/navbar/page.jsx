@@ -65,10 +65,10 @@ const Navbar = () => {
       ) {
         setIsSearchData(false);
         // setTimeout(() => {
-          //   setIsSearchData(false);
-          // }, 150);
-        }
-        clickOriginRef.current = false;
+        //   setIsSearchData(false);
+        // }, 150);
+      }
+      clickOriginRef.current = false;
     };
 
     if (isSearchData) {
@@ -130,7 +130,6 @@ const Navbar = () => {
     setLoading(false);
   };
 
-
   const pathname = usePathname();
   const styles = {
     position: "fixed",
@@ -151,6 +150,7 @@ const Navbar = () => {
   const handleMouseDownInside = () => {
     clickOriginRef.current = true;
   };
+
   return (
     <main
       className={`w-full sticky top-0  z-30 bg-offwhite transition-all duration-200 ${
@@ -169,8 +169,18 @@ const Navbar = () => {
                 <div className="flex flex-row items-center gap-2">
                   <FaPhoneAlt color="#C89F23" className="text-[18px]" />
                   <p className="m-0 text-[14px] font-medium flex flex-col ">
-                  <Link href='tel:+9820382786' className="m-0 text-[14px]  font-medium border-b border-newgold">+91 9820382786</Link>
-                  <Link href='tel:+9820786752' className="m-0 text-[14px]  font-medium">+91 9820786752</Link>
+                    <Link
+                      href="tel:+9820382786"
+                      className="m-0 text-[14px]  font-medium border-b border-newgold"
+                    >
+                      +91 9820382786
+                    </Link>
+                    <Link
+                      href="tel:+9820786752"
+                      className="m-0 text-[14px]  font-medium"
+                    >
+                      +91 9820786752
+                    </Link>
                   </p>
                 </div>
               </div>

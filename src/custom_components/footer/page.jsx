@@ -138,9 +138,18 @@ const Footer = () => {
                       <FaPhoneAlt color="#C89F23" className="text-[18px]" />
 
                       <p className="m-0 text-[14px] font-medium flex gap-2">
-                      <Link href='tel:+9820382786' className="m-0 text-[14px]  font-medium">+91 9820382786</Link>
-                      <Link href='tel:+9820786752' className="m-0 text-[14px]  font-medium">+91 9820786752</Link>
-                       
+                        <Link
+                          href="tel:+9820382786"
+                          className="m-0 text-[14px]  font-medium"
+                        >
+                          +91 9820382786
+                        </Link>
+                        <Link
+                          href="tel:+9820786752"
+                          className="m-0 text-[14px]  font-medium"
+                        >
+                          +91 9820786752
+                        </Link>
                       </p>
                     </header>
                   </Link>
@@ -181,17 +190,35 @@ const Footer = () => {
                 <div className="flex items-center gap-4">Certifications</div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="flex flex-row gap-4 mt-2">
-                  <img
-                    alt="iccon"
-                    src="/assets/icons/fdalogo.svg"
-                    className=" mix-blend-multiply w-[50px]"
-                  />
-                  <img
-                    alt="iccon"
-                    src="/assets/icons/isologo.svg"
-                    className=" mix-blend-multiply w-[50px]"
-                  />
+                <div className="flex flex-row justify-between items-center flex-wrap gap-4 mt-2">
+                  <div>
+                    <img
+                      alt="iccon"
+                      src="/assets/icons/fdalogo.svg"
+                      className=" mix-blend-multiply w-[50px]"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      alt="iccon"
+                      src="/assets/icons/isologo.svg"
+                      className=" mix-blend-multiply w-[80px]"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      alt="iccon"
+                      src="/assets/icons/certificate/ROHS.svg"
+                      className=" mix-blend-multiply w-[50px]"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      alt="iccon"
+                      src="/assets/icons/certificate/iso_0993.svg"
+                      className=" mix-blend-multiply w-[50px]"
+                    />
+                  </div>
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -213,6 +240,18 @@ const Footer = () => {
               alt="iccon"
               src="/assets/icons/isologo.svg"
               className=" mix-blend-multiply w-[50px] lg:w-[100px]"
+            />
+          </div>
+          <div className="flex justify-between flex-row gap-2 mt-2">
+            <img
+              alt="iccon"
+              src="/assets/icons/certificate/ROHS.svg"
+              className=" mix-blend-multiply w-[50px] lg:w-[80px]"
+            />
+            <img
+              alt="iccon"
+              src="/assets/icons/certificate/iso_0993.svg"
+              className=" mix-blend-multiply object-cover w-[50px] lg:w-[80px]"
             />
           </div>
         </section>
