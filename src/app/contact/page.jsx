@@ -31,21 +31,23 @@ const Contact = () => {
         }));
       }
     }
-  
+
     // Send data using FormData
     try {
-      const res = await axios.post('http://localhost:80/emailscript/send-email.php', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data', 
-        },
-      });
+      const res = await axios.post(
+        "http://localhost:80/emailscript/send-email.php",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       console.log("This is the response", res);
     } catch (error) {
       console.error("There is an error", error.response || error.message);
     }
   };
-  
-  
 
   return (
     <main className="pt-10 flex flex-col justify-center items-center py-5 w-full max-sm:px-5 sm:px-10 relative">
@@ -76,9 +78,14 @@ const Contact = () => {
               <p className="lg:text-2xl text-[16px] font-medium lg:py-3">
                 Call us
               </p>
-              <Link href="tel:+12346567890">
-                <span className="text-[14px]">+91 123456789</span>
-              </Link>
+              <div className="flex max-sm:flex-col">
+                <Link href="tel:+91 9820382786">
+                  <span className="text-[14px]">+91 9820382786</span>
+                </Link>
+                <Link className="sm:ml-3" href="tel:+91 9820786752">
+                  <span className="text-[14px]">+91 9820786752</span>
+                </Link>
+              </div>
             </div>
             <div className="  flex flex-col ">
               <p className="lg:text-2xl text-[16px] font-medium lg:py-3">
@@ -153,7 +160,8 @@ const Contact = () => {
                 <input
                   name="contactNumber"
                   placeholder="Enter your contact no"
-                  type="text"e
+                  type="text"
+                  e
                   maxLength="10"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
@@ -168,7 +176,10 @@ const Contact = () => {
               {" "}
               Enquiry Category
             </label>
-            <select  name="category" className="lg:w-[70%] w-[100%]  p-2 rounded-md border border-newgold text-gray-700   leading-tight focus:outline-none ">
+            <select
+              name="category"
+              className="lg:w-[70%] w-[100%]  p-2 rounded-md border border-newgold text-gray-700   leading-tight focus:outline-none "
+            >
               <option value="" disabled selected>
                 Select enquiry type
               </option>
