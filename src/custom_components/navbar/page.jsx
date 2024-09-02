@@ -185,7 +185,7 @@ const Navbar = () => {
                 </div>
               </div>
               <Link
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@crownenggworks.com"
                 target="_blank"
               >
                 <div className="flex flex-row items-center gap-2">
@@ -194,7 +194,7 @@ const Navbar = () => {
                     className="text-[24px]"
                   />
                   <p className="m-0 text-[14px]  font-medium ">
-                    cewtech2024@gmail.com
+                    sales@crownenggworks.com
                   </p>
                 </div>
               </Link>

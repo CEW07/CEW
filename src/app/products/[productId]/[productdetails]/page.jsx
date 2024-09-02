@@ -57,10 +57,12 @@ export async function generateMetadata({ params }) {
   const title = productDetail.product_subTypes_name || "Product Details";
   const imageUrl = productDetail.ImageUrl || "";
   const description = productDetail.meta_description || "";
+  const keywords = productDetail.meta_description || "";
 
   return {
     title,
     description,
+    keywords,
     openGraph: {
       title,
       description,
@@ -85,42 +87,42 @@ export default function ProductPage({ params }) {
   const productSizeChart =
     productsizechart.filter((p) => p.product_sub_types_id === productdetails) ||
     "";
-    const cleanProductSizeChart = (productSizeChart) => {
-      if (!Array.isArray(productSizeChart) || productSizeChart.length === 0) {
-        return productSizeChart;
+  const cleanProductSizeChart = (productSizeChart) => {
+    if (!Array.isArray(productSizeChart) || productSizeChart.length === 0) {
+      return productSizeChart;
+    }
+
+    // Step 1: Collect keys
+    const allKeys = new Set();
+    productSizeChart.forEach((item) => {
+      Object.keys(item).forEach((key) => {
+        allKeys.add(key);
+      });
+    });
+
+    // Step 2: Identify keys with all empty values
+    const keysToRemove = new Set();
+    allKeys.forEach((key) => {
+      const allEmpty = productSizeChart.every((item) => {
+        return item[key] === "" || item[key] === undefined;
+      });
+      if (allEmpty) {
+        keysToRemove.add(key);
       }
-    
-      // Step 1: Collect keys
-      const allKeys = new Set();
-      productSizeChart.forEach((item) => {
-        Object.keys(item).forEach((key) => {
-          allKeys.add(key);
-        });
+    });
+
+    // Step 3: Remove identified keys from each object
+    return productSizeChart.map((item) => {
+      const newItem = { ...item };
+      keysToRemove.forEach((key) => {
+        delete newItem[key];
       });
-    
-      // Step 2: Identify keys with all empty values
-      const keysToRemove = new Set();
-      allKeys.forEach((key) => {
-        const allEmpty = productSizeChart.every((item) => {
-          return item[key] === '' || item[key] === undefined;
-        });
-        if (allEmpty) {
-          keysToRemove.add(key);
-        }
-      });
-    
-      // Step 3: Remove identified keys from each object
-      return productSizeChart.map((item) => {
-        const newItem = { ...item };
-        keysToRemove.forEach((key) => {
-          delete newItem[key];
-        });
-        return newItem;
-      });
-    };
-    
-    // Usage
-    const cleanedProductSizeChart = cleanProductSizeChart(productSizeChart);
+      return newItem;
+    });
+  };
+
+  // Usage
+  const cleanedProductSizeChart = cleanProductSizeChart(productSizeChart);
   const tableProp =
     productDetail && productDetail?.[0]?.product_subTypes_name.split(" ")[0];
   const tableValues =
@@ -372,7 +374,10 @@ export default function ProductPage({ params }) {
       </section>
       {productSizeChart.length > 0 ? (
         <div className="grid grid-cols-1 overflow-x-auto max-w-full">
-          <SizeChart productSizeChart={productSizeChart} cleanedProductSizeChart={cleanedProductSizeChart} />
+          <SizeChart
+            productSizeChart={productSizeChart}
+            cleanedProductSizeChart={cleanedProductSizeChart}
+          />
         </div>
       ) : (
         <div className="grid grid-cols-1 overflow-x-auto max-w-full ">

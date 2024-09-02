@@ -18,31 +18,25 @@ const Contact = () => {
 
   const submitForm = async (formData) => {
     // Validation
-    for (let [name, value] of formData.entries()) {
-      if (formData.get(name).length === 0 || formData.get(name) === null) {
-        setCheckData((prev) => ({
-          ...prev,
-          [name]: true,
-        }));
-      } else {
-        setCheckData((prev) => ({
-          ...prev,
-          [name]: false,
-        }));
-      }
-    }
+    // for (let [name, value] of formData.entries()) {
+    //   if (formData.get(name).length === 0 || formData.get(name) === null) {
+    //     setCheckData((prev) => ({
+    //       ...prev,
+    //       [name]: true,
+    //     }));
+    //   } else {
+    //     setCheckData((prev) => ({
+    //       ...prev,
+    //       [name]: false,
+    //     }));
+    //   }
+    // }
 
     // Send data using FormData
+    console.log("send dddddddddddd");
+
     try {
-      const res = await axios.post(
-        "http://localhost:80/emailscript/send-email.php",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post("/sendEmail");
       console.log("This is the response", res);
     } catch (error) {
       console.error("There is an error", error.response || error.message);
@@ -91,12 +85,55 @@ const Contact = () => {
               <p className="lg:text-2xl text-[16px] font-medium lg:py-3">
                 Email
               </p>
-              <Link
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
-                target="_blank"
-              >
-                <span className="text-[14px] ">cewtech2024@gmail.com</span>
-              </Link>
+              <div className="flex max-sm:flex-col">
+                <Link
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@crownenggworks.com"
+                  target="_blank"
+                >
+                  <span className="text-[14px] ">
+                    {" "}
+                    sales@crownenggworks.com
+                  </span>
+                </Link>
+                <Link
+                  className="sm:ml-3"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to= crownenggworks@gmail.com"
+                  target="_blank"
+                >
+                  <span className="text-[14px] ">crownenggworks@gmail.com</span>
+                </Link>
+              </div>
+            </div>
+            <div className="  flex flex-col ">
+              <p className="lg:text-2xl text-[16px] font-medium lg:py-3">
+                Socials
+              </p>
+              <div className="flex  items-center space-x-5 ">
+                <div>
+                  <Link href="https://www.instagram.com/crownengineeringworks/?fbclid=IwZXh0bgNhZW0CMTEAAR2TVvcYnz2aO6LiBYFIRejOb1Zl6jKOJXmXnFd2BaLqW-DKlRv4EKsZKoY_aem_CIoKaLGue4NmQ5_QJhjxxQ">
+                    <img
+                      src="/assets/icons/socialIcons/Instagram.svg"
+                      className="h-12"
+                    />
+                  </Link>
+                </div>
+                <div>
+                  <Link href="https://www.facebook.com/crownengineeringworks">
+                    <img
+                      src="/assets/icons/socialIcons/facebook.svg"
+                      className="h-10"
+                    />
+                  </Link>
+                </div>
+                <div>
+                  <Link href="https://www.linkedin.com/company/crown-engineering-works/?viewAsMember=true">
+                    <img
+                      src="/assets/icons/socialIcons/LinkedIn.svg"
+                      className="h-10"
+                    />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>

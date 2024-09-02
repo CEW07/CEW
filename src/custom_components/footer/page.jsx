@@ -75,17 +75,25 @@ const Footer = () => {
             </header>
           </div>
 
-          <Link
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
-            target="_blank"
-          >
+          <div>
             <header className="m-0  font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
               <MdOutlineMarkEmailRead color="#C89F23" className="text-[24px]" />
-              <p className="m-0 text-[14px]  font-medium">
-                cewtech2024@gmail.com
-              </p>
+              <div className="flex flex-col">
+                <Link
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@crownenggworks.com"
+                  className="m-0 text-[13px]  font-medium border-b border-newgold "
+                >
+                  sales@crownenggworks.com
+                </Link>
+                <Link
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to= crownenggworks@gmail.com"
+                  className="m-0 text-[13px]  font-medium"
+                >
+                  crownenggworks@gmail.com
+                </Link>
+              </div>
             </header>
-          </Link>
+          </div>
 
           <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-2 pt-1 items-center">
             <FaCalendarAlt color="#C89F23" className="text-[18px]" />
@@ -133,46 +141,50 @@ const Footer = () => {
               </AccordionTrigger>
               <AccordionContent className="">
                 <div className="flex flex-row gap-4 items-center">
-                  <Link href="tel:+12346567890">
-                    <header className="m-0 text-[16px] font-semibold flex flex-row gap-4 items-center">
-                      <FaPhoneAlt color="#C89F23" className="text-[18px]" />
+                  <header className="m-0 text-[16px] font-semibold flex flex-row gap-4 items-center">
+                    <FaPhoneAlt color="#C89F23" className="text-[18px]" />
 
-                      <p className="m-0 text-[14px] font-medium flex gap-2">
-                        <Link
-                          href="tel:+9820382786"
-                          className="m-0 text-[14px]  font-medium"
-                        >
-                          +91 9820382786
-                        </Link>
-                        <Link
-                          href="tel:+9820786752"
-                          className="m-0 text-[14px]  font-medium"
-                        >
-                          +91 9820786752
-                        </Link>
-                      </p>
-                    </header>
-                  </Link>
+                    <p className="m-0 text-[14px] font-medium flex gap-2">
+                      <Link
+                        href="tel:+9820382786"
+                        className="m-0 text-[14px]  font-medium"
+                      >
+                        +91 9820382786
+                      </Link>
+                      <Link
+                        href="tel:+9820786752"
+                        className="m-0 text-[14px]  font-medium"
+                      >
+                        +91 9820786752
+                      </Link>
+                    </p>
+                  </header>
                 </div>
 
-                <div className="flex flex-row gap-4 items-center">
-                  <Link
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=cewtech2024@gmail.com"
-                    target="_blank"
-                  >
-                    <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-4 pt-1 items-center">
-                      <MdOutlineMarkEmailRead
-                        color="#C89F23"
-                        className="text-[18px]"
-                      />
-
-                      <p className="m-0 text-[14px] font-medium">
-                        cewtech2024@gmail.com{" "}
-                      </p>
-                    </header>
-                  </Link>
+                <div className="flex flex-row gap-4 items-center pt-5">
+                  <header className="m-0 text-[16px] font-semibold flex flex-row gap-4 items-center flex-wrap">
+                    <MdOutlineMarkEmailRead
+                      color="#C89F23"
+                      className="text-[18px]"
+                    />
+                    <p className="m-0 text-[14px] font-medium">
+                      <Link
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@crownenggworks.com"
+                        target="_blank"
+                      >
+                        sales@crownenggworks.com
+                      </Link>
+                    </p>
+                    <p className="m-0 text-[14px] font-medium text-wrap">
+                      <Link
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=crownenggworks@gmail.com"
+                        target="_blank"
+                      >
+                        crownenggworks@gmail.com
+                      </Link>
+                    </p>
+                  </header>
                 </div>
-
                 <div className="flex flex-row gap-4 items-center">
                   <header className="m-0 text-[16px] font-semibold mt-4 flex flex-row gap-4 pt-1 items-center">
                     <FaCalendarAlt color="#C89F23" className="text-[18px]" />

@@ -10,9 +10,9 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 export const metadata = {
   title: "Crown Engineering Works",
   description: "Pioneers in fluid Conveyance Solutions",
-  metadataBase:new URL(`${process.env.NEXT_PUBLIC_FRONTEND_URL}`),
-  
-  openGraph:{
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_FRONTEND_URL}`),
+
+  openGraph: {
     title: "Crown Engineering Works",
     description: "Pioneers in Fluid Conveyance Solutions",
     images: [
@@ -23,14 +23,13 @@ export const metadata = {
         alt: "Crown Engineering Works Logo",
       },
     ],
-  }  
+  },
 };
 
 export default function RootLayout({ children }) {
-  
   return (
     <html lang="en">
-      <meta name="robots" content="index, follow"/>
+      <meta name="robots" content="index, follow" />
 
       <body className={`relative ${montserrat.className}`}>
         <Navbar />
@@ -46,14 +45,40 @@ export default function RootLayout({ children }) {
           </Link>
         </div>
         <Footer />
-        <section className="h-[] bg-newgold flex flex-row items-center p-4">
-        <p className="bg- w-[100%] m-0  text-white text-[14px]">
-          Copyright &#169; 2024 Crown Engineering. All rights reserved
-        </p>
-        {/* <p className="text-nowrap m-0 text-offwhite font-semibold text-[10px] md:text-[16px] xl:text-lg pr-4">
+        <section className=" bg-newgold max-sm:flex-col flex justify-between  items-center p-4">
+          <p className=" m-0 max-sm:text-center  text-white text-[14px]">
+            Copyright &#169; 2024 Crown Engineering. All rights reserved
+          </p>
+          <div className="flex items-center space-x-5 max-sm:mt-6">
+            <div>
+              <Link href="https://www.instagram.com/crownengineeringworks/?fbclid=IwZXh0bgNhZW0CMTEAAR2TVvcYnz2aO6LiBYFIRejOb1Zl6jKOJXmXnFd2BaLqW-DKlRv4EKsZKoY_aem_CIoKaLGue4NmQ5_QJhjxxQ">
+                <img
+                  src="/assets/icons/socialIcons/Instagram.svg"
+                  className="h-12"
+                />
+              </Link>
+            </div>
+            <div>
+              <Link href="https://www.facebook.com/crownengineeringworks">
+                <img
+                  src="/assets/icons/socialIcons/facebook.svg"
+                  className="h-10"
+                />
+              </Link>
+            </div>
+            <div>
+              <Link href="https://www.linkedin.com/company/crown-engineering-works/?viewAsMember=true">
+                <img
+                  src="/assets/icons/socialIcons/LinkedIn.svg"
+                  className="h-10"
+                />
+              </Link>
+            </div>
+          </div>
+          {/* <p className="text-nowrap m-0 text-offwhite font-semibold text-[10px] md:text-[16px] xl:text-lg pr-4">
           PIONEERS IN FLUID CONVEYANCE SOLUTIONS.
         </p> */}
-      </section>
+        </section>
       </body>
     </html>
   );
