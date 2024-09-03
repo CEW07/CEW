@@ -36,7 +36,14 @@ const Contact = () => {
     console.log("send dddddddddddd");
 
     try {
-      const res = await axios.post("/sendEmail");
+      const res = await axios.post("http://crownenggworks.com/send-email.php", {
+        name: "John Doe",
+        company: "Example Corp",
+        category: "IT",
+        details: "Looking for services",
+        contact: "1234567890",
+        email: "john.doe@example.com",
+      });
       console.log("This is the response", res);
     } catch (error) {
       console.error("There is an error", error.response || error.message);
