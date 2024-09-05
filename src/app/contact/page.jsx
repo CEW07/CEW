@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import ToastMessage from "@/custom_components/Toast Message/ToastMessage";
@@ -15,38 +16,39 @@ const Contact = () => {
     details: false,
     category: false,
   });
+  const { toast } = useToast();
 
   const submitForm = async (formData) => {
     // Validation
-    // for (let [name, value] of formData.entries()) {
-    //   if (formData.get(name).length === 0 || formData.get(name) === null) {
-    //     setCheckData((prev) => ({
-    //       ...prev,
-    //       [name]: true,
-    //     }));
-    //   } else {
-    //     setCheckData((prev) => ({
-    //       ...prev,
-    //       [name]: false,
-    //     }));
-    //   }
-    // }
+    for (let [name, value] of formData.entries()) {
+      if (formData.get(name).length === 0 || formData.get(name) === null) {
+        setCheckData((prev) => ({
+          ...prev,
+          [name]: true,
+        }));
+      } else {
+        setCheckData((prev) => ({
+          ...prev,
+          [name]: false,
+        }));
+      }
+    }
 
     // Send data using FormData
     console.log("send dddddddddddd");
 
     try {
-      const res = await axios.post("http://crownenggworks.com/send-email.php", {
-        name: "John Doe",
-        company: "Example Corp",
-        category: "IT",
-        details: "Looking for services",
-        contact: "1234567890",
-        email: "john.doe@example.com",
-      });
+      const res = await axios.post("http://crownenggworks.com/send-email.php");
       console.log("This is the response", res);
+      toast({
+        description: "Your message has been sent successfully.",
+      });
     } catch (error) {
       console.error("There is an error", error.response || error.message);
+      toast({
+        description: "There was an error sending your message.",
+        variant: "destructive",
+      });
     }
   };
 

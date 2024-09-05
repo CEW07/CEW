@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
 import axios from "axios";
 
 const Enquiry = () => {
@@ -15,6 +17,7 @@ const Enquiry = () => {
   });
 
   const formRef = useRef(null);
+  const { toast } = useToast();
 
   const handleOpenClick = () => {
     setIsOpen(true);
@@ -43,7 +46,12 @@ const Enquiry = () => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    console.log(checkData);
+  }, [checkData]);
+
   const submitForm = async (formData) => {
+    // Validation
     for (let [name, value] of formData.entries()) {
       if (formData.get(name).length === 0 || formData.get(name) === null) {
         setCheckData((prev) => ({
@@ -57,35 +65,23 @@ const Enquiry = () => {
         }));
       }
     }
-    let data = {
-      name: formData.get("userName") || "",
-      company: formData.get("companyName"),
-      category: formData.get("category") || "",
-      details: formData.get("details"),
-      contact: formData.get("contactNumber"),
-      email: formData.get("email"),
-    };
 
-    // const res = await axios
-    //   .post(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/submitEmail`, {
-    //     name: formDataRef.nameRef.current.value,
-    //     company: formDataRef.companyRef.current.value,
-    //     email: formDataRef.emailRef.current.value,
-    //     number: formDataRef.numberRef.current.value,
-    //     category: formDataRef.categoryRef.current.value,
-    //     details: formDataRef.detailRef.current.value,
-    //   })
-    //   .then(() => {
-    //     console.log("This is the response", res);
-    //   })
-    //   .catch((error) => {
-    //     console.log("There is an error", error);
-    //   });
+    console.log("send dddddddddddd");
+
+    try {
+      const res = await axios.post("http://crownenggworks.com/send-email.php");
+      console.log("This is the response", res);
+      toast({
+        description: "Your message has been sent successfully.",
+      });
+    } catch (error) {
+      console.error("There is an error", error.response || error.message);
+      toast({
+        description: "There was an error sending your message.",
+        variant: "destructive",
+      });
+    }
   };
-
-  useEffect(() => {
-    console.log(checkData);
-  }, [checkData]);
 
   return (
     <>
@@ -231,9 +227,8 @@ const Enquiry = () => {
                       )}
                     </div>
                   </div>
-
                   <Button className="my-4 w-[100%]" variant="goldbtn">
-                    Send message
+                    Send Message
                   </Button>
                 </div>
               </section>

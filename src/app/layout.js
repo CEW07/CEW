@@ -1,6 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/custom_components/navbar/page";
+import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/custom_components/footer/page";
 import Enquiry from "@/custom_components/Enquiry/Enquiry";
 import { FaWhatsapp } from "react-icons/fa";
@@ -79,6 +80,7 @@ export default function RootLayout({ children }) {
           PIONEERS IN FLUID CONVEYANCE SOLUTIONS.
         </p> */}
         </section>
+        <Toaster />
       </body>
     </html>
   );
