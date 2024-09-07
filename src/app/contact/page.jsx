@@ -34,9 +34,11 @@ const Contact = () => {
       }
     }
 
+    const formObject = Object.fromEntries(formData.entries());
+
     try {
       await axios
-        .post("http://crownenggworks.com/send-email.php", { checkData })
+        .post("http://crownenggworks.com/send-email.php", formObject)
         .then((res) => {
           console.log("This is the response", res);
           toast({
