@@ -36,7 +36,7 @@ const Contact = () => {
 
     try {
       await axios
-        .post("http://crownenggworks.com/send-email.php")
+        .post("http://crownenggworks.com/send-email.php", { checkData })
         .then((res) => {
           console.log("This is the response", res);
           toast({
