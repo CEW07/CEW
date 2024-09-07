@@ -35,7 +35,6 @@ export default function Layout({ children }) {
 
   const handleSideBarClick = () => {
     setIsOpen(false);
-    console.log("I got clicked");
   };
 
   return (

@@ -34,21 +34,25 @@ const Contact = () => {
       }
     }
 
-    // Send data using FormData
-    console.log("send dddddddddddd");
-
     try {
-      const res = await axios.post("http://crownenggworks.com/send-email.php");
-      console.log("This is the response", res);
-      toast({
-        description: "Your message has been sent successfully.",
-      });
+      await axios
+        .post("http://crownenggworks.com/send-email.php")
+        .then((res) => {
+          console.log("This is the response", res);
+          toast({
+            description: "Your message has been sent successfully.",
+          });
+        })
+        .catch((error) => {
+          console.error("There is an error", error.response || error.message);
+
+          toast({
+            description: "Something went wrong. Please try again later.",
+            variant: "destructive",
+          });
+        });
     } catch (error) {
-      console.error("There is an error", error.response || error.message);
-      toast({
-        description: "There was an error sending your message.",
-        variant: "destructive",
-      });
+      console.error("Unexpected error", error);
     }
   };
 

@@ -66,8 +66,6 @@ const Enquiry = () => {
       }
     }
 
-    console.log("send dddddddddddd");
-
     try {
       const res = await axios.post("http://crownenggworks.com/send-email.php");
       console.log("This is the response", res);
