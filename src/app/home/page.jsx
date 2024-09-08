@@ -25,8 +25,6 @@ const HomeContent = () => {
     threshold: 0.1, // Trigger when 10% of the section is in view
   });
 
-  
-  
   return (
     <main>
       <section className=" select-none ">
@@ -42,8 +40,8 @@ const HomeContent = () => {
               including FDA-approved, Hydraulic, Stainless Steel Flexible,
               Thermoplastic, PTFE, Industrial, Composite, Silicone, and PVC
               hoses. Our commitment to upholding the highest standards
-              guarantees that every product meets stringent quality standards. We
-              have formed trusted partnerships with key corporations in the
+              guarantees that every product meets stringent quality standards.
+              We have formed trusted partnerships with key corporations in the
               pharmaceutical, food, defense, oil, industrial manufacturing, and
               renewable energy sectors. Our success is built on strong
               relationships and a deep understanding of our clients' needs,
@@ -172,41 +170,87 @@ const HomeContent = () => {
         </div>
       </section> */}
 
+      <section className="flex justify-center">
+        <div className="logo py-20  overflow-hidden relative largest:max-w-[74rem] bg-offwhite mt-20">
+          <div className="logo-slide-container  gap-[10%]">
+            <div className="logo-slide gap-16">
+              <img
+                src="/assets/icons/certificate/USP.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/sanitary.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/european.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/fdalogo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/iso_0993.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/isologo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/ROHS.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+            </div>
 
-      
-<section className="flex justify-center">
-
-<div className="logo py-20  overflow-hidden relative largest:max-w-[74rem] bg-offwhite mt-20">
-  <div className="logo-slide-container  gap-[10%]">
-    
-    <div className="logo-slide gap-16">
-      <img src="/assets/icons/certificate/USP.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/sanitary.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/european.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/fdalogo.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/iso_0993.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/isologo.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/ROHS.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-    </div>
-
-    
-    <div className="logo-slide gap-16">
-      <img src="/assets/icons/certificate/USP.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/sanitary.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/european.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/fdalogo.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/iso_0993.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/isologo.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-      <img src="/assets/icons/certificate/ROHS.svg" alt="" className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain" />
-    </div>
-  </div>
-</div>
-</section>
-
-
-
-
-
+            <div className="logo-slide gap-16">
+              <img
+                src="/assets/icons/certificate/USP.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/sanitary.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/european.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/fdalogo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/iso_0993.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/isologo.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+              <img
+                src="/assets/icons/certificate/ROHS.svg"
+                alt=""
+                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="flex justify-center">
         <section className="grid xl:grid-cols-2 my-20 gap-6 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
@@ -273,42 +317,39 @@ const HomeContent = () => {
         ref={ref}
         className=" max-largest:bg-offwhite  small:grid-cols-2 flex items-center justify-center w-full md:grid-cols-4 gap-6  text-black max-smallest:px-5 smallest:max-sm:px-10 max-xl:px-20"
       >
-          <div className="w-full max-w-[74rem] flex flex-row largest:bg-offwhite py-10  2xl:px-10 justify-center sm:justify-between gap-6 flex-wrap items-center lg:flex-nowrap "> 
-
-        <div className="py-2 text-center text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">
-            {inView ? <CountUp end={45} duration={2} /> : 0}+
-          </p>
-          <p>Years of Experience</p>
+        <div className="w-full max-w-[74rem] flex flex-row largest:bg-offwhite py-10  2xl:px-10 justify-center sm:justify-between gap-6 flex-wrap items-center lg:flex-nowrap ">
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={45} duration={2} /> : 0}+
+            </p>
+            <p>Years of Experience</p>
+          </div>
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={135} duration={2} /> : 0}+
+            </p>
+            <p>Products in Portfolio</p>
+          </div>
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={15} duration={2} /> : 0}+
+            </p>
+            <p>Countries Served</p>
+          </div>
+          <div className="py-2 text-center text-xl xl:text-2xl">
+            <p className="text-2xl xl:text-3xl font-semibold">
+              {inView ? <CountUp end={10} duration={2} /> : 0}+
+            </p>
+            <p>Industries Served</p>
+          </div>
         </div>
-        <div className="py-2 text-center text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">
-            {inView ? <CountUp end={135} duration={2} /> : 0}+
-          </p>
-          <p>Products in Portfolio</p>
-        </div>
-        <div className="py-2 text-center text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">
-            {inView ? <CountUp end={15} duration={2} /> : 0}+
-          </p>
-          <p>Countries Served</p>
-        </div>
-        <div className="py-2 text-center text-xl xl:text-2xl">
-          <p className="text-2xl xl:text-3xl font-semibold">
-            {inView ? <CountUp end={10} duration={2} /> : 0}+
-          </p>
-          <p>Industries Served</p>
-        </div>
-
-        </div>
-
       </section>
 
       <section className="flex justify-center">
         <div className="my-20 max-smallest:mx-5 smallest:max-sm:mx-10  max-xl:mx-20 max-w-[74rem]">
-            <h1 className="text-2xl md:text-4xl text-newgold font-semibold flex justify-center items-center gap-1">
-              Our Services
-          <Link href="/services">
+          <h1 className="text-2xl md:text-4xl text-newgold font-semibold flex justify-center items-center gap-1">
+            Our Services
+            <Link href="/services">
               <div className="mt-2 hover:cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -325,8 +366,8 @@ const HomeContent = () => {
                   />
                 </svg>
               </div>
-          </Link>
-            </h1>
+            </Link>
+          </h1>
           <div className=" grid small:grid-cols-2 lg:grid-cols-3 gap-6  mt-6">
             {services.slice(0, 3)?.map((service, index) => (
               <div
