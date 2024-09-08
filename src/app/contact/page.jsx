@@ -38,7 +38,15 @@ const Contact = () => {
 
     try {
       await axios
-        .post("http://crownenggworks.com/send-email.php", formObject)
+        .post(
+          "http://crownenggworks.com/send-email.php",
+          JSON.stringify(formObject),
+          {
+            headers: {
+              "Content-Type": "application/json", // Ensures data is sent as JSON
+            },
+          }
+        )
         .then((res) => {
           console.log("This is the response", res);
           toast({
