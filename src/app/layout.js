@@ -54,24 +54,27 @@ export default function RootLayout({ children }) {
             <div>
               <Link href="https://www.instagram.com/crownengineeringworks/?fbclid=IwZXh0bgNhZW0CMTEAAR2TVvcYnz2aO6LiBYFIRejOb1Zl6jKOJXmXnFd2BaLqW-DKlRv4EKsZKoY_aem_CIoKaLGue4NmQ5_QJhjxxQ">
                 <img
-                  src="/assets/icons/socialIcons/Instagram.svg"
-                  className="h-12"
+                  src="/assets/icons/socialIcons/WhiteInstagram.svg"
+                  className="h-8"
+                  alt="Instagram"
                 />
               </Link>
             </div>
             <div>
               <Link href="https://www.facebook.com/crownengineeringworks">
                 <img
-                  src="/assets/icons/socialIcons/facebook.svg"
-                  className="h-10"
+                  src="/assets/icons/socialIcons/WhiteFaceBook.svg"
+                  className="h-7"
+                  alt="FaceBook"
                 />
               </Link>
             </div>
             <div>
               <Link href="https://www.linkedin.com/company/crown-engineering-works/?viewAsMember=true">
                 <img
-                  src="/assets/icons/socialIcons/LinkedIn.svg"
-                  className="h-10"
+                  src="/assets/icons/socialIcons/WhiteLinkedIn.svg"
+                  className="h-7"
+                  alt="LinkedIn"
                 />
               </Link>
             </div>

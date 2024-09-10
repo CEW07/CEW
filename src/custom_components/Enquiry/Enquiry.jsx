@@ -4,18 +4,20 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
 import axios from "axios";
+import Loading from "../Loader/Loading";
 
 const Enquiry = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [checkData, setCheckData] = useState({
-    userName: false,
+    name: false,
     email: false,
-    companyName: false,
-    contactNumber: false,
+    company: false,
+    contact: false,
     details: false,
     category: false,
   });
 
+  const [loader, setLoader] = useState(false);
   const formRef = useRef(null);
   const { toast } = useToast();
 
@@ -67,33 +69,54 @@ const Enquiry = () => {
     }
     const formObject = Object.fromEntries(formData.entries());
 
-    try {
-      await axios
-        .post(
-          "http://crownenggworks.com/send-email.php",
-          JSON.stringify(formObject),
-          {
-            headers: {
-              "Content-Type": "application/json", // Ensures data is sent as JSON
-            },
-          }
-        )
-        .then((res) => {
-          console.log("This is the response", res);
-          toast({
-            description: "Your message has been sent successfully.",
-          });
-        })
-        .catch((error) => {
-          console.error("There is an error", error.response || error.message);
+    console.log(formObject, "onjjjjjjjjjjj", checkData);
+    if (
+      formData.get("company").length > 0 &&
+      formData.get("details").length > 0 &&
+      formData.get("contact").length > 0 &&
+      formData.get("email").length > 0
+    ) {
+      setLoader(true); // Start showing loader
 
+      // Let the state update take effect before proceeding
+      setTimeout(async () => {
+        try {
+          const res = await axios.post(
+            "http://crownenggworks.com/send-email.php",
+            JSON.stringify(formObject),
+            {
+              headers: {
+                "Content-Type": "application/json", // Ensures data is sent as JSON
+              },
+            }
+          );
+
+          if (res.data.success) {
+            toast({
+              description: "Your message has been sent successfully !!.",
+              variant: "success",
+            });
+          } else {
+            toast({
+              description: "Something went wrong. Please try again later.",
+              variant: "destructive",
+            });
+          }
+        } catch (error) {
           toast({
-            description: "Something went wrong. Please try again later.",
+            description: "Unexpected error occurred.",
             variant: "destructive",
           });
-        });
-    } catch (error) {
-      console.error("Unexpected error", error);
+          console.error("Error during submission:", error);
+        } finally {
+          setLoader(false); // Hide loader once done
+        }
+      }, 0); // Small delay to allow re-rendering
+    } else {
+      toast({
+        description: "Please fill the required details!",
+        variant: "destructive",
+      });
     }
   };
 
@@ -146,7 +169,7 @@ const Enquiry = () => {
                       <input
                         placeholder="Enter your name"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
-                        name="userName"
+                        name="name"
                       />
                       {/* <p className="text-red-600 text-[14px] pt-2">This field is required</p> */}
                     </div>
@@ -156,11 +179,11 @@ const Enquiry = () => {
                         Company Name
                       </h1>
                       <input
-                        name="companyName"
+                        name="company"
                         placeholder="Enter your company name"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
-                      {checkData.companyName && (
+                      {checkData.company && (
                         <p className="text-red-600 text-[14px] pt-2">
                           Company name is required
                         </p>
@@ -191,13 +214,13 @@ const Enquiry = () => {
                         Contact number
                       </h1>
                       <input
-                        name="contactNumber"
+                        name="contact"
                         placeholder="Enter your contact no"
                         type="text"
                         // maxLength="10"
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                       />
-                      {checkData.contactNumber && (
+                      {checkData.contact && (
                         <p className="text-red-600 text-[14px] pt-2">
                           Contact Number is required
                         </p>
@@ -241,8 +264,11 @@ const Enquiry = () => {
                       )}
                     </div>
                   </div>
-                  <Button className="my-4 w-[100%]" variant="goldbtn">
-                    Send Message
+                  <Button
+                    className="my-4 lg:w-[100%] w-[100%]"
+                    variant="goldbtn"
+                  >
+                    {loader ? <Loading /> : "Send message"}
                   </Button>
                 </div>
               </section>

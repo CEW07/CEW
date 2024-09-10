@@ -5,19 +5,19 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import ToastMessage from "@/custom_components/Toast Message/ToastMessage";
 import axios from "axios";
+import Loading from "@/custom_components/Loader/Loading";
 
 const Contact = () => {
-  const [toastMessage, setToastMessage] = useState(false);
   const [checkData, setCheckData] = useState({
-    userName: false,
+    name: false,
     email: false,
-    companyName: false,
-    contactNumber: false,
+    company: false,
+    contact: false,
     details: false,
     category: false,
   });
   const { toast } = useToast();
-
+  const [loader, setLoader] = useState(false);
   const submitForm = async (formData) => {
     // Validation
     for (let [name, value] of formData.entries()) {
@@ -35,34 +35,54 @@ const Contact = () => {
     }
 
     const formObject = Object.fromEntries(formData.entries());
+    console.log(formObject, "onjjjjjjjjjjj", checkData);
+    if (
+      formData.get("company").length > 0 &&
+      formData.get("details").length > 0 &&
+      formData.get("contact").length > 0 &&
+      formData.get("email").length > 0
+    ) {
+      setLoader(true); // Start showing loader
 
-    try {
-      await axios
-        .post(
-          "http://crownenggworks.com/send-email.php",
-          JSON.stringify(formObject),
-          {
-            headers: {
-              "Content-Type": "application/json", // Ensures data is sent as JSON
-            },
+      // Let the state update take effect before proceeding
+      setTimeout(async () => {
+        try {
+          const res = await axios.post(
+            "http://crownenggworks.com/send-email.php",
+            JSON.stringify(formObject),
+            {
+              headers: {
+                "Content-Type": "application/json", // Ensures data is sent as JSON
+              },
+            }
+          );
+
+          if (res.data.success) {
+            toast({
+              description: "Your message has been sent successfully !!.",
+              variant: "success",
+            });
+          } else {
+            toast({
+              description: "Something went wrong. Please try again later.",
+              variant: "destructive",
+            });
           }
-        )
-        .then((res) => {
-          console.log("This is the response", res);
+        } catch (error) {
           toast({
-            description: "Your message has been sent successfully.",
-          });
-        })
-        .catch((error) => {
-          console.error("There is an error", error.response || error.message);
-
-          toast({
-            description: "Something went wrong. Please try again later.",
+            description: "Unexpected error occurred.",
             variant: "destructive",
           });
-        });
-    } catch (error) {
-      console.error("Unexpected error", error);
+          console.error("Error during submission:", error);
+        } finally {
+          setLoader(false); // Hide loader once done
+        }
+      }, 0); // Small delay to allow re-rendering
+    } else {
+      toast({
+        description: "Please fill the required details!",
+        variant: "destructive",
+      });
     }
   };
 
@@ -90,21 +110,21 @@ const Contact = () => {
               pakhadi Road, Byculla west, Mumbai, Maharashtra 400 011, India
             </span>
           </div>
-          <div className="w-[80%] max-small:flex-col max-lg:mt-4 max-lg:flex gap-3 small:max-lg:gap-10">
+          <div className="w-[80%] max-small:flex-col max-lg:mt-4  gap-3 small:max-lg:gap-10">
             <div className="  flex flex-col">
               <p className="lg:text-2xl text-[16px] font-medium lg:py-3">
                 Call us
               </p>
-              <div className="flex max-sm:flex-col">
+              <div className="flex max-smallest:flex-col">
                 <Link href="tel:+91 9820382786">
                   <span className="text-[14px]">+91 9820382786</span>
                 </Link>
-                <Link className="sm:ml-3" href="tel:+91 9820786752">
+                <Link className="smallest:ml-3" href="tel:+91 9820786752">
                   <span className="text-[14px]">+91 9820786752</span>
                 </Link>
               </div>
             </div>
-            <div className="  flex flex-col ">
+            <div className="  flex flex-col pt-4">
               <p className="lg:text-2xl text-[16px] font-medium lg:py-3">
                 Email
               </p>
@@ -127,7 +147,7 @@ const Contact = () => {
                 </Link>
               </div>
             </div>
-            <div className="  flex flex-col ">
+            <div className="  flex flex-col py-4">
               <p className="lg:text-2xl text-[16px] font-medium lg:py-3">
                 Socials
               </p>
@@ -135,24 +155,27 @@ const Contact = () => {
                 <div>
                   <Link href="https://www.instagram.com/crownengineeringworks/?fbclid=IwZXh0bgNhZW0CMTEAAR2TVvcYnz2aO6LiBYFIRejOb1Zl6jKOJXmXnFd2BaLqW-DKlRv4EKsZKoY_aem_CIoKaLGue4NmQ5_QJhjxxQ">
                     <img
-                      src="/assets/icons/socialIcons/Instagram.svg"
-                      className="h-12"
+                      src="/assets/icons/socialIcons/GoldenInstagram.svg"
+                      className="h-11"
+                      alt="Instagram"
                     />
                   </Link>
                 </div>
                 <div>
                   <Link href="https://www.facebook.com/crownengineeringworks">
                     <img
-                      src="/assets/icons/socialIcons/facebook.svg"
+                      src="/assets/icons/socialIcons/GoldenFaceBook.svg"
                       className="h-10"
+                      alt="FaceBook"
                     />
                   </Link>
                 </div>
                 <div>
                   <Link href="https://www.linkedin.com/company/crown-engineering-works/?viewAsMember=true">
                     <img
-                      src="/assets/icons/socialIcons/LinkedIn.svg"
+                      src="/assets/icons/socialIcons/GoldenLinkedIn.svg"
                       className="h-10"
+                      alt="LinkedIn"
                     />
                   </Link>
                 </div>
@@ -167,27 +190,27 @@ const Contact = () => {
         >
           <div className=" w-[90%] flex flex-col  lg:items-start">
             <div className="flex max-small:flex-col small:max-lg:gap-6 lg:flex-col w-full">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-[100%]">
                 <p className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Name
                 </p>
                 <input
-                  name="userName"
+                  name="name"
                   placeholder="Enter your name"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col  w-[100%]">
                 <p className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Company Name
                 </p>
                 <input
-                  name="companyName"
+                  name="company"
                   placeholder="Enter your company name"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
-                {checkData.companyName && (
+                {checkData.company && (
                   <p className="text-red-600 text-[14px] pt-2">
                     Company name is required
                   </p>
@@ -196,7 +219,7 @@ const Contact = () => {
             </div>
 
             <div className=" flex max-small:flex-col lg:flex-col  small:max-lg:gap-6  w-full">
-              <div className="flex flex-col">
+              <div className="flex flex-col  w-[100%]">
                 <p className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Email
                 </p>
@@ -213,19 +236,19 @@ const Contact = () => {
                 )}
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col  w-[100%]">
                 <p className=" text-[14px] lg:text-[16px] font-medium py-2 lg:py-4">
                   Contact number
                 </p>
                 <input
-                  name="contactNumber"
+                  name="contact"
                   placeholder="Enter your contact no"
                   type="text"
                   e
                   maxLength="10"
                   className=" lg:w-[70%] w-[100%] p-2 rounded-md border border-newgold focus:outline-none "
                 />
-                {checkData.contactNumber && (
+                {checkData.contact && (
                   <p className="text-red-600 text-[14px] pt-2">
                     Contact Number is required
                   </p>
@@ -263,7 +286,7 @@ const Contact = () => {
             )}
 
             <Button className="my-4 lg:w-[70%] w-[100%]" variant="goldbtn">
-              Send message
+              {loader ? <Loading /> : "Send message"}
             </Button>
           </div>
         </form>
