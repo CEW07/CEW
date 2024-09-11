@@ -1,4 +1,4 @@
-const { transform } = require('next/dist/build/swc');
+const { transform } = require("next/dist/build/swc");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -16,18 +16,14 @@ module.exports = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
-        "xl":"1280px"
+        xl: "1280px",
       },
     },
     extend: {
       colors: {
-        textColor: "#003566",
-        newgold: "#003566",
-        // newgold: "#001233",
-        elementColor: "#caf0f8",
-        offwhite: "#E4E9FF",
-        // lightgrey: F7F4F3001233",
-        lightgrey: "#caf0f8",
+        newgold: "#C89F23",
+        offwhite: "#F4F3EE",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -80,7 +76,6 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        
       },
       screens: {
         galaxyFold: "282px",
@@ -88,8 +83,7 @@ module.exports = {
         small: "520px",
         mainProducts: "1000px",
         sideBar: "262px",
-        largest: "1700px"
-      
+        largest: "1700px",
       },
     },
   },

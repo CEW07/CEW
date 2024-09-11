@@ -190,15 +190,9 @@ const HomeContent = () => {
                 className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
               />
               <img
-<<<<<<< HEAD
                 src="/assets/icons/certificate/fda.png"
                 alt=""
                 className=" h-[80px] smallest:h-[100px] object-contain"
-=======
-                src="/assets/icons/fdalogo.svg"
-                alt=""
-                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
->>>>>>> 5a1ccbfdfdec1bb7d1ffcc897e3cd5a1715f5954
               />
               <img
                 src="/assets/icons/certificate/iso_0993.svg"
@@ -206,15 +200,9 @@ const HomeContent = () => {
                 className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
               />
               <img
-<<<<<<< HEAD
                 src="/assets/icons/certificate/iso_9001.png"
                 alt=""
                 className=" h-[80px] smallest:h-[100px] object-contain"
-=======
-                src="/assets/icons/isologo.svg"
-                alt=""
-                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
->>>>>>> 5a1ccbfdfdec1bb7d1ffcc897e3cd5a1715f5954
               />
               <img
                 src="/assets/icons/certificate/ROHS.svg"
@@ -240,15 +228,9 @@ const HomeContent = () => {
                 className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
               />
               <img
-<<<<<<< HEAD
                 src="/assets/icons/certificate/fda.png"
                 alt=""
                 className=" h-[80px] smallest:h-[100px] object-contain"
-=======
-                src="/assets/icons/fdalogo.svg"
-                alt=""
-                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
->>>>>>> 5a1ccbfdfdec1bb7d1ffcc897e3cd5a1715f5954
               />
               <img
                 src="/assets/icons/certificate/iso_0993.svg"
@@ -256,15 +238,9 @@ const HomeContent = () => {
                 className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
               />
               <img
-<<<<<<< HEAD
                 src="/assets/icons/certificate/iso_9001.png"
                 alt=""
                 className=" h-[80px] smallest:h-[100px] object-contain"
-=======
-                src="/assets/icons/isologo.svg"
-                alt=""
-                className="mix-blend-multiply h-[80px] smallest:h-[100px] object-contain"
->>>>>>> 5a1ccbfdfdec1bb7d1ffcc897e3cd5a1715f5954
               />
               <img
                 src="/assets/icons/certificate/ROHS.svg"
