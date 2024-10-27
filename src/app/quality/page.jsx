@@ -146,68 +146,8 @@ const Quality = () => {
           <h1 className="text-2xl md:text-4xl mb-6 text-center">
             Our Policies
           </h1>
-          {/* <div className=" bg-lightgrey px-4 py-4 h-full rounded-md shadow-xl">
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="Quality policy">
-              <AccordionTrigger className="hover:no-underline">
-                <h1 className="text-textColor max-smallest:text-base text-start text-lg  z-10  ">
-                  Quality policy:
-                </h1>
-              </AccordionTrigger>
-              <p className="mt-3 text-xs smallest:text-sm text-textColor lg:text-base">
-                At Crown Engineering Works, we are committed to delivering
-                products and services that consistently meet or exceed our
-                customers' expectations. We achieve this through:
-              </p>
-              <AccordionContent>
-                <div className=" text-textColor">
-                  <li className="mt-3">
-                    Conformance to ISO 9001:2015 standards.
-                  </li>
-                  <li className="mt-3">
-                    Continuous improvement of our processes, products, and
-                    services.
-                  </li>
-                  <li className="mt-3">
-                    Building strong partnerships with our suppliers to maintain
-                    high quality standards.
-                  </li>
-                  <li className="mt-3">
-                    Providing training and development opportunities to our
-                    workforce.
-                  </li>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div> */}
-
           <div className="  grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 ">
             {Policies.slice(0, 3)?.map((policy, index) => (
-              // <div key={index} className="">
-              //   <div className=" bg-lightgrey px-4 py-4 rounded-md shadow-xl">
-              //     <Accordion type="single" collapsible className="w-full ">
-              //       <AccordionItem value={policy.name}>
-              //         <AccordionTrigger className="hover:no-underline">
-              //           <h1 className="text-newgold  max-smallest:text-base text-start text-lg  z-10  ">
-              //             {policy.name}
-              //           </h1>
-              //         </AccordionTrigger>
-              //         <p className="mt-3 text-xs smallest:text-sm  lg:text-base">
-              //           {policy.detail}
-              //         </p>
-              //         <AccordionContent>
-              //           <div className=" ">
-              //             <li className="mt-3">{policy.subPoint1}</li>
-              //             <li className="mt-3">{policy.subPoint2}</li>
-              //             <li className="mt-3">{policy.subPoint3}</li>
-              //             <li className="mt-3">{policy.subPoint4}</li>
-              //           </div>
-              //         </AccordionContent>
-              //       </AccordionItem>
-              //     </Accordion>
-              //   </div>
-              // </div>
               <CustomAccordian
                 key={index}
                 service={policy}

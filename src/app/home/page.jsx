@@ -18,8 +18,6 @@ import Table from "@/custom_components/table/Table";
 import CustomAccordian from "@/custom_components/CustomAccordian/CustomAccordian";
 
 const HomeContent = () => {
-  // Destructuring Context Data from contextData.js
-  // const { productData, loading } = useData();
   const { ref, inView } = useInView({
     triggerOnce: true, // Trigger animation only once
     threshold: 0.1, // Trigger when 10% of the section is in view
@@ -66,23 +64,6 @@ const HomeContent = () => {
         </h1>
         <div className="lg:pt-12 pt-16   flex items-center justify-center mx-5 ">
           <div className=" grid xl:grid-cols-4 lg:grid-cols-3 gap-6 grid-cols-1 sm:grid-cols-2">
-            {/* {loading
-              ? "loading..."
-              : productData?.mainCategory?.map((item, index) => {
-                  const correspondingImage = mainProductImages[index];
-
-                  return (
-                    <ProductCard
-                      key={item.product_id}
-                      keyId={item.product_id}
-                      name={item.product_name}
-                      href={`/${item.product_name_id}`}
-                      imageSrc={correspondingImage?.image}
-                      imageAlt={correspondingImage?.alt}
-                    />
-                  );
-            })} */}
-
             {mainProducts?.map((item, index) => {
               return (
                 <ProductCard
@@ -98,77 +79,6 @@ const HomeContent = () => {
           </div>
         </div>
       </section>
-
-      {/* <section className="flex justify-center  max-smallest:px-5 smallest:max-sm:px-10  max-xl:px-20 bg-offwhite mt-20 ">
-        <div className="grid smallest:grid-cols-2 small:grid-cols-3 lg:grid-cols-6 gap-6 py-10 max-w-[74rem] w-full">
-          <div className="flex max-smallest:justify-center">
-
-          <img
-            src="/assets/icons/certificate/USP.svg"
-            alt=""
-            className=" mix-blend-multiply w-20"
-          />
-          </div>
-
-          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
-            <img
-              src="/assets/icons/certificate/sanitary.svg"
-              alt=""
-              className=" mix-blend-multiply w-20"
-            />
-          </div>
-
-          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
-            <img
-              src="/assets/icons/certificate/sanitary.svg"
-              alt=""
-              className=" mix-blend-multiply w-20"
-            />
-          </div>
-
-       
-
-          <div className="flex max-smallest:justify-center small:justify-end lg:justify-center">
-            <img
-              src="/assets/icons/certificate/european.svg"
-              alt=""
-              className=" mix-blend-multiply w-20"
-            />
-          </div>
-
-          <div className="flex max-smallest:justify-center smallest:justify-end small:justify-center">
-            <img
-              src="/assets/icons/fdalogo.svg"
-              alt=""
-              className=" mix-blend-multiply w-20"
-            />
-          </div>
-
-          <div className="flex max-smallest:justify-center smallest:max-small:justify-end lg:justify-center">
-            <img
-              src="/assets/icons/certificate/iso_0993.svg"
-              alt=""
-              className=" mix-blend-multiply w-20"
-            />
-          </div>
-
-          <div className="flex  max-smallest:justify-center small:justify-center">
-            <img
-              src="/assets/icons/isologo.svg"
-              alt=""
-              className=" mix-blend-multiply w-32 "
-            />
-          </div>
-
-          <div className="flex max-smallest:justify-center smallest:justify-end items-end">
-            <img
-              src="/assets/icons/certificate/ROHS.svg"
-              alt=""
-              className=" mix-blend-multiply w-20"
-            />
-          </div>
-        </div>
-      </section> */}
 
       <section className="flex justify-center">
         <div className="logo py-20  overflow-hidden relative largest:max-w-[74rem] bg-offwhite mt-20">

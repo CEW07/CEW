@@ -171,7 +171,6 @@ const Enquiry = () => {
                         className="w-[100%] p-2 rounded-md border border-newgold focus:outline-none"
                         name="name"
                       />
-                      {/* <p className="text-red-600 text-[14px] pt-2">This field is required</p> */}
                     </div>
 
                     <div className="flex flex-col">
