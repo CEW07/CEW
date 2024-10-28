@@ -6,6 +6,7 @@ import Footer from "@/custom_components/footer/page";
 import Enquiry from "@/custom_components/Enquiry/Enquiry";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
+import GoogleAnalytics from "@/custom_components/GoogleAnalytics/GoogleAnalytics";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -33,6 +34,8 @@ export default function RootLayout({ children }) {
       <meta name="robots" content="index, follow" />
 
       <body className={`relative ${montserrat.className}`}>
+      <GoogleAnalytics GA_TRACKING_ID="G-0SML5PQVXR" />
+
         <Navbar />
         <Enquiry />
         {children}
@@ -54,34 +57,28 @@ export default function RootLayout({ children }) {
             <div>
               <Link href="https://www.instagram.com/crownengineeringworks/?fbclid=IwZXh0bgNhZW0CMTEAAR2TVvcYnz2aO6LiBYFIRejOb1Zl6jKOJXmXnFd2BaLqW-DKlRv4EKsZKoY_aem_CIoKaLGue4NmQ5_QJhjxxQ">
                 <img
-                  src="/assets/icons/socialIcons/WhiteInstagram.svg"
-                  className="h-8"
-                  alt="Instagram"
+                  src="/assets/icons/socialIcons/Instagram.svg"
+                  className="h-12"
                 />
               </Link>
             </div>
             <div>
               <Link href="https://www.facebook.com/crownengineeringworks">
                 <img
-                  src="/assets/icons/socialIcons/WhiteFaceBook.svg"
-                  className="h-7"
-                  alt="FaceBook"
+                  src="/assets/icons/socialIcons/facebook.svg"
+                  className="h-10"
                 />
               </Link>
             </div>
             <div>
               <Link href="https://www.linkedin.com/company/crown-engineering-works/?viewAsMember=true">
                 <img
-                  src="/assets/icons/socialIcons/WhiteLinkedIn.svg"
-                  className="h-7"
-                  alt="LinkedIn"
+                  src="/assets/icons/socialIcons/LinkedIn.svg"
+                  className="h-10"
                 />
               </Link>
             </div>
           </div>
-          {/* <p className="text-nowrap m-0 text-offwhite font-semibold text-[10px] md:text-[16px] xl:text-lg pr-4">
-          PIONEERS IN FLUID CONVEYANCE SOLUTIONS.
-        </p> */}
         </section>
         <Toaster />
       </body>
