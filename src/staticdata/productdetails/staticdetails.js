@@ -2210,7 +2210,7 @@ export const prdctdetails = [
     product_characteristics: "",
     "product_core_&_jacket": "",
     product_material: "SS304/321/316, Incoloy, Inconel, Nickel, Hastelloy",
-    product_size: '2" - 20',
+    product_size: "2 - 20",
     product_application:
       "Used for absorbing axial, angular and small amounts of lateral movement. Pressure thrust will be transmitted onto the pipeline",
     product_thread_type: "",
@@ -2244,7 +2244,7 @@ export const prdctdetails = [
     product_characteristics: "",
     "product_core_&_jacket": "",
     product_material: "PTFE",
-    product_size: '1" - 12',
+    product_size: "1 - 12",
     product_application:
       "PTFE bellows are specifically designed to compensate for pipe expansion, vibration and misalignment in process piping and vessels. PTFE bellows are constructed from uniform-walled isostatically molded PTFE and demonstrate a high level of design consistency throughout the product line",
     product_thread_type: "",
@@ -2280,7 +2280,7 @@ export const prdctdetails = [
     "product_core_&_jacket": "",
     product_material:
       "EPDM, Neoprene (CR), Viton, Buna/Nitrile, Hyperlon, Natural Rubber",
-    product_size: '1" - 24',
+    product_size: "1 - 24",
     product_application:
       "Rubber expansion joints are designed to alleviate piping stress, absorb pipe misalignment, compression and extension, noise and vibration, in a relatively short space",
     product_thread_type: "",

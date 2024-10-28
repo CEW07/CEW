@@ -48,9 +48,7 @@ const Enquiry = () => {
     };
   }, [isOpen]);
 
-  useEffect(() => {
-    console.log(checkData);
-  }, [checkData]);
+  useEffect(() => {}, [checkData]);
 
   const submitForm = async (formData) => {
     // Validation
@@ -69,7 +67,6 @@ const Enquiry = () => {
     }
     const formObject = Object.fromEntries(formData.entries());
 
-    console.log(formObject, "onjjjjjjjjjjj", checkData);
     if (
       formData.get("company").length > 0 &&
       formData.get("details").length > 0 &&

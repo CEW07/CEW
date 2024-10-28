@@ -373,7 +373,7 @@ export default function ProductPage({ params }) {
           ))}
       </section>
       {productSizeChart.length > 0 ? (
-        <div className="grid grid-cols-1 overflow-x-auto max-w-full">
+        <div className="grid grid-cols-1 overflow-x-auto  max-w-full ">
           <SizeChart
             productSizeChart={productSizeChart}
             cleanedProductSizeChart={cleanedProductSizeChart}

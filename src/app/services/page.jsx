@@ -57,7 +57,7 @@ const Services = () => {
                         </h1>
                       </AccordionTrigger>
                       <AccordionContent>
-                        <div className="text-textColor px-4">
+                        <ul className="list-disc text-textColor px-4">
                           <li className="mt-3">{service.subPoint1}</li>
                           <li className="mt-3">{service.subPoint2}</li>
                           <li
@@ -88,7 +88,7 @@ const Services = () => {
                           >
                             {service.subPoint6}
                           </li>
-                        </div>
+                        </ul>
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
