@@ -105,7 +105,7 @@ const SizeChart = ({ productSizeChart }) => {
           {headers.map((header, index) => (
             <th
               key={header.key}
-              className={`max-mainProducts:px-3 px-1 py-2 border border-gray-300 whitespace-normal break-words text-center mainProducts:w-[150px]  leading-tight
+              className={`max-mainProducts:px-3 px-1 py-2 border border-gray-300 whitespace-normal break-words text-center mainProducts:w-[140px]  leading-tight
           ${index === 0 ? "border-l-newgold" : ""} 
           ${index === headers.length - 1 ? "border-r-newgold" : ""}`}
               colSpan={header.subheaders ? header.subheaders.length : 1}

@@ -16,6 +16,9 @@
 /composer.json
 /composer.lock
 
+# .htaccess
+.htaccess
+
 # production
 /build
 
